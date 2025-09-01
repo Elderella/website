@@ -168,55 +168,6 @@
             color: #8b7fb5;
         }
 
-        /* Features Section */
-        .features {
-            padding: 100px 20px;
-            background: white;
-        }
-
-        .features-grid {
-            max-width: 1200px;
-            margin: 60px auto 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 30px;
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 20px;
-            background: linear-gradient(135deg, #c5bfe6 0%, #7c6fb3 100%);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-        }
-
-        .feature-title {
-            font-size: 1.3rem;
-            color: #4a3a5c;
-            margin-bottom: 15px;
-            font-weight: 400;
-        }
-
-        .feature-description {
-            font-size: 1rem;
-            color: #5c4d6d;
-            line-height: 1.6;
-        }
-
         /* Mission Section */
         .mission {
             padding: 100px 20px;
@@ -307,63 +258,6 @@
         .submit-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(124, 111, 179, 0.3);
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 100px 20px;
-            background: linear-gradient(180deg, transparent 0%, rgba(197, 191, 230, 0.05) 100%);
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 60px auto 0;
-        }
-
-        .faq-item {
-            background: white;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(124, 111, 179, 0.08);
-        }
-
-        .faq-question {
-            padding: 25px 30px;
-            font-size: 1.2rem;
-            color: #4a3a5c;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: rgba(197, 191, 230, 0.05);
-        }
-
-        .faq-arrow {
-            font-size: 1.5rem;
-            color: #7c6fb3;
-            transition: transform 0.3s ease;
-        }
-
-        .faq-answer {
-            padding: 0 30px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-
-        .faq-answer.active {
-            padding: 0 30px 25px;
-            max-height: 300px;
-        }
-
-        .faq-answer p {
-            color: #5c4d6d;
-            line-height: 1.8;
         }
 
         /* Founders Section */
@@ -594,66 +488,6 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="section-header">
-            <h2 class="section-title">Coming Fall 2025</h2>
-            <p class="section-subtitle">
-                A comprehensive platform designed for the realities of modern caregiving
-            </p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">📱</div>
-                <h3 class="feature-title">Coordinate Care</h3>
-                <p class="feature-description">
-                    Keep family members aligned with shared calendars, task lists, 
-                    and real-time updates about your loved one's needs.
-                </p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🏥</div>
-                <h3 class="feature-title">Manage Health</h3>
-                <p class="feature-description">
-                    Track medications, appointments, and health changes in one place. 
-                    Never miss important medical information again.
-                </p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💬</div>
-                <h3 class="feature-title">Find Support</h3>
-                <p class="feature-description">
-                    Connect with other caregivers who understand your journey. 
-                    Share experiences and get advice when you need it most.
-                </p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📚</div>
-                <h3 class="feature-title">Access Resources</h3>
-                <p class="feature-description">
-                    Expert guidance, local services, and practical tools to navigate 
-                    the complexities of elder care with confidence.
-                </p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔒</div>
-                <h3 class="feature-title">Secure & Private</h3>
-                <p class="feature-description">
-                    Your family's information is protected with bank-level security. 
-                    You control who sees what, always.
-                </p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">❤️</div>
-                <h3 class="feature-title">Peace of Mind</h3>
-                <p class="feature-description">
-                    Know that you're doing everything you can for your loved ones, 
-                    with the support and tools you need.
-                </p>
-            </div>
-        </div>
-    </section>
-
     <!-- Mission Section -->
     <section class="mission">
         <div class="mission-content">
@@ -682,60 +516,6 @@
                 <input type="hidden" name="_autoresponse" value="Thank you for joining the Elderella community! We're working hard to build something special for families like yours. We'll keep you updated on our progress and let you know as soon as we launch. In the meantime, please don't hesitate to reach out if you have questions or feedback.">
                 <button type="submit" class="submit-btn">Get Early Access</button>
             </form>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq">
-        <div class="section-header">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-        </div>
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>When will Elderella be available?</span>
-                    <span class="faq-arrow">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>We're planning to launch in Fall 2025. Sign up for our waitlist to get early access and exclusive updates about our progress.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>How much will it cost?</span>
-                    <span class="faq-arrow">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>We're committed to making Elderella accessible to all families. We'll offer flexible pricing plans, including a free tier with essential features. Details will be announced closer to launch.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>Is my family's information secure?</span>
-                    <span class="faq-arrow">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Absolutely. We use bank-level encryption and follow HIPAA compliance standards. Your family's privacy and security are our top priorities. You always maintain complete control over your data.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>Can multiple family members use it together?</span>
-                    <span class="faq-arrow">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes! Elderella is designed for the whole family. You can invite siblings, spouses, and other caregivers to collaborate, with customizable permissions for each person.</p>
-                </div>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question" onclick="toggleFAQ(this)">
-                    <span>Will it work for my parent's specific conditions?</span>
-                    <span class="faq-arrow">▼</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Elderella is designed to be flexible and support a wide range of care needs, from general aging support to specific conditions like dementia, mobility issues, and chronic illnesses.</p>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -779,14 +559,6 @@
     </footer>
 
     <script>
-        function toggleFAQ(element) {
-            const answer = element.nextElementSibling;
-            const arrow = element.querySelector('.faq-arrow');
-            
-            answer.classList.toggle('active');
-            arrow.style.transform = answer.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0)';
-        }
-
         // Add scroll animations
         const observerOptions = {
             threshold: 0.1,
@@ -804,7 +576,7 @@
 
         // Observe elements for animation
         document.addEventListener('DOMContentLoaded', () => {
-            const animateElements = document.querySelectorAll('.stat-card, .problem-card, .feature-card, .faq-item');
+            const animateElements = document.querySelectorAll('.stat-card, .problem-card');
             animateElements.forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
