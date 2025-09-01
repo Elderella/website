@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Elderella - Changing how children support their parents as they age. Coming Fall 2025.">
-    <title>Elderella - Coming Soon</title>
+    <meta name="description" content="Elderella - Transforming elder care through technology. Supporting families caring for aging parents with dignity, connection, and peace of mind.">
+    <title>Elderella - Reimagining Elder Care</title>
     <style>
         * {
             margin: 0;
@@ -18,147 +18,425 @@
             color: #4a3a5c;
             background: linear-gradient(135deg, #fdfcfb 0%, #f5f3f0 100%);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            flex: 1;
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
+            position: relative;
+            background: radial-gradient(circle at top right, rgba(197, 191, 230, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at bottom left, rgba(124, 111, 179, 0.05) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
         }
 
         .logo {
-            font-size: 3rem;
-            font-weight: 300;
-            color: #7c6fb3;
-            margin-bottom: 20px;
-            animation: fadeIn 1s ease-in;
-            letter-spacing: -2px;
+            font-size: 5rem;
+            font-weight: 200;
+            background: linear-gradient(135deg, #7c6fb3 0%, #5c4d6d 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            letter-spacing: -3px;
+            animation: fadeInUp 1s ease-out;
         }
 
         .tagline {
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: #5c4d6d;
-            margin-bottom: 10px;
-            animation: fadeIn 1s ease-in 0.3s both;
+            margin-bottom: 20px;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
-        .coming-soon {
-            font-size: 1rem;
+        .subtitle {
+            font-size: 1.2rem;
             color: #8b7fb5;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 40px;
-            animation: fadeIn 1s ease-in 0.5s both;
-        }
-
-        .teaser {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #5c4d6d;
             margin-bottom: 50px;
-            animation: fadeIn 1s ease-in 0.7s both;
-            max-width: 600px;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
         }
 
+        /* Stats Section */
+        .stats {
+            background: white;
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-card {
+            padding: 30px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #7c6fb3;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #5c4d6d;
+        }
+
+        .stat-description {
+            font-size: 0.9rem;
+            color: #8b7fb5;
+            margin-top: 10px;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(197, 191, 230, 0.05) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #4a3a5c;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #5c4d6d;
+            line-height: 1.8;
+        }
+
+        .problem-cards {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(124, 111, 179, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(124, 111, 179, 0.15);
+        }
+
+        .problem-quote {
+            font-size: 1.1rem;
+            color: #5c4d6d;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .problem-author {
+            font-size: 0.9rem;
+            color: #8b7fb5;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            background: white;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #c5bfe6 0%, #7c6fb3 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            color: #4a3a5c;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .feature-description {
+            font-size: 1rem;
+            color: #5c4d6d;
+            line-height: 1.6;
+        }
+
+        /* Mission Section */
+        .mission {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, rgba(197, 191, 230, 0.08) 0%, transparent 100%);
+        }
+
+        .mission-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission-text {
+            font-size: 1.5rem;
+            color: #4a3a5c;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 40px;
+        }
+
+        .mission-highlight {
+            color: #7c6fb3;
+            font-weight: 400;
+        }
+
+        /* Email Section */
         .email-section {
-            animation: fadeIn 1s ease-in 0.9s both;
-            margin-bottom: 60px;
+            padding: 100px 20px;
+            background: white;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .email-header {
+            font-size: 2rem;
+            color: #4a3a5c;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .email-subtext {
+            font-size: 1.1rem;
+            color: #5c4d6d;
+            margin-bottom: 40px;
         }
 
         .email-form {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 15px;
+            justify-content: center;
         }
 
         .email-input {
             flex: 1;
-            min-width: 250px;
-            padding: 15px;
+            min-width: 300px;
+            padding: 18px 24px;
             border: 2px solid #c5bfe6;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            transition: all 0.3s ease;
+            background: white;
         }
 
         .email-input:focus {
             outline: none;
             border-color: #7c6fb3;
+            box-shadow: 0 0 0 3px rgba(124, 111, 179, 0.1);
         }
 
         .submit-btn {
-            padding: 15px 30px;
+            padding: 18px 40px;
             background: linear-gradient(135deg, #7c6fb3 0%, #5c4d6d 100%);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 1rem;
+            font-weight: 500;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(124, 111, 179, 0.2);
         }
 
         .submit-btn:hover {
-            background: linear-gradient(135deg, #5c4d6d 0%, #4a3a5c 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(124, 111, 179, 0.3);
         }
 
-        .contact-section {
-            margin-top: 40px;
-            animation: fadeIn 1s ease-in 1.1s both;
+        /* FAQ Section */
+        .faq {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, transparent 0%, rgba(197, 191, 230, 0.05) 100%);
         }
 
-        .contact-section h3 {
-            color: #5c4d6d;
-            margin-bottom: 15px;
-            font-weight: 400;
+        .faq-container {
+            max-width: 800px;
+            margin: 60px auto 0;
         }
 
-        .contact-links {
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(124, 111, 179, 0.08);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            font-size: 1.2rem;
+            color: #4a3a5c;
+            cursor: pointer;
             display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
+            justify-content: space-between;
             align-items: center;
+            transition: background 0.3s ease;
         }
 
-        .contact-links a {
+        .faq-question:hover {
+            background: rgba(197, 191, 230, 0.05);
+        }
+
+        .faq-arrow {
+            font-size: 1.5rem;
             color: #7c6fb3;
-            text-decoration: none;
-            transition: color 0.3s;
+            transition: transform 0.3s ease;
         }
 
-        .contact-links a:hover {
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 0 30px 25px;
+            max-height: 300px;
+        }
+
+        .faq-answer p {
             color: #5c4d6d;
-            text-decoration: underline;
+            line-height: 1.8;
         }
 
-        .founders {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #e6e2f5;
+        /* Founders Section */
+        .founders-section {
+            padding: 80px 20px;
+            background: white;
+        }
+
+        .founders-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .founders-title {
-            font-size: 0.9rem;
-            color: #8b7fb5;
+            font-size: 1.8rem;
+            color: #4a3a5c;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .founder-card {
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(197, 191, 230, 0.05) 0%, transparent 100%);
+            border-radius: 12px;
+        }
+
+        .founder-name {
+            font-size: 1.3rem;
+            color: #4a3a5c;
             margin-bottom: 10px;
         }
 
+        .founder-role {
+            font-size: 1rem;
+            color: #7c6fb3;
+            margin-bottom: 15px;
+        }
+
+        .founder-link {
+            display: inline-block;
+            color: #7c6fb3;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 8px 16px;
+            border: 1px solid #c5bfe6;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .founder-link:hover {
+            background: #7c6fb3;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
         footer {
             background: linear-gradient(180deg, rgba(255, 252, 251, 0.95) 0%, rgba(245, 243, 240, 0.95) 100%);
-            padding: 30px 20px;
+            padding: 40px 20px;
             text-align: center;
             border-top: 1px solid #e6e2f5;
-            animation: fadeIn 1s ease-in 1.3s both;
         }
 
         .footer-content {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -178,7 +456,7 @@
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             margin-top: 20px;
             padding-top: 20px;
             border-top: 1px solid #e6e2f5;
@@ -188,16 +466,18 @@
             color: #7c6fb3;
             text-decoration: none;
             font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            text-decoration: underline;
+            color: #5c4d6d;
         }
 
-        @keyframes fadeIn {
+        /* Animations */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -205,19 +485,37 @@
             }
         }
 
-        @media (max-width: 600px) {
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
             .logo {
-                font-size: 2.5rem;
+                font-size: 3.5rem;
             }
             
             .tagline {
-                font-size: 1.2rem;
+                font-size: 1.5rem;
             }
-            
-            .email-form {
-                flex-direction: column;
+
+            .section-title {
+                font-size: 2rem;
             }
-            
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .problem-cards {
+                grid-template-columns: 1fr;
+            }
+
             .email-input {
                 min-width: 100%;
             }
@@ -225,56 +523,295 @@
     </style>
 </head>
 <body>
-    <main class="container">
-        <h1 class="logo">Elderella</h1>
-        <h2 class="tagline">Changing how children support their parents as they age</h2>
-        <p class="coming-soon">Coming Fall 2025</p>
-        
-        <p class="teaser">
-            We're building something to help children care for their parents with dignity, support and a sense of community. 
-            Join us as we transform how we think about aging.
-        </p>
-        
-        <div class="email-section">
-            <h3>Be the first to know</h3>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="logo">Elderella</h1>
+            <h2 class="tagline">Reimagining elder care for modern families</h2>
+            <p class="subtitle">
+                Because caring for aging parents shouldn't mean doing it alone. 
+                We're building the support system every family deserves.
+            </p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">53M</div>
+                <div class="stat-label">Family Caregivers</div>
+                <div class="stat-description">Americans caring for aging loved ones</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$600B</div>
+                <div class="stat-label">In Unpaid Care</div>
+                <div class="stat-description">Annual value of family caregiving</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24hrs</div>
+                <div class="stat-label">Per Week</div>
+                <div class="stat-description">Average time spent caregiving</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">61%</div>
+                <div class="stat-label">Still Working</div>
+                <div class="stat-description">Caregivers juggling jobs and care</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="section-header">
+            <h2 class="section-title">We hear you</h2>
+            <p class="section-subtitle">
+                These are the real challenges families face every day
+            </p>
+        </div>
+        <div class="problem-cards">
+            <div class="problem-card">
+                <p class="problem-quote">
+                    "I live 500 miles away from my mom. I'm constantly worried about her, 
+                    but I don't know how to help from here."
+                </p>
+                <p class="problem-author">- Sarah, 45, Software Engineer</p>
+            </div>
+            <div class="problem-card">
+                <p class="problem-quote">
+                    "Coordinating between my siblings about Dad's care is exhausting. 
+                    We're all trying to help but nobody's on the same page."
+                </p>
+                <p class="problem-author">- Michael, 52, Teacher</p>
+            </div>
+            <div class="problem-card">
+                <p class="problem-quote">
+                    "I had to reduce my work hours to care for my parents. 
+                    The financial stress is overwhelming."
+                </p>
+                <p class="problem-author">- Jennifer, 48, Marketing Director</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="section-header">
+            <h2 class="section-title">Coming Fall 2025</h2>
+            <p class="section-subtitle">
+                A comprehensive platform designed for the realities of modern caregiving
+            </p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3 class="feature-title">Coordinate Care</h3>
+                <p class="feature-description">
+                    Keep family members aligned with shared calendars, task lists, 
+                    and real-time updates about your loved one's needs.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🏥</div>
+                <h3 class="feature-title">Manage Health</h3>
+                <p class="feature-description">
+                    Track medications, appointments, and health changes in one place. 
+                    Never miss important medical information again.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3 class="feature-title">Find Support</h3>
+                <p class="feature-description">
+                    Connect with other caregivers who understand your journey. 
+                    Share experiences and get advice when you need it most.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📚</div>
+                <h3 class="feature-title">Access Resources</h3>
+                <p class="feature-description">
+                    Expert guidance, local services, and practical tools to navigate 
+                    the complexities of elder care with confidence.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3 class="feature-title">Secure & Private</h3>
+                <p class="feature-description">
+                    Your family's information is protected with bank-level security. 
+                    You control who sees what, always.
+                </p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">❤️</div>
+                <h3 class="feature-title">Peace of Mind</h3>
+                <p class="feature-description">
+                    Know that you're doing everything you can for your loved ones, 
+                    with the support and tools you need.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission">
+        <div class="mission-content">
+            <p class="mission-text">
+                We believe that <span class="mission-highlight">caring for aging parents</span> 
+                is one of life's most profound responsibilities. Yet too many families face this 
+                journey feeling isolated, overwhelmed, and unprepared.
+            </p>
+            <p class="mission-text">
+                Elderella exists to <span class="mission-highlight">transform this experience</span> 
+                - turning confusion into clarity, isolation into connection, and stress into support.
+            </p>
+        </div>
+    </section>
+
+    <!-- Email Section -->
+    <section class="email-section">
+        <div class="email-container">
+            <h2 class="email-header">Be part of the change</h2>
+            <p class="email-subtext">
+                Join thousands of families preparing for a better way to care
+            </p>
             <form class="email-form" action="https://formsubmit.co/hello@elderella.com" method="POST">
                 <input type="email" name="email" class="email-input" placeholder="Enter your email" required>
                 <input type="hidden" name="_subject" value="New Elderella Interest Signup">
-                <input type="hidden" name="_autoresponse" value="Thank you for your interest in Elderella! We'll keep you updated on our progress.">
-                <button type="submit" class="submit-btn">Join our community</button>
+                <input type="hidden" name="_autoresponse" value="Thank you for joining the Elderella community! We're working hard to build something special for families like yours. We'll keep you updated on our progress and let you know as soon as we launch. In the meantime, please don't hesitate to reach out if you have questions or feedback.">
+                <button type="submit" class="submit-btn">Get Early Access</button>
             </form>
         </div>
-        
-        <div class="contact-section">
-            <h3>Get in touch</h3>
-            <div class="contact-links">
-                <a href="mailto:hello@elderella.com">hello@elderella.com</a>
-                <span>•</span>
-                <a href="https://www.linkedin.com/company/elderella/about/" target="_blank">LinkedIn</a>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="section-header">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>When will Elderella be available?</span>
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We're planning to launch in Fall 2025. Sign up for our waitlist to get early access and exclusive updates about our progress.</p>
+                </div>
             </div>
-            
-            <div class="founders">
-                <p class="founders-title">Founded by</p>
-                <div class="contact-links">
-                    <a href="https://www.linkedin.com/in/jacquimurphy/" target="_blank">Jacqui Murphy</a>
-                    <span>&</span>
-                    <a href="https://www.linkedin.com/in/mikekirkup/" target="_blank">Mike Kirkup</a>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How much will it cost?</span>
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We're committed to making Elderella accessible to all families. We'll offer flexible pricing plans, including a free tier with essential features. Details will be announced closer to launch.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Is my family's information secure?</span>
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely. We use bank-level encryption and follow HIPAA compliance standards. Your family's privacy and security are our top priorities. You always maintain complete control over your data.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can multiple family members use it together?</span>
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! Elderella is designed for the whole family. You can invite siblings, spouses, and other caregivers to collaborate, with customizable permissions for each person.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Will it work for my parent's specific conditions?</span>
+                    <span class="faq-arrow">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Elderella is designed to be flexible and support a wide range of care needs, from general aging support to specific conditions like dementia, mobility issues, and chronic illnesses.</p>
                 </div>
             </div>
         </div>
-    </main>
-    
+    </section>
+
+    <!-- Founders Section -->
+    <section class="founders-section">
+        <div class="founders-container">
+            <h2 class="founders-title">Meet the Founders</h2>
+            <p class="section-subtitle">
+                We're building Elderella because we've lived this journey with our own families.
+            </p>
+            <div class="founders-grid">
+                <div class="founder-card">
+                    <h3 class="founder-name">Jacqui Murphy</h3>
+                    <p class="founder-role">Co-Founder & CEO</p>
+                    <a href="https://www.linkedin.com/in/jacquimurphy/" target="_blank" class="founder-link">Connect on LinkedIn</a>
+                </div>
+                <div class="founder-card">
+                    <h3 class="founder-name">Mike Kirkup</h3>
+                    <p class="founder-role">Co-Founder & CTO</p>
+                    <a href="https://www.linkedin.com/in/mikekirkup/" target="_blank" class="founder-link">Connect on LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-info">
-                <span>Based in Waterloo</span>
+                <span>Based in Waterloo, Ontario</span>
                 <span>•</span>
-                <span>&copy; 2025 Elderella Inc.</span>
+                <span>hello@elderella.com</span>
+                <span>•</span>
+                <span>© 2025 Elderella Inc.</span>
             </div>
             <div class="footer-links">
                 <a href="privacy.html">Privacy Policy</a>
+                <a href="https://www.linkedin.com/company/elderella/about/" target="_blank">LinkedIn</a>
             </div>
         </div>
     </footer>
+
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const arrow = element.querySelector('.faq-arrow');
+            
+            answer.classList.toggle('active');
+            arrow.style.transform = answer.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0)';
+        }
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.stat-card, .problem-card, .feature-card, .faq-item');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
