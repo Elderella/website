@@ -1,3 +1,143 @@
+// Send notification to Slack when someone registers for an interview
+async function sendSlackNotification(formData, isNewToList, env) {
+  if (!env.SLACK_WEBHOOK_URL) {
+    console.log('Slack webhook not configured, skipping notification');
+    return;
+  }
+
+  try {
+    // Format interviewer preference text
+    const interviewerText = 
+      formData.interviewer === 'jacqui' ? 'Jacqui Murphy' :
+      formData.interviewer === 'mike' ? 'Mike Kirkup' :
+      'No preference';
+
+    // Create rich Slack message using Block Kit
+    const message = {
+      text: '🎤 New User Interview Registration',
+      blocks: [
+        {
+          type: 'header',
+          text: {
+            type: 'plain_text',
+            text: '🎤 New User Interview Registration',
+            emoji: true
+          }
+        },
+        {
+          type: 'section',
+          fields: [
+            {
+              type: 'mrkdwn',
+              text: `*Name:*\n${formData.name}`
+            },
+            {
+              type: 'mrkdwn',
+              text: `*Email:*\n${formData.email}`
+            }
+          ]
+        }
+      ]
+    };
+
+    // Add phone if provided
+    if (formData.phone) {
+      message.blocks.push({
+        type: 'section',
+        fields: [
+          {
+            type: 'mrkdwn',
+            text: `*Phone:*\n${formData.phone}`
+          },
+          {
+            type: 'mrkdwn',
+            text: `*Interviewer Preference:*\n${interviewerText}`
+          }
+        ]
+      });
+    } else {
+      message.blocks.push({
+        type: 'section',
+        fields: [
+          {
+            type: 'mrkdwn',
+            text: `*Interviewer Preference:*\n${interviewerText}`
+          },
+          {
+            type: 'mrkdwn',
+            text: `*Status:*\n${isNewToList ? '✅ New to interview list' : '🔄 Already in list'}`
+          }
+        ]
+      });
+    }
+
+    // Add caregiving situation if provided
+    if (formData.situation) {
+      message.blocks.push({
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: `*Caregiving Situation:*\n${formData.situation}`
+        }
+      });
+    }
+
+    // Add status and timestamp
+    const timestamp = new Date().toLocaleString('en-US', {
+      timeZone: 'America/Toronto',
+      dateStyle: 'medium',
+      timeStyle: 'short'
+    });
+
+    if (formData.phone) {
+      message.blocks.push({
+        type: 'section',
+        fields: [
+          {
+            type: 'mrkdwn',
+            text: `*Status:*\n${isNewToList ? '✅ New to interview list' : '🔄 Already in list'}`
+          },
+          {
+            type: 'mrkdwn',
+            text: `*Registered:*\n${timestamp}`
+          }
+        ]
+      });
+    } else {
+      message.blocks.push({
+        type: 'section',
+        fields: [
+          {
+            type: 'mrkdwn',
+            text: `*Registered:*\n${timestamp}`
+          }
+        ]
+      });
+    }
+
+    // Add divider
+    message.blocks.push({ type: 'divider' });
+
+    // Send to Slack
+    const slackResponse = await fetch(env.SLACK_WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(message)
+    });
+
+    if (!slackResponse.ok) {
+      console.error('Slack notification failed:', slackResponse.status, await slackResponse.text());
+    } else {
+      console.log('Slack notification sent successfully');
+    }
+  } catch (error) {
+    console.error('Error sending Slack notification:', error);
+    // Don't throw - we don't want Slack issues to break the main flow
+  }
+}
+
 export default {
   async fetch(request, env, ctx) {
     // Get origin from request
@@ -276,6 +416,18 @@ export default {
             console.log('Successfully added to list:', listEntry);
           }
         }
+
+        // Send Slack notification
+        // Include interviewer preference from original form data
+        const slackData = {
+          name: sanitizedData.name,
+          email: sanitizedData.email,
+          phone: formattedPhone || sanitizedData.phone,
+          situation: sanitizedData.situation,
+          interviewer: data.interviewer // Pass through the original interviewer preference
+        };
+        
+        await sendSlackNotification(slackData, shouldAddToList, env);
 
         return new Response(JSON.stringify({ success: true }), {
           headers: {
