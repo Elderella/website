@@ -131,7 +131,7 @@ export default {
                 }],
                 email_addresses: [{ email_address: sanitizedData.email }],
                 phone_numbers: formattedPhone ? [{ 
-                  original_phone_number: formattedPhone
+                  phone_number: formattedPhone
                 }] : [],
                 // Caregiving Situation attribute
                 'ec1acf24-4dcc-4ec4-8b0c-5dd24411a52e': sanitizedData.situation ? [{ value: sanitizedData.situation }] : []
@@ -142,8 +142,34 @@ export default {
 
         if (!attioResponse.ok) {
           const errorText = await attioResponse.text();
-          console.error('Attio API error:', errorText);
-          throw new Error('Failed to save to Attio');
+          console.error('Attio API error:', {
+            status: attioResponse.status,
+            statusText: attioResponse.statusText,
+            error: errorText,
+            requestData: {
+              phone: formattedPhone,
+              email: sanitizedData.email,
+              name: sanitizedData.name
+            }
+          });
+          
+          // Try to parse error response for more details
+          let errorMessage = 'Failed to save to Attio';
+          try {
+            const errorJson = JSON.parse(errorText);
+            if (errorJson.message) {
+              errorMessage = errorJson.message;
+            } else if (errorJson.error) {
+              errorMessage = errorJson.error;
+            }
+          } catch (e) {
+            // If not JSON, use the text directly if it's not too long
+            if (errorText && errorText.length < 200) {
+              errorMessage = errorText;
+            }
+          }
+          
+          throw new Error(errorMessage);
         }
 
         const person = await attioResponse.json();
@@ -236,8 +262,32 @@ export default {
 
         if (!attioResponse.ok) {
           const errorText = await attioResponse.text();
-          console.error('Attio API error:', errorText);
-          throw new Error('Failed to save to Attio');
+          console.error('Attio API error (newsletter):', {
+            status: attioResponse.status,
+            statusText: attioResponse.statusText,
+            error: errorText,
+            requestData: {
+              email: sanitizedEmail
+            }
+          });
+          
+          // Try to parse error response for more details
+          let errorMessage = 'Failed to save to Attio';
+          try {
+            const errorJson = JSON.parse(errorText);
+            if (errorJson.message) {
+              errorMessage = errorJson.message;
+            } else if (errorJson.error) {
+              errorMessage = errorJson.error;
+            }
+          } catch (e) {
+            // If not JSON, use the text directly if it's not too long
+            if (errorText && errorText.length < 200) {
+              errorMessage = errorText;
+            }
+          }
+          
+          throw new Error(errorMessage);
         }
 
         return new Response(JSON.stringify({ success: true }), {
