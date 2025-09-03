@@ -59,9 +59,64 @@ export default {
           situation: sanitize(data.situation)
         };
         
-        // Create or update contact in Attio
-        const attioResponse = await fetch('https://api.attio.com/v2/objects/people', {
-          method: 'POST',
+        // Intelligent name parsing
+        const nameParts = sanitizedData.name.trim().split(/\s+/); // Split on any whitespace
+        let firstName = '';
+        let lastName = '';
+        
+        if (nameParts.length === 1) {
+          // Single name - treat as first name
+          firstName = nameParts[0];
+          lastName = '';
+        } else if (nameParts.length === 2) {
+          // Two parts - simple first and last
+          firstName = nameParts[0];
+          lastName = nameParts[1];
+        } else {
+          // Three or more parts - everything except last is first name
+          // This handles "Mary Jane Smith" as firstName: "Mary Jane", lastName: "Smith"
+          lastName = nameParts[nameParts.length - 1];
+          firstName = nameParts.slice(0, -1).join(' ');
+        }
+        
+        // Format phone number properly
+        let formattedPhone = null;
+        if (sanitizedData.phone) {
+          // Remove all non-digits for processing
+          const digitsOnly = sanitizedData.phone.replace(/\D/g, '');
+          
+          if (sanitizedData.phone.startsWith('+')) {
+            // Keep as-is if it already starts with + (international format)
+            formattedPhone = sanitizedData.phone;
+          } else if (digitsOnly.length === 10) {
+            // 10 digits - assume North American without country code
+            // Format as +1AAABBBCCCC
+            formattedPhone = `+1${digitsOnly}`;
+          } else if (digitsOnly.length === 11 && digitsOnly.startsWith('1')) {
+            // 11 digits starting with 1 - North American with country code
+            formattedPhone = `+${digitsOnly}`;
+          } else if (digitsOnly.length > 0) {
+            // Invalid phone format - return error to user
+            return new Response(JSON.stringify({ 
+              error: 'Please provide a valid 10-digit phone number (e.g., 555-123-4567)' 
+            }), {
+              status: 400,
+              headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': corsOrigin
+              }
+            });
+          }
+          console.log('Phone formatting:', { 
+            original: sanitizedData.phone, 
+            digitsOnly: digitsOnly,
+            formatted: formattedPhone 
+          });
+        }
+        
+        // Assert (create or update) contact in Attio - using email as matching attribute
+        const attioResponse = await fetch('https://api.attio.com/v2/objects/people/records?matching_attribute=email_addresses', {
+          method: 'PUT',
           headers: {
             'Authorization': `Bearer ${env.ATTIO_API_KEY}`,
             'Content-Type': 'application/json'
@@ -69,13 +124,17 @@ export default {
           body: JSON.stringify({
             data: {
               values: {
-                name: [{ value: sanitizedData.name }],
+                name: [{ 
+                  first_name: firstName,
+                  last_name: lastName,
+                  full_name: sanitizedData.name
+                }],
                 email_addresses: [{ email_address: sanitizedData.email }],
-                phone_numbers: sanitizedData.phone ? [{ phone_number: sanitizedData.phone }] : [],
+                phone_numbers: formattedPhone ? [{ 
+                  original_phone_number: formattedPhone
+                }] : [],
                 // Caregiving Situation attribute
-                'ec1acf24-4dcc-4ec4-8b0c-5dd24411a52e': sanitizedData.situation ? [{ value: sanitizedData.situation }] : [],
-                // Stage attribute - set to "Interview Requested"
-                '6bcb51ba-77e2-433b-b289-a0667c8b1961': [{ value: 'Interview Requested' }]
+                'ec1acf24-4dcc-4ec4-8b0c-5dd24411a52e': sanitizedData.situation ? [{ value: sanitizedData.situation }] : []
               }
             }
           })
@@ -160,8 +219,8 @@ export default {
         
         const sanitizedEmail = data.email.trim().toLowerCase();
         
-        const attioResponse = await fetch('https://api.attio.com/v2/objects/people', {
-          method: 'POST',
+        const attioResponse = await fetch('https://api.attio.com/v2/objects/people/records?matching_attribute=email_addresses', {
+          method: 'PUT',
           headers: {
             'Authorization': `Bearer ${env.ATTIO_API_KEY}`,
             'Content-Type': 'application/json'

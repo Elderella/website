@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Elderella - Transforming elder care through technology. Supporting families caring for aging parents with dignity, connection, and peace of mind.">
+    <meta name="mobile-web-app-capable" content="yes">
     <title>Elderella - Reimagining Elder Care</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -239,13 +240,21 @@
                     // Show specific error from server
                     console.error('Server error:', result.error);
                     submitBtn.textContent = result.error || 'Unable to save information';
+                    submitBtn.disabled = false;
                     
-                    // Still redirect to Calendly after showing error briefly
-                    setTimeout(() => {
-                        submitBtn.textContent = 'Redirecting to calendar...';
-                        const calendlyUrl = buildCalendlyUrl(formData);
-                        window.location.href = calendlyUrl;
-                    }, 2000);
+                    // If it's a phone validation error, don't redirect
+                    if (result.error && result.error.includes('phone')) {
+                        setTimeout(() => {
+                            submitBtn.textContent = originalBtnText;
+                        }, 3000);
+                    } else {
+                        // Other errors - still redirect to Calendly after showing error briefly
+                        setTimeout(() => {
+                            submitBtn.textContent = 'Redirecting to calendar...';
+                            const calendlyUrl = buildCalendlyUrl(formData);
+                            window.location.href = calendlyUrl;
+                        }, 2000);
+                    }
                 } else {
                     // Success - redirect immediately
                     submitBtn.textContent = 'Success! Redirecting...';
