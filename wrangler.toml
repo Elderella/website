@@ -1,0 +1,9 @@
+name = "elderella-website-api"
+main = "worker.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+# Non-secret environment variables can go here
+
+# Secrets should be added via wrangler CLI:
+# wrangler secret put ATTIO_API_KEY
