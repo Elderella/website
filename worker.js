@@ -85,15 +85,64 @@ export default {
           // Remove all non-digits for processing
           const digitsOnly = sanitizedData.phone.replace(/\D/g, '');
           
+          // Check for obviously fake numbers (all same digit, sequential, etc.)
+          const isTestNumber = (digits) => {
+            if (!digits || digits.length < 10) return false;
+            // Check for all same digit (1111111111, 0000000000, etc.)
+            if (/^(\d)\1+$/.test(digits)) return true;
+            // Check for sequential (1234567890, 0123456789)
+            if (digits === '1234567890' || digits === '0123456789') return true;
+            // Check for patterns like 5555555555
+            if (digits === '5555555555' || digits === '9999999999') return true;
+            return false;
+          };
+          
+          if (isTestNumber(digitsOnly)) {
+            return new Response(JSON.stringify({ 
+              error: 'Please provide a valid phone number, not a test number' 
+            }), {
+              status: 400,
+              headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': corsOrigin
+              }
+            });
+          }
+          
           if (sanitizedData.phone.startsWith('+')) {
             // Keep as-is if it already starts with + (international format)
             formattedPhone = sanitizedData.phone;
           } else if (digitsOnly.length === 10) {
             // 10 digits - assume North American without country code
+            // Check if it's a valid North American number (area code can't start with 0 or 1)
+            const areaCode = digitsOnly.substring(0, 3);
+            if (areaCode[0] === '0' || areaCode[0] === '1') {
+              return new Response(JSON.stringify({ 
+                error: 'Invalid phone number. North American area codes cannot start with 0 or 1' 
+              }), {
+                status: 400,
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Access-Control-Allow-Origin': corsOrigin
+                }
+              });
+            }
             // Format as +1AAABBBCCCC
             formattedPhone = `+1${digitsOnly}`;
           } else if (digitsOnly.length === 11 && digitsOnly.startsWith('1')) {
             // 11 digits starting with 1 - North American with country code
+            const areaCode = digitsOnly.substring(1, 4);
+            if (areaCode[0] === '0' || areaCode[0] === '1') {
+              return new Response(JSON.stringify({ 
+                error: 'Invalid phone number. North American area codes cannot start with 0 or 1' 
+              }), {
+                status: 400,
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Access-Control-Allow-Origin': corsOrigin
+                }
+              });
+            }
             formattedPhone = `+${digitsOnly}`;
           } else if (digitsOnly.length > 0) {
             // Invalid phone format - return error to user
@@ -131,7 +180,7 @@ export default {
                 }],
                 email_addresses: [{ email_address: sanitizedData.email }],
                 phone_numbers: formattedPhone ? [{ 
-                  phone_number: formattedPhone
+                  original_phone_number: formattedPhone
                 }] : [],
                 // Caregiving Situation attribute
                 'ec1acf24-4dcc-4ec4-8b0c-5dd24411a52e': sanitizedData.situation ? [{ value: sanitizedData.situation }] : []
@@ -174,24 +223,58 @@ export default {
 
         const person = await attioResponse.json();
         
-        // Add to User Interviews list
-        const listResponse = await fetch('https://api.attio.com/v2/lists/5612c985-ac73-40bf-a8be-28723dc019f8/entries', {
-          method: 'POST',
+        // Check if person is already in the User Interviews list
+        console.log('Checking if person is already in list. Person ID:', person.data.id);
+        const checkListResponse = await fetch(`https://api.attio.com/v2/lists/5612c985-ac73-40bf-a8be-28723dc019f8/entries?filter[parent_record_id]=${person.data.id.record_id}`, {
+          method: 'GET',
           headers: {
             'Authorization': `Bearer ${env.ATTIO_API_KEY}`,
             'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            data: {
-              parent_object: 'people',
-              parent_record_id: person.data.id
-            }
-          })
+          }
         });
+        
+        let shouldAddToList = true;
+        if (checkListResponse.ok) {
+          const existingEntries = await checkListResponse.json();
+          if (existingEntries.data && existingEntries.data.length > 0) {
+            console.log('Person already in list, skipping add');
+            shouldAddToList = false;
+          }
+        }
+        
+        // Only add to list if not already present
+        if (shouldAddToList) {
+          console.log('Adding person to User Interviews list');
+          const listResponse = await fetch('https://api.attio.com/v2/lists/5612c985-ac73-40bf-a8be-28723dc019f8/entries', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${env.ATTIO_API_KEY}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              data: {
+                parent_object: 'people',
+                parent_record_id: person.data.id.record_id,
+                entry_values: {
+                  // Stage attribute - set to "Interview Requested"
+                  '6bcb51ba-77e2-433b-b289-a0667c8b1961': [{ status: 'Interview Requested' }]
+                }
+              }
+            })
+          });
 
-        if (!listResponse.ok) {
-          const errorText = await listResponse.text();
-          console.error('Failed to add to list:', errorText);
+          if (!listResponse.ok) {
+            const errorText = await listResponse.text();
+            console.error('Failed to add to list:', {
+              status: listResponse.status,
+              statusText: listResponse.statusText,
+              error: errorText,
+              personId: person.data.id
+            });
+          } else {
+            const listEntry = await listResponse.json();
+            console.log('Successfully added to list:', listEntry);
+          }
         }
 
         return new Response(JSON.stringify({ success: true }), {
