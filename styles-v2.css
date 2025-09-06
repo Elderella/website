@@ -28,7 +28,7 @@ body {
 
 /* Hero Section - Purple gradient matching the goal */
 .hero-section {
-    background: linear-gradient(135deg, #9B8FE4 0%, #C5BFEC 100%);
+    background: linear-gradient(135deg, #5a4fcf 0%, #8b82db 100%);
     padding: 95px 60px 75px;
     min-height: 580px;
     display: flex;
@@ -115,7 +115,7 @@ body {
 .stat-number {
     font-size: 24px;
     font-weight: 600;
-    color: #7968CE;
+    color: #5a4fcf;
     margin-bottom: 3px;
 }
 
@@ -327,7 +327,7 @@ textarea {
 
 /* Testimonials */
 .testimonials-section {
-    background: linear-gradient(135deg, #9B8FE4 0%, #C5BFEC 100%);
+    background: linear-gradient(135deg, #5a4fcf 0%, #8b82db 100%);
     padding: 65px 50px;
 }
 
@@ -358,7 +358,7 @@ textarea {
 
 .author {
     font-size: 13px;
-    color: #7968CE;
+    color: #5a4fcf;
     font-weight: 500;
 }
 
@@ -413,7 +413,7 @@ textarea {
 
 /* Founders Section */
 .founders-section {
-    background: linear-gradient(135deg, #9B8FE4 0%, #C5BFEC 100%);
+    background: linear-gradient(135deg, #5a4fcf 0%, #8b82db 100%);
     padding: 65px 50px;
     text-align: center;
 }
