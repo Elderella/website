@@ -90,10 +90,11 @@ body {
 }
 
 .star-icon {
-    font-size: 20px;
+    width: 32px;
+    height: 32px;
     margin: 15px 0 20px;
-    color: #FDB975;
     align-self: flex-end;
+    display: block;
 }
 
 .stats-grid {
@@ -488,8 +489,9 @@ textarea {
 }
 
 .founders-section .star-icon {
-    font-size: 24px;
-    color: #FDB975;
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
 }
 
 /* Footer */

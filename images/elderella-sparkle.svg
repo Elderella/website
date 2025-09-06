@@ -1,0 +1,8 @@
+<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+  <g fill="#FDB975">
+    <!-- Main 4-pointed star shape -->
+    <path d="M30 0 C25 20, 20 25, 0 30 C20 35, 25 40, 30 60 C35 40, 40 35, 60 30 C40 25, 35 20, 30 0 Z"/>
+    <!-- Small circle accent -->
+    <circle cx="48" cy="12" r="7"/>
+  </g>
+</svg>
