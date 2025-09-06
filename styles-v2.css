@@ -357,9 +357,9 @@ textarea {
 }
 
 .author {
-    font-size: 13px;
+    font-size: 14px;
     color: #5a4fcf;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 /* Not Alone Section */
@@ -592,7 +592,7 @@ footer span {
     }
     
     .logo {
-        font-size: 20px;
+        font-size: 24px;
     }
     
     .hero-section {
@@ -600,23 +600,24 @@ footer span {
     }
     
     .circle-image {
-        width: 200px;
-        height: 200px;
+        width: 240px;
+        height: 240px;
     }
     
     .circle-column {
-        flex: 0 0 200px;
+        flex: 0 0 240px;
     }
     
     .hero-title {
-        font-size: 32px;
+        font-size: 36px;
         line-height: 1.2;
-        margin-bottom: 15px;
+        margin-bottom: 20px;
     }
     
     .hero-subtitle {
-        font-size: 13px;
-        margin-bottom: 20px;
+        font-size: 16px;
+        margin-bottom: 25px;
+        line-height: 1.5;
     }
     
     .stats-grid {
@@ -625,41 +626,43 @@ footer span {
     }
     
     .stat-card {
-        padding: 12px 14px;
+        padding: 16px 18px;
     }
     
     .stat-number {
-        font-size: 20px;
+        font-size: 24px;
     }
     
     .stat-label {
-        font-size: 12px;
+        font-size: 14px;
     }
     
     .stat-description {
-        font-size: 10px;
+        font-size: 12px;
+        line-height: 1.4;
     }
     
     .interview-card {
-        padding: 20px;
+        padding: 24px;
     }
     
     .form-title {
-        font-size: 19px;
+        font-size: 24px;
     }
     
     .form-subtitle {
-        font-size: 12px;
+        font-size: 14px;
     }
     
     input, textarea {
-        padding: 8px 10px;
-        font-size: 12px;
+        padding: 12px 14px;
+        font-size: 16px;
     }
     
     .submit-btn {
-        padding: 9px 12px;
-        font-size: 12px;
+        padding: 14px 20px;
+        font-size: 16px;
+        font-weight: 600;
     }
     
     .carrying-section {
@@ -667,12 +670,13 @@ footer span {
     }
     
     .carrying-section h2 {
-        font-size: 28px;
+        font-size: 32px;
     }
     
     .carrying-section .subtitle,
     .carrying-section .text {
-        font-size: 13px;
+        font-size: 16px;
+        line-height: 1.5;
     }
     
     .image-grid img {
@@ -697,7 +701,8 @@ footer span {
     }
     
     .testimonial-card p {
-        font-size: 13px;
+        font-size: 15px;
+        line-height: 1.6;
     }
     
     .not-alone-section {
@@ -705,15 +710,15 @@ footer span {
     }
     
     .not-alone-section h2 {
-        font-size: 28px;
+        font-size: 32px;
     }
     
     .not-alone-section .bold {
-        font-size: 14px;
+        font-size: 16px;
     }
     
     .not-alone-section p {
-        font-size: 12px;
+        font-size: 15px;
     }
     
     .not-alone-section .circle-image {
@@ -726,11 +731,11 @@ footer span {
     }
     
     .founders-section h2 {
-        font-size: 28px;
+        font-size: 32px;
     }
     
     .founders-section > p {
-        font-size: 13px;
+        font-size: 15px;
         margin-bottom: 30px;
     }
     
@@ -763,21 +768,21 @@ footer span {
     }
     
     .circle-image {
-        width: 160px;
-        height: 160px;
+        width: 200px;
+        height: 200px;
     }
     
     .circle-column {
-        flex: 0 0 160px;
+        flex: 0 0 200px;
     }
     
     .hero-title {
-        font-size: 28px;
+        font-size: 32px;
     }
     
     .hero-subtitle {
-        font-size: 12px;
-        line-height: 1.4;
+        font-size: 15px;
+        line-height: 1.5;
     }
     
     .star-icon {
@@ -792,7 +797,7 @@ footer span {
     }
     
     .stat-card {
-        padding: 10px 12px;
+        padding: 14px 16px;
     }
     
     .form-column {
@@ -805,13 +810,13 @@ footer span {
     }
     
     .form-title {
-        font-size: 18px;
-        margin-bottom: 5px;
+        font-size: 22px;
+        margin-bottom: 8px;
     }
     
     .form-subtitle {
-        font-size: 11px;
-        margin-bottom: 15px;
+        font-size: 13px;
+        margin-bottom: 18px;
     }
     
     .radio-section {
@@ -819,15 +824,22 @@ footer span {
     }
     
     .radio-label {
-        font-size: 11px;
+        font-size: 14px;
+        margin-bottom: 12px;
     }
     
     .radio-options {
-        gap: 6px;
+        gap: 10px;
     }
     
     .radio-options label {
-        font-size: 11px;
+        font-size: 14px;
+    }
+    
+    .radio-options input {
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
     }
     
     textarea {
@@ -835,8 +847,8 @@ footer span {
     }
     
     .carrying-section h2 {
-        font-size: 24px;
-        margin-bottom: 10px;
+        font-size: 28px;
+        margin-bottom: 15px;
     }
     
     .image-grid {
@@ -871,8 +883,8 @@ footer span {
     }
     
     .not-alone-section h2 {
-        font-size: 24px;
-        margin-bottom: 15px;
+        font-size: 28px;
+        margin-bottom: 18px;
     }
     
     .not-alone-section .circle-image {
@@ -885,8 +897,8 @@ footer span {
     }
     
     .founders-section h2 {
-        font-size: 24px;
-        margin-bottom: 8px;
+        font-size: 28px;
+        margin-bottom: 12px;
     }
     
     .founder img {
