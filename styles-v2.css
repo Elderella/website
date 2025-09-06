@@ -520,65 +520,405 @@ footer span {
     font-size: 13px;
 }
 
-/* Responsive */
-@media (max-width: 1200px) {
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
     .hero-container {
-        grid-template-columns: 1fr;
-        text-align: center;
+        flex-direction: column;
+        gap: 30px;
+        padding: 0 20px;
     }
     
     .circle-column {
-        display: none;
+        order: 2;
     }
     
-    .stats-grid {
-        justify-content: center;
+    .center-column {
+        order: 1;
+        align-items: center;
+        padding-right: 0;
+        text-align: center;
     }
     
-    .interview-card {
+    .form-column {
+        order: 3;
+        width: 100%;
         max-width: 400px;
-        margin: 0 auto;
     }
-}
-
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 36px;
+    
+    .hero-title,
+    .hero-subtitle {
+        text-align: center;
+    }
+    
+    .star-icon {
+        align-self: center;
     }
     
     .stats-grid {
-        grid-template-columns: 1fr;
+        justify-self: center;
+    }
+    
+    .carrying-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+    
+    .carrying-text {
+        text-align: center;
+        max-width: 600px;
     }
     
     .image-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .testimonials-section {
-        grid-template-columns: 1fr;
+        justify-content: center;
     }
     
     .not-alone-section {
-        grid-template-columns: 1fr;
+        flex-direction: column;
         text-align: center;
+        gap: 40px;
+    }
+    
+    .not-alone-section .content {
+        max-width: 600px;
+    }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+    .site-header {
+        left: 20px;
+        top: 20px;
+    }
+    
+    .logo {
+        font-size: 20px;
+    }
+    
+    .hero-section {
+        padding: 70px 20px 50px;
+    }
+    
+    .circle-image {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .circle-column {
+        flex: 0 0 200px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+        line-height: 1.2;
+        margin-bottom: 15px;
+    }
+    
+    .hero-subtitle {
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .stat-card {
+        padding: 12px 14px;
+    }
+    
+    .stat-number {
+        font-size: 20px;
+    }
+    
+    .stat-label {
+        font-size: 12px;
+    }
+    
+    .stat-description {
+        font-size: 10px;
+    }
+    
+    .interview-card {
+        padding: 20px;
+    }
+    
+    .form-title {
+        font-size: 19px;
+    }
+    
+    .form-subtitle {
+        font-size: 12px;
+    }
+    
+    input, textarea {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+    
+    .submit-btn {
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+    
+    .carrying-section {
+        padding: 50px 20px;
+    }
+    
+    .carrying-section h2 {
+        font-size: 28px;
+    }
+    
+    .carrying-section .subtitle,
+    .carrying-section .text {
+        font-size: 13px;
+    }
+    
+    .image-grid img {
+        width: 120px;
+        height: 120px;
+        margin-left: -20px;
+    }
+    
+    .testimonials-section {
+        padding: 50px 20px;
+    }
+    
+    .testimonials-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .testimonial-card {
+        max-width: none;
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .testimonial-card p {
+        font-size: 13px;
+    }
+    
+    .not-alone-section {
+        padding: 50px 20px;
+    }
+    
+    .not-alone-section h2 {
+        font-size: 28px;
+    }
+    
+    .not-alone-section .bold {
+        font-size: 14px;
+    }
+    
+    .not-alone-section p {
+        font-size: 12px;
+    }
+    
+    .not-alone-section .circle-image {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .founders-section {
+        padding: 50px 20px;
+    }
+    
+    .founders-section h2 {
+        font-size: 28px;
+    }
+    
+    .founders-section > p {
+        font-size: 13px;
+        margin-bottom: 30px;
     }
     
     .founders-grid {
         flex-direction: column;
         gap: 40px;
     }
+    
+    .founder img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    footer {
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
 }
 
+/* Responsive - Small Mobile */
 @media (max-width: 480px) {
     .hero-section {
-        padding: 60px 20px 40px;
+        padding: 60px 15px 40px;
+        min-height: auto;
+    }
+    
+    .hero-container {
+        gap: 25px;
+    }
+    
+    .circle-image {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .circle-column {
+        flex: 0 0 160px;
     }
     
     .hero-title {
-        font-size: 30px;
+        font-size: 28px;
+    }
+    
+    .hero-subtitle {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+    
+    .star-icon {
+        width: 24px;
+        height: 24px;
+        margin: 12px 0 15px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .stat-card {
+        padding: 10px 12px;
+    }
+    
+    .form-column {
+        max-width: 100%;
+    }
+    
+    .interview-card {
+        padding: 18px 16px;
+        border-radius: 8px;
+    }
+    
+    .form-title {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+    
+    .form-subtitle {
+        font-size: 11px;
+        margin-bottom: 15px;
+    }
+    
+    .radio-section {
+        margin: 8px 0;
+    }
+    
+    .radio-label {
+        font-size: 11px;
+    }
+    
+    .radio-options {
+        gap: 6px;
+    }
+    
+    .radio-options label {
+        font-size: 11px;
+    }
+    
+    textarea {
+        min-height: 60px;
+    }
+    
+    .carrying-section h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
     }
     
     .image-grid {
-        grid-template-columns: 1fr;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 0;
+    }
+    
+    .image-grid img {
+        width: 100px;
+        height: 100px;
+        margin: 5px;
+        margin-left: 0;
+    }
+    
+    .image-grid img:nth-child(2),
+    .image-grid img:nth-child(3),
+    .image-grid img:nth-child(4) {
+        margin-top: 0;
+    }
+    
+    .testimonials-section {
+        padding: 40px 15px;
+    }
+    
+    .testimonial-card {
+        padding: 18px 16px;
+    }
+    
+    .not-alone-section {
+        padding: 40px 15px;
+    }
+    
+    .not-alone-section h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    
+    .not-alone-section .circle-image {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .founders-section {
+        padding: 40px 15px;
+    }
+    
+    .founders-section h2 {
+        font-size: 24px;
+        margin-bottom: 8px;
+    }
+    
+    .founder img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 12px;
+    }
+    
+    .founder h3 {
+        font-size: 16px;
+    }
+    
+    .founder p {
+        font-size: 12px;
+    }
+    
+    .contact {
+        font-size: 11px;
+        margin-bottom: 25px;
+    }
+    
+    .founders-section .star-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    footer {
+        font-size: 11px;
+    }
+    
+    footer a,
+    footer span {
+        font-size: 11px;
     }
 }
