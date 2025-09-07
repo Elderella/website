@@ -6,62 +6,64 @@
     <meta name="description" content="Elderella - Your Elder care administrator. Lightens the invisible load of Elder care by planning, organizing, delegating, and following up.">
     <meta name="mobile-web-app-capable" content="yes">
     <title>Elderella - Your Elder Care Administrator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Source+Sans+Pro:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles-v2.css">
 </head>
 <body>
     <!-- Header -->
     <header class="site-header">
-        <h1 class="logo">Elderella</h1>
+        <div class="container">
+            <img src="images/elderella-logo.svg" alt="Elderella" class="logo">
+        </div>
     </header>
 
-    <!-- Hero Section - All in one container -->
+    <!-- Hero Section -->
     <section class="hero-section">
-        <div class="hero-container">
-            <!-- Left: Circle Image -->
-            <div class="circle-column">
-                <img src="images/hero-hug.jpg" alt="Mother and daughter embracing" class="circle-image">
-            </div>
-
-            <!-- Center: Title and Stats -->
-            <div class="center-column">
-                <h2 class="hero-title">Your Elder care<br>administrator</h2>
-                <p class="hero-subtitle">
-                    Elderella lightens the<br>
-                    invisible load of Elder care<br>
-                    by planning, organizing,<br>
-                    delegating, and following<br>
-                    up. Away the invisible to-do<br>
-                    that weighs you down.
-                </p>
-                
-                <img src="images/elderella-sparkle.svg" alt="Elderella sparkle" class="star-icon">
-                
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-number">53 million</div>
-                        <div class="stat-label">of Caregivers</div>
-                        <div class="stat-description">Americans caring for<br>aging loved ones</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">$600 billion</div>
-                        <div class="stat-label">Unpaid Care</div>
-                        <div class="stat-description">Annual value of<br>family caregiving</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">26 hours</div>
-                        <div class="stat-label">Caregiving</div>
-                        <div class="stat-description">Average time spent<br>providing care each week</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">61%</div>
-                        <div class="stat-label">Working</div>
-                        <div class="stat-description">Caregivers trying to work<br>while providing care</div>
+        <!-- Full-bleed image outside container -->
+        <img src="images/hero-hug.jpg" alt="Mother and daughter embracing" class="hero-image-bleed">
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Your Elder care<br>administrator</h1>
+                    <p class="hero-subtitle">
+                        Elderella lightens the<br>
+                        invisible load of Elder care<br>
+                        by planning, organizing,<br>
+                        delegating, and following<br>
+                        up. Away the invisible to-do<br>
+                        that weighs you down.
+                    </p>
+                    
+                    <img src="images/elderella-sparkle.svg" alt="Elderella sparkle" class="star-icon">
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">53 million</div>
+                            <div class="stat-label">of Caregivers</div>
+                            <div class="stat-description">Americans caring for<br>aging loved ones</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">$600 billion</div>
+                            <div class="stat-label">Unpaid Care</div>
+                            <div class="stat-description">Annual value of<br>family caregiving</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">26 hours</div>
+                            <div class="stat-label">Caregiving</div>
+                            <div class="stat-description">Average time spent<br>providing care each week</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">61%</div>
+                            <div class="stat-label">Working</div>
+                            <div class="stat-description">Caregivers trying to work<br>while providing care</div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Right: Form -->
-            <div class="form-column">
+                <!-- Form -->
                 <div class="interview-card">
                     <h3 class="form-title">Share your<br>Elder care story</h3>
                     <p class="form-subtitle">Tell us how Elder care is<br>impacting you most</p>
@@ -99,7 +101,7 @@
 
     <!-- Carrying Section -->
     <section class="carrying-section">
-        <div class="carrying-container">
+        <div class="container">
             <div class="carrying-text">
                 <h2>You're carrying a lot.</h2>
                 <p class="subtitle">
@@ -116,19 +118,20 @@
                     Even when you're giving everything you have.
                 </p>
             </div>
-            
-            <div class="image-grid">
-                <img src="images/gallery-1.jpg" alt="Driving elderly">
-                <img src="images/gallery-2.jpg" alt="Grocery shopping">
-                <img src="images/gallery-3.jpg" alt="Paying bills">
-                <img src="images/gallery-4.jpg" alt="Playing cards">
-            </div>
+        </div>
+        
+        <!-- Full-bleed images outside container -->
+        <div class="image-grid-bleed">
+            <img src="images/gallery-1.jpg" alt="Driving elderly">
+            <img src="images/gallery-2.jpg" alt="Grocery shopping">
+            <img src="images/gallery-3.jpg" alt="Paying bills">
+            <img src="images/gallery-4.jpg" alt="Playing cards">
         </div>
     </section>
 
     <!-- Testimonials -->
     <section class="testimonials-section">
-        <div class="testimonials-container">
+        <div class="container">
             <div class="testimonial-card">
                 <p>"When you're in it you feel like you're<br>
                 the only person in the world going<br>
@@ -154,72 +157,82 @@
 
     <!-- Not Alone Section -->
     <section class="not-alone-section">
-        <div class="content">
-            <h2>You're not alone.</h2>
-            <p class="bold">
-                Stop doing it all yourself,<br>
-                or relying on fragmented,<br>
-                unreliable help.
-            </p>
-            <p>
-                Elderella lifts weight off your shoulders<br>
-                by bringing your circle of care together<br>
-                across coordinated families.
-            </p>
-            <p>
-                It restores your sense of context, frees<br>
-                up your precious time and energy, and<br>
-                turns Elder care chaos into calm.
-            </p>
+        <div class="container">
+            <div class="not-alone-content">
+                <h2>You're not alone.</h2>
+                <p class="bold">
+                    Stop doing it all yourself,<br>
+                    or relying on fragmented,<br>
+                    unreliable help.
+                </p>
+                <p>
+                    Elderella lifts weight off your shoulders<br>
+                    by bringing your circle of care together<br>
+                    across coordinated families.
+                </p>
+                <p>
+                    It restores your sense of context, frees<br>
+                    up your precious time and energy, and<br>
+                    turns Elder care chaos into calm.
+                </p>
+            </div>
         </div>
-        <img src="images/hands-together.jpg" alt="Hands together" class="circle-image">
+        
+        <!-- Full-bleed image outside container -->
+        <img src="images/hands-together.jpg" alt="Hands together" class="hands-image-bleed">
     </section>
 
     <!-- Founders -->
     <section class="founders-section">
-        <h2>Meet the founders.</h2>
-        <p>We understand the invisible load because we've carried it too.</p>
-        
-        <div class="founders-grid">
-            <div class="founder">
-                <img src="images/founders/jacqui.jpg" alt="Jacqui Murphy">
-                <h3>Jacqui Murphy</h3>
-                <p>Co-founder & CEO</p>
-                <a href="https://www.linkedin.com/in/jacquimurphy/" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                </a>
+        <div class="container">
+            <h2>Meet the founders.</h2>
+            <p>We understand the invisible load because we've carried it too.</p>
+            
+            <div class="founders-grid">
+                <div class="founder">
+                    <img src="images/founders/jacqui.jpg" alt="Jacqui Murphy">
+                    <h3>Jacqui Murphy</h3>
+                    <p>Co-founder</p>
+                    <a href="https://www.linkedin.com/in/jacquimurphy/" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="founder">
+                    <img src="images/founders/mike.jpg" alt="Mike Kirkup">
+                    <h3>Mike Kirkup</h3>
+                    <p>Co-founder</p>
+                    <a href="https://www.linkedin.com/in/mikekirkup/" target="_blank">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
-            <div class="founder">
-                <img src="images/founders/mike.jpg" alt="Mike Kirkup">
-                <h3>Mike Kirkup</h3>
-                <p>Co-founder & CTO</p>
-                <a href="https://www.linkedin.com/in/mikekirkup/" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                </a>
+            
+            <div class="contact">
+                <p>Based in Waterloo, Ontario, Canada</p>
+                <p><a href="mailto:hello@elderella.com">hello@elderella.com</a></p>
             </div>
+            
+            <img src="images/elderella-sparkle.svg" alt="Elderella sparkle" class="star-icon">
         </div>
-        
-        <div class="contact">
-            <p>Based in Waterloo, Ontario, Canada</p>
-            <p><a href="mailto:hello@elderella.com">hello@elderella.com</a></p>
-        </div>
-        
-        <img src="images/elderella-sparkle.svg" alt="Elderella sparkle" class="star-icon">
     </section>
 
     <!-- Footer -->
     <footer>
-        <a href="privacy.html">Privacy Policy</a>
-        <span>© 2025 Elderella Inc.</span>
-        <a href="https://www.linkedin.com/company/elderella/" target="_blank">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#9ca3af">
-                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-            </svg>
-        </a>
+        <div class="container">
+            <div class="footer-content">
+                <a href="privacy.html">Privacy Policy</a>
+                <span>© 2025 Elderella Inc.</span>
+                <a href="https://www.linkedin.com/in/company/elderella/" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#9ca3af">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
     </footer>
 
     <script>
