@@ -271,7 +271,7 @@ textarea {
 
 /* Carrying Section */
 .carrying-section {
-    background: white;
+    background: #F5F3ED;
     padding: 100px 0;
     position: relative;
     min-height: 500px;
@@ -363,7 +363,7 @@ textarea {
 }
 
 .testimonial-card {
-    background: white;
+    background: #ffffff;
     padding: 26px 24px;
     border-radius: 8px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.08);
@@ -388,7 +388,7 @@ textarea {
 
 /* Not Alone Section */
 .not-alone-section {
-    background: white;
+    background: #F5F3ED;
     padding: 65px 0;
     position: relative;
     overflow: visible;
