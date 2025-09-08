@@ -16,8 +16,8 @@ body {
 .container {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 130px;
-    box-sizing: content-box;
+    padding: 0 60px;
+    box-sizing: border-box;
 }
 
 /* Header */
@@ -63,7 +63,7 @@ body {
 /* Full-bleed hero image */
 .hero-image-bleed {
     position: absolute;
-    left: 0;
+    left: -200px;
     top: 50%;
     transform: translateY(-50%);
     width: 739px;
@@ -313,7 +313,7 @@ textarea {
 /* Full-bleed gallery images */
 .image-grid-bleed {
     position: absolute;
-    right: -150px;
+    right: -180px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
@@ -322,7 +322,7 @@ textarea {
     height: 700px;
 }
 
-/* Target picture wrappers */
+/* Picture wrappers */
 .image-grid-bleed picture {
     display: block;
     width: 350px;
@@ -469,7 +469,7 @@ textarea {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 20px;
     color: #FFFFF4;
-    margin-bottom: 45px;
+    margin-bottom: 40px;
 }
 /* Force paragraph color in Founders section */
 .founders-section .container > p {
@@ -493,6 +493,7 @@ textarea {
     border-radius: 50%;
     object-fit: cover;
     border: 8px solid #FFFFF4;
+    margin-top: 30px;
     margin-bottom: 15px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
 }
