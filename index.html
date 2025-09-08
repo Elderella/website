@@ -22,10 +22,17 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <!-- Full-bleed image outside container -->
-        <img src="images/hero-hug.jpg" alt="Mother and daughter embracing" class="hero-image-bleed">
         
         <div class="container">
             <div class="hero-content">
+                <picture>
+                    <source srcset="images/women-hugging-thankful.webp" type="image/webp">
+                    <source srcset="images/women-hugging-thankful.jpg" type="image/jpeg">
+                    <img src="images/women-hugging-thankful.jpg" 
+                        alt="Women hugging so thankful" 
+                        class="hero-image-bleed" 
+                                loading="lazy">
+                        </picture>
                 <div class="hero-text">
                     <h1 class="hero-title">Your Elder care<br>administrator</h1>
                     <p class="hero-subtitle">
@@ -40,7 +47,7 @@
                     <div class="stats-grid">
                         <div class="stat-card">
                             <div class="stat-number">53 million</div>
-                            <div class="stat-label">of Caregivers</div>
+                            <div class="stat-label">Family Caregivers</div>
                             <div class="stat-description">Americans caring for<br>aging loved ones</div>
                         </div>
                         <div class="stat-card">
@@ -64,7 +71,7 @@
                 <!-- Form -->
                 <div class="interview-card">
                     <h3 class="form-title">Share your<br>Elder care story</h3>
-                    <p class="form-subtitle">Tell us how Elder care is<br>impacting you most</p>
+                    <p class="form-subtitle">Tell us how Elder care is impacting you and help us build the support system you need.</p>
                     
                     <form id="interviewForm">
                         <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -98,55 +105,74 @@
     </section>
 
     <!-- Carrying Section -->
-    <section class="carrying-section">
-        <div class="container">
-            <div class="carrying-text">
-                <h2>You're carrying a lot.</h2>
-                <p class="subtitle">
-                    Juggling careers, kids, and the relentless<br>
-                    needs of Elder care while feeling anxious,<br>
-                    heavy—isolating, exhausting, and lonely.
-                </p>
-                <p class="text">
-                    Long lists, family tensions, and sleepless<br>
-                    nights pile on, until the burden feels too much<br>
-                    to carry.
-                </p>
-                <p class="text">
-                    Even when you're giving everything you have.
-                </p>
-            </div>
-        </div>
-        
-        <!-- Full-bleed images outside container -->
-        <div class="image-grid-bleed">
-            <img src="images/gallery-1.jpg" alt="Driving elderly">
-            <img src="images/gallery-2.jpg" alt="Grocery shopping">
-            <img src="images/gallery-3.jpg" alt="Paying bills">
-            <img src="images/gallery-4.jpg" alt="Playing cards">
-        </div>
-    </section>
+<section class="carrying-section">
+  <div class="container">
+    <div class="carrying-text">
+      <h2>You're carrying a lot.</h2>
+      <p class="text">
+        Juggling careers, kids, and the relentless<br>
+        needs of Elder care often feels impossibly<br>
+        heavy—isolating, exhausting, and lonely.
+      </p>
+      <p class="text">
+        Long lists, family tensions, and sleepless<br>
+        nights pile on, until the burden feels too much<br>
+        to carry.
+      </p>
+      <p class="text">
+        Even when you're giving everything you have.
+      </p>
+    </div>
+
+    <!-- Gallery images INSIDE container -->
+    <div class="image-grid-bleed">
+      <picture>
+        <source srcset="images/man-driving-elder.webp" type="image/webp">
+        <source srcset="images/man-driving-elder.jpg" type="image/jpeg">
+        <img src="images/man-driving-elder.jpg" alt="Man driving elder" loading="lazy">
+      </picture>
+
+      <picture>
+        <source srcset="images/woman-grocery-shopping-alone.webp" type="image/webp">
+        <source srcset="images/woman-grocery-shopping-alone.jpg" type="image/jpeg">
+        <img src="images/woman-grocery-shopping-alone.jpg" alt="Woman grocery shopping alone" loading="lazy">
+      </picture>
+
+      <picture>
+        <source srcset="images/woman-paying-bills.webp" type="image/webp">
+        <source srcset="images/woman-paying-bills.jpg" type="image/jpeg">
+        <img src="images/woman-paying-bills.jpg" alt="Woman paying bills" loading="lazy">
+      </picture>
+
+      <picture>
+        <source srcset="images/playing-cards-with-elder.webp" type="image/webp">
+        <source srcset="images/playing-cards-with-elder.jpg" type="image/jpeg">
+        <img src="images/playing-cards-with-elder.jpg" alt="Playing cards with elder" loading="lazy">
+      </picture>
+    </div>
+  </div>
+</section>
+
 
     <!-- Testimonials -->
     <section class="testimonials-section">
         <div class="container">
             <div class="testimonial-card">
-                <p>"When you're in it you feel like you're<br>
-                the only person in the world going<br>
-                through it and there's no answers<br>
+                <p>"When you're in it you feel like you're 
+                the only person in the world going 
+                through it and there's no answers 
                 because it's just you and them."</p>
                 <span class="author">Sarah, 45</span>
             </div>
             <div class="testimonial-card">
-                <p>"Coordinating between my siblings<br>
-                about Dad's care is exhausting. We're all<br>
-                trying to help but nobody's on the same<br>
-                page."</p>
+                <p>"Coordinating between my siblings 
+                about Dad's care is exhausting. We're all trying 
+                to help but nobody's on the same page."</p>
                 <span class="author">Michael, 52, Teacher</span>
             </div>
             <div class="testimonial-card">
-                <p>"I had to reduce my work hours to care<br>
-                for my parents. The financial stress is<br>
+                <p>"I had to reduce my work hours to care 
+                for my parents. The financial stress is 
                 overwhelming."</p>
                 <span class="author">Jennifer, 48, Marketing Director</span>
             </div>
@@ -157,19 +183,18 @@
     <section class="not-alone-section">
         <div class="container">
             <div class="not-alone-content">
-                <h2>You're not alone.</h2>
-                <p class="bold">
+                <h2>You're not alone.<br><br>
                     Stop doing it all yourself,<br>
                     or relying on fragmented,<br>
                     unreliable help.
-                </p>
+                </h2>    
                 <p>
                     Elderella lifts weight off your shoulders<br>
                     by bringing your circle of care together<br>
-                    across coordinated families.
+                    in one coordinated system.
                 </p>
                 <p>
-                    It restores your sense of context, frees<br>
+                    It restores your sense of control, frees<br>
                     up your precious time and energy, and<br>
                     turns Elder care chaos into calm.
                 </p>
@@ -177,7 +202,15 @@
         </div>
         
         <!-- Full-bleed image outside container -->
-        <img src="images/hands-together.jpg" alt="Hands together" class="hands-image-bleed">
+       <picture>
+  <source srcset="images/stacked-helping-hands.webp" type="image/webp">
+  <source srcset="images/stacked-helping-hands.jpg" type="image/jpeg">
+  <img 
+    src="images/stacked-helping-hands.jpg" 
+    alt="Stacked helping hands" 
+    class="hands-image-bleed" 
+    loading="lazy">
+</picture>
     </section>
 
     <!-- Founders -->
@@ -225,7 +258,7 @@
                 <a href="privacy.html">Privacy Policy</a>
                 <span>© 2025 Elderella Inc.</span>
                 <a href="https://www.linkedin.com/in/company/elderella/" target="_blank">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#9ca3af">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#FFFFF4">
                         <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                     </svg>
                 </a>
