@@ -22,8 +22,15 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <!-- Full-bleed image outside container -->
-        <img src="images/hero-hug.jpg" alt="Mother and daughter embracing" class="hero-image-bleed">
-        
+        <picture>
+  <source srcset="images/women-hugging-thankful.webp" type="image/webp">
+  <source srcset="images/women-hugging-thankful.jpg" type="image/jpeg">
+  <img 
+    src="images/women-hugging-thankful.jpg" 
+    alt="Women hugging so thankful" 
+    class="hero-image-bleed" 
+    loading="lazy">
+</picture>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -66,7 +73,7 @@
                 <!-- Form -->
                 <div class="interview-card">
                     <h3 class="form-title">Share your<br>Elder care story</h3>
-                    <p class="form-subtitle">Tell us how Elder care is<br>impacting you most</p>
+                    <p class="form-subtitle">Tell us how Elder care is impacting you and help us build the support system you need.</p>
                     
                     <form id="interviewForm">
                         <input type="text" id="name" name="name" placeholder="Your name" required>
@@ -122,11 +129,30 @@
         
         <!-- Full-bleed images outside container -->
         <div class="image-grid-bleed">
-            <img src="images/gallery-1.jpg" alt="Driving elderly">
-            <img src="images/gallery-2.jpg" alt="Grocery shopping">
-            <img src="images/gallery-3.jpg" alt="Paying bills">
-            <img src="images/gallery-4.jpg" alt="Playing cards">
-        </div>
+            <picture>
+                <source srcset="images/man-driving-elder.webp" type="image/webp">
+                <source srcset="images/man-driving-elder.jpg" type="image/jpeg">
+                <img src="images/man-driving-elder.jpg" alt="Man driving elder" loading="lazy">
+            </picture>
+
+            <picture>
+                <source srcset="images/woman-grocery-shopping-alone.webp" type="image/webp">
+                <source srcset="images/woman-grocery-shopping-alone.jpg" type="image/jpeg">
+                <img src="images/woman-grocery-shopping-alone.jpg" alt="Woman grocery shopping alone" loading="lazy">
+            </picture>
+
+            <picture>
+                <source srcset="images/woman-paying-bills.webp" type="image/webp">
+                <source srcset="images/woman-paying-bills.jpg" type="image/jpeg">
+                <img src="images/woman-paying-bills.jpg" alt="Woman paying bills" loading="lazy">
+            </picture>
+
+            <picture>
+                <source srcset="images/playing-cards-with-elder.webp" type="image/webp">
+                <source srcset="images/playing-cards-with-elder.jpg" type="image/jpeg">
+                <img src="images/playing-cards-with-elder.jpg" alt="Playing cards with elder" loading="lazy">
+            </picture>
+</div>
     </section>
 
     <!-- Testimonials -->
@@ -158,11 +184,11 @@
     <section class="not-alone-section">
         <div class="container">
             <div class="not-alone-content">
-                <h2>You're not alone.</p>
+                <h2>You're not alone.<br><br>
                     Stop doing it all yourself,<br>
                     or relying on fragmented,<br>
-                    unreliable help.</h2>
-                </p>
+                    unreliable help.
+                </h2>    
                 <p>
                     Elderella lifts weight off your shoulders<br>
                     by bringing your circle of care together<br>
@@ -177,7 +203,15 @@
         </div>
         
         <!-- Full-bleed image outside container -->
-        <img src="images/hands-together.jpg" alt="Hands together" class="hands-image-bleed">
+       <picture>
+  <source srcset="images/stacked-helping-hands.webp" type="image/webp">
+  <source srcset="images/stacked-helping-hands.jpg" type="image/jpeg">
+  <img 
+    src="images/stacked-helping-hands.jpg" 
+    alt="Stacked helping hands" 
+    class="hands-image-bleed" 
+    loading="lazy">
+</picture>
     </section>
 
     <!-- Founders -->
