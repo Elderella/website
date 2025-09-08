@@ -9,7 +9,7 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 20px;
     line-height: 1.5;
-    color: #333;
+    color: #595959;
 }
 
 /* Global container for content constraint */
@@ -26,10 +26,9 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: white;
+    background: #FFFFF4;
     padding: 20px 0;
     z-index: 100;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 .site-header .container {
@@ -39,7 +38,7 @@ body {
 }
 
 .logo {
-    height: 36px;
+    height: 79px;
     width: auto;
     display: block;
 }
@@ -54,7 +53,7 @@ body {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, #5a4fcf 0%, #8b82db 100%);
+    background: #5a4fcf;
     padding: 140px 0 75px;
     margin-top: 64px;
     position: relative;
@@ -71,7 +70,6 @@ body {
     height: 580px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid white;
     box-shadow: 0 6px 20px rgba(0,0,0,0.12);
     z-index: 2;
 }
@@ -94,9 +92,9 @@ body {
 
 .hero-title {
     font-family: 'Merriweather', serif;
-    font-size: 36px;
+    font-size: 48px;
     font-weight: 400;
-    color: white;
+    color: #FFFFF4;
     line-height: 1.2;
     margin-bottom: 20px;
     text-align: right;
@@ -105,16 +103,16 @@ body {
 .hero-subtitle {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 20px;
-    color: rgba(255,255,255,0.95);
-    line-height: 1.45;
+    color: #FFFFF4;
+    line-height: 1.2;
     margin-bottom: 30px;
     font-weight: 400;
     text-align: right;
 }
 
 .star-icon {
-    width: 32px;
-    height: 32px;
+    width: 96px;
+    height: 96px;
     margin: 15px 0 20px;
     align-self: flex-end;
     display: block;
@@ -122,46 +120,49 @@ body {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(2, 190px);
-    gap: 10px;
-    justify-self: flex-end;
-}
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+    gap: 24px;
+    justify-items: stretch;
+    margin: 0 auto;
+    }
 
 .stat-card {
     background: #ffffff;
-    border-radius: 7px;
-    padding: 15px 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    text-align: left;
+    border-radius: 12px;
+    padding: 22px 26px;
+    text-align: center;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.10);
 }
 
 .stat-number {
     font-family: 'Merriweather', serif;
     font-size: 24px;
     font-weight: 400;
-    color: #5a4fcf;
-    margin-bottom: 3px;
+    line-height:1.15;
+    color: #342A99;
+    margin-bottom: 8px;
 }
 
 .stat-label {
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: #333;
-    margin-bottom: 3px;
+    font-size: 20
+    px;
+    font-weight: 600;
+    color: #595959;
+    margin-bottom: 6px;
 }
 
 .stat-description {
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 14px;
-    color: #666;
+    font-size: 18px;
+    color: #595959;
+    margin-top: 6px;
     line-height: 1.4;
 }
 
 /* Form */
 .interview-card {
-    background: #ffffff;
-    border-radius: 8px;
+    background: #CCCCFF;
     padding: 26px 24px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.08);
     width: 320px;
@@ -170,9 +171,9 @@ body {
 
 .form-title {
     font-family: 'Merriweather', serif;
-    font-size: 24px;
+    font-size: 36px;
     font-weight: 400;
-    color: #2d2d2d;
+    color: #342A99;
     line-height: 1.2;
     margin-bottom: 6px;
 }
@@ -180,7 +181,7 @@ body {
 .form-subtitle {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px;
-    color: #666;
+    color: #595959;
     margin-bottom: 20px;
     line-height: 1.35;
 }
@@ -194,9 +195,7 @@ form {
 input, textarea {
     width: 100%;
     padding: 9px 11px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    background: #FFFFF4;
     font-size: 12.5px;
     font-family: inherit;
 }
@@ -207,7 +206,6 @@ input::placeholder, textarea::placeholder {
 
 input:focus, textarea:focus {
     outline: none;
-    border-color: #8b7dd8;
 }
 
 textarea {
@@ -221,7 +219,7 @@ textarea {
 
 .radio-label {
     font-size: 13px;
-    color: #333;
+    color: #595959;
     font-weight: 500;
     display: block;
     margin-bottom: 10px;
@@ -237,7 +235,7 @@ textarea {
     display: flex;
     align-items: center;
     font-size: 13px;
-    color: #555;
+    color: #595959;
     cursor: pointer;
 }
 
@@ -247,12 +245,11 @@ textarea {
 }
 
 .submit-btn {
-    background: linear-gradient(135deg, #FDB975 0%, #F89D52 100%);
-    color: white;
+    background: #FFBC57;
+    color: #595959;
     padding: 10px 14px;
     border: none;
-    border-radius: 5px;
-    font-size: 13px;
+    font-size: 18px;
     font-weight: 500;
     cursor: pointer;
     transition: transform 0.2s;
@@ -284,16 +281,16 @@ textarea {
 
 .carrying-section h2 {
     font-family: 'Merriweather', serif;
-    font-size: 36px;
+    font-size: 24px;
     font-weight: 400;
-    color: #333;
+    color: #342A99;
     margin-bottom: 12px;
 }
 
 .carrying-section .subtitle {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 20px;
-    color: #666;
+    color: #595959;
     line-height: 1.45;
     margin-bottom: 10px;
 }
@@ -301,7 +298,7 @@ textarea {
 .carrying-section .text {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
-    color: #777;
+    color: #595959;
     line-height: 1.45;
     margin-bottom: 8px;
 }
@@ -323,7 +320,7 @@ textarea {
     height: 350px;
     object-fit: cover;
     border-radius: 50%;
-    border: 5px solid white;
+    border: 1px solid white;
     box-shadow: 0 6px 20px rgba(0,0,0,0.15);
     margin-left: -180px;
     position: relative;
@@ -352,7 +349,7 @@ textarea {
 
 /* Testimonials */
 .testimonials-section {
-    background: linear-gradient(135deg, #5a4fcf 0%, #8b82db 100%);
+    background: #5a4fcf;
     padding: 65px 0;
 }
 
@@ -363,10 +360,10 @@ textarea {
 }
 
 .testimonial-card {
-    background: #ffffff;
+    background: #F5F3ED;
     padding: 26px 24px;
     border-radius: 8px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.10);
     flex: 1;
     max-width: 330px;
 }
@@ -374,15 +371,14 @@ textarea {
 .testimonial-card p {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
-    color: #555;
-    line-height: 1.6;
+    color: #595959;
+    line-height: 1.4;
     margin-bottom: 18px;
-    font-style: italic;
 }
 
 .author {
     font-size: 14px;
-    color: #5a4fcf;
+    color: #342A99;
     font-weight: 600;
 }
 
@@ -400,9 +396,9 @@ textarea {
 
 .not-alone-section h2 {
     font-family: 'Merriweather', serif;
-    font-size: 36px;
+    font-size: 24px;
     font-weight: 400;
-    color: #333;
+    color: #342A99;
     margin-bottom: 18px;
 }
 
@@ -440,7 +436,7 @@ textarea {
 
 /* Founders Section */
 .founders-section {
-    background: linear-gradient(135deg, #5a4fcf 0%, #8b82db 100%);
+    background: #5a4fcf;
     padding: 65px 0;
     text-align: center;
 }
@@ -449,14 +445,14 @@ textarea {
     font-family: 'Merriweather', serif;
     font-size: 36px;
     font-weight: 400;
-    color: white;
+    color: #FFFFF4;
     margin-bottom: 10px;
 }
 
 .founders-section > p {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 20px;
-    color: rgba(255,255,255,0.9);
+    color: FFFFF4;
     margin-bottom: 45px;
 }
 
@@ -476,7 +472,7 @@ textarea {
     height: 130px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid white;
+    border: 3px solid #FFFFF4;
     margin-bottom: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.12);
 }
@@ -484,13 +480,13 @@ textarea {
 .founder h3 {
     font-size: 17px;
     font-weight: 500;
-    color: white;
+    color: #FFFFF4;
     margin-bottom: 3px;
 }
 
 .founder p {
     font-size: 13px;
-    color: rgba(255,255,255,0.85);
+    color: #FFFFF4;
     margin-bottom: 10px;
 }
 
@@ -499,7 +495,7 @@ textarea {
 }
 
 .contact {
-    color: rgba(255,255,255,0.9);
+    color: #FFFFF4;
     font-size: 12px;
     margin-bottom: 35px;
 }
@@ -509,7 +505,7 @@ textarea {
 }
 
 .contact a {
-    color: white;
+    color: #FFFFF4;
     text-decoration: none;
 }
 
@@ -525,7 +521,7 @@ textarea {
 
 /* Footer */
 footer {
-    background: #2d3748;
+    background: #5A4FCF;
     padding: 20px 0;
 }
 
@@ -537,17 +533,17 @@ footer {
 }
 
 footer a {
-    color: #a0aec0;
+    color: #FFFFF4;
     text-decoration: none;
     font-size: 13px;
 }
 
 footer a:hover {
-    color: white;
+    color:#FFFFF4;
 }
 
 footer span {
-    color: #a0aec0;
+    color: #FFFFF4;
     font-size: 13px;
 }
 
@@ -585,9 +581,8 @@ footer span {
     }
     
     .stats-grid {
-        justify-self: center;
-    }
-    
+        align-self: center;
+
     .image-grid-bleed,
     .hands-image-bleed {
         position: relative;
