@@ -70,7 +70,7 @@ body {
     height: 580px;
     border-radius: 50%;
     object-fit: cover;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    box-shadow: 10px 10px 30px #595959 (0,0,0,0.12);
     z-index: 2;
 }
 
@@ -406,7 +406,7 @@ textarea {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 20px;
     font-weight: 600;
-    color: #444;
+    color: #595959;
     line-height: 1.45;
     margin-bottom: 16px;
 }
@@ -414,7 +414,7 @@ textarea {
 .not-alone-section p {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
-    color: #666;
+    color: #595959;
     line-height: 1.45;
     margin-bottom: 10px;
 }
@@ -452,7 +452,7 @@ textarea {
 .founders-section > p {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 20px;
-    color: FFFFF4;
+    color: #FFFFF4;
     margin-bottom: 45px;
 }
 
@@ -472,7 +472,7 @@ textarea {
     height: 130px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #FFFFF4;
+    border: 8px solid #FFFFF4;
     margin-bottom: 15px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.12);
 }
