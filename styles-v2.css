@@ -76,7 +76,7 @@ body {
 
 .hero-content {
     display: flex;
-    align-iterms: flex-start;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 60px;
     position: relative;
