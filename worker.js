@@ -142,7 +142,7 @@ export default {
   async fetch(request, env, ctx) {
     // Get origin from request
     const origin = request.headers.get('Origin');
-    const allowedOrigins = ['https://elderella.com', 'https://elderella.github.io', 'http://localhost:8000'];
+    const allowedOrigins = ['https://elderella.com', 'https://www.elderella.com', 'https://elderella.github.io', 'http://localhost:8000', 'http://localhost:8080'];
     const corsOrigin = allowedOrigins.includes(origin) ? origin : allowedOrigins[0];
     
     // Handle CORS
