@@ -16,7 +16,7 @@ body {
 .container {
     max-width: 1440px;
     margin: 0 auto;
-    padding: 0 60px;
+    padding: 0 180px;
     box-sizing: border-box;
 }
 
@@ -54,8 +54,8 @@ body {
 /* Hero Section */
 .hero-section {
     background: #5a4fcf;
-    padding: 270px 0 75px;
-    margin-top: 64px;
+    padding: 0 0 125px;
+    margin-top: 60px;
     position: relative;
     overflow: visible;
 }
@@ -63,11 +63,11 @@ body {
 /* Full-bleed hero image */
 .hero-image-bleed {
     position: absolute;
-    left: -200px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 739px;
-    height: 739px;
+    left: -50px;
+    top: 200px;
+    transform: none;
+    width: 600px;
+    height: 600px;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
@@ -76,11 +76,11 @@ body {
 
 .hero-content {
     display: flex;
-    gap: 60px;
-    align-items: center;
+    align-iterms: flex-start;
     justify-content: space-between;
+    gap: 60px;
     position: relative;
-    padding-left: 400px; /* Space for the overlapping image */
+    padding-left: 350px;
 }
 
 .hero-text {
@@ -88,6 +88,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    margin-top: 270px;
 }
 
 .hero-title {
@@ -105,16 +106,16 @@ body {
     font-size: 20px;
     color: #FFFFF4;
     line-height: 1.2;
-    margin-bottom: 30px;
+    margin-bottom: 100px;
     font-weight: 400;
     text-align: right;
 }
 
 .star-icon {
-    width: 96px;
-    height: 96px;
-    margin: 15px 0 20px;
-    align-self: flex-end;
+    width: 70px;
+    height: 70px;
+    margin: 0px 70px 50px;
+    margin-bottom: 200px;
     display: block;
 }
 
@@ -163,10 +164,11 @@ body {
 /* Form */
 .interview-card {
     background: #CCCCFF;
-    padding: 60px 60px;
+    padding: 180px 60px 60px; /* top | sides | bottom */
     box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    width: 488px;
-    height: 723px;
+    width: 100%;
+    max-width: 488px;
+    max-height: 800px;
     flex-shrink: 0;
 }
 
@@ -199,8 +201,8 @@ input, textarea {
     background: #FFFFF4;
     font-size: 16px;
     font-family: inherit;
-    border: none;              /* removes dark border */
-    border-radius: 8px;        /* rounded corners */
+    border: none;
+    border-radius: 8px;
 }
 
 input::placeholder, textarea::placeholder {
@@ -208,8 +210,8 @@ input::placeholder, textarea::placeholder {
 }
 
 input:focus, textarea:focus {
-    outline: none;             /* no dark outline */
-    border: 1px solid #8b7dd8; /* optional subtle focus border (adjust color if needed) */
+    outline: none;
+    border: 1px solid #8b7dd8;
 }
 
 textarea {
@@ -276,9 +278,8 @@ textarea {
 /* Carrying Section */
 .carrying-section {
     background: #F5F3ED;
-    padding: 100px 0;
+    padding: 65px 0;
     position: relative;
-    min-height: 500px;
     overflow: visible;
 }
 
@@ -291,7 +292,7 @@ textarea {
     font-size: 24px;
     font-weight: 400;
     color: #342A99;
-    margin-bottom: 12px;
+    margin-bottom: 18px;
 }
 
 .carrying-section .subtitle {
@@ -310,10 +311,18 @@ textarea {
     margin-bottom: 8px;
 }
 
+.carrying-section .text:last-child {
+    margin-bottom: 0;
+}
+
 /* Full-bleed gallery images */
+.carrying-section .container {
+    position: relative; /* anchor images inside container */
+}
+
 .image-grid-bleed {
     position: absolute;
-    right: -180px;
+    right: -200px;   /* peeks out of container */
     top: 50%;
     transform: translateY(-50%);
     display: flex;
@@ -346,28 +355,28 @@ textarea {
 .image-grid-bleed picture:first-child {
     margin-left: 0;
     z-index: 1;
-    margin-top: -200px;
+    margin-top: -100px;
 }
 
 .image-grid-bleed picture:nth-child(2) {
     z-index: 2;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 .image-grid-bleed picture:nth-child(3) {
     z-index: 3;
-    margin-top: -150px;
+    margin-top: -100px;
 }
 
 .image-grid-bleed picture:nth-child(4) {
     z-index: 4;
-    margin-top: 200px;
+    margin-top: 100px;
 }
 
 /* Testimonials */
 .testimonials-section {
     background: #5a4fcf;
-    padding: 65px 0;
+    padding: 120px 0;
 }
 
 .testimonials-section .container {
@@ -436,18 +445,32 @@ textarea {
     margin-bottom: 10px;
 }
 
-/* Full-bleed hands image */
+/* Wrapper lets the image overlap sections */
+.not-alone-section .container {
+    position: relative; /* anchor hands to container */
+}
+
+.hands-wrapper {
+  position: absolute;
+  top: 50%;              /* center vertically in container */
+  right: 250px;         /* peek outside container */
+  transform: translateY(-50%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Hands image */
 .hands-image-bleed {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    object-fit: cover;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    z-index: 2;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  display: block;
+
+  /* Overlap into adjacent sections */
+  margin-top: -100px;   /* pushes up into Testimonials */
+  margin-bottom: -100px;/* pushes down into Founders */
 }
 
 /* Founders Section */
@@ -488,8 +511,8 @@ textarea {
 }
 
 .founder img {
-    width: 130px;
-    height: 130px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
     border: 8px solid #FFFFF4;
@@ -499,14 +522,14 @@ textarea {
 }
 
 .founder h3 {
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 500;
     color: #FFFFF4;
     margin-bottom: 3px;
 }
 
 .founder p {
-    font-size: 13px;
+    font-size: 16px;
     color: #FFFFF4;
     margin-bottom: 10px;
 }
@@ -517,7 +540,7 @@ textarea {
 
 .contact {
     color: #FFFFF4;
-    font-size: 12px;
+    font-size: 16px;
     margin-bottom: 35px;
 }
 
