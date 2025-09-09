@@ -278,7 +278,7 @@ textarea {
     background: #F5F3ED;
     padding: 65px 0;
     position: relative;
-    overflow: visible;
+    overflow: visible;  /* Allow images to overlap vertically */
 }
 
 .carrying-text {
@@ -320,7 +320,7 @@ textarea {
 
 .image-grid-bleed {
     position: absolute;
-    right: 0;   /* no peek - images cut off at edge */
+    right: -250px;   /* push right, overflow will clip */
     top: 50%;
     transform: translateY(-50%);
     display: flex;
