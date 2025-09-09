@@ -191,7 +191,7 @@ export default {
         }
         
         // Sanitize inputs (basic XSS prevention)
-        const sanitize = (str) => str ? String(str).trim().slice(0, 500) : '';
+        const sanitize = (str) => str ? String(str).trim() : '';
         const sanitizedData = {
           name: sanitize(data.name),
           email: sanitize(data.email).toLowerCase(),
