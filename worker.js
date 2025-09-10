@@ -396,8 +396,8 @@ export default {
                 parent_object: 'people',
                 parent_record_id: person.data.id.record_id,
                 entry_values: {
-                  // Stage attribute - set to "Interview Requested"
-                  '6bcb51ba-77e2-433b-b289-a0667c8b1961': [{ status: 'Interview Requested' }]
+                  // Stage attribute - set to "Interview Scheduled"
+                  '6bcb51ba-77e2-433b-b289-a0667c8b1961': [{ status: 'Interview Scheduled' }]
                 }
               }
             })
