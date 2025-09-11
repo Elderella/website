@@ -1,3 +1,105 @@
+// Sanitize context to avoid exposing sensitive data
+function sanitizeContext(context) {
+  const sensitiveKeys = ['password', 'token', 'key', 'secret', 'api_key', 'authorization', 'webhook'];
+  const sanitized = JSON.parse(JSON.stringify(context)); // Deep clone
+  
+  function sanitizeObject(obj) {
+    if (!obj || typeof obj !== 'object') return obj;
+    
+    for (const key in obj) {
+      if (sensitiveKeys.some(sensitive => key.toLowerCase().includes(sensitive))) {
+        obj[key] = '[REDACTED]';
+      } else if (typeof obj[key] === 'object') {
+        sanitizeObject(obj[key]);
+      }
+    }
+    return obj;
+  }
+  
+  return sanitizeObject(sanitized);
+}
+
+// Smart truncate for stack traces - keep beginning and end
+function truncateStackTrace(stack, maxLength = 2000) {
+  if (!stack || stack.length <= maxLength) return stack;
+  
+  const keepStart = Math.floor(maxLength * 0.6);
+  const keepEnd = Math.floor(maxLength * 0.35);
+  
+  return stack.substring(0, keepStart) + 
+         '\n\n... [truncated ' + (stack.length - maxLength) + ' chars] ...\n\n' + 
+         stack.substring(stack.length - keepEnd);
+}
+
+// Send error alerts to #alerts channel
+async function sendErrorAlert(error, context, env) {
+  if (!env.ALERTS_WEBHOOK_URL) {
+    console.error('ALERTS_WEBHOOK_URL not configured, cannot send error alert:', error);
+    return;
+  }
+  
+  try {
+    const timestamp = new Date().toLocaleString('en-US', {
+      timeZone: 'America/Toronto',
+      dateStyle: 'medium',
+      timeStyle: 'short'
+    });
+
+    const message = {
+      text: `🚨 Website Worker Error: ${error.message}`,
+      blocks: [
+        {
+          type: 'header',
+          text: {
+            type: 'plain_text',
+            text: '🚨 Website Worker Error',
+            emoji: true
+          }
+        },
+        {
+          type: 'section',
+          fields: [
+            {
+              type: 'mrkdwn',
+              text: `*Error:*\n${error.message}`
+            },
+            {
+              type: 'mrkdwn',
+              text: `*Time:*\n${timestamp}`
+            }
+          ]
+        },
+        {
+          type: 'section',
+          text: {
+            type: 'mrkdwn',
+            text: `*Context:*\n\`\`\`${JSON.stringify(sanitizeContext(context), null, 2)}\`\`\``
+          }
+        }
+      ]
+    };
+
+    if (error.stack) {
+      message.blocks.push({
+        type: 'section',
+        text: {
+          type: 'mrkdwn',
+          text: `*Stack Trace:*\n\`\`\`${truncateStackTrace(error.stack, 1500)}\`\`\``
+        }
+      });
+    }
+
+    await fetch(env.ALERTS_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(message)
+    });
+  } catch (alertError) {
+    // If we can't send alerts, at least log it
+    console.error('Failed to send error alert:', alertError, 'Original error:', error);
+  }
+}
+
 // Send notification to Slack when someone registers for an interview
 async function sendSlackNotification(formData, isNewToList, env) {
   if (!env.SLACK_WEBHOOK_URL) {
@@ -128,13 +230,16 @@ async function sendSlackNotification(formData, isNewToList, env) {
     });
 
     if (!slackResponse.ok) {
-      console.error('Slack notification failed:', slackResponse.status, await slackResponse.text());
+      const errorText = await slackResponse.text();
+      console.error('Slack notification failed:', slackResponse.status, errorText);
+      throw new Error(`Slack notification failed with status ${slackResponse.status}: ${errorText}`);
     } else {
       console.log('Slack notification sent successfully');
     }
   } catch (error) {
     console.error('Error sending Slack notification:', error);
-    // Don't throw - we don't want Slack issues to break the main flow
+    // Re-throw so the caller can handle and alert
+    throw error;
   }
 }
 
@@ -331,7 +436,7 @@ export default {
 
         if (!attioResponse.ok) {
           const errorText = await attioResponse.text();
-          console.error('Attio API error:', {
+          const errorDetails = {
             status: attioResponse.status,
             statusText: attioResponse.statusText,
             error: errorText,
@@ -340,7 +445,21 @@ export default {
               email: sanitizedData.email,
               name: sanitizedData.name
             }
-          });
+          };
+          
+          console.error('Attio API error:', errorDetails);
+          
+          // Send alert for Attio failures
+          await sendErrorAlert(
+            new Error(`Attio API failed with status ${attioResponse.status}: ${errorText}`),
+            {
+              operation: 'Create/Update Person',
+              email: sanitizedData.email,
+              name: sanitizedData.name,
+              status: attioResponse.status
+            },
+            env
+          );
           
           // Try to parse error response for more details
           let errorMessage = 'Failed to save to Attio';
@@ -405,12 +524,27 @@ export default {
 
           if (!listResponse.ok) {
             const errorText = await listResponse.text();
-            console.error('Failed to add to list:', {
+            const errorDetails = {
               status: listResponse.status,
               statusText: listResponse.statusText,
               error: errorText,
               personId: person.data.id
-            });
+            };
+            
+            console.error('Failed to add to list:', errorDetails);
+            
+            // Send alert for list add failures
+            await sendErrorAlert(
+              new Error(`Failed to add to User Interviews list: ${listResponse.status}`),
+              {
+                operation: 'Add to User Interviews List',
+                email: sanitizedData.email,
+                personId: person.data.id.record_id,
+                status: listResponse.status,
+                error: errorText
+              },
+              env
+            );
           } else {
             const listEntry = await listResponse.json();
             console.log('Successfully added to list:', listEntry);
@@ -427,7 +561,21 @@ export default {
           interviewer: data.interviewer // Pass through the original interviewer preference
         };
         
-        await sendSlackNotification(slackData, shouldAddToList, env);
+        try {
+          await sendSlackNotification(slackData, shouldAddToList, env);
+        } catch (slackError) {
+          // Send alert for Slack notification failures
+          await sendErrorAlert(
+            slackError,
+            {
+              operation: 'Send Interview Notification',
+              email: sanitizedData.email,
+              name: sanitizedData.name
+            },
+            env
+          );
+          // Don't throw - we already saved to Attio
+        }
 
         return new Response(JSON.stringify({ success: true }), {
           headers: {
@@ -437,6 +585,18 @@ export default {
         });
       } catch (error) {
         console.error('Error in interview handler:', error);
+        
+        // Send alert for any uncaught errors
+        await sendErrorAlert(
+          error,
+          {
+            operation: 'Interview Handler',
+            path: url.pathname,
+            email: data?.email || 'unknown'
+          },
+          env
+        );
+        
         return new Response(JSON.stringify({ error: error.message }), {
           status: 500,
           headers: {
@@ -497,14 +657,27 @@ export default {
 
         if (!attioResponse.ok) {
           const errorText = await attioResponse.text();
-          console.error('Attio API error (newsletter):', {
+          const errorDetails = {
             status: attioResponse.status,
             statusText: attioResponse.statusText,
             error: errorText,
             requestData: {
               email: sanitizedEmail
             }
-          });
+          };
+          
+          console.error('Attio API error (newsletter):', errorDetails);
+          
+          // Send alert for newsletter Attio failures
+          await sendErrorAlert(
+            new Error(`Newsletter Attio API failed with status ${attioResponse.status}: ${errorText}`),
+            {
+              operation: 'Newsletter - Create/Update Person',
+              email: sanitizedEmail,
+              status: attioResponse.status
+            },
+            env
+          );
           
           // Try to parse error response for more details
           let errorMessage = 'Failed to save to Attio';
@@ -533,6 +706,18 @@ export default {
         });
       } catch (error) {
         console.error('Error in newsletter handler:', error);
+        
+        // Send alert for newsletter signup failures
+        await sendErrorAlert(
+          error,
+          {
+            operation: 'Newsletter Signup',
+            path: url.pathname,
+            email: data?.email || 'unknown'
+          },
+          env
+        );
+        
         return new Response(JSON.stringify({ error: error.message }), {
           status: 500,
           headers: {
