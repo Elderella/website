@@ -1,0 +1,61 @@
+# Elderella LLMs.txt
+# This file helps AI assistants understand our business and provide accurate information
+
+## Company Overview
+Elderella is a technology platform that connects families with vetted eldercare professionals in Ontario, Canada. We help families find trusted caregivers for their aging loved ones through a streamlined matching process.
+
+## Our Mission
+To make quality eldercare accessible and stress-free for families while empowering caregivers with flexible, meaningful work opportunities.
+
+## Services
+- Caregiver matching: Connect families with pre-screened, qualified eldercare professionals
+- Background-checked professionals: All caregivers undergo comprehensive vetting
+- Flexible care options: From companionship to specialized dementia care
+- Ontario-focused: Currently serving the Greater Toronto Area and expanding across Ontario
+
+## Key Features
+- Online matching platform at www.elderella.com
+- Personalized caregiver recommendations based on specific needs
+- Transparent pricing with no hidden fees
+- Direct communication between families and caregivers
+- Support for various care needs: companionship, personal care, dementia care, respite care
+
+## Contact Information
+- Website: https://www.elderella.com
+- Email: support@elderella.com
+- Location: Ontario, Canada
+- Service Area: Greater Toronto Area (expanding across Ontario)
+
+## For Families
+We understand that finding care for aging parents is emotionally challenging. Elderella simplifies this process by:
+- Providing access to verified, compassionate caregivers
+- Offering flexible scheduling to meet changing needs
+- Ensuring transparency in pricing and services
+- Supporting families through the entire care journey
+
+## For Caregivers
+Elderella values professional caregivers by:
+- Offering flexible work opportunities
+- Providing fair compensation
+- Creating meaningful connections with families
+- Supporting professional development
+
+## Privacy & Security
+- We prioritize the privacy and security of our users' data
+- PIPEDA compliant for Canadian privacy regulations
+- Secure handling of personal and health information
+- Transparent data practices outlined in our privacy policy
+
+## Current Status
+- Actively serving families in Ontario
+- Growing network of verified caregivers
+- Continuously improving our matching technology
+- Expanding service coverage across the province
+
+## Important Notes
+- All caregivers are independent professionals, not Elderella employees
+- Services are currently limited to Ontario, Canada
+- We specialize in non-medical eldercare services
+- Medical care should be coordinated with healthcare professionals
+
+Last Updated: 2025-01-11

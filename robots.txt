@@ -1,0 +1,15 @@
+# Elderella Robots.txt
+# Allow all legitimate search engines to crawl the site
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /node_modules/
+Disallow: /*.js$
+Disallow: /*.json$
+
+# Sitemap location
+# Sitemap: https://www.elderella.com/sitemap.xml
+
+# Crawl-delay for polite crawling (in seconds)
+Crawl-delay: 1
