@@ -262,7 +262,18 @@ export default {
     }
 
     const url = new URL(request.url);
-    
+
+    // Log incoming API requests to catch early failures
+    if (url.pathname === '/api/interview' || url.pathname === '/api/newsletter') {
+      console.log('API request received:', {
+        method: request.method,
+        path: url.pathname,
+        origin: request.headers.get('Origin'),
+        hasBody: request.headers.get('Content-Length') > 0,
+        userAgent: request.headers.get('User-Agent')?.includes('iPhone') ? 'iPhone' : 'Other'
+      });
+    }
+
     // Handle interview form submission
     if (url.pathname === '/api/interview' && request.method === 'POST') {
       try {
@@ -401,10 +412,10 @@ export default {
               }
             });
           }
-          console.log('Phone formatting:', { 
-            original: sanitizedData.phone, 
-            digitsOnly: digitsOnly,
-            formatted: formattedPhone 
+          console.log('Phone formatting:', {
+            originalLength: sanitizedData.phone?.length,
+            digitsOnlyLength: digitsOnly?.length,
+            formatted: formattedPhone ? 'formatted successfully' : 'no phone'
           });
         }
         
@@ -447,7 +458,13 @@ export default {
             }
           };
           
-          console.error('Attio API error:', errorDetails);
+          console.error('Attio API error:', {
+            status: attioResponse.status,
+            statusText: attioResponse.statusText,
+            email: sanitizedData.email,
+            name: sanitizedData.name,
+            errorPreview: errorText ? errorText.substring(0, 200) : null
+          });
           
           // Send alert for Attio failures
           await sendErrorAlert(
@@ -483,7 +500,7 @@ export default {
         const person = await attioResponse.json();
         
         // Check if person is already in the User Interviews list
-        console.log('Checking if person is already in list. Person ID:', person.data.id);
+        console.log('Checking if person is already in list');
         const checkListResponse = await fetch(`https://api.attio.com/v2/lists/5612c985-ac73-40bf-a8be-28723dc019f8/entries?filter[parent_record_id]=${person.data.id.record_id}`, {
           method: 'GET',
           headers: {
@@ -531,7 +548,12 @@ export default {
               personId: person.data.id
             };
             
-            console.error('Failed to add to list:', errorDetails);
+            console.error('Failed to add to list:', {
+              status: listResponse.status,
+              statusText: listResponse.statusText,
+              email: sanitizedData.email,
+              name: sanitizedData.name
+            });
             
             // Send alert for list add failures
             await sendErrorAlert(
@@ -547,7 +569,7 @@ export default {
             );
           } else {
             const listEntry = await listResponse.json();
-            console.log('Successfully added to list:', listEntry);
+            console.log('Successfully added to list');
           }
         }
 
@@ -666,7 +688,12 @@ export default {
             }
           };
           
-          console.error('Attio API error (newsletter):', errorDetails);
+          console.error('Attio API error (newsletter):', {
+            status: attioResponse.status,
+            statusText: attioResponse.statusText,
+            email: sanitizedEmail,
+            errorPreview: errorText ? errorText.substring(0, 200) : null
+          });
           
           // Send alert for newsletter Attio failures
           await sendErrorAlert(
