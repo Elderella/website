@@ -1,0 +1,7 @@
+# Redirect all non-www to www
+https://elderella.com/* https://www.elderella.com/:splat 301!
+http://elderella.com/* https://www.elderella.com/:splat 301!
+http://www.elderella.com/* https://www.elderella.com/:splat 301!
+
+# Handle index.html to root URL
+https://www.elderella.com/index.html https://www.elderella.com/ 301!

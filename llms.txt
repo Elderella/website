@@ -22,9 +22,9 @@ To make quality eldercare accessible and stress-free for families while empoweri
 
 ## Contact Information
 - Website: https://www.elderella.com
-- Email: support@elderella.com
+- Email: hello@elderella.com
 - Location: Ontario, Canada
-- Service Area: Greater Toronto Area (expanding across Ontario)
+- Service Area: Currently focused on Greater Toronto Area, serving North American families
 
 ## For Families
 We understand that finding care for aging parents is emotionally challenging. Elderella simplifies this process by:
@@ -47,9 +47,10 @@ Elderella values professional caregivers by:
 - Transparent data practices outlined in our privacy policy
 
 ## Current Status
-- Actively serving families in Ontario
+- Actively serving families in Ontario with 70,000+ North Americans caring for aging loved ones
 - Growing network of verified caregivers
 - Continuously improving our matching technology
+- Interview scheduling available through Calendly for prospective caregivers
 - Expanding service coverage across the province
 
 ## Important Notes
@@ -58,4 +59,4 @@ Elderella values professional caregivers by:
 - We specialize in non-medical eldercare services
 - Medical care should be coordinated with healthcare professionals
 
-Last Updated: 2025-01-11
+Last Updated: 2025-09-21
