@@ -35,20 +35,142 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Elderella",
-        "description": "Elder care administration services that lighten the invisible load of Elder care by planning, organizing, delegating, and following up.",
-        "url": "https://www.elderella.com",
-        "logo": "https://www.elderella.com/images/elderella-logo.svg",
-        "sameAs": [
-            "https://www.linkedin.com/company/elderella/"
-        ],
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "customer service",
-            "areaServed": "US",
-            "availableLanguage": "English"
-        }
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://www.elderella.com/#organization",
+                "name": "Elderella Inc.",
+                "alternateName": "Elderella",
+                "description": "Elder care administration services that lighten the invisible load of Elder care by planning, organizing, delegating, and following up.",
+                "url": "https://www.elderella.com",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.elderella.com/images/elderella-logo.svg",
+                    "caption": "Elderella Logo"
+                },
+                "image": "https://www.elderella.com/images/elderella-logo.svg",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Waterloo",
+                    "addressRegion": "ON",
+                    "addressCountry": "CA"
+                },
+                "email": "hello@elderella.com",
+                "sameAs": [
+                    "https://www.linkedin.com/company/elderella/"
+                ],
+                "contactPoint": {
+                    "@type": "ContactPoint",
+                    "contactType": "customer service",
+                    "email": "hello@elderella.com",
+                    "areaServed": ["US", "CA"],
+                    "availableLanguage": ["en"]
+                },
+                "founder": [
+                    {
+                        "@type": "Person",
+                        "@id": "https://www.elderella.com/#jacqui-murphy",
+                        "name": "Jacqui Murphy",
+                        "jobTitle": "Co-founder",
+                        "url": "https://www.linkedin.com/in/jacquimurphy/",
+                        "sameAs": "https://www.linkedin.com/in/jacquimurphy/",
+                        "worksFor": {
+                            "@id": "https://www.elderella.com/#organization"
+                        }
+                    },
+                    {
+                        "@type": "Person",
+                        "@id": "https://www.elderella.com/#mike-kirkup",
+                        "name": "Mike Kirkup",
+                        "jobTitle": "Co-founder",
+                        "url": "https://www.linkedin.com/in/mikekirkup/",
+                        "sameAs": "https://www.linkedin.com/in/mikekirkup/",
+                        "worksFor": {
+                            "@id": "https://www.elderella.com/#organization"
+                        }
+                    }
+                ]
+            },
+            {
+                "@type": "WebSite",
+                "@id": "https://www.elderella.com/#website",
+                "url": "https://www.elderella.com",
+                "name": "Elderella - Your Elder Care Administrator",
+                "description": "Elderella lightens the invisible load of Elder care by planning, organizing, delegating, and sweeping away the endless to-dos that weigh you down.",
+                "publisher": {
+                    "@id": "https://www.elderella.com/#organization"
+                },
+                "inLanguage": "en-US"
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://www.elderella.com/#webpage",
+                "url": "https://www.elderella.com/",
+                "name": "Elderella - Your Elder Care Administrator",
+                "isPartOf": {
+                    "@id": "https://www.elderella.com/#website"
+                },
+                "about": {
+                    "@id": "https://www.elderella.com/#organization"
+                },
+                "description": "Elderella lightens the invisible load of Elder care by planning, organizing, delegating, and sweeping away the endless to-dos that weigh you down.",
+                "inLanguage": "en-US"
+            },
+            {
+                "@type": "LocalBusiness",
+                "@id": "https://www.elderella.com/#localbusiness",
+                "name": "Elderella Inc.",
+                "description": "Elder care administration platform helping families coordinate care for aging loved ones",
+                "url": "https://www.elderella.com",
+                "email": "hello@elderella.com",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Waterloo",
+                    "addressRegion": "ON",
+                    "addressCountry": "CA"
+                },
+                "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "43.4643",
+                    "longitude": "-80.5204"
+                },
+                "areaServed": [
+                    {
+                        "@type": "Country",
+                        "name": "United States"
+                    },
+                    {
+                        "@type": "Country",
+                        "name": "Canada"
+                    }
+                ]
+            },
+            {
+                "@type": "Service",
+                "@id": "https://www.elderella.com/#service",
+                "serviceType": "Elder Care Administration",
+                "provider": {
+                    "@id": "https://www.elderella.com/#organization"
+                },
+                "name": "Elder Care Coordination Platform",
+                "description": "Comprehensive elder care administration services that help families plan, organize, delegate, and manage care for aging parents",
+                "areaServed": [
+                    {
+                        "@type": "Country",
+                        "name": "United States"
+                    },
+                    {
+                        "@type": "Country",
+                        "name": "Canada"
+                    }
+                ],
+                "audience": {
+                    "@type": "PeopleAudience",
+                    "audienceType": "Family Caregivers"
+                },
+                "category": "Elder Care Services"
+            }
+        ]
     }
     </script>
 </head>
