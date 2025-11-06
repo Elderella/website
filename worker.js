@@ -1,3 +1,22 @@
+// Attio attribute IDs (extracted as constants for maintainability)
+const ATTIO_ATTRIBUTES = {
+  CAREGIVING_SITUATION: 'ec1acf24-4dcc-4ec4-8b0c-5dd24411a52e',
+  CONSENT_TYPE: '08555ec8-4747-406e-8002-e615e080d211',         // Options: Express, Implied
+  CONSENT_TIMESTAMP: '3098cd83-0003-4a38-b670-9c9d19bb119b',
+  CONSENT_SOURCE: '634ce37c-0a48-4e2e-923d-d67c338a6ce3'       // Options: Marketing Signup Form, etc.
+};
+
+// Improved input sanitization to prevent XSS
+function sanitizeInput(str) {
+  if (!str) return '';
+  return String(str)
+    .trim()
+    .replace(/[<>'"&]/g, (char) => {
+      const escapeMap = { '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', '&': '&amp;' };
+      return escapeMap[char];
+    });
+}
+
 // Sanitize context to avoid exposing sensitive data
 function sanitizeContext(context) {
   const sensitiveKeys = ['password', 'token', 'key', 'secret', 'api_key', 'authorization', 'webhook'];
@@ -278,11 +297,11 @@ export default {
     if (url.pathname === '/api/interview' && request.method === 'POST') {
       try {
         const data = await request.json();
-        
+
         // Validate required fields
-        if (!data.name || !data.email) {
-          return new Response(JSON.stringify({ 
-            error: 'Name and email are required fields' 
+        if (!data.firstName || !data.lastName || !data.email) {
+          return new Response(JSON.stringify({
+            error: 'First name, last name, and email are required fields'
           }), {
             status: 400,
             headers: {
@@ -291,12 +310,12 @@ export default {
             }
           });
         }
-        
+
         // Validate email format
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(data.email)) {
-          return new Response(JSON.stringify({ 
-            error: 'Please provide a valid email address' 
+          return new Response(JSON.stringify({
+            error: 'Please provide a valid email address'
           }), {
             status: 400,
             headers: {
@@ -305,35 +324,19 @@ export default {
             }
           });
         }
-        
-        // Sanitize inputs (basic XSS prevention)
-        const sanitize = (str) => str ? String(str).trim() : '';
+
+        // Sanitize inputs
         const sanitizedData = {
-          name: sanitize(data.name),
-          email: sanitize(data.email).toLowerCase(),
-          phone: sanitize(data.phone),
-          situation: sanitize(data.situation)
+          firstName: sanitizeInput(data.firstName),
+          lastName: sanitizeInput(data.lastName),
+          email: sanitizeInput(data.email).toLowerCase(),
+          phone: sanitizeInput(data.phone),
+          situation: sanitizeInput(data.situation),
+          newsletter: data.newsletter === true
         };
-        
-        // Intelligent name parsing
-        const nameParts = sanitizedData.name.trim().split(/\s+/); // Split on any whitespace
-        let firstName = '';
-        let lastName = '';
-        
-        if (nameParts.length === 1) {
-          // Single name - treat as first name
-          firstName = nameParts[0];
-          lastName = '';
-        } else if (nameParts.length === 2) {
-          // Two parts - simple first and last
-          firstName = nameParts[0];
-          lastName = nameParts[1];
-        } else {
-          // Three or more parts - everything except last is first name
-          // This handles "Mary Jane Smith" as firstName: "Mary Jane", lastName: "Smith"
-          lastName = nameParts[nameParts.length - 1];
-          firstName = nameParts.slice(0, -1).join(' ');
-        }
+
+        // Build full name for display/Slack
+        const fullName = `${sanitizedData.firstName} ${sanitizedData.lastName}`.trim();
         
         // Format phone number properly
         let formattedPhone = null;
@@ -419,6 +422,27 @@ export default {
           });
         }
         
+        // Build Attio values object
+        const attioValues = {
+          name: [{
+            first_name: sanitizedData.firstName,
+            last_name: sanitizedData.lastName,
+            full_name: fullName
+          }],
+          email_addresses: [{ email_address: sanitizedData.email }],
+          phone_numbers: formattedPhone ? [{
+            original_phone_number: formattedPhone
+          }] : [],
+          [ATTIO_ATTRIBUTES.CAREGIVING_SITUATION]: sanitizedData.situation ? [{ value: sanitizedData.situation }] : []
+        };
+
+        // Add newsletter consent fields if opted in
+        if (sanitizedData.newsletter) {
+          attioValues[ATTIO_ATTRIBUTES.CONSENT_TYPE] = [{ option: 'Express' }];
+          attioValues[ATTIO_ATTRIBUTES.CONSENT_TIMESTAMP] = [{ value: new Date().toISOString() }];
+          attioValues[ATTIO_ATTRIBUTES.CONSENT_SOURCE] = [{ option: 'Marketing Signup Form' }];
+        }
+
         // Assert (create or update) contact in Attio - using email as matching attribute
         const attioResponse = await fetch('https://api.attio.com/v2/objects/people/records?matching_attribute=email_addresses', {
           method: 'PUT',
@@ -428,19 +452,7 @@ export default {
           },
           body: JSON.stringify({
             data: {
-              values: {
-                name: [{ 
-                  first_name: firstName,
-                  last_name: lastName,
-                  full_name: sanitizedData.name
-                }],
-                email_addresses: [{ email_address: sanitizedData.email }],
-                phone_numbers: formattedPhone ? [{ 
-                  original_phone_number: formattedPhone
-                }] : [],
-                // Caregiving Situation attribute
-                'ec1acf24-4dcc-4ec4-8b0c-5dd24411a52e': sanitizedData.situation ? [{ value: sanitizedData.situation }] : []
-              }
+              values: attioValues
             }
           })
         });
@@ -454,25 +466,25 @@ export default {
             requestData: {
               phone: formattedPhone,
               email: sanitizedData.email,
-              name: sanitizedData.name
+              name: fullName
             }
           };
-          
+
           console.error('Attio API error:', {
             status: attioResponse.status,
             statusText: attioResponse.statusText,
             email: sanitizedData.email,
-            name: sanitizedData.name,
+            name: fullName,
             errorPreview: errorText ? errorText.substring(0, 200) : null
           });
-          
+
           // Send alert for Attio failures
           await sendErrorAlert(
             new Error(`Attio API failed with status ${attioResponse.status}: ${errorText}`),
             {
               operation: 'Create/Update Person',
               email: sanitizedData.email,
-              name: sanitizedData.name,
+              name: fullName,
               status: attioResponse.status
             },
             env
@@ -552,9 +564,9 @@ export default {
               status: listResponse.status,
               statusText: listResponse.statusText,
               email: sanitizedData.email,
-              name: sanitizedData.name
+              name: fullName
             });
-            
+
             // Send alert for list add failures
             await sendErrorAlert(
               new Error(`Failed to add to User Interviews list: ${listResponse.status}`),
@@ -576,13 +588,15 @@ export default {
         // Send Slack notification
         // Include interviewer preference from original form data
         const slackData = {
-          name: sanitizedData.name,
+          firstName: sanitizedData.firstName,
+          lastName: sanitizedData.lastName,
+          name: fullName,
           email: sanitizedData.email,
           phone: formattedPhone || sanitizedData.phone,
           situation: sanitizedData.situation,
           interviewer: data.interviewer // Pass through the original interviewer preference
         };
-        
+
         try {
           await sendSlackNotification(slackData, shouldAddToList, env);
         } catch (slackError) {
@@ -592,7 +606,7 @@ export default {
             {
               operation: 'Send Interview Notification',
               email: sanitizedData.email,
-              name: sanitizedData.name
+              name: fullName
             },
             env
           );
@@ -607,18 +621,26 @@ export default {
         });
       } catch (error) {
         console.error('Error in interview handler:', error);
-        
+
+        // Get email from sanitizedData if available, otherwise try data, otherwise 'unknown'
+        let errorEmail = 'unknown';
+        try {
+          errorEmail = sanitizedData?.email || data?.email || 'unknown';
+        } catch (e) {
+          // If even accessing data fails, keep as 'unknown'
+        }
+
         // Send alert for any uncaught errors
         await sendErrorAlert(
           error,
           {
             operation: 'Interview Handler',
             path: url.pathname,
-            email: data?.email || 'unknown'
+            email: errorEmail
           },
           env
         );
-        
+
         return new Response(JSON.stringify({ error: error.message }), {
           status: 500,
           headers: {
@@ -633,11 +655,11 @@ export default {
     if (url.pathname === '/api/newsletter' && request.method === 'POST') {
       try {
         const data = await request.json();
-        
-        // Validate email
-        if (!data.email) {
-          return new Response(JSON.stringify({ 
-            error: 'Email is required' 
+
+        // Validate required fields
+        if (!data.firstName || !data.lastName || !data.email) {
+          return new Response(JSON.stringify({
+            error: 'First name, last name, and email are required'
           }), {
             status: 400,
             headers: {
@@ -646,11 +668,11 @@ export default {
             }
           });
         }
-        
+
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(data.email)) {
-          return new Response(JSON.stringify({ 
-            error: 'Please provide a valid email address' 
+          return new Response(JSON.stringify({
+            error: 'Please provide a valid email address'
           }), {
             status: 400,
             headers: {
@@ -659,9 +681,16 @@ export default {
             }
           });
         }
-        
-        const sanitizedEmail = data.email.trim().toLowerCase();
-        
+
+        // Sanitize inputs
+        const sanitizedData = {
+          firstName: sanitizeInput(data.firstName),
+          lastName: sanitizeInput(data.lastName),
+          email: sanitizeInput(data.email).toLowerCase()
+        };
+
+        const fullName = `${sanitizedData.firstName} ${sanitizedData.lastName}`.trim();
+
         const attioResponse = await fetch('https://api.attio.com/v2/objects/people/records?matching_attribute=email_addresses', {
           method: 'PUT',
           headers: {
@@ -671,7 +700,15 @@ export default {
           body: JSON.stringify({
             data: {
               values: {
-                email_addresses: [{ email_address: sanitizedEmail }]
+                name: [{
+                  first_name: sanitizedData.firstName,
+                  last_name: sanitizedData.lastName,
+                  full_name: fullName
+                }],
+                email_addresses: [{ email_address: sanitizedData.email }],
+                [ATTIO_ATTRIBUTES.CONSENT_TYPE]: [{ option: 'Express' }],
+                [ATTIO_ATTRIBUTES.CONSENT_TIMESTAMP]: [{ value: new Date().toISOString() }],
+                [ATTIO_ATTRIBUTES.CONSENT_SOURCE]: [{ option: 'Marketing Signup Form' }]
               }
             }
           })
@@ -684,23 +721,26 @@ export default {
             statusText: attioResponse.statusText,
             error: errorText,
             requestData: {
-              email: sanitizedEmail
+              email: sanitizedData.email,
+              name: fullName
             }
           };
-          
+
           console.error('Attio API error (newsletter):', {
             status: attioResponse.status,
             statusText: attioResponse.statusText,
-            email: sanitizedEmail,
+            email: sanitizedData.email,
+            name: fullName,
             errorPreview: errorText ? errorText.substring(0, 200) : null
           });
-          
+
           // Send alert for newsletter Attio failures
           await sendErrorAlert(
             new Error(`Newsletter Attio API failed with status ${attioResponse.status}: ${errorText}`),
             {
               operation: 'Newsletter - Create/Update Person',
-              email: sanitizedEmail,
+              email: sanitizedData.email,
+              name: fullName,
               status: attioResponse.status
             },
             env
@@ -733,18 +773,26 @@ export default {
         });
       } catch (error) {
         console.error('Error in newsletter handler:', error);
-        
+
+        // Get email from sanitizedData if available, otherwise try data, otherwise 'unknown'
+        let errorEmail = 'unknown';
+        try {
+          errorEmail = sanitizedData?.email || data?.email || 'unknown';
+        } catch (e) {
+          // If even accessing data fails, keep as 'unknown'
+        }
+
         // Send alert for newsletter signup failures
         await sendErrorAlert(
           error,
           {
             operation: 'Newsletter Signup',
             path: url.pathname,
-            email: data?.email || 'unknown'
+            email: errorEmail
           },
           env
         );
-        
+
         return new Response(JSON.stringify({ error: error.message }), {
           status: 500,
           headers: {
