@@ -41,13 +41,64 @@ function sanitizeContext(context) {
 // Smart truncate for stack traces - keep beginning and end
 function truncateStackTrace(stack, maxLength = 2000) {
   if (!stack || stack.length <= maxLength) return stack;
-  
+
   const keepStart = Math.floor(maxLength * 0.6);
   const keepEnd = Math.floor(maxLength * 0.35);
-  
-  return stack.substring(0, keepStart) + 
-         '\n\n... [truncated ' + (stack.length - maxLength) + ' chars] ...\n\n' + 
+
+  return stack.substring(0, keepStart) +
+         '\n\n... [truncated ' + (stack.length - maxLength) + ' chars] ...\n\n' +
          stack.substring(stack.length - keepEnd);
+}
+
+/**
+ * Sanitize string for Slack markdown to prevent formatting issues
+ * @param {string} str - The string to sanitize
+ * @returns {string} Sanitized string safe for Slack markdown
+ */
+function sanitizeForSlack(str) {
+  if (!str) return '';
+  // Escape Slack markdown special characters
+  return String(str).replace(/([*_~`>])/g, '\\$1');
+}
+
+/**
+ * Format timestamp in Toronto timezone for Slack messages
+ * @returns {string} Formatted timestamp
+ */
+function formatTimestamp() {
+  return new Date().toLocaleString('en-US', {
+    timeZone: 'America/Toronto',
+    dateStyle: 'medium',
+    timeStyle: 'short'
+  });
+}
+
+/**
+ * Send a message to Slack webhook
+ * @param {Object} message - The Slack message object with blocks
+ * @param {Object} env - Environment variables
+ * @param {string} operationType - Description of the operation (e.g., "Newsletter", "Interview")
+ * @throws {Error} If Slack notification fails
+ */
+async function sendSlackMessage(message, env, operationType) {
+  if (!env.SLACK_WEBHOOK_URL) {
+    console.log('Slack webhook not configured, skipping notification');
+    return;
+  }
+
+  const slackResponse = await fetch(env.SLACK_WEBHOOK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(message)
+  });
+
+  if (!slackResponse.ok) {
+    const errorText = await slackResponse.text();
+    console.error(`${operationType} Slack notification failed:`, slackResponse.status, errorText);
+    throw new Error(`Slack notification failed with status ${slackResponse.status}: ${errorText}`);
+  }
+
+  console.log(`${operationType} Slack notification sent successfully`);
 }
 
 // Send error alerts to #alerts channel
@@ -119,16 +170,79 @@ async function sendErrorAlert(error, context, env) {
   }
 }
 
-// Send notification to Slack when someone registers for an interview
-async function sendSlackNotification(formData, isNewToList, env) {
-  if (!env.SLACK_WEBHOOK_URL) {
-    console.log('Slack webhook not configured, skipping notification');
-    return;
-  }
+/**
+ * Send notification to Slack when someone signs up for newsletter
+ * @param {Object} formData - The form data containing subscriber information
+ * @param {string} formData.name - Full name of the subscriber
+ * @param {string} formData.email - Email address of the subscriber
+ * @param {Object} env - Environment variables containing SLACK_WEBHOOK_URL
+ * @throws {Error} If Slack notification fails
+ */
+async function sendNewsletterSlackNotification(formData, env) {
+  try {
+    // Create rich Slack message using Block Kit
+    const message = {
+      text: '📧 New Newsletter Signup',
+      blocks: [
+        {
+          type: 'header',
+          text: {
+            type: 'plain_text',
+            text: '📧 New Newsletter Signup',
+            emoji: true
+          }
+        },
+        {
+          type: 'section',
+          fields: [
+            {
+              type: 'mrkdwn',
+              text: `*Name:*\n${sanitizeForSlack(formData.name)}`
+            },
+            {
+              type: 'mrkdwn',
+              text: `*Email:*\n${sanitizeForSlack(formData.email)}`
+            }
+          ]
+        },
+        {
+          type: 'section',
+          fields: [
+            {
+              type: 'mrkdwn',
+              text: `*Signed Up:*\n${formatTimestamp()}`
+            }
+          ]
+        },
+        { type: 'divider' }
+      ]
+    };
 
+    await sendSlackMessage(message, env, 'Newsletter');
+  } catch (error) {
+    console.error('Error sending newsletter Slack notification:', error);
+    // Re-throw so the caller can handle and alert
+    throw error;
+  }
+}
+
+/**
+ * Send notification to Slack when someone registers for an interview
+ * @param {Object} formData - The form data containing registrant information
+ * @param {string} formData.name - Full name of the registrant
+ * @param {string} formData.email - Email address
+ * @param {string} [formData.phone] - Phone number (optional)
+ * @param {string} [formData.situation] - Caregiving situation (optional)
+ * @param {string} [formData.interviewer] - Interviewer preference ('jacqui', 'mike', or empty)
+ * @param {boolean} isNewToList - Whether this is a new entry to the interview list
+ * @param {boolean} newsletterSignup - Whether they also signed up for the newsletter
+ * @param {Object} env - Environment variables containing SLACK_WEBHOOK_URL
+ * @throws {Error} If Slack notification fails
+ */
+async function sendSlackNotification(formData, isNewToList, newsletterSignup, env) {
   try {
     // Format interviewer preference text
-    const interviewerText = 
+    const interviewerText =
       formData.interviewer === 'jacqui' ? 'Jacqui Murphy' :
       formData.interviewer === 'mike' ? 'Mike Kirkup' :
       'No preference';
@@ -150,45 +264,43 @@ async function sendSlackNotification(formData, isNewToList, env) {
           fields: [
             {
               type: 'mrkdwn',
-              text: `*Name:*\n${formData.name}`
+              text: `*Name:*\n${sanitizeForSlack(formData.name)}`
             },
             {
               type: 'mrkdwn',
-              text: `*Email:*\n${formData.email}`
+              text: `*Email:*\n${sanitizeForSlack(formData.email)}`
             }
           ]
         }
       ]
     };
 
-    // Add phone if provided
+    // Add phone and interviewer preference
+    const phoneInterviewerFields = [];
     if (formData.phone) {
-      message.blocks.push({
-        type: 'section',
-        fields: [
-          {
-            type: 'mrkdwn',
-            text: `*Phone:*\n${formData.phone}`
-          },
-          {
-            type: 'mrkdwn',
-            text: `*Interviewer Preference:*\n${interviewerText}`
-          }
-        ]
+      phoneInterviewerFields.push({
+        type: 'mrkdwn',
+        text: `*Phone:*\n${sanitizeForSlack(formData.phone)}`
       });
-    } else {
+    }
+    phoneInterviewerFields.push({
+      type: 'mrkdwn',
+      text: `*Interviewer Preference:*\n${interviewerText}`
+    });
+
+    message.blocks.push({
+      type: 'section',
+      fields: phoneInterviewerFields
+    });
+
+    // Add newsletter status if subscribed
+    if (newsletterSignup) {
       message.blocks.push({
         type: 'section',
-        fields: [
-          {
-            type: 'mrkdwn',
-            text: `*Interviewer Preference:*\n${interviewerText}`
-          },
-          {
-            type: 'mrkdwn',
-            text: `*Status:*\n${isNewToList ? '✅ New to interview list' : '🔄 Already in list'}`
-          }
-        ]
+        text: {
+          type: 'mrkdwn',
+          text: '*Newsletter:* ✅ Subscribed'
+        }
       });
     }
 
@@ -198,65 +310,32 @@ async function sendSlackNotification(formData, isNewToList, env) {
         type: 'section',
         text: {
           type: 'mrkdwn',
-          text: `*Caregiving Situation:*\n${formData.situation}`
+          text: `*Caregiving Situation:*\n${sanitizeForSlack(formData.situation)}`
         }
       });
     }
 
     // Add status and timestamp
-    const timestamp = new Date().toLocaleString('en-US', {
-      timeZone: 'America/Toronto',
-      dateStyle: 'medium',
-      timeStyle: 'short'
+    message.blocks.push({
+      type: 'section',
+      fields: [
+        {
+          type: 'mrkdwn',
+          text: `*Status:*\n${isNewToList ? '✅ New to interview list' : '🔄 Already in list'}`
+        },
+        {
+          type: 'mrkdwn',
+          text: `*Registered:*\n${formatTimestamp()}`
+        }
+      ]
     });
-
-    if (formData.phone) {
-      message.blocks.push({
-        type: 'section',
-        fields: [
-          {
-            type: 'mrkdwn',
-            text: `*Status:*\n${isNewToList ? '✅ New to interview list' : '🔄 Already in list'}`
-          },
-          {
-            type: 'mrkdwn',
-            text: `*Registered:*\n${timestamp}`
-          }
-        ]
-      });
-    } else {
-      message.blocks.push({
-        type: 'section',
-        fields: [
-          {
-            type: 'mrkdwn',
-            text: `*Registered:*\n${timestamp}`
-          }
-        ]
-      });
-    }
 
     // Add divider
     message.blocks.push({ type: 'divider' });
 
-    // Send to Slack
-    const slackResponse = await fetch(env.SLACK_WEBHOOK_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(message)
-    });
-
-    if (!slackResponse.ok) {
-      const errorText = await slackResponse.text();
-      console.error('Slack notification failed:', slackResponse.status, errorText);
-      throw new Error(`Slack notification failed with status ${slackResponse.status}: ${errorText}`);
-    } else {
-      console.log('Slack notification sent successfully');
-    }
+    await sendSlackMessage(message, env, 'Interview');
   } catch (error) {
-    console.error('Error sending Slack notification:', error);
+    console.error('Error sending interview Slack notification:', error);
     // Re-throw so the caller can handle and alert
     throw error;
   }
@@ -598,7 +677,7 @@ export default {
         };
 
         try {
-          await sendSlackNotification(slackData, shouldAddToList, env);
+          await sendSlackNotification(slackData, shouldAddToList, sanitizedData.newsletter, env);
         } catch (slackError) {
           // Send alert for Slack notification failures
           await sendErrorAlert(
@@ -745,7 +824,7 @@ export default {
             },
             env
           );
-          
+
           // Try to parse error response for more details
           let errorMessage = 'Failed to save to Attio';
           try {
@@ -761,8 +840,32 @@ export default {
               errorMessage = errorText;
             }
           }
-          
+
           throw new Error(errorMessage);
+        }
+
+        // Send Slack notification for newsletter signup
+        const slackData = {
+          firstName: sanitizedData.firstName,
+          lastName: sanitizedData.lastName,
+          name: fullName,
+          email: sanitizedData.email
+        };
+
+        try {
+          await sendNewsletterSlackNotification(slackData, env);
+        } catch (slackError) {
+          // Send alert for Slack notification failures
+          await sendErrorAlert(
+            slackError,
+            {
+              operation: 'Send Newsletter Notification',
+              email: sanitizedData.email,
+              name: fullName
+            },
+            env
+          );
+          // Don't throw - we already saved to Attio
         }
 
         return new Response(JSON.stringify({ success: true }), {
