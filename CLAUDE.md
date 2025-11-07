@@ -28,9 +28,8 @@ Add these lines to the `<head>` of every HTML page:
 ## Color Palette
 
 ### Primary Colors
-- **#FFFFF4** - Main background (cream white)
-- **#F5F3ED** - Secondary background sections
-- **#CCCCFF** - User interview form background
+- **#FFFFFF** - Main background (pure white)
+- **#F5F5F5** - Secondary background sections
 - **#5A4FCF** - Main purple background (hero, testimonials, footer)
 - **#342A99** - Dark purple for headings and accents
 
@@ -40,12 +39,11 @@ Add these lines to the `<head>` of every HTML page:
 - **#000000** - Pure black (used sparingly for Elderella logo)
 
 ### Usage Guidelines
-- **Backgrounds**: Use #FFFFF4 for main background, #F5F3ED for alternating sections
+- **Backgrounds**: Use #FFFFFF for main background, #F5F5F5 for alternating sections
 - **Headers/Footers**: Use #5A4FCF for purple sections
 - **Text**: Use #595959 for body text, #342A99 for headings
 - **Links**: Use #342A99 for links
 - **Buttons**: Use #FFBC57 for primary action buttons
-- **Forms**: Use #CCCCFF for form backgrounds
 
 ## Layout Standards
 
@@ -55,7 +53,7 @@ Add these lines to the `<head>` of every HTML page:
 
 ### Sections
 - Standard padding: 65px 0
-- Background alternation: #FFFFFF and #F5F3ED
+- Background alternation: #FFFFFF and #F5F5F5
 
 ## Component Standards
 
@@ -66,12 +64,12 @@ Add these lines to the `<head>` of every HTML page:
 - Font-weight: 500
 
 ### Forms
-- Input background: #FFFFF4
+- Input background: #FFFFFF
 - Input border: none (focus: 1px solid #8b7dd8)
 - Border-radius: 8px
 
 ### Cards
-- Background: #FFFFFF or #F5F3ED
+- Background: #FFFFFF or #F5F5F5
 - Border-radius: 12px
 - Box-shadow: 0 6px 20px rgba(0,0,0,0.1)
 

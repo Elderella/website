@@ -87,182 +87,135 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Source+Sans+Pro:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles-v2.css">
     <style>
-        :root {
-            --purple-main: #5A4FCF;
-            --purple-dark: #342A99;
-            --purple-light: #CCCCFF;
-            --gold: #FFBC57;
-            --cream: #F5F3ED;
-        }
-
         /* Security page specific styles */
         .security-page {
-            background: #FFFFF4;
+            background: #FFFFFF;
         }
 
         /* Hero Section - Security page specific */
         .security-hero {
-            background: linear-gradient(135deg, var(--purple-main) 0%, #7c6fb3 100%);
+            background: #5A4FCF;
             padding: 80px 0;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .security-hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255, 188, 87, 0.2) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .hero-content-security {
-            position: relative;
-            z-index: 1;
         }
 
         .shield-icon {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
             margin: 0 auto 30px;
-            background: var(--gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
+            display: block;
         }
 
         .security-hero-title {
             font-family: 'Merriweather', serif;
-            font-size: 48px;
-            color: #FFFFF4;
+            font-size: 42px;
+            color: #FFFFFF;
             margin-bottom: 20px;
             font-weight: 400;
+            line-height: 1.2;
         }
 
         .security-hero-subtitle {
-            font-size: 20px;
-            color: rgba(255, 255, 244, 0.95);
+            font-size: 18px;
+            color: #FFFFFF;
             max-width: 600px;
             margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         /* Section Styles */
         .section {
-            padding: 80px 0;
+            padding: 65px 0;
         }
 
         .section-alt {
-            background: var(--cream);
+            background: #F5F5F5;
         }
 
         .section-accent {
-            background: var(--purple-light);
+            background: #F5F5F5;
         }
 
         .section-title {
             font-family: 'Merriweather', serif;
-            font-size: 36px;
-            color: #333;
+            font-size: 2rem;
+            color: #342A99;
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
+            font-weight: 400;
         }
 
         /* Pillars Grid */
         .pillars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         .pillar-card {
-            background: #FFFFF4;
-            padding: 40px;
-            border-radius: 12px;
+            background: #FFFFFF;
+            padding: 30px;
+            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .pillar-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(90, 79, 207, 0.15);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
 
         .pillar-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 20px;
-            background: var(--gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
         }
 
         .pillar-title {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 15px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 20px;
+            color: #342A99;
+            margin-bottom: 12px;
             font-weight: 600;
         }
 
         .pillar-description {
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 16px;
             color: #595959;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         /* Protection Grid */
         .protection-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .protection-item {
-            background: #FFFFF4;
-            padding: 30px;
+            background: #FFFFFF;
+            padding: 24px;
             border-radius: 8px;
-            display: flex;
-            align-items: start;
-            gap: 20px;
-            transition: background 0.3s ease;
-        }
-
-        .protection-item:hover {
-            background: rgba(255, 255, 244, 0.8);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
 
         .protection-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gold);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-size: 20px;
+            font-size: 32px;
+            display: block;
+            margin-bottom: 12px;
         }
 
         .protection-text h3 {
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 18px;
-            color: #333;
+            color: #342A99;
             margin-bottom: 8px;
             font-weight: 600;
         }
 
         .protection-text p {
-            font-size: 14px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
             color: #595959;
             line-height: 1.5;
         }
@@ -270,72 +223,68 @@
         /* Security Features */
         .security-grid {
             display: grid;
-            gap: 30px;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .security-item {
             display: flex;
-            gap: 25px;
+            gap: 20px;
             align-items: start;
-            padding: 25px;
-            background: #FFFFF4;
+            padding: 24px;
+            background: #FFFFFF;
             border-radius: 8px;
-            border-left: 4px solid var(--purple-main);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
 
         .security-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--purple-light) 0%, rgba(204, 204, 255, 0.5) 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 32px;
             flex-shrink: 0;
-            font-size: 24px;
         }
 
         .security-content h3 {
-            font-size: 20px;
-            color: #333;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 18px;
+            color: #342A99;
             margin-bottom: 10px;
             font-weight: 600;
         }
 
         .security-content p {
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 16px;
             color: #595959;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         /* Rights List */
         .rights-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .right-item {
-            background: #FFFFF4;
-            padding: 25px;
+            background: #FFFFFF;
+            padding: 24px;
             border-radius: 8px;
-            border: 2px solid var(--purple-light);
-            transition: border-color 0.3s ease;
-        }
-
-        .right-item:hover {
-            border-color: var(--purple-main);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
 
         .right-item h3 {
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 18px;
-            color: var(--purple-dark);
+            color: #342A99;
             margin-bottom: 10px;
             font-weight: 600;
         }
 
         .right-item p {
-            font-size: 15px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
             color: #595959;
             line-height: 1.5;
         }
@@ -350,23 +299,17 @@
 
         .practice-item {
             display: flex;
-            align-items: center;
+            align-items: start;
             gap: 20px;
-            padding: 20px;
-            background: #FFFFF4;
+            padding: 24px;
+            background: #FFFFFF;
             border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
 
         .practice-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            font-size: 32px;
             flex-shrink: 0;
-            font-size: 20px;
         }
 
         .practice-text {
@@ -374,14 +317,16 @@
         }
 
         .practice-text h3 {
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 18px;
-            color: #333;
-            margin-bottom: 5px;
+            color: #342A99;
+            margin-bottom: 8px;
             font-weight: 600;
         }
 
         .practice-text p {
-            font-size: 14px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
             color: #595959;
             line-height: 1.5;
         }
@@ -389,62 +334,61 @@
         /* Commitments */
         .commitments-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
             max-width: 900px;
             margin: 0 auto;
         }
 
         .commitment-badge {
             text-align: center;
-            padding: 30px 20px;
+            padding: 24px;
+            background: #FFFFFF;
+            border-radius: 8px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
 
         .badge-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 20px;
-            background: linear-gradient(135deg, var(--purple-main) 0%, var(--purple-dark) 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #FFFFF4;
-            font-size: 32px;
+            font-size: 40px;
+            margin-bottom: 16px;
+            display: block;
         }
 
         .commitment-badge h3 {
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 18px;
-            color: #333;
+            color: #342A99;
             margin-bottom: 10px;
             font-weight: 600;
         }
 
         .commitment-badge p {
-            font-size: 14px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 16px;
             color: #595959;
             line-height: 1.5;
         }
 
         /* Contact Section */
         .contact-section {
-            background: linear-gradient(135deg, var(--purple-light) 0%, rgba(204, 204, 255, 0.5) 100%);
-            padding: 60px 20px;
+            background: #5A4FCF;
+            padding: 60px 40px;
             text-align: center;
-            border-radius: 12px;
-            margin: 40px 0;
+            border-radius: 8px;
         }
 
         .contact-content h2 {
             font-family: 'Merriweather', serif;
-            font-size: 32px;
-            color: #333;
+            font-size: 2rem;
+            color: #FFFFFF;
             margin-bottom: 20px;
+            font-weight: 400;
         }
 
         .contact-content p {
+            font-family: 'Source Sans Pro', sans-serif;
             font-size: 18px;
-            color: #595959;
+            color: #FFFFFF;
             margin-bottom: 30px;
         }
 
@@ -456,103 +400,91 @@
         }
 
         .btn {
-            padding: 12px 30px;
+            padding: 15px 40px;
             border-radius: 8px;
             text-decoration: none;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
             display: inline-block;
         }
 
         .btn-primary {
-            background: var(--purple-main);
-            color: #FFFFF4;
+            background: #FFBC57;
+            color: #595959;
         }
 
         .btn-primary:hover {
-            background: var(--purple-dark);
-            transform: translateY(-2px);
+            opacity: 0.9;
         }
 
         .btn-secondary {
-            background: #FFFFF4;
-            color: var(--purple-main);
-            border: 2px solid var(--purple-main);
+            background: #FFFFFF;
+            color: #342A99;
         }
 
         .btn-secondary:hover {
-            background: var(--purple-main);
-            color: #FFFFF4;
+            opacity: 0.9;
         }
 
         /* Footer */
         .security-footer {
-            background: var(--purple-dark);
-            color: #FFFFF4;
-            padding: 40px 20px;
-            text-align: center;
+            background: #5A4FCF;
+            color: #FFFFFF;
+            padding: 20px 0;
         }
 
-        .footer-content p {
-            margin-bottom: 10px;
-        }
-
-        .footer-links {
+        .footer-content {
             display: flex;
-            gap: 30px;
             justify-content: center;
-            margin-top: 20px;
+            align-items: center;
+            gap: 35px;
+            flex-wrap: wrap;
         }
 
-        .footer-links a {
-            color: rgba(255, 255, 244, 0.8);
+        .footer-content span {
+            color: #FFFFFF;
+            font-size: 13px;
+        }
+
+        .footer-content a {
+            color: #FFFFFF;
             text-decoration: none;
-            transition: color 0.3s ease;
+            font-size: 13px;
         }
 
-        .footer-links a:hover {
-            color: var(--gold);
+        .footer-content a:hover {
+            text-decoration: underline;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 40px;
-            }
-
             .security-hero-title {
-                font-size: 36px;
+                font-size: 32px;
             }
 
             .security-hero-subtitle {
-                font-size: 18px;
+                font-size: 16px;
             }
 
             .section {
-                padding: 60px 0;
+                padding: 40px 0;
             }
 
             .section-title {
-                font-size: 28px;
+                font-size: 1.5rem;
             }
 
-            .security-item {
-                flex-direction: column;
-            }
-
-            .pillars-grid {
+            .pillars-grid,
+            .protection-grid,
+            .rights-grid,
+            .commitments-grid {
                 grid-template-columns: 1fr;
             }
-        }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 20px;
-            }
-
-            .security-hero-title {
-                font-size: 28px;
+            .security-item,
+            .practice-item {
+                flex-direction: column;
             }
 
             .contact-buttons {
@@ -582,13 +514,11 @@
     <!-- Hero Section -->
     <section class="security-hero">
         <div class="container">
-            <div class="hero-content-security">
-                <div class="shield-icon" role="img" aria-label="Security shield">🛡️</div>
-                <h1 class="security-hero-title">Your Family's Trust is Sacred</h1>
-                <p class="security-hero-subtitle">
-                    We protect your eldercare details with the same care you show your loved ones
-                </p>
-            </div>
+            <img src="images/elderella-sparkle.svg" alt="Elderella sparkle" class="shield-icon">
+            <h1 class="security-hero-title">Your Family's Trust is Sacred</h1>
+            <p class="security-hero-subtitle">
+                We protect your eldercare details with the same care you show your loved ones
+            </p>
         </div>
     </section>
 
@@ -844,13 +774,12 @@
 
     <!-- Footer -->
     <footer class="security-footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Elderella Inc. All rights reserved.</p>
-            <p>Waterloo, Ontario, Canada</p>
-            <div class="footer-links">
+        <div class="container">
+            <div class="footer-content">
                 <a href="index.html">Home</a>
                 <a href="privacy.html">Privacy Policy</a>
-                <a href="mailto:hello@elderella.com">Contact</a>
+                <a href="terms.html">Terms of Service</a>
+                <span>© 2025 Elderella Inc.</span>
             </div>
         </div>
     </footer>

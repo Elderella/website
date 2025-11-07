@@ -139,7 +139,7 @@ Insert new section **before** the Founders section (before line 408):
 ```css
 /* Newsletter Section */
 .newsletter-section {
-    background-color: #FFFFF4;
+    background-color: #FFFFFF;
     padding: 80px 0;
 }
 
@@ -489,7 +489,7 @@ Already exists for interview form. Newsletter checkbox state is captured in back
 ## 6. Design Compliance
 
 ### Colors
-- Newsletter section background: `#FFFFF4` (cream white)
+- Newsletter section background: `#FFFFFF` (pure white)
 - Heading: `#342A99` (dark purple)
 - Button background: `#FFBC57` (yellow/orange)
 - Button text: `#595959` (dark gray)
