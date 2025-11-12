@@ -31,6 +31,7 @@ Add these lines to the `<head>` of every HTML page:
 - **#FFFFFF** - Main background (pure white)
 - **#F5F5F5** - Secondary background sections
 - **#5A4FCF** - Main purple background (hero, testimonials, footer)
+- **#CCCCFF** - Light periwinkle for backgrounds and accents
 - **#342A99** - Dark purple for headings and accents
 
 ### Supporting Colors
