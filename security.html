@@ -84,12 +84,31 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Source+Sans+Pro:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles-v2.css">
     <style>
         /* Security page specific styles */
         .security-page {
             background: #FFFFFF;
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            z-index: 9999;
+            padding: 10px 20px;
+            background: #FFBC57;
+            color: #000000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .skip-link:focus {
+            position: fixed;
+            left: 10px;
+            top: 10px;
         }
 
         /* Hero Section - Security page specific */
@@ -132,10 +151,6 @@
             background: #F5F5F5;
         }
 
-        .section-accent {
-            background: #F5F5F5;
-        }
-
         .section-title {
             font-family: 'Merriweather', serif;
             font-size: 2rem;
@@ -148,7 +163,7 @@
         /* Pillars Grid */
         .pillars-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
             max-width: 1000px;
             margin: 0 auto;
@@ -411,11 +426,16 @@
 
         .btn-primary {
             background: #FFBC57;
-            color: #595959;
+            color: #000000;
         }
 
         .btn-primary:hover {
             opacity: 0.9;
+        }
+
+        .btn-primary:focus {
+            outline: 3px solid #342A99;
+            outline-offset: 2px;
         }
 
         .btn-secondary {
@@ -425,6 +445,11 @@
 
         .btn-secondary:hover {
             opacity: 0.9;
+        }
+
+        .btn-secondary:focus {
+            outline: 3px solid #342A99;
+            outline-offset: 2px;
         }
 
         /* Footer */
@@ -454,6 +479,12 @@
         }
 
         .footer-content a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-content a:focus {
+            outline: 2px solid #FFFFFF;
+            outline-offset: 2px;
             text-decoration: underline;
         }
 
@@ -504,92 +535,117 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <!-- Skip link for keyboard navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Header -->
     <header class="site-header">
         <div class="container">
-            <img src="images/elderella-logo.svg" alt="Elderella" class="logo">
+            <img src="images/elderella-logo.svg" alt="Elderella - Elder care coordination platform" class="logo">
         </div>
     </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
 
     <!-- Hero Section -->
     <section class="security-hero">
         <div class="container">
-            <img src="images/elderella-sparkle.svg" alt="Elderella sparkle" class="shield-icon">
-            <h1 class="security-hero-title">Your Family's Trust is Sacred</h1>
+            <img src="images/elderella-sparkle.svg" alt="" class="shield-icon" aria-hidden="true">
+            <h1 class="security-hero-title">How We Protect Your Information</h1>
             <p class="security-hero-subtitle">
-                We protect your eldercare details with the same care you show your loved ones
+                Caring for an elder involves some of the most personal details in a family's life.
+            </p>
+            <p class="security-hero-subtitle">
+                This page explains, in plain language, how Elderella keeps your data <strong>private, secure, and within your control</strong>.
             </p>
         </div>
     </section>
 
-    <!-- Core Security Principles -->
+    <!-- Our Promise to You -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Our Security Principles</h2>
+            <h2 class="section-title">Our Promise to You</h2>
             <div class="pillars-grid">
                 <div class="pillar-card">
                     <div class="pillar-icon" role="img" aria-label="Lock icon">🔒</div>
-                    <h3 class="pillar-title">Privacy First</h3>
+                    <h3 class="pillar-title">Privacy first</h3>
                     <p class="pillar-description">
-                        We only collect what's needed to help care for your loved ones. Your personal information is never sold or traded.
+                        We only collect what's needed to help you care for your elders. Your information is <strong>never sold, rented, or traded</strong>.
                     </p>
                 </div>
                 <div class="pillar-card">
                     <div class="pillar-icon" role="img" aria-label="Key icon">🔑</div>
-                    <h3 class="pillar-title">You Own Your Data</h3>
+                    <h3 class="pillar-title">You own your data</h3>
                     <p class="pillar-description">
-                        Access, correct, or delete your information anytime. You're always in control of your family's data.
+                        You can access, update, or delete your information anytime. You're always in control of your data.
                     </p>
                 </div>
                 <div class="pillar-card">
                     <div class="pillar-icon" role="img" aria-label="Hospital icon">🏥</div>
-                    <h3 class="pillar-title">Protected Infrastructure</h3>
+                    <h3 class="pillar-title">Built for safety</h3>
                     <p class="pillar-description">
-                        Secure cloud storage with healthcare-grade protection designed to meet industry standards.
+                        Elderella uses healthcare-grade protections designed to meet strict privacy laws in both Canada and the United States.
+                    </p>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-icon" role="img" aria-label="Transparency icon">✨</div>
+                    <h3 class="pillar-title">Transparency always</h3>
+                    <p class="pillar-description">
+                        We communicate clearly about how Elderella works and how we handle your data. No surprises. Ever.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What We Protect -->
+    <!-- What Elderella Protects -->
     <section class="section section-alt">
         <div class="container">
-            <h2 class="section-title">What We Protect</h2>
+            <h2 class="section-title">What Elderella Protects</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 18px; color: #595959;">We treat all caregiving information as sensitive, including:</p>
             <div class="protection-grid">
                 <div class="protection-item">
                     <div class="protection-icon" role="img" aria-label="People icon">👥</div>
                     <div class="protection-text">
-                        <h3>Family Information</h3>
-                        <p>Contact and care coordination for your loved ones</p>
+                        <h3>Elder and Care Team information</h3>
+                        <p>Names, contact details, and caregiver roles</p>
                     </div>
                 </div>
                 <div class="protection-item">
                     <div class="protection-icon" role="img" aria-label="Calendar icon">📅</div>
                     <div class="protection-text">
-                        <h3>Care Schedules</h3>
-                        <p>Events, reminders, and important dates</p>
+                        <h3>Care schedules</h3>
+                        <p>Events, tasks, reminders, and routines</p>
                     </div>
                 </div>
                 <div class="protection-item">
                     <div class="protection-icon" role="img" aria-label="Medicine icon">💊</div>
                     <div class="protection-text">
-                        <h3>Health Details</h3>
-                        <p>Medical information and care-related observations</p>
+                        <h3>Health details</h3>
+                        <p>Medications, symptoms, medical history, and care observations</p>
                     </div>
                 </div>
                 <div class="protection-item">
                     <div class="protection-icon" role="img" aria-label="Notes icon">📝</div>
                     <div class="protection-text">
-                        <h3>Personal Notes</h3>
-                        <p>Your documentation and family communications</p>
+                        <h3>Personal notes</h3>
+                        <p>Stories, updates, and details you record</p>
+                    </div>
+                </div>
+                <div class="protection-item">
+                    <div class="protection-icon" role="img" aria-label="Files icon">📁</div>
+                    <div class="protection-text">
+                        <h3>Care-related files</h3>
+                        <p>Photos, documents, and audio notes</p>
                     </div>
                 </div>
             </div>
+            <p style="text-align: center; margin-top: 40px; font-size: 18px; color: #595959; font-weight: 600;">Everything is <strong>encrypted</strong> and securely stored in Canada.</p>
         </div>
     </section>
 
-    <!-- How We Keep You Safe -->
+    <!-- How We Keep Your Information Safe -->
     <section class="section">
         <div class="container">
             <h2 class="section-title">How We Keep Your Information Safe</h2>
@@ -597,43 +653,55 @@
                 <div class="security-item">
                     <div class="security-icon" role="img" aria-label="Canada flag">🇨🇦</div>
                     <div class="security-content">
-                        <h3>Secure Infrastructure</h3>
-                        <p>Your data is stored on Google Cloud servers in Montreal, Canada with strong privacy protections under Canadian privacy laws.</p>
+                        <h3>A secure foundation</h3>
+                        <p>Your data is stored on Google Cloud servers in <strong>Montreal, Canada</strong>, protected under strong privacy laws.</p>
                     </div>
                 </div>
                 <div class="security-item">
                     <div class="security-icon" role="img" aria-label="Healthcare icon">🏥</div>
                     <div class="security-content">
-                        <h3>HIPAA-Compliant Infrastructure</h3>
-                        <p>Our processes and technical infrastructure are designed to meet healthcare industry standards for data protection, including with respect to Protected Health Information (PHI) under HIPAA requirements.</p>
+                        <h3>Healthcare-grade security</h3>
+                        <p>Elderella is designed to meet both:</p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>Canada's federal privacy law (<strong>PIPEDA</strong>), and</li>
+                            <li>U.S. healthcare protection standards (<strong>HIPAA</strong>)</li>
+                        </ul>
+                        <p>These frameworks guide how we store, protect, and handle sensitive caregiving information.</p>
                     </div>
                 </div>
                 <div class="security-item">
                     <div class="security-icon" role="img" aria-label="Handshake icon">🤝</div>
                     <div class="security-content">
-                        <h3>Business Associate Agreements</h3>
-                        <p>We maintain agreements with our infrastructure partners, including Google Cloud, to ensure proper data handling.</p>
+                        <h3>Protected partnerships</h3>
+                        <p>We maintain strict agreements with our infrastructure partners, including Business Associate Agreements with Google Cloud, to ensure proper data handling at all times.</p>
                     </div>
                 </div>
                 <div class="security-item">
                     <div class="security-icon" role="img" aria-label="Locked with key icon">🔐</div>
                     <div class="security-content">
-                        <h3>Technical Safeguards</h3>
-                        <p>Appropriate technical and organizational measures protect against unauthorized access, alteration, or disclosure.</p>
+                        <h3>Technical safeguards</h3>
+                        <p>We use industry-standard measures to protect your data, including:</p>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li>Encryption in transit and at rest</li>
+                            <li>Role-based access controls</li>
+                            <li>Multi-factor authentication and single sign-on for internal systems</li>
+                            <li>24/7 monitoring and logging</li>
+                            <li>Regular security reviews and independent assessments</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="security-item">
                     <div class="security-icon" role="img" aria-label="Construction icon">🏗️</div>
                     <div class="security-content">
-                        <h3>Privacy by Design</h3>
-                        <p>Security is built into every feature from the beginning, not added as an afterthought.</p>
+                        <h3>Privacy by design</h3>
+                        <p>Every new Elderella feature goes through a privacy and security review before it's released. Protection is built in from the start.</p>
                     </div>
                 </div>
                 <div class="security-item">
                     <div class="security-icon" role="img" aria-label="Robot icon">🤖</div>
                     <div class="security-content">
-                        <h3>Secure AI Care Assistant</h3>
-                        <p>We utilize Google Cloud's Large Language Model and Vertex AI with retrieval augmented generation to power our care assistant. Your information is accessed securely and confidentially within Google Cloud's protected infrastructure to provide personalized care coordination.</p>
+                        <h3>Secure AI support</h3>
+                        <p>Ella, your caregiving partner, operates entirely within Google Cloud's protected environment, powered by Google Cloud's Large Language Model and Vertex AI with retrieval augmented generation. Information shared is accessed securely and never leaves our encrypted system.</p>
                     </div>
                 </div>
             </div>
@@ -641,112 +709,75 @@
     </section>
 
     <!-- Your Privacy Rights -->
-    <section class="section section-accent">
+    <section class="section section-alt">
         <div class="container">
             <h2 class="section-title">Your Privacy Rights</h2>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 18px; color: #595959;">We follow global best practices for individual privacy rights, including principles from the GDPR and CCPA, so you can <strong>access, update, or request deletion</strong> of your personal information with confidence. <a href="privacy.html" style="color: #342A99;">Read our Full Privacy Policy</a>.</p>
             <div class="rights-grid">
                 <div class="right-item">
                     <h3>Access</h3>
-                    <p>See the personal information we hold about you at any time.</p>
+                    <p>See the data Elderella has stored for you or your elder</p>
                 </div>
                 <div class="right-item">
                     <h3>Update</h3>
-                    <p>Correct or complete any details. Request updates to any inaccurate or incomplete information we have.</p>
+                    <p>Correct, update or change any information that's inaccurate</p>
                 </div>
                 <div class="right-item">
-                    <h3>Deletion</h3>
-                    <p>Request removal of your personal information, subject to certain legal exceptions.<br>Opt-out: Stop receiving marketing communications from us at any time.</p>
+                    <h3>Delete</h3>
+                    <p>Ask us to remove your data (except where laws require retention)</p>
                 </div>
                 <div class="right-item">
-                    <h3>Withdraw Consent</h3>
-                    <p>Change your mind about data sharing anytime where we rely on your consent.</p>
+                    <h3>Opt-out</h3>
+                    <p>Stop receiving marketing emails or withdraw consent for data sharing</p>
                 </div>
                 <div class="right-item">
-                    <h3>Data Retention</h3>
-                    <p>Your care coordination data remains accessible during your subscription. After cancellation, we retain data for up to 5 years for reactivation, unless you request deletion.</p>
+                    <h3>Data retention</h3>
+                    <p>If you cancel your Elderella account, your data remains accessible for up to 5 years in case you return – or you can request immediate deletion</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Data Practices -->
+    <!-- How We Use (and Don't Use) Your Data -->
     <section class="section">
         <div class="container">
-            <h2 class="section-title">Our Data Practices</h2>
+            <h2 class="section-title">How We Use (and Don't Use) Your Data</h2>
             <div class="practices-list">
+                <div class="practice-item">
+                    <div class="practice-icon" role="img" aria-label="Tools icon">🛠️</div>
+                    <div class="practice-text">
+                        <h3>How we use your information</h3>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li style="padding: 5px 0;">To provide and improve Elderella's caregiving tools</li>
+                            <li style="padding: 5px 0;">To help your family stay organized and connected</li>
+                            <li style="padding: 5px 0;">To personalize insights and reminders for your elder</li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="practice-item">
                     <div class="practice-icon" role="img" aria-label="No entry icon">🚫</div>
                     <div class="practice-text">
-                        <h3>No Selling Your Data</h3>
-                        <p>We never sell, rent, or trade your personal information to anyone.</p>
+                        <h3>How we never use your information</h3>
+                        <ul style="margin: 10px 0; padding-left: 20px;">
+                            <li style="padding: 5px 0;">We do not sell, rent, or trade your data</li>
+                            <li style="padding: 5px 0;">We do not share your information without your consent</li>
+                            <li style="padding: 5px 0;">We do not use your information for unrelated advertising</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="practice-item">
                     <div class="practice-icon" role="img" aria-label="Chart icon">📊</div>
                     <div class="practice-text">
-                        <h3>Anonymized Insights</h3>
-                        <p>We may use aggregated, non-identifiable data to improve caregiving for everyone.</p>
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon" role="img" aria-label="Trophy icon">🏆</div>
-                    <div class="practice-text">
-                        <h3>Partner Recognition</h3>
-                        <p>Only with your explicit consent for awards or acknowledgments in the caregiving community.</p>
+                        <h3>Anonymized insights</h3>
+                        <p>We may use aggregated, non-identifiable information to improve Elderella or to understand caregiving patterns. Nothing in these insights can identify you or your elder.</p>
                     </div>
                 </div>
                 <div class="practice-item">
                     <div class="practice-icon" role="img" aria-label="Wrench icon">🔧</div>
                     <div class="practice-text">
-                        <h3>Service Providers Only</h3>
-                        <p>Trusted partners who help us operate, like email services, under strict agreements.</p>
+                        <h3>Carefully selected service providers</h3>
+                        <p>When we work with trusted partners (such as email delivery services), they only receive what is necessary to do their job and operate under strict privacy agreements.</p>
                     </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon" role="img" aria-label="Scales of justice icon">⚖️</div>
-                    <div class="practice-text">
-                        <h3>Legal Compliance</h3>
-                        <p>Disclosure only when required by law, court order, or government regulation.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Our Commitments -->
-    <section class="section section-alt">
-        <div class="container">
-            <h2 class="section-title">Our Commitments</h2>
-            <div class="commitments-grid">
-                <div class="commitment-badge">
-                    <div class="badge-icon" role="img" aria-label="Maple leaf icon">🍁</div>
-                    <h3>PIPEDA Compliant</h3>
-                    <p>Following Canadian privacy law requirements for commercial activities</p>
-                </div>
-                <div class="commitment-badge">
-                    <div class="badge-icon" role="img" aria-label="Bear icon">🐻</div>
-                    <h3>CCPA Ready</h3>
-                    <p>Respecting California resident privacy rights and data protection</p>
-                </div>
-                <div class="commitment-badge">
-                    <div class="badge-icon" role="img" aria-label="Hospital icon">🏥</div>
-                    <h3>Healthcare Infrastructure</h3>
-                    <p>Technical foundation built for health data protection</p>
-                </div>
-                <div class="commitment-badge">
-                    <div class="badge-icon" role="img" aria-label="Growth chart icon">📈</div>
-                    <h3>Continuous Improvement</h3>
-                    <p>Building processes to strengthen security and earn certifications</p>
-                </div>
-                <div class="commitment-badge">
-                    <div class="badge-icon" role="img" aria-label="Eye icon">👁️</div>
-                    <h3>Transparency</h3>
-                    <p>Clear, honest communication about our practices</p>
-                </div>
-                <div class="commitment-badge">
-                    <div class="badge-icon" role="img" aria-label="Globe icon">🌍</div>
-                    <h3>GDPR Principles</h3>
-                    <p>Following European data protection standards</p>
                 </div>
             </div>
         </div>
@@ -757,16 +788,20 @@
         <div class="container">
             <div class="contact-section">
                 <div class="contact-content">
-                    <h2>Questions About Your Privacy?</h2>
-                    <p>Our Privacy Team is here to help you understand how we protect your family's information.</p>
+                    <h2>Have Questions or Concerns?</h2>
+                    <p>We want you to feel completely confident using Elderella.</p>
+                    <p>Our Privacy Team is here to help you understand how we protect your information.</p>
                     <div class="contact-buttons">
-                        <a href="mailto:privacy@elderella.com" class="btn btn-primary">Contact Privacy Team</a>
+                        <a href="mailto:privacy@elderella.com" class="btn btn-primary">Contact Our Privacy Team</a>
                         <a href="privacy.html" class="btn btn-secondary">Read Full Privacy Policy</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    </main>
+    <!-- End Main Content -->
 
     <!-- Footer -->
     <footer class="security-footer">
