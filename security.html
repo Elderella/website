@@ -86,6 +86,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles-v2.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
         /* Security page specific styles */
         .security-page {
@@ -134,7 +136,7 @@
             line-height: 1.2;
         }
 
-        .security-hero-subtitle {
+        .hero-subtitle {
             font-size: 18px;
             color: #FFFFFF;
             max-width: 600px;
@@ -160,6 +162,19 @@
             font-weight: 400;
         }
 
+        /* Base Card Styles */
+        .card-base {
+            background: #FFFFFF;
+            padding: 26px 24px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-base:focus-within {
+            outline: 3px solid #342A99;
+            outline-offset: 2px;
+        }
+
         /* Pillars Grid */
         .pillars-grid {
             display: grid;
@@ -170,17 +185,14 @@
         }
 
         .pillar-card {
-            background: #FFFFFF;
-            padding: 30px;
-            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
 
         .pillar-icon {
             font-size: 40px;
             margin-bottom: 20px;
             display: block;
+            color: #CCCCFF;
         }
 
         .pillar-title {
@@ -193,7 +205,7 @@
 
         .pillar-description {
             font-family: 'Source Sans Pro', sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             color: #595959;
             line-height: 1.5;
         }
@@ -205,19 +217,18 @@
             gap: 20px;
             max-width: 900px;
             margin: 0 auto;
+            justify-items: center;
         }
 
         .protection-item {
-            background: #FFFFFF;
-            padding: 24px;
-            border-radius: 8px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
         }
 
         .protection-icon {
             font-size: 32px;
             display: block;
-            margin-bottom: 12px;
+            margin: 0 auto 12px;
+            color: #CCCCFF;
         }
 
         .protection-text h3 {
@@ -226,51 +237,126 @@
             color: #342A99;
             margin-bottom: 8px;
             font-weight: 600;
+            text-align: center;
         }
 
         .protection-text p {
             font-family: 'Source Sans Pro', sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             color: #595959;
             line-height: 1.5;
+            text-align: left;
         }
 
         /* Security Features */
-        .security-grid {
+        .security-list {
             display: grid;
-            gap: 20px;
-            max-width: 900px;
+            gap: 30px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
-        .security-item {
+        .security-list-item {
             display: flex;
             gap: 20px;
             align-items: start;
-            padding: 24px;
-            background: #FFFFFF;
-            border-radius: 8px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
 
-        .security-icon {
-            font-size: 32px;
+        .security-list-icon {
+            font-size: 40px;
             flex-shrink: 0;
+            color: #CCCCFF;
         }
 
-        .security-content h3 {
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 18px;
+        .security-list-content h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.4rem;
             color: #342A99;
             margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .security-list-content p {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 18px;
+            color: #595959;
+            line-height: 1.5;
+        }
+
+        /* Content Lists */
+        .content-list {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .content-list li {
+            padding: 5px 0;
+        }
+
+        .list-left {
+            text-align: left;
+        }
+
+        /* Section intro text */
+        .intro-text {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 18px;
+            color: #595959;
+        }
+
+        .intro-text-bold {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 18px;
+            color: #595959;
             font-weight: 600;
         }
 
-        .security-content p {
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 16px;
+        /* Subsection styles */
+        .subsection-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .subsection-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.4rem;
+            color: #342A99;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .subsection-content {
+            font-size: 18px;
             color: #595959;
             line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        .subsection-content-last {
+            margin-bottom: 0;
+        }
+
+        /* Data usage grid spacing */
+        .data-usage-grid {
+            margin-bottom: 40px;
+        }
+
+        /* Privacy link styling */
+        .privacy-link {
+            color: #342A99;
+            text-decoration: none;
+        }
+
+        .privacy-link:hover {
+            text-decoration: underline;
+        }
+
+        .privacy-link:focus {
+            outline: 3px solid #342A99;
+            outline-offset: 2px;
+            text-decoration: underline;
         }
 
         /* Rights List */
@@ -280,13 +366,18 @@
             gap: 20px;
             max-width: 900px;
             margin: 0 auto;
+            justify-items: center;
         }
 
         .right-item {
-            background: #FFFFFF;
-            padding: 24px;
-            border-radius: 8px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .right-icon {
+            font-size: 32px;
+            display: block;
+            margin: 0 auto 12px;
+            color: #CCCCFF;
         }
 
         .right-item h3 {
@@ -295,13 +386,15 @@
             color: #342A99;
             margin-bottom: 10px;
             font-weight: 600;
+            text-align: center;
         }
 
         .right-item p {
             font-family: 'Source Sans Pro', sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             color: #595959;
             line-height: 1.5;
+            text-align: left;
         }
 
         /* Practices Section */
@@ -316,9 +409,9 @@
             display: flex;
             align-items: start;
             gap: 20px;
-            padding: 24px;
+            padding: 26px 24px;
             background: #FFFFFF;
-            border-radius: 8px;
+            border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
 
@@ -341,7 +434,7 @@
 
         .practice-text p {
             font-family: 'Source Sans Pro', sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             color: #595959;
             line-height: 1.5;
         }
@@ -357,10 +450,6 @@
 
         .commitment-badge {
             text-align: center;
-            padding: 24px;
-            background: #FFFFFF;
-            border-radius: 8px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
 
         .badge-icon {
@@ -379,7 +468,7 @@
 
         .commitment-badge p {
             font-family: 'Source Sans Pro', sans-serif;
-            font-size: 16px;
+            font-size: 18px;
             color: #595959;
             line-height: 1.5;
         }
@@ -415,13 +504,15 @@
         }
 
         .btn {
-            padding: 15px 40px;
+            padding: 10px 14px;
             border-radius: 8px;
             text-decoration: none;
             font-family: 'Source Sans Pro', sans-serif;
             font-size: 18px;
             font-weight: 500;
             display: inline-block;
+            transition: transform 0.2s;
+            cursor: pointer;
         }
 
         .btn-primary {
@@ -430,7 +521,8 @@
         }
 
         .btn-primary:hover {
-            opacity: 0.9;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(255,152,56,0.3);
         }
 
         .btn-primary:focus {
@@ -444,7 +536,8 @@
         }
 
         .btn-secondary:hover {
-            opacity: 0.9;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
 
         .btn-secondary:focus {
@@ -553,10 +646,10 @@
         <div class="container">
             <img src="images/elderella-sparkle.svg" alt="" class="shield-icon" aria-hidden="true">
             <h1 class="security-hero-title">How We Protect Your Information</h1>
-            <p class="security-hero-subtitle">
+            <p class="hero-subtitle">
                 Caring for an elder involves some of the most personal details in a family's life.
             </p>
-            <p class="security-hero-subtitle">
+            <p class="hero-subtitle">
                 This page explains, in plain language, how Elderella keeps your data <strong>private, secure, and within your control</strong>.
             </p>
         </div>
@@ -567,29 +660,29 @@
         <div class="container">
             <h2 class="section-title">Our Promise to You</h2>
             <div class="pillars-grid">
-                <div class="pillar-card">
-                    <div class="pillar-icon" role="img" aria-label="Lock icon">🔒</div>
+                <div class="pillar-card card-base">
+                    <ion-icon name="lock-closed" class="pillar-icon" aria-hidden="true"></ion-icon>
                     <h3 class="pillar-title">Privacy first</h3>
                     <p class="pillar-description">
                         We only collect what's needed to help you care for your elders. Your information is <strong>never sold, rented, or traded</strong>.
                     </p>
                 </div>
-                <div class="pillar-card">
-                    <div class="pillar-icon" role="img" aria-label="Key icon">🔑</div>
+                <div class="pillar-card card-base">
+                    <ion-icon name="key" class="pillar-icon" aria-hidden="true"></ion-icon>
                     <h3 class="pillar-title">You own your data</h3>
                     <p class="pillar-description">
                         You can access, update, or delete your information anytime. You're always in control of your data.
                     </p>
                 </div>
-                <div class="pillar-card">
-                    <div class="pillar-icon" role="img" aria-label="Hospital icon">🏥</div>
+                <div class="pillar-card card-base">
+                    <ion-icon name="medical" class="pillar-icon" aria-hidden="true"></ion-icon>
                     <h3 class="pillar-title">Built for safety</h3>
                     <p class="pillar-description">
                         Elderella uses healthcare-grade protections designed to meet strict privacy laws in both Canada and the United States.
                     </p>
                 </div>
-                <div class="pillar-card">
-                    <div class="pillar-icon" role="img" aria-label="Transparency icon">✨</div>
+                <div class="pillar-card card-base">
+                    <ion-icon name="sparkles" class="pillar-icon" aria-hidden="true"></ion-icon>
                     <h3 class="pillar-title">Transparency always</h3>
                     <p class="pillar-description">
                         We communicate clearly about how Elderella works and how we handle your data. No surprises. Ever.
@@ -603,45 +696,45 @@
     <section class="section section-alt">
         <div class="container">
             <h2 class="section-title">What Elderella Protects</h2>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 18px; color: #595959;">We treat all caregiving information as sensitive, including:</p>
+            <p class="intro-text">We treat all caregiving information as sensitive.</p>
             <div class="protection-grid">
-                <div class="protection-item">
-                    <div class="protection-icon" role="img" aria-label="People icon">👥</div>
+                <div class="protection-item card-base">
+                    <ion-icon name="people" class="protection-icon" aria-hidden="true"></ion-icon>
                     <div class="protection-text">
                         <h3>Elder and Care Team information</h3>
                         <p>Names, contact details, and caregiver roles</p>
                     </div>
                 </div>
-                <div class="protection-item">
-                    <div class="protection-icon" role="img" aria-label="Calendar icon">📅</div>
+                <div class="protection-item card-base">
+                    <ion-icon name="calendar" class="protection-icon" aria-hidden="true"></ion-icon>
                     <div class="protection-text">
                         <h3>Care schedules</h3>
                         <p>Events, tasks, reminders, and routines</p>
                     </div>
                 </div>
-                <div class="protection-item">
-                    <div class="protection-icon" role="img" aria-label="Medicine icon">💊</div>
+                <div class="protection-item card-base">
+                    <ion-icon name="medical" class="protection-icon" aria-hidden="true"></ion-icon>
                     <div class="protection-text">
                         <h3>Health details</h3>
                         <p>Medications, symptoms, medical history, and care observations</p>
                     </div>
                 </div>
-                <div class="protection-item">
-                    <div class="protection-icon" role="img" aria-label="Notes icon">📝</div>
+                <div class="protection-item card-base">
+                    <ion-icon name="document-text" class="protection-icon" aria-hidden="true"></ion-icon>
                     <div class="protection-text">
                         <h3>Personal notes</h3>
                         <p>Stories, updates, and details you record</p>
                     </div>
                 </div>
-                <div class="protection-item">
-                    <div class="protection-icon" role="img" aria-label="Files icon">📁</div>
+                <div class="protection-item card-base">
+                    <ion-icon name="folder" class="protection-icon" aria-hidden="true"></ion-icon>
                     <div class="protection-text">
                         <h3>Care-related files</h3>
                         <p>Photos, documents, and audio notes</p>
                     </div>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 40px; font-size: 18px; color: #595959; font-weight: 600;">Everything is <strong>encrypted</strong> and securely stored in Canada.</p>
+            <p class="intro-text-bold">Everything is <strong>encrypted</strong> and securely stored in Canada.</p>
         </div>
     </section>
 
@@ -649,39 +742,39 @@
     <section class="section">
         <div class="container">
             <h2 class="section-title">How We Keep Your Information Safe</h2>
-            <div class="security-grid">
-                <div class="security-item">
-                    <div class="security-icon" role="img" aria-label="Canada flag">🇨🇦</div>
-                    <div class="security-content">
+            <div class="security-list">
+                <div class="security-list-item">
+                    <ion-icon name="location" class="security-list-icon" aria-hidden="true"></ion-icon>
+                    <div class="security-list-content">
                         <h3>A secure foundation</h3>
                         <p>Your data is stored on Google Cloud servers in <strong>Montreal, Canada</strong>, protected under strong privacy laws.</p>
                     </div>
                 </div>
-                <div class="security-item">
-                    <div class="security-icon" role="img" aria-label="Healthcare icon">🏥</div>
-                    <div class="security-content">
+                <div class="security-list-item">
+                    <ion-icon name="medical" class="security-list-icon" aria-hidden="true"></ion-icon>
+                    <div class="security-list-content">
                         <h3>Healthcare-grade security</h3>
                         <p>Elderella is designed to meet both:</p>
-                        <ul style="margin: 10px 0; padding-left: 20px;">
+                        <ul class="content-list">
                             <li>Canada's federal privacy law (<strong>PIPEDA</strong>), and</li>
                             <li>U.S. healthcare protection standards (<strong>HIPAA</strong>)</li>
                         </ul>
                         <p>These frameworks guide how we store, protect, and handle sensitive caregiving information.</p>
                     </div>
                 </div>
-                <div class="security-item">
-                    <div class="security-icon" role="img" aria-label="Handshake icon">🤝</div>
-                    <div class="security-content">
+                <div class="security-list-item">
+                    <ion-icon name="people" class="security-list-icon" aria-hidden="true"></ion-icon>
+                    <div class="security-list-content">
                         <h3>Protected partnerships</h3>
                         <p>We maintain strict agreements with our infrastructure partners, including Business Associate Agreements with Google Cloud, to ensure proper data handling at all times.</p>
                     </div>
                 </div>
-                <div class="security-item">
-                    <div class="security-icon" role="img" aria-label="Locked with key icon">🔐</div>
-                    <div class="security-content">
+                <div class="security-list-item">
+                    <ion-icon name="shield-checkmark" class="security-list-icon" aria-hidden="true"></ion-icon>
+                    <div class="security-list-content">
                         <h3>Technical safeguards</h3>
                         <p>We use industry-standard measures to protect your data, including:</p>
-                        <ul style="margin: 10px 0; padding-left: 20px;">
+                        <ul class="content-list">
                             <li>Encryption in transit and at rest</li>
                             <li>Role-based access controls</li>
                             <li>Multi-factor authentication and single sign-on for internal systems</li>
@@ -690,16 +783,16 @@
                         </ul>
                     </div>
                 </div>
-                <div class="security-item">
-                    <div class="security-icon" role="img" aria-label="Construction icon">🏗️</div>
-                    <div class="security-content">
+                <div class="security-list-item">
+                    <ion-icon name="construct" class="security-list-icon" aria-hidden="true"></ion-icon>
+                    <div class="security-list-content">
                         <h3>Privacy by design</h3>
                         <p>Every new Elderella feature goes through a privacy and security review before it's released. Protection is built in from the start.</p>
                     </div>
                 </div>
-                <div class="security-item">
-                    <div class="security-icon" role="img" aria-label="Robot icon">🤖</div>
-                    <div class="security-content">
+                <div class="security-list-item">
+                    <ion-icon name="chatbubbles" class="security-list-icon" aria-hidden="true"></ion-icon>
+                    <div class="security-list-content">
                         <h3>Secure AI support</h3>
                         <p>Ella, your caregiving partner, operates entirely within Google Cloud's protected environment, powered by Google Cloud's Large Language Model and Vertex AI with retrieval augmented generation. Information shared is accessed securely and never leaves our encrypted system.</p>
                     </div>
@@ -712,27 +805,32 @@
     <section class="section section-alt">
         <div class="container">
             <h2 class="section-title">Your Privacy Rights</h2>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 18px; color: #595959;">We follow global best practices for individual privacy rights, including principles from the GDPR and CCPA, so you can <strong>access, update, or request deletion</strong> of your personal information with confidence. <a href="privacy.html" style="color: #342A99;">Read our Full Privacy Policy</a>.</p>
+            <p class="intro-text">We follow global best practices for individual privacy rights, including principles from the GDPR and CCPA, so you can <strong>access, update, or request deletion</strong> of your personal information with confidence. <a href="privacy.html" class="privacy-link">Read our Full Privacy Policy</a>.</p>
             <div class="rights-grid">
-                <div class="right-item">
+                <div class="right-item card-base">
+                    <ion-icon name="eye" class="right-icon" aria-hidden="true"></ion-icon>
                     <h3>Access</h3>
-                    <p>See the data Elderella has stored for you or your elder</p>
+                    <p>See the data Elderella has stored for you or your elder.</p>
                 </div>
-                <div class="right-item">
+                <div class="right-item card-base">
+                    <ion-icon name="create" class="right-icon" aria-hidden="true"></ion-icon>
                     <h3>Update</h3>
-                    <p>Correct, update or change any information that's inaccurate</p>
+                    <p>Correct, update or change any information that's inaccurate.</p>
                 </div>
-                <div class="right-item">
+                <div class="right-item card-base">
+                    <ion-icon name="trash" class="right-icon" aria-hidden="true"></ion-icon>
                     <h3>Delete</h3>
-                    <p>Ask us to remove your data (except where laws require retention)</p>
+                    <p>Ask us to remove your data (except where laws require retention).</p>
                 </div>
-                <div class="right-item">
+                <div class="right-item card-base">
+                    <ion-icon name="close-circle" class="right-icon" aria-hidden="true"></ion-icon>
                     <h3>Opt-out</h3>
-                    <p>Stop receiving marketing emails or withdraw consent for data sharing</p>
+                    <p>Stop receiving marketing emails or withdraw consent for data sharing.</p>
                 </div>
-                <div class="right-item">
+                <div class="right-item card-base">
+                    <ion-icon name="archive" class="right-icon" aria-hidden="true"></ion-icon>
                     <h3>Data retention</h3>
-                    <p>If you cancel your Elderella account, your data remains accessible for up to 5 years in case you return – or you can request immediate deletion</p>
+                    <p>If you cancel your Elderella account, your data remains accessible for up to 5 years in case you return – or you can request immediate deletion.</p>
                 </div>
             </div>
         </div>
@@ -742,43 +840,32 @@
     <section class="section">
         <div class="container">
             <h2 class="section-title">How We Use (and Don't Use) Your Data</h2>
-            <div class="practices-list">
-                <div class="practice-item">
-                    <div class="practice-icon" role="img" aria-label="Tools icon">🛠️</div>
-                    <div class="practice-text">
-                        <h3>How we use your information</h3>
-                        <ul style="margin: 10px 0; padding-left: 20px;">
-                            <li style="padding: 5px 0;">To provide and improve Elderella's caregiving tools</li>
-                            <li style="padding: 5px 0;">To help your family stay organized and connected</li>
-                            <li style="padding: 5px 0;">To personalize insights and reminders for your elder</li>
-                        </ul>
-                    </div>
+            <div class="pillars-grid data-usage-grid">
+                <div class="pillar-card card-base">
+                    <ion-icon name="build" class="pillar-icon" aria-hidden="true"></ion-icon>
+                    <h3 class="pillar-title">How we use your information</h3>
+                    <ul class="content-list list-left">
+                        <li>To provide and improve Elderella's caregiving tools</li>
+                        <li>To help your family stay organized and connected</li>
+                        <li>To personalize insights and reminders for your elder</li>
+                    </ul>
                 </div>
-                <div class="practice-item">
-                    <div class="practice-icon" role="img" aria-label="No entry icon">🚫</div>
-                    <div class="practice-text">
-                        <h3>How we never use your information</h3>
-                        <ul style="margin: 10px 0; padding-left: 20px;">
-                            <li style="padding: 5px 0;">We do not sell, rent, or trade your data</li>
-                            <li style="padding: 5px 0;">We do not share your information without your consent</li>
-                            <li style="padding: 5px 0;">We do not use your information for unrelated advertising</li>
-                        </ul>
-                    </div>
+                <div class="pillar-card card-base">
+                    <ion-icon name="close-circle" class="pillar-icon" aria-hidden="true"></ion-icon>
+                    <h3 class="pillar-title">How we never use your information</h3>
+                    <ul class="content-list list-left">
+                        <li>We do not sell, rent, or trade your data</li>
+                        <li>We do not share your information without your consent</li>
+                        <li>We do not use your information for unrelated advertising</li>
+                    </ul>
                 </div>
-                <div class="practice-item">
-                    <div class="practice-icon" role="img" aria-label="Chart icon">📊</div>
-                    <div class="practice-text">
-                        <h3>Anonymized insights</h3>
-                        <p>We may use aggregated, non-identifiable information to improve Elderella or to understand caregiving patterns. Nothing in these insights can identify you or your elder.</p>
-                    </div>
-                </div>
-                <div class="practice-item">
-                    <div class="practice-icon" role="img" aria-label="Wrench icon">🔧</div>
-                    <div class="practice-text">
-                        <h3>Carefully selected service providers</h3>
-                        <p>When we work with trusted partners (such as email delivery services), they only receive what is necessary to do their job and operate under strict privacy agreements.</p>
-                    </div>
-                </div>
+            </div>
+            <div class="subsection-wrapper">
+                <h3 class="subsection-title">Anonymized insights</h3>
+                <p class="subsection-content">We may use aggregated, non-identifiable information to improve Elderella or to understand caregiving patterns. Nothing in these insights can identify you or your elder.</p>
+
+                <h3 class="subsection-title">Carefully selected service providers</h3>
+                <p class="subsection-content subsection-content-last">When we work with trusted partners (such as email delivery services), they only receive what is necessary to do their job and operate under strict privacy agreements.</p>
             </div>
         </div>
     </section>
