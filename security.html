@@ -213,27 +213,39 @@
         }
 
         /* Protection Grid */
-        .protection-grid-row-1 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+        .protection-grid {
+            --card-width: 350px;
+            --gap: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
             max-width: 1200px;
-            margin: 0 auto 30px;
+            margin: 0 auto;
+            align-items: center;
         }
 
-        .protection-grid-row-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 800px;
-            margin: 0 auto;
+        .protection-grid-row {
+            display: flex;
+            gap: var(--gap);
+            width: 100%;
+            justify-content: center;
         }
 
         .protection-item {
             text-align: center;
+            width: var(--card-width);
+            min-height: 100%;
+        }
+
+        .protection-item.card-base {
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 240px;
+        }
+
+        .protection-text {
+            width: 100%;
         }
 
         .protection-icon {
@@ -380,27 +392,35 @@
         }
 
         /* Rights List */
-        .rights-grid-row-1 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+        .rights-grid {
+            --card-width: 350px;
+            --gap: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
             max-width: 1200px;
-            margin: 0 auto 30px;
+            margin: 0 auto;
+            align-items: center;
         }
 
-        .rights-grid-row-2 {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 800px;
-            margin: 0 auto;
+        .rights-grid-row {
+            display: flex;
+            gap: var(--gap);
+            width: 100%;
+            justify-content: center;
         }
 
         .right-item {
             text-align: center;
+            width: var(--card-width);
+            min-height: 100%;
+        }
+
+        .right-item.card-base {
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 240px;
         }
 
         .right-icon {
@@ -632,12 +652,20 @@
             }
 
             .pillars-grid,
-            .protection-grid-row-1,
-            .protection-grid-row-2,
-            .rights-grid-row-1,
-            .rights-grid-row-2,
             .commitments-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .protection-grid-row,
+            .rights-grid-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .protection-item,
+            .right-item {
+                width: 100%;
+                max-width: 100%;
             }
 
             .security-item,
@@ -734,42 +762,44 @@
         <div class="container">
             <h2 class="section-title">What Elderella Protects</h2>
             <p class="intro-text">We treat all caregiving information as sensitive.</p>
-            <div class="protection-grid-row-1">
-                <div class="protection-item card-base">
-                    <ion-icon name="people" class="protection-icon" aria-hidden="true"></ion-icon>
-                    <div class="protection-text">
-                        <h3>Elder and<br>Care Team information</h3>
-                        <p>Names, contact details, and caregiver roles</p>
+            <div class="protection-grid">
+                <div class="protection-grid-row">
+                    <div class="protection-item card-base">
+                        <ion-icon name="people" class="protection-icon" aria-hidden="true"></ion-icon>
+                        <div class="protection-text">
+                            <h3>Elder and<br>Care Team information</h3>
+                            <p>Names, contact details, and caregiver roles</p>
+                        </div>
+                    </div>
+                    <div class="protection-item card-base">
+                        <ion-icon name="calendar" class="protection-icon" aria-hidden="true"></ion-icon>
+                        <div class="protection-text">
+                            <h3>Care schedules</h3>
+                            <p>Events, tasks, reminders, and routines</p>
+                        </div>
+                    </div>
+                    <div class="protection-item card-base">
+                        <ion-icon name="medical" class="protection-icon" aria-hidden="true"></ion-icon>
+                        <div class="protection-text">
+                            <h3>Health details</h3>
+                            <p>Medications, symptoms, medical history, and care observations</p>
+                        </div>
                     </div>
                 </div>
-                <div class="protection-item card-base">
-                    <ion-icon name="calendar" class="protection-icon" aria-hidden="true"></ion-icon>
-                    <div class="protection-text">
-                        <h3>Care schedules</h3>
-                        <p>Events, tasks, reminders, and routines</p>
+                <div class="protection-grid-row">
+                    <div class="protection-item card-base">
+                        <ion-icon name="document-text" class="protection-icon" aria-hidden="true"></ion-icon>
+                        <div class="protection-text">
+                            <h3>Personal notes</h3>
+                            <p>Stories, updates, and details you record</p>
+                        </div>
                     </div>
-                </div>
-                <div class="protection-item card-base">
-                    <ion-icon name="medical" class="protection-icon" aria-hidden="true"></ion-icon>
-                    <div class="protection-text">
-                        <h3>Health details</h3>
-                        <p>Medications, symptoms, medical history, and care observations</p>
-                    </div>
-                </div>
-            </div>
-            <div class="protection-grid-row-2">
-                <div class="protection-item card-base">
-                    <ion-icon name="document-text" class="protection-icon" aria-hidden="true"></ion-icon>
-                    <div class="protection-text">
-                        <h3>Personal notes</h3>
-                        <p>Stories, updates, and details you record</p>
-                    </div>
-                </div>
-                <div class="protection-item card-base">
-                    <ion-icon name="folder" class="protection-icon" aria-hidden="true"></ion-icon>
-                    <div class="protection-text">
-                        <h3>Care-related files</h3>
-                        <p>Photos, documents, and audio notes</p>
+                    <div class="protection-item card-base">
+                        <ion-icon name="folder" class="protection-icon" aria-hidden="true"></ion-icon>
+                        <div class="protection-text">
+                            <h3>Care-related files</h3>
+                            <p>Photos, documents, and audio notes</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -844,33 +874,35 @@
         <div class="container">
             <h2 class="section-title">Your Privacy Rights</h2>
             <p class="intro-text">We follow global best practices for individual privacy rights, including principles from the GDPR and CCPA, so you can access, update, or request deletion of your personal information with confidence. <a href="privacy.html" class="privacy-link">Read our Full Privacy Policy</a>.</p>
-            <div class="rights-grid-row-1">
-                <div class="right-item card-base">
-                    <ion-icon name="eye" class="right-icon" aria-hidden="true"></ion-icon>
-                    <h3>Access</h3>
-                    <p>See the data Elderella has stored for you or your elder.</p>
+            <div class="rights-grid">
+                <div class="rights-grid-row">
+                    <div class="right-item card-base">
+                        <ion-icon name="eye" class="right-icon" aria-hidden="true"></ion-icon>
+                        <h3>Access</h3>
+                        <p>See the data Elderella has stored for you or your elder.</p>
+                    </div>
+                    <div class="right-item card-base">
+                        <ion-icon name="create" class="right-icon" aria-hidden="true"></ion-icon>
+                        <h3>Update</h3>
+                        <p>Correct, update or change any information that's inaccurate.</p>
+                    </div>
+                    <div class="right-item card-base">
+                        <ion-icon name="trash" class="right-icon" aria-hidden="true"></ion-icon>
+                        <h3>Delete</h3>
+                        <p>Ask us to remove your data (except where laws require retention).</p>
+                    </div>
                 </div>
-                <div class="right-item card-base">
-                    <ion-icon name="create" class="right-icon" aria-hidden="true"></ion-icon>
-                    <h3>Update</h3>
-                    <p>Correct, update or change any information that's inaccurate.</p>
-                </div>
-                <div class="right-item card-base">
-                    <ion-icon name="trash" class="right-icon" aria-hidden="true"></ion-icon>
-                    <h3>Delete</h3>
-                    <p>Ask us to remove your data (except where laws require retention).</p>
-                </div>
-            </div>
-            <div class="rights-grid-row-2">
-                <div class="right-item card-base">
-                    <ion-icon name="close-circle" class="right-icon" aria-hidden="true"></ion-icon>
-                    <h3>Opt-out</h3>
-                    <p>Stop receiving marketing emails or withdraw consent for data sharing.</p>
-                </div>
-                <div class="right-item card-base">
-                    <ion-icon name="archive" class="right-icon" aria-hidden="true"></ion-icon>
-                    <h3>Data retention</h3>
-                    <p>If you cancel your Elderella account, your data remains accessible for up to 5 years in case you return – or you can request immediate deletion.</p>
+                <div class="rights-grid-row">
+                    <div class="right-item card-base">
+                        <ion-icon name="close-circle" class="right-icon" aria-hidden="true"></ion-icon>
+                        <h3>Opt-out</h3>
+                        <p>Stop receiving marketing emails or withdraw consent for data sharing.</p>
+                    </div>
+                    <div class="right-item card-base">
+                        <ion-icon name="archive" class="right-icon" aria-hidden="true"></ion-icon>
+                        <h3>Data retention</h3>
+                        <p>If you cancel your Elderella account, your data remains accessible for up to 5 years in case you return – or you can request immediate deletion.</p>
+                    </div>
                 </div>
             </div>
         </div>
