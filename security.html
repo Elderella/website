@@ -213,39 +213,45 @@
         }
 
         /* Protection Grid */
-        .protection-grid {
+        .protection-grid-row-1 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            max-width: 1000px;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 30px;
+        }
+
+        .protection-grid-row-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 800px;
             margin: 0 auto;
-            justify-items: center;
-        }
-
-        .protection-grid .protection-item:nth-child(4) {
-            grid-column: 2 / 3;
-        }
-
-        .protection-grid .protection-item:nth-child(5) {
-            grid-column: 3 / 4;
         }
 
         .protection-item {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .protection-icon {
-            font-size: 32px;
+            font-size: 48px;
             display: block;
-            margin: 0 auto 12px;
+            margin: 0 auto 20px;
             color: #5A4FCF;
+        }
+
+        .protection-text {
+            width: 100%;
         }
 
         .protection-text h3 {
             font-family: 'Merriweather', serif;
             font-size: 1.4rem;
             color: #342A99;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-weight: 400;
             text-align: center;
         }
@@ -374,31 +380,33 @@
         }
 
         /* Rights List */
-        .rights-grid {
+        .rights-grid-row-1 {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            max-width: 1000px;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 30px;
+        }
+
+        .rights-grid-row-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 800px;
             margin: 0 auto;
-            justify-items: center;
-        }
-
-        .rights-grid .right-item:nth-child(4) {
-            grid-column: 2 / 3;
-        }
-
-        .rights-grid .right-item:nth-child(5) {
-            grid-column: 3 / 4;
         }
 
         .right-item {
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .right-icon {
-            font-size: 32px;
+            font-size: 48px;
             display: block;
-            margin: 0 auto 12px;
+            margin: 0 auto 20px;
             color: #5A4FCF;
         }
 
@@ -406,7 +414,7 @@
             font-family: 'Merriweather', serif;
             font-size: 1.4rem;
             color: #342A99;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             font-weight: 400;
             text-align: center;
         }
@@ -624,20 +632,12 @@
             }
 
             .pillars-grid,
-            .protection-grid,
-            .rights-grid,
+            .protection-grid-row-1,
+            .protection-grid-row-2,
+            .rights-grid-row-1,
+            .rights-grid-row-2,
             .commitments-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .protection-grid .protection-item:nth-child(4),
-            .protection-grid .protection-item:nth-child(5) {
-                grid-column: auto;
-            }
-
-            .rights-grid .right-item:nth-child(4),
-            .rights-grid .right-item:nth-child(5) {
-                grid-column: auto;
             }
 
             .security-item,
@@ -734,7 +734,7 @@
         <div class="container">
             <h2 class="section-title">What Elderella Protects</h2>
             <p class="intro-text">We treat all caregiving information as sensitive.</p>
-            <div class="protection-grid">
+            <div class="protection-grid-row-1">
                 <div class="protection-item card-base">
                     <ion-icon name="people" class="protection-icon" aria-hidden="true"></ion-icon>
                     <div class="protection-text">
@@ -756,6 +756,8 @@
                         <p>Medications, symptoms, medical history, and care observations</p>
                     </div>
                 </div>
+            </div>
+            <div class="protection-grid-row-2">
                 <div class="protection-item card-base">
                     <ion-icon name="document-text" class="protection-icon" aria-hidden="true"></ion-icon>
                     <div class="protection-text">
@@ -842,7 +844,7 @@
         <div class="container">
             <h2 class="section-title">Your Privacy Rights</h2>
             <p class="intro-text">We follow global best practices for individual privacy rights, including principles from the GDPR and CCPA, so you can access, update, or request deletion of your personal information with confidence. <a href="privacy.html" class="privacy-link">Read our Full Privacy Policy</a>.</p>
-            <div class="rights-grid">
+            <div class="rights-grid-row-1">
                 <div class="right-item card-base">
                     <ion-icon name="eye" class="right-icon" aria-hidden="true"></ion-icon>
                     <h3>Access</h3>
@@ -858,6 +860,8 @@
                     <h3>Delete</h3>
                     <p>Ask us to remove your data (except where laws require retention).</p>
                 </div>
+            </div>
+            <div class="rights-grid-row-2">
                 <div class="right-item card-base">
                     <ion-icon name="close-circle" class="right-icon" aria-hidden="true"></ion-icon>
                     <h3>Opt-out</h3>
