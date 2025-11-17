@@ -7,19 +7,19 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.elderella.com/privacy.html</loc>
+        <loc>https://www.elderella.com/privacy</loc>
         <lastmod>2025-10-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.elderella.com/security.html</loc>
+        <loc>https://www.elderella.com/security</loc>
         <lastmod>2025-10-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://www.elderella.com/terms.html</loc>
+        <loc>https://www.elderella.com/terms</loc>
         <lastmod>2025-10-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>

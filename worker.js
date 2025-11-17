@@ -906,6 +906,105 @@ export default {
       }
     }
 
-    return new Response('Not Found', { status: 404 });
+    // Handle clean URLs - rewrite to .html files
+    // This allows /privacy to serve privacy.html while keeping the clean URL in the browser
+    // Security: Using whitelist approach prevents path traversal
+    const cleanUrlMap = {
+      '/privacy': '/privacy.html',
+      '/security': '/security.html',
+      '/terms': '/terms.html',
+      '/': '/index.html'
+    };
+
+    // Redirect /index.html to root for SEO
+    if (url.pathname === '/index.html') {
+      const redirectUrl = new URL('/', url.origin);
+      redirectUrl.search = url.search;
+      redirectUrl.hash = url.hash;
+      return Response.redirect(redirectUrl.toString(), 301);
+    }
+
+    // Normalize pathname by removing trailing slash (except for root)
+    let normalizedPath = url.pathname;
+    if (normalizedPath !== '/' && normalizedPath.endsWith('/')) {
+      normalizedPath = normalizedPath.slice(0, -1);
+      // Redirect to normalized URL for SEO consistency
+      const redirectUrl = new URL(normalizedPath, url.origin);
+      redirectUrl.search = url.search;
+      redirectUrl.hash = url.hash;
+      return Response.redirect(redirectUrl.toString(), 301);
+    }
+
+    // Check if the path matches a clean URL
+    if (cleanUrlMap[normalizedPath]) {
+      // Fetch the actual HTML file
+      const htmlPath = cleanUrlMap[normalizedPath];
+
+      try {
+        // Fetch from the origin (Cloudflare Pages)
+        const response = await fetch(new URL(htmlPath, url.origin), {
+          cf: {
+            cacheTtl: 3600,
+            cacheEverything: true
+          }
+        });
+
+        if (response.ok) {
+          // Clone headers and add security and cache headers
+          const newHeaders = new Headers(response.headers);
+          newHeaders.set('Cache-Control', 'public, max-age=3600, s-maxage=3600');
+          newHeaders.set('X-Frame-Options', 'DENY');
+          newHeaders.set('X-Content-Type-Options', 'nosniff');
+          newHeaders.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+          newHeaders.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+
+          return new Response(response.body, {
+            status: response.status,
+            headers: newHeaders
+          });
+        }
+      } catch (error) {
+        console.error('Error fetching clean URL:', error);
+
+        // Send error alert for clean URL fetch failures
+        await sendErrorAlert(
+          error,
+          {
+            operation: 'Clean URL Rewrite',
+            path: url.pathname,
+            htmlPath: cleanUrlMap[normalizedPath]
+          },
+          env
+        );
+
+        return new Response('Internal Server Error', {
+          status: 500,
+          headers: {
+            'Content-Type': 'text/plain',
+            'X-Frame-Options': 'DENY',
+            'X-Content-Type-Options': 'nosniff',
+            'Referrer-Policy': 'strict-origin-when-cross-origin',
+            'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload'
+          }
+        });
+      }
+    }
+
+    // Redirect .html URLs to clean URLs (e.g., /privacy.html -> /privacy)
+    // Only redirect if this clean URL is in our map to avoid redirect loops
+    if (url.pathname.endsWith('.html')) {
+      const cleanPath = url.pathname.replace('.html', '');
+      if (cleanUrlMap[cleanPath]) {
+        // Preserve query string and hash fragment for tracking and anchor links
+        const redirectUrl = new URL(cleanPath, url.origin);
+        redirectUrl.search = url.search;
+        redirectUrl.hash = url.hash;
+        return Response.redirect(redirectUrl.toString(), 301);
+      }
+    }
+
+    // Pass through all other requests to Cloudflare Pages origin
+    // This allows static assets (CSS, JS, images) to load normally
+    return fetch(request);
   }
 };
