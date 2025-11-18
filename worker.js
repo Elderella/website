@@ -913,6 +913,7 @@ export default {
       '/privacy': '/privacy.html',
       '/security': '/security.html',
       '/terms': '/terms.html',
+      '/introduce': '/introduce.html',
       '/': '/index.html'
     };
 
