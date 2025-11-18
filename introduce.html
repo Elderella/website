@@ -97,163 +97,89 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-v2.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <style>
+        /* Introduce page specific styles - matching security page */
         body {
-            font-family: 'Source Sans Pro', sans-serif;
-            line-height: 1.5;
-            color: #595959;
-            margin: 0;
-            padding: 0;
             background: #FFFFFF;
         }
 
-        .header {
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            z-index: 9999;
+            padding: 10px 20px;
+            background: #FFBC57;
+            color: #000000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .skip-link:focus {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+        }
+
+        .intro-hero {
             background: #5A4FCF;
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 80px 0;
+            text-align: center;
         }
 
-        .header-content {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 0 180px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            height: 40px;
-        }
-
-        .back-link {
+        .intro-hero h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 42px;
             color: #FFFFFF;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
-        .main-wrapper {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 0 180px;
-            display: flex;
-            gap: 60px;
-            background: #FFFFFF;
-        }
-
-        .toc-sidebar {
-            width: 280px;
-            flex-shrink: 0;
-            position: sticky;
-            top: 100px;
-            align-self: flex-start;
-            max-height: calc(100vh - 120px);
-            overflow-y: auto;
-        }
-
-        .toc-container {
-            background: #F5F5F5;
-            border-radius: 12px;
-            padding: 30px;
-        }
-
-        .toc-title {
-            font-family: 'Merriweather', serif;
-            font-size: 1.2rem;
-            color: #342A99;
-            margin: 0 0 20px 0;
-        }
-
-        .toc-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .toc-list li {
-            margin-bottom: 12px;
-        }
-
-        .toc-list a {
-            color: #595959;
-            text-decoration: none;
-            font-size: 15px;
-            display: block;
-            padding: 8px 0;
-            border-left: 3px solid transparent;
-            padding-left: 12px;
-            transition: all 0.2s;
-        }
-
-        .toc-list a:hover {
-            color: #342A99;
-            border-left-color: #342A99;
-        }
-
-        .content {
-            flex: 1;
-            padding: 60px 0;
-            min-width: 0;
-            background: #FFFFFF;
-        }
-
-        .hero-section {
-            margin-bottom: 60px;
-        }
-
-        h1 {
-            font-family: 'Merriweather', serif;
-            font-size: 3rem;
-            color: #342A99;
+            margin-bottom: 20px;
+            font-weight: 400;
             line-height: 1.2;
-            margin: 0 0 20px 0;
         }
 
-        .hero-intro {
-            font-size: 20px;
-            color: #595959;
-            line-height: 1.6;
-            margin-bottom: 0;
+        .intro-hero p {
+            font-size: 18px;
+            color: #FFFFFF;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
         }
 
-        h2 {
+        .section {
+            padding: 65px 0;
+        }
+
+        .section-alt {
+            background: #F5F5F5;
+        }
+
+        .section-title {
             font-family: 'Merriweather', serif;
             font-size: 2rem;
             color: #342A99;
-            margin: 60px 0 24px 0;
-        }
-
-        h3 {
-            font-family: 'Merriweather', serif;
-            font-size: 1.4rem;
-            color: #342A99;
-            margin: 40px 0 16px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 400;
         }
 
         .intro-text {
             font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 24px;
+            color: #595959;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto 20px;
         }
 
-        .approach-card {
+        .card-base {
             background: #FFFFFF;
-            border-radius: 12px;
             padding: 40px;
-            margin-bottom: 40px;
+            border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-        }
-
-        .approach-card.alt {
-            background: #F5F5F5;
+            margin-bottom: 30px;
         }
 
         .approach-header {
@@ -286,17 +212,18 @@
             font-size: 1.6rem;
             color: #342A99;
             margin: 0 0 8px 0;
+            font-weight: 400;
         }
 
         .approach-when {
-            font-style: italic;
+            font-style: normal;
             color: #7a7a7a;
-            font-size: 16px;
+            font-size: 18px;
             margin: 0;
         }
 
         .approach-try {
-            background: #CCCCFF;
+            background: #F5F5F5;
             border-left: 4px solid #5A4FCF;
             padding: 24px;
             border-radius: 8px;
@@ -312,22 +239,16 @@
 
         .approach-try-text {
             font-size: 18px;
-            line-height: 1.6;
-            color: #342A99;
+            line-height: 1.5;
+            color: #595959;
             margin: 0;
         }
 
         .approach-explanation {
             font-size: 18px;
-            line-height: 1.6;
+            line-height: 1.5;
+            color: #595959;
             margin: 0;
-        }
-
-        .building-comfort-section {
-            background: #F5F5F5;
-            border-radius: 12px;
-            padding: 50px;
-            margin: 60px 0;
         }
 
         .comfort-grid {
@@ -335,6 +256,9 @@
             grid-template-columns: 1fr;
             gap: 24px;
             margin-top: 32px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .comfort-item {
@@ -365,29 +289,33 @@
         }
 
         .comfort-content p {
-            font-size: 16px;
+            font-size: 18px;
             line-height: 1.5;
             margin: 0;
             color: #595959;
         }
 
-        .final-thought-section {
+        .final-section {
             background: #5A4FCF;
             color: #FFFFFF;
-            border-radius: 12px;
-            padding: 50px;
-            margin: 60px 0;
+            border-radius: 8px;
+            padding: 60px 40px;
             text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .final-thought-section h2 {
+        .final-section h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
             color: #FFFFFF;
-            margin-top: 0;
+            margin: 0 0 20px 0;
+            font-weight: 400;
         }
 
-        .final-thought-section p {
+        .final-section p {
             font-size: 18px;
-            line-height: 1.6;
+            line-height: 1.5;
             margin: 0;
             color: #FFFFFF;
         }
@@ -402,118 +330,39 @@
             text-decoration: underline;
         }
 
-        footer {
-            background: #5A4FCF;
-            color: #FFFFFF;
-            padding: 30px 0;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            max-width: 1440px;
+        .approaches-container {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 180px;
-            display: flex;
-            gap: 30px;
-            align-items: center;
-            flex-wrap: wrap;
         }
 
-        footer a {
-            color: #FFFFFF;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        footer span {
-            font-size: 14px;
-        }
-
-        @media (max-width: 1024px) {
-            .main-wrapper {
-                padding: 0 30px;
-                gap: 40px;
-            }
-
-            .header-content,
-            .footer-content {
-                padding: 0 30px;
-            }
-
-            .toc-sidebar {
-                width: 220px;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .main-wrapper {
-                flex-direction: column;
-                padding: 0 20px;
+            .intro-hero h1 {
+                font-size: 32px;
             }
 
-            .header-content,
-            .footer-content {
-                padding: 0 20px;
+            .intro-hero p {
+                font-size: 16px;
             }
 
-            .toc-sidebar {
-                position: static;
-                width: 100%;
-                max-height: none;
-                order: -1;
-            }
-
-            .toc-container {
-                padding: 25px;
-                margin-bottom: 40px;
-            }
-
-            .content {
+            .section {
                 padding: 40px 0;
             }
 
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
+            .section-title {
                 font-size: 1.5rem;
-                margin: 40px 0 20px 0;
             }
 
-            h3 {
-                font-size: 1.2rem;
-            }
-
-            .hero-intro {
-                font-size: 18px;
-            }
-
-            .approach-card {
+            .card-base {
                 padding: 30px 20px;
             }
 
-            .building-comfort-section,
-            .final-thought-section {
-                padding: 30px 20px;
+            .approach-title {
+                font-size: 1.3rem;
             }
 
-            .footer-content {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
+            .final-section {
+                padding: 40px 20px;
             }
         }
     </style>
@@ -524,51 +373,47 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <header class="header">
-        <div class="header-content">
-            <a href="/">
-                <img src="images/elderella-logo.svg" alt="Elderella" class="logo">
-            </a>
-            <a href="/" class="back-link">← Back to Home</a>
+    <!-- Skip link for keyboard navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <img src="images/elderella-logo.svg" alt="Elderella - Elder care coordination platform" class="logo">
         </div>
     </header>
 
-    <main class="main-wrapper">
-        <aside class="toc-sidebar">
-            <nav class="toc-container">
-                <h2 class="toc-title">Table of Contents</h2>
-                <ul class="toc-list">
-                    <li><a href="#introduction">Introduction</a></li>
-                    <li><a href="#approaches">Five Approaches</a></li>
-                    <li><a href="#approach-1">1. Help Me Stay Organized</a></li>
-                    <li><a href="#approach-2">2. We're in This Together</a></li>
-                    <li><a href="#approach-3">3. Simplify and Reassure</a></li>
-                    <li><a href="#approach-4">4. Your Privacy Matters</a></li>
-                    <li><a href="#approach-5">5. Try It Together</a></li>
-                    <li><a href="#building-comfort">Building Comfort and Consent</a></li>
-                    <li><a href="#final-thought">A Final Thought</a></li>
-                </ul>
-            </nav>
-        </aside>
+    <!-- Main Content -->
+    <main id="main-content">
 
-        <article class="content">
-            <section class="hero-section">
-                <h1>How should I introduce Elderella to the person I'm caring for?</h1>
-                <p class="hero-intro">Bringing a new tool into caregiving can be a sensitive step — especially when technology, privacy, or change feels intimidating.</p>
-            </section>
+    <!-- Hero Section -->
+    <section class="intro-hero">
+        <div class="container">
+            <img src="images/elderella-sparkle.svg" alt="" style="width: 60px; height: 60px; margin: 0 auto 30px; display: block;" aria-hidden="true">
+            <h1>How should I introduce Elderella to the person I'm caring for?</h1>
+            <p>
+                Bringing a new tool into caregiving can be a sensitive step — especially when technology, privacy, or change feels intimidating.
+            </p>
+        </div>
+    </section>
 
-            <section id="introduction">
-                <p class="intro-text">The goal isn't to "convince" the person you're caring for to use Elderella; it's to help them understand what it is, why you're using it, and how it helps everyone feel more supported.</p>
+    <!-- Introduction -->
+    <section class="section">
+        <div class="container">
+            <p class="intro-text">The goal isn't to "convince" the person you're caring for to use Elderella; it's to help them understand what it is, why you're using it, and how it helps everyone feel more supported.</p>
 
-                <p class="intro-text">At its heart, Elderella is a family coordination tool, not a replacement for care or connection. It's designed to make life a little simpler for everyone involved — including the person receiving care.</p>
+            <p class="intro-text">At its heart, Elderella is a family coordination tool, not a replacement for care or connection. It's designed to make life a little simpler for everyone involved — including the person receiving care.</p>
 
-                <p class="intro-text">Here are a few ways to approach the conversation, depending on your relationship and the person you're caring for's comfort with technology:</p>
-            </section>
+            <p class="intro-text">Here are a few ways to approach the conversation, depending on your relationship and the person you're caring for's comfort with technology.</p>
+        </div>
+    </section>
 
-            <section id="approaches">
-                <h2>Five Approaches</h2>
-
-                <div id="approach-1" class="approach-card">
+    <!-- Five Approaches -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="approaches-container">
+                <!-- Approach 1 -->
+                <div class="card-base">
                     <div class="approach-header">
                         <div class="approach-number">1</div>
                         <div class="approach-title-group">
@@ -585,7 +430,8 @@
                     <p class="approach-explanation">This approach reassures them that the tool supports you, not controls them. It shifts the focus from "technology for them" to "peace of mind for both of us."</p>
                 </div>
 
-                <div id="approach-2" class="approach-card alt">
+                <!-- Approach 2 -->
+                <div class="card-base">
                     <div class="approach-header">
                         <div class="approach-number">2</div>
                         <div class="approach-title-group">
@@ -602,7 +448,8 @@
                     <p class="approach-explanation">This emphasizes teamwork and communication rather than surveillance or record-keeping.</p>
                 </div>
 
-                <div id="approach-3" class="approach-card">
+                <!-- Approach 3 -->
+                <div class="card-base">
                     <div class="approach-header">
                         <div class="approach-number">3</div>
                         <div class="approach-title-group">
@@ -619,7 +466,8 @@
                     <p class="approach-explanation">Focusing on simplicity and time together helps position Elderella as something that brings calm, not complication.</p>
                 </div>
 
-                <div id="approach-4" class="approach-card alt">
+                <!-- Approach 4 -->
+                <div class="card-base">
                     <div class="approach-header">
                         <div class="approach-number">4</div>
                         <div class="approach-title-group">
@@ -636,7 +484,8 @@
                     <p class="approach-explanation">Offer to show them where the <a href="/privacy" class="privacy-link">Privacy Policy</a> and <a href="/security" class="privacy-link">Elderella Security</a> pages are. Transparency builds trust.</p>
                 </div>
 
-                <div id="approach-5" class="approach-card">
+                <!-- Approach 5 -->
+                <div class="card-base">
                     <div class="approach-header">
                         <div class="approach-number">5</div>
                         <div class="approach-title-group">
@@ -652,68 +501,82 @@
 
                     <p class="approach-explanation">Doing a simple task side-by-side — like adding a reminder or note — makes the experience feel approachable and shared.</p>
                 </div>
-            </section>
+            </div>
+        </div>
+    </section>
 
-            <section id="building-comfort" class="building-comfort-section">
-                <h2>Building Comfort and Consent</h2>
+    <!-- Building Comfort -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Building Comfort and Consent</h2>
 
-                <div class="comfort-grid">
-                    <div class="comfort-item">
-                        <div class="comfort-icon">✓</div>
-                        <div class="comfort-content">
-                            <h4>Be transparent.</h4>
-                            <p>Explain what information you'll add (events, tasks, medications, notes) and why.</p>
-                        </div>
-                    </div>
-
-                    <div class="comfort-item">
-                        <div class="comfort-icon">✓</div>
-                        <div class="comfort-content">
-                            <h4>Start small.</h4>
-                            <p>Begin with one or two things that benefit them directly, like reminders or tracking doctor visits.</p>
-                        </div>
-                    </div>
-
-                    <div class="comfort-item">
-                        <div class="comfort-icon">✓</div>
-                        <div class="comfort-content">
-                            <h4>Let them set boundaries.</h4>
-                            <p>Ask what they're comfortable including. Consent is ongoing, not one-time.</p>
-                        </div>
-                    </div>
-
-                    <div class="comfort-item">
-                        <div class="comfort-icon">✓</div>
-                        <div class="comfort-content">
-                            <h4>Show value quickly.</h4>
-                            <p>Once Elderella helps avoid a missed appointment or confusion, highlight that moment: "See how easy that was?"</p>
-                        </div>
-                    </div>
-
-                    <div class="comfort-item">
-                        <div class="comfort-icon">✓</div>
-                        <div class="comfort-content">
-                            <h4>Emphasize control.</h4>
-                            <p>Reassure them that Elderella supports their independence by helping you stay coordinated.</p>
-                        </div>
+            <div class="comfort-grid">
+                <div class="comfort-item">
+                    <div class="comfort-icon">✓</div>
+                    <div class="comfort-content">
+                        <h4>Be transparent.</h4>
+                        <p>Explain what information you'll add (events, tasks, medications, notes) and why.</p>
                     </div>
                 </div>
-            </section>
 
-            <section id="final-thought" class="final-thought-section">
+                <div class="comfort-item">
+                    <div class="comfort-icon">✓</div>
+                    <div class="comfort-content">
+                        <h4>Start small.</h4>
+                        <p>Begin with one or two things that benefit them directly, like reminders or tracking doctor visits.</p>
+                    </div>
+                </div>
+
+                <div class="comfort-item">
+                    <div class="comfort-icon">✓</div>
+                    <div class="comfort-content">
+                        <h4>Let them set boundaries.</h4>
+                        <p>Ask what they're comfortable including. Consent is ongoing, not one-time.</p>
+                    </div>
+                </div>
+
+                <div class="comfort-item">
+                    <div class="comfort-icon">✓</div>
+                    <div class="comfort-content">
+                        <h4>Show value quickly.</h4>
+                        <p>Once Elderella helps avoid a missed appointment or confusion, highlight that moment: "See how easy that was?"</p>
+                    </div>
+                </div>
+
+                <div class="comfort-item">
+                    <div class="comfort-icon">✓</div>
+                    <div class="comfort-content">
+                        <h4>Emphasize control.</h4>
+                        <p>Reassure them that Elderella supports their independence by helping you stay coordinated.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Thought -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="final-section">
                 <h2>A Final Thought</h2>
                 <p>Introducing Elderella is really about deepening communication, not adding technology. Approach these conversations with empathy, patience, and curiosity. Listen to their concerns, and celebrate small wins when Elderella makes something easier for both of you.</p>
-            </section>
-        </article>
-    </main>
+            </div>
+        </div>
+    </section>
 
+    </main>
+    <!-- End Main Content -->
+
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <a href="/">Home</a>
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/security">Security</a>
-            <a href="/terms">Terms of Service</a>
-            <span>© 2025 Elderella Inc.</span>
+        <div class="container">
+            <div class="footer-content">
+                <a href="/">Home</a>
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/security">Security</a>
+                <a href="/terms">Terms of Service</a>
+                <span>© 2025 Elderella Inc.</span>
+            </div>
         </div>
     </footer>
 </body>
