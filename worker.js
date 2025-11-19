@@ -914,6 +914,7 @@ export default {
       '/security': '/security.html',
       '/terms': '/terms.html',
       '/introduce': '/introduce.html',
+      '/alpha-ios': '/alpha-ios.html',
       '/': '/index.html'
     };
 
