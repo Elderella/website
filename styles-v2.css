@@ -37,10 +37,39 @@ body {
     justify-content: flex-start;
 }
 
+.header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo-link {
+    display: block;
+}
+
 .logo {
     height: 79px;
     width: auto;
     display: block;
+}
+
+.main-nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.main-nav a {
+    color: #342A99;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: #5A4FCF;
 }
 
 .logo-text {
@@ -857,6 +886,19 @@ footer span {
     }
 
     body {
+        font-size: 16px;
+    }
+
+    .header-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .main-nav {
+        gap: 1.5rem;
+    }
+
+    .main-nav a {
         font-size: 16px;
     }
 

@@ -10,6 +10,3 @@ Disallow: /*.json$
 
 # Sitemap location
 Sitemap: https://www.elderella.com/sitemap.xml
-
-# Crawl-delay for polite crawling (in seconds)
-Crawl-delay: 1
