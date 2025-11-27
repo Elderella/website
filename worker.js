@@ -906,6 +906,229 @@ export default {
       }
     }
 
+    // Handle account deletion requests
+    if (url.pathname === '/api/delete-account' && request.method === 'POST') {
+      try {
+        const data = await request.json();
+
+        // Validate required fields
+        if (!data.email || !data.deletionType || !data.confirmed) {
+          return new Response(JSON.stringify({
+            error: 'Email, deletion type, and confirmation are required'
+          }), {
+            status: 400,
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': corsOrigin
+            }
+          });
+        }
+
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+          return new Response(JSON.stringify({
+            error: 'Please provide a valid email address'
+          }), {
+            status: 400,
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': corsOrigin
+            }
+          });
+        }
+
+        // Validate deletion type
+        if (!['full', 'partial'].includes(data.deletionType)) {
+          return new Response(JSON.stringify({
+            error: 'Invalid deletion type'
+          }), {
+            status: 400,
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': corsOrigin
+            }
+          });
+        }
+
+        // Validate partial deletion has data types selected
+        if (data.deletionType === 'partial' && (!data.dataTypes || data.dataTypes.length === 0)) {
+          return new Response(JSON.stringify({
+            error: 'Please select at least one type of data to delete'
+          }), {
+            status: 400,
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': corsOrigin
+            }
+          });
+        }
+
+        // Sanitize inputs
+        const sanitizedData = {
+          email: sanitizeInput(data.email).toLowerCase(),
+          deletionType: data.deletionType,
+          dataTypes: data.deletionType === 'partial' ? data.dataTypes : [],
+          reason: sanitizeInput(data.reason),
+          comments: sanitizeInput(data.comments),
+          confirmed: data.confirmed
+        };
+
+        // Send Slack notification about deletion request
+        try {
+          const timestamp = new Date().toLocaleString('en-US', {
+            timeZone: 'America/Toronto',
+            dateStyle: 'medium',
+            timeStyle: 'short'
+          });
+
+          let dataTypesText = '';
+          if (sanitizedData.deletionType === 'partial' && sanitizedData.dataTypes.length > 0) {
+            const dataTypeLabels = {
+              'profile': 'Personal profile information',
+              'elder_profiles': 'Elder profiles',
+              'notes': 'Notes and journal entries',
+              'appointments': 'Appointments and calendar events',
+              'medications': 'Medication records',
+              'care_team': 'Care team member information'
+            };
+            dataTypesText = sanitizedData.dataTypes
+              .map(type => dataTypeLabels[type] || type)
+              .join(', ');
+          }
+
+          const message = {
+            text: '🗑️ Account Deletion Request',
+            blocks: [
+              {
+                type: 'header',
+                text: {
+                  type: 'plain_text',
+                  text: '🗑️ Account Deletion Request',
+                  emoji: true
+                }
+              },
+              {
+                type: 'section',
+                fields: [
+                  {
+                    type: 'mrkdwn',
+                    text: `*Email:*\n${sanitizeForSlack(sanitizedData.email)}`
+                  },
+                  {
+                    type: 'mrkdwn',
+                    text: `*Deletion Type:*\n${sanitizedData.deletionType === 'full' ? 'Full Account Deletion' : 'Partial Data Deletion'}`
+                  }
+                ]
+              }
+            ]
+          };
+
+          // Add data types for partial deletion
+          if (sanitizedData.deletionType === 'partial' && dataTypesText) {
+            message.blocks.push({
+              type: 'section',
+              text: {
+                type: 'mrkdwn',
+                text: `*Data to Delete:*\n${sanitizeForSlack(dataTypesText)}`
+              }
+            });
+          }
+
+          // Add reason if provided
+          if (sanitizedData.reason) {
+            const reasonLabels = {
+              'no_longer_needed': 'No longer need the service',
+              'privacy_concerns': 'Privacy concerns',
+              'switching_services': 'Switching to another service',
+              'difficult_to_use': 'Difficult to use',
+              'other': 'Other'
+            };
+            message.blocks.push({
+              type: 'section',
+              text: {
+                type: 'mrkdwn',
+                text: `*Reason:*\n${reasonLabels[sanitizedData.reason] || sanitizedData.reason}`
+              }
+            });
+          }
+
+          // Add comments if provided
+          if (sanitizedData.comments) {
+            message.blocks.push({
+              type: 'section',
+              text: {
+                type: 'mrkdwn',
+                text: `*Comments:*\n${sanitizeForSlack(sanitizedData.comments)}`
+              }
+            });
+          }
+
+          // Add timestamp
+          message.blocks.push({
+            type: 'section',
+            fields: [
+              {
+                type: 'mrkdwn',
+                text: `*Submitted:*\n${timestamp}`
+              }
+            ]
+          });
+
+          message.blocks.push({ type: 'divider' });
+
+          await sendSlackMessage(message, env, 'Account Deletion');
+        } catch (slackError) {
+          // Send alert for Slack notification failures
+          await sendErrorAlert(
+            slackError,
+            {
+              operation: 'Send Account Deletion Notification',
+              email: sanitizedData.email
+            },
+            env
+          );
+          // Don't throw - still return success to user
+        }
+
+        return new Response(JSON.stringify({ success: true }), {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': corsOrigin
+          }
+        });
+      } catch (error) {
+        console.error('Error in delete-account handler:', error);
+
+        // Get email from sanitizedData if available, otherwise try data, otherwise 'unknown'
+        let errorEmail = 'unknown';
+        try {
+          errorEmail = sanitizedData?.email || data?.email || 'unknown';
+        } catch (e) {
+          // If even accessing data fails, keep as 'unknown'
+        }
+
+        // Send alert for deletion request failures
+        await sendErrorAlert(
+          error,
+          {
+            operation: 'Account Deletion Request',
+            path: url.pathname,
+            email: errorEmail
+          },
+          env
+        );
+
+        return new Response(JSON.stringify({ error: error.message }), {
+          status: 500,
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': corsOrigin
+          }
+        });
+      }
+    }
+
     // Handle clean URLs - rewrite to .html files
     // This allows /privacy to serve privacy.html while keeping the clean URL in the browser
     // Security: Using whitelist approach prevents path traversal
@@ -915,6 +1138,7 @@ export default {
       '/terms': '/terms.html',
       '/introduce': '/introduce.html',
       '/alpha-ios': '/alpha-ios.html',
+      '/delete-account': '/delete-account.html',
       '/': '/index.html'
     };
 
