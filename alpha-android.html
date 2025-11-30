@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Step-by-step instructions for installing Elderella on your Android phone using Google Play. Join our alpha testing program.">
+    <meta name="keywords" content="Elderella Android, Google Play, alpha testing, Android app installation, caregiving app">
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Installing Elderella on Android">
+    <meta property="og:description" content="Step-by-step instructions for installing Elderella on your Android phone using Google Play.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.elderella.com/alpha-android">
+    <meta property="og:image" content="https://www.elderella.com/images/elderella-logo.svg">
+    <meta property="og:site_name" content="Elderella">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Installing Elderella on Android">
+    <meta name="twitter:description" content="Step-by-step instructions for installing Elderella on your Android phone using Google Play.">
+    <meta name="twitter:image" content="https://www.elderella.com/images/elderella-logo.svg">
+
+    <link rel="canonical" href="https://www.elderella.com/alpha-android">
+    <title>Installing Elderella on Android - Alpha</title>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "HowTo",
+                "@id": "https://www.elderella.com/alpha-android#howto",
+                "name": "Installing Elderella on Android",
+                "description": "Step-by-step instructions for installing Elderella on your Android phone using Google Play.",
+                "url": "https://www.elderella.com/alpha-android",
+                "step": [
+                    {
+                        "@type": "HowToStep",
+                        "position": 1,
+                        "name": "Download Elderella on Google Play",
+                        "text": "Click on the download link in the Welcome to Elderella Alpha email you received."
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "position": 2,
+                        "name": "Install Elderella",
+                        "text": "Once you've downloaded Elderella, tap Install."
+                    },
+                    {
+                        "@type": "HowToStep",
+                        "position": 3,
+                        "name": "Open Elderella and sign in",
+                        "text": "Open Elderella and sign in using your mobile phone number."
+                    }
+                ],
+                "author": {
+                    "@type": "Organization",
+                    "@id": "https://www.elderella.com/#organization",
+                    "name": "Elderella"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "@id": "https://www.elderella.com/#organization",
+                    "name": "Elderella",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://www.elderella.com/images/elderella-logo.svg"
+                    }
+                },
+                "inLanguage": "en-US"
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://www.elderella.com/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Installing Elderella on Android",
+                        "item": "https://www.elderella.com/alpha-android"
+                    }
+                ]
+            }
+        ]
+    }
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/images/elderella-sparkle.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/elderella-sparkle.svg">
+
+    <!-- Initialize dataLayer BEFORE GTM -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KQ53TLV2');</script>
+    <!-- End Google Tag Manager -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-v2.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <style>
+        /* Alpha Android page specific styles - matching iOS page */
+        body {
+            background: #FFFFFF;
+        }
+
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            left: -9999px;
+            top: auto;
+            z-index: 9999;
+            padding: 10px 20px;
+            background: #FFBC57;
+            color: #000000;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .skip-link:focus {
+            position: fixed;
+            left: 10px;
+            top: 10px;
+        }
+
+        .install-hero {
+            background: #5A4FCF;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .install-hero h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 42px;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            font-weight: 400;
+            line-height: 1.2;
+        }
+
+        .install-hero p {
+            font-size: 18px;
+            color: #FFFFFF;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+
+        .section {
+            padding: 65px 0;
+        }
+
+        .section-alt {
+            background: #F5F5F5;
+        }
+
+        .section-title {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            color: #342A99;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            color: #595959;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .intro-text strong {
+            color: #342A99;
+        }
+
+        .card-base {
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .step-number {
+            background: #5A4FCF;
+            color: #FFFFFF;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+
+        .step-title-group {
+            flex: 1;
+        }
+
+        .step-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.6rem;
+            color: #342A99;
+            margin: 0 0 8px 0;
+            font-weight: 400;
+        }
+
+        .step-subtitle {
+            font-style: normal;
+            color: #7a7a7a;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .step-content {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #595959;
+            margin-bottom: 24px;
+        }
+
+        .step-content ul {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        .step-content li {
+            margin-bottom: 12px;
+        }
+
+        .step-content ol {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        .step-content ol li {
+            margin-bottom: 12px;
+        }
+
+        .step-content a {
+            color: #342A99;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .step-content a:hover {
+            text-decoration: underline;
+        }
+
+        .step-image {
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .step-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .step-image img.step-image-phone,
+        .step-images-row img.step-image-phone {
+            max-width: 320px;
+        }
+
+        .step-image img.step-image-phone-small,
+        .step-images-row img.step-image-phone-small {
+            max-width: 260px;
+        }
+
+        .step-image-email {
+            max-width: 600px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .step-images-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .step-images-row img {
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .step-tip {
+            background: #F5F5F5;
+            border-left: 4px solid #5A4FCF;
+            padding: 16px 24px;
+            border-radius: 8px;
+            margin-top: 24px;
+            font-size: 16px;
+            color: #595959;
+        }
+
+        .step-tip strong {
+            color: #342A99;
+        }
+
+        .step-note {
+            background: #F5F5F5;
+            border-left: 4px solid #CCCCFF;
+            padding: 16px 24px;
+            border-radius: 8px;
+            margin-top: 24px;
+            font-size: 16px;
+            color: #595959;
+        }
+
+        .step-note strong {
+            color: #342A99;
+        }
+
+        .steps-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .help-section {
+            background: #5A4FCF;
+            color: #FFFFFF;
+            border-radius: 8px;
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .help-section h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2rem;
+            color: #FFFFFF;
+            margin: 0 0 20px 0;
+            font-weight: 400;
+        }
+
+        .help-section p {
+            font-size: 18px;
+            line-height: 1.5;
+            margin: 0 0 16px 0;
+            color: #FFFFFF;
+        }
+
+        .help-section a {
+            color: #FFBC57;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .help-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .install-hero h1 {
+                font-size: 32px;
+            }
+
+            .install-hero p {
+                font-size: 16px;
+            }
+
+            .section {
+                padding: 40px 0;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .card-base {
+                padding: 30px 20px;
+            }
+
+            .step-title {
+                font-size: 1.3rem;
+            }
+
+            .help-section {
+                padding: 40px 20px;
+            }
+
+            .step-images-row {
+                gap: 24px;
+            }
+
+            .step-images-row img {
+                max-width: 240px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQ53TLV2"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Skip link for keyboard navigation -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+    <!-- Hero Section -->
+    <section class="install-hero">
+        <div class="container">
+            <img src="images/elderella-sparkle.svg" alt="" style="width: 60px; height: 60px; margin: 0 auto 30px; display: block;" aria-hidden="true">
+            <h1>Installing Elderella on Android</h1>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="section">
+        <div class="container">
+            <p class="intro-text">Welcome! And thank you again for being part of our Elderella Alpha group.</p>
+            <p class="intro-text">Android users install Elderella through <strong>Google Play</strong>, just like any other app. This being said, you are part of an <strong>internal test program</strong> and you will receive updates to internal test versions as they become available.</p>
+            <p class="intro-text">Please follow the steps below.</p>
+        </div>
+    </section>
+
+    <!-- Installation Steps -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="steps-container">
+                <!-- Step 1 -->
+                <div class="card-base">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <div class="step-title-group">
+                            <h2 class="step-title">Download Elderella on Google Play</h2>
+                        </div>
+                    </div>
+
+                    <div class="step-content">
+                        <p>Click on the download link in the "<strong>Welcome to Elderella Alpha – let's get started</strong>" email you received from Elderella.</p>
+                    </div>
+
+                    <div class="step-note">
+                        <strong>Note:</strong> As an internal tester, you will see our temporary app name when downloading Elderella.
+                    </div>
+
+                    <div class="step-image">
+                        <img src="images/install-android-step1.png" alt="Google Play internal test program page for Elderella" class="step-image-phone">
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="card-base">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <div class="step-title-group">
+                            <h2 class="step-title">Install Elderella</h2>
+                        </div>
+                    </div>
+
+                    <div class="step-content">
+                        <p>Once you've downloaded Elderella: Tap <strong>Install</strong>.</p>
+                        <p>Elderella will be added to your phone.</p>
+                    </div>
+
+                    <div class="step-images-row">
+                        <img src="images/install-android-step2.png" alt="Google Play showing Install button for Elderella" class="step-image-phone">
+                        <img src="images/install-android-step3a.png" alt="Google Play showing Elderella installed with Open button" class="step-image-phone">
+                    </div>
+
+                    <div class="step-content">
+                        <p>Once installed, you'll see the Elderella icon on your phone screen.</p>
+                    </div>
+
+                    <div class="step-image">
+                        <img src="images/install-android-step3b.png" alt="Android home screen showing Elderella app icon" class="step-image-phone">
+                    </div>
+
+                    <div class="step-tip">
+                        <strong>Tip:</strong> Move the Elderella icon to the main screen of your phone for easy access!
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="card-base">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <div class="step-title-group">
+                            <h2 class="step-title">Open Elderella and sign in</h2>
+                        </div>
+                    </div>
+
+                    <div class="step-content">
+                        <p>Open Elderella like any other app and sign in using your <strong>mobile phone number</strong>.</p>
+                    </div>
+
+                    <div class="step-image">
+                        <img src="images/install-android-step4.png" alt="Elderella app login screen with phone number verification" class="step-image-phone">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Need Help Section -->
+    <section class="section">
+        <div class="container">
+            <div class="help-section">
+                <h2>Need help?</h2>
+                <p>We're here for anything you need — setup, questions, or a walkthrough.</p>
+                <p>If you run into any issues, email us anytime at <a href="mailto:support@elderella.com">support@elderella.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    </main>
+    <!-- End Main Content -->
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
+</body>
+</html>
