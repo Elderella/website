@@ -1139,6 +1139,7 @@ export default {
       '/introduce': '/introduce.html',
       '/alpha-ios': '/alpha-ios.html',
       '/delete-account': '/delete-account.html',
+      '/support': '/support.html',
       '/': '/index.html'
     };
 
