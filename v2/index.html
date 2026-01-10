@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Elderella - v2</title>
+    <meta name="description" content="Elderella helps family caregivers organize elder care, share responsibilities, and manage medications. Turn chaos into care with our caregiving app.">
+    <title>Elderella - Family Caregiving Made Simple</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +16,8 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Header -->
     <header class="site-header">
@@ -40,7 +43,7 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="main-content">
         <div class="container">
             <h1 class="hero-headline">Turn chaos into <span class="highlight">care.</span></h1>
         </div>
@@ -273,14 +276,15 @@
                 <div class="footer-newsletter">
                     <h4>Family elder care—right to your inbox</h4>
                     <p>Receive tips, advice, recommendations, and more.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address...">
+                    <form class="newsletter-form" action="#" method="POST">
+                        <label for="newsletter-email" class="sr-only">Email address</label>
+                        <input type="email" id="newsletter-email" name="email" placeholder="Your email address..." required>
                         <button type="submit" class="btn-signup-footer">Sign up</button>
                     </form>
-                    <label class="newsletter-consent">
-                        <input type="checkbox">
-                        <span>I consent to receive communications from Elderella. I can unsubscribe at any time.</span>
-                    </label>
+                    <div class="newsletter-consent">
+                        <input type="checkbox" id="newsletter-consent" name="consent" required>
+                        <label for="newsletter-consent">I consent to receive communications from Elderella. I can unsubscribe at any time.</label>
+                    </div>
                     <p class="privacy-note">We respect your privacy. See our <a href="#">Privacy Policy</a>.</p>
                 </div>
             </div>
