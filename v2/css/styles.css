@@ -351,7 +351,7 @@ input:focus,
 
 .solo-shift-right {
     flex: 1;
-    padding-top: 24px;
+    padding-top: 28px;
     max-width: 620px;
     display: flex;
     flex-direction: column;
@@ -388,6 +388,11 @@ input:focus,
     border-radius: 9999px;
     text-decoration: none;
     margin-top: 8px;
+}
+
+/* Right-column button aligns to the right on desktop */
+.solo-shift-right .btn-purple {
+    align-self: flex-end;
 }
 
 .btn-purple:hover {
@@ -1300,6 +1305,11 @@ input:focus, textarea:focus, select:focus {
     .solo-shift-right {
         align-items: center;
         text-align: center;
+    }
+
+    /* On mobile, center the CTA under the text */
+    .solo-shift-right .btn-purple {
+        align-self: center;
     }
 
     /* Stats - Stack */
