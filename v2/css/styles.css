@@ -1081,6 +1081,11 @@ input:focus, textarea:focus, select:focus {
         margin: 0 var(--container-padding-tablet);
     }
 
+    /* Header logo sizing (tablet) */
+    .logo img {
+        height: 64px;
+    }
+
     .hero-headline {
         font-size: 56px;
     }
@@ -1160,6 +1165,11 @@ input:focus, textarea:focus, select:focus {
         margin-right: 0;
         width: 100%;
         text-align: center;
+    }
+
+    /* Header logo sizing (mobile) */
+    .logo img {
+        height: 56px;
     }
 
     .main-nav {
