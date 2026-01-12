@@ -48,6 +48,10 @@
     --hero-phone-right-mobile: 16px;
     --badge-gap-desktop: 12px;
     --badge-gap-mobile: 8px;
+    /* Solo shift alignment offset */
+    --solo-shift-right-offset-desktop: 100px;
+    --solo-shift-right-offset-tablet: 60px;
+    --solo-shift-right-offset-mobile: 24px;
     --phone-bottom-nudge-desktop: 0px;
     --phone-bottom-nudge-tablet: 0px;
     --phone-bottom-nudge-mobile: 0px;
@@ -351,7 +355,7 @@ input:focus,
 
 .solo-shift-right {
     flex: 1;
-    padding-top: 28px;
+    padding-top: var(--solo-shift-right-offset-desktop);
     max-width: 620px;
     display: flex;
     flex-direction: column;
@@ -1305,6 +1309,7 @@ input:focus, textarea:focus, select:focus {
     .solo-shift-right {
         align-items: center;
         text-align: center;
+        padding-top: var(--solo-shift-right-offset-mobile);
     }
 
     /* On mobile, center the CTA under the text */
@@ -1457,4 +1462,7 @@ input:focus, textarea:focus, select:focus {
     }
     .hero-title-overlay {
         top: 6%;
+    }
+    .solo-shift-right {
+        padding-top: var(--solo-shift-right-offset-tablet);
     }
