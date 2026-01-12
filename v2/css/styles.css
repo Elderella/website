@@ -282,10 +282,12 @@ input:focus,
     right: 24px;
     bottom: var(--phone-bottom-nudge-desktop);
     z-index: 10;
+    line-height: 0; /* avoid inline baseline gaps affecting height */
 }
 
 .hero-phone {
     position: static;
+    display: block; /* remove inline baseline gap so bottom aligns exactly */
     width: 428px;
     height: auto;
     filter: drop-shadow(0 0 16px rgba(0, 0, 0, 0.22));
