@@ -1285,7 +1285,7 @@ input:focus, textarea:focus, select:focus {
 
     /* Solo Shift - Stack */
     .solo-shift {
-        padding: 120px 0 60px 0;
+        padding: 40px 0 40px 0;
     }
 
     .solo-shift-container {
@@ -1303,7 +1303,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .solo-shift-arrow {
-        display: none;
+        display: none !important;
     }
 
     .solo-shift-right {
