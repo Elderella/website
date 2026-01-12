@@ -38,6 +38,11 @@
     --container-padding-mobile: 20px;
     --section-padding: 65px;
 
+    /* Hero phone alignment calibration */
+    --phone-bottom-nudge-desktop: 0px;
+    --phone-bottom-nudge-tablet: 0px;
+    --phone-bottom-nudge-mobile: 0px;
+
     /* Border Radius */
     --radius-sm: 8px;
     --radius-md: 12px;
@@ -274,8 +279,8 @@ input:focus,
 .hero-phone {
     position: absolute;
     right: 24px;
-    bottom: 0;
-    width: 760px;
+    bottom: var(--phone-bottom-nudge-desktop);
+    width: 570px;
     height: auto;
     z-index: 10;
     filter: drop-shadow(0 0 16px rgba(0, 0, 0, 0.22));
@@ -1128,8 +1133,8 @@ input:focus, textarea:focus, select:focus {
     }
 
     .hero-phone {
-        width: 560px;
-        bottom: 0;
+        width: 420px;
+        bottom: var(--phone-bottom-nudge-tablet);
     }
 
     .solo-shift-container {
@@ -1232,8 +1237,8 @@ input:focus, textarea:focus, select:focus {
     }
 
     .hero-phone {
-        width: 400px;
-        bottom: 0;
+        width: 300px;
+        bottom: var(--phone-bottom-nudge-mobile);
         right: 16px;
     }
 
