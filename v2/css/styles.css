@@ -38,7 +38,16 @@
     --container-padding-mobile: 20px;
     --section-padding: 65px;
 
-    /* Hero phone alignment calibration */
+    /* Hero sizing + phone alignment calibration */
+    --hero-extra-width: 48px; /* extra width beyond header on desktop */
+    --hero-gutter-desktop: 24px;
+    --hero-gutter-tablet: 20px;
+    --hero-gutter-mobile: 16px;
+    --hero-phone-right-desktop: 40px; /* extra space to right of phone */
+    --hero-phone-right-tablet: 20px;
+    --hero-phone-right-mobile: 16px;
+    --badge-gap-desktop: 12px;
+    --badge-gap-mobile: 8px;
     --phone-bottom-nudge-desktop: 0px;
     --phone-bottom-nudge-tablet: 0px;
     --phone-bottom-nudge-mobile: 0px;
@@ -243,7 +252,7 @@ input:focus,
 
 /* Make hero content span full width on desktop */
 .hero .hero-content {
-    max-width: var(--container-max);
+    max-width: calc(var(--container-max) + var(--hero-extra-width));
     padding: 0;
 }
 
@@ -251,7 +260,7 @@ input:focus,
     position: relative;
     display: flex;
     justify-content: center;
-    padding: 0 24px; /* align with header/promo gutters */
+    padding: 0 var(--hero-gutter-desktop); /* align with header/promo gutters */
     border-radius: 20px; /* clip overlays to image corners */
     overflow: hidden;    /* prevent shadow from extending below image */
 }
@@ -279,7 +288,7 @@ input:focus,
 /* Phone + badges wrapper anchored to image bottom-right */
 .hero-phone-wrap {
     position: absolute;
-    right: 24px;
+    right: var(--hero-phone-right-desktop); /* add a bit more space on the right */
     bottom: var(--phone-bottom-nudge-desktop);
     z-index: 10;
     line-height: 0; /* avoid inline baseline gaps affecting height */
@@ -295,8 +304,9 @@ input:focus,
 
 .hero-badges {
     position: absolute;
-    right: 0;
-    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(100% + var(--badge-gap-desktop));
     display: flex;
     gap: 12px;
     z-index: 11;
@@ -1131,8 +1141,8 @@ input:focus, textarea:focus, select:focus {
     }
 
     /* Hero gutters (tablet) */
-    .hero-image-wrapper { padding: 0 20px; }
-    .hero-phone-wrap { right: 20px; bottom: var(--phone-bottom-nudge-tablet); }
+    .hero-image-wrapper { padding: 0 var(--hero-gutter-tablet); }
+    .hero-phone-wrap { right: var(--hero-phone-right-tablet); bottom: var(--phone-bottom-nudge-tablet); }
 
     .hero-headline {
         font-size: 56px;
@@ -1246,16 +1256,17 @@ input:focus, textarea:focus, select:focus {
     }
 
     .hero-badges {
-        flex-direction: column;
-        gap: 8px;
+        flex-direction: row; /* keep side-by-side on mobile */
+        gap: var(--badge-gap-mobile);
         top: auto;
-        bottom: calc(100% + 8px);
-        right: 0;
+        bottom: calc(100% + var(--badge-gap-mobile));
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     /* Hero gutters (mobile) */
-    .hero-image-wrapper { padding: 0 16px; }
-    .hero-phone-wrap { right: 16px; bottom: var(--phone-bottom-nudge-mobile); }
+    .hero-image-wrapper { padding: 0 var(--hero-gutter-mobile); }
+    .hero-phone-wrap { right: var(--hero-phone-right-mobile); bottom: var(--phone-bottom-nudge-mobile); }
 
     .store-badge img {
         height: 36px;
