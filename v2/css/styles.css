@@ -238,7 +238,7 @@ input:focus,
 
 /* Make hero content span full width on desktop */
 .hero .hero-content {
-    max-width: none;
+    max-width: var(--container-max);
     padding: 0;
 }
 
