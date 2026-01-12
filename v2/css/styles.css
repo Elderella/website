@@ -49,9 +49,9 @@
     --badge-gap-desktop: 12px;
     --badge-gap-mobile: 8px;
     /* Solo shift alignment offset */
-    --solo-shift-right-offset-desktop: 100px;
-    --solo-shift-right-offset-tablet: 60px;
-    --solo-shift-right-offset-mobile: 24px;
+    --solo-shift-right-offset-desktop: 180px;
+    --solo-shift-right-offset-tablet: 100px;
+    --solo-shift-right-offset-mobile: 32px;
     --phone-bottom-nudge-desktop: 0px;
     --phone-bottom-nudge-tablet: 0px;
     --phone-bottom-nudge-mobile: 0px;
