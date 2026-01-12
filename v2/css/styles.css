@@ -351,11 +351,12 @@ input:focus,
 
 .solo-shift-right {
     flex: 1;
-    padding-top: 10px;
-    max-width: 480px;
+    padding-top: 16px;
+    max-width: 560px;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .solo-shift-subhead {
@@ -386,6 +387,7 @@ input:focus,
     padding: 10px 20px;
     border-radius: 9999px;
     text-decoration: none;
+    margin-top: 8px;
 }
 
 .btn-purple:hover {
@@ -1297,6 +1299,7 @@ input:focus, textarea:focus, select:focus {
 
     .solo-shift-right {
         align-items: center;
+        text-align: center;
     }
 
     /* Stats - Stack */
