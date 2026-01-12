@@ -124,6 +124,11 @@ input:focus,
     align-items: center;
 }
 
+/* Header container gutters: wider header by reducing side padding */
+.site-header .container {
+    padding: 0 24px;
+}
+
 .logo {
     margin-right: auto;
 }
@@ -159,8 +164,8 @@ input:focus,
     font-family: var(--font-body);
     font-size: 20px;
     font-weight: 400;
-    padding: 12px 36px;
-    border-radius: 20px;
+    padding: 10px 20px;
+    border-radius: 9999px;
     text-decoration: none;
 }
 
@@ -173,7 +178,7 @@ input:focus,
 .promo-banner {
     background-color: var(--color-promo-bg);
     border-radius: 10px;
-    margin: 0 var(--container-padding);
+    margin: 0 24px;
     padding: 12px 24px;
 }
 
@@ -334,8 +339,8 @@ input:focus,
     font-family: var(--font-body);
     font-size: 20px;
     font-weight: 400;
-    padding: 12px 28px;
-    border-radius: 20px;
+    padding: 10px 20px;
+    border-radius: 9999px;
     text-decoration: none;
 }
 
@@ -460,8 +465,8 @@ input:focus,
     font-family: var(--font-body);
     font-size: 20px;
     font-weight: 400;
-    padding: 12px 28px;
-    border-radius: 20px;
+    padding: 10px 20px;
+    border-radius: 9999px;
     text-decoration: none;
     width: fit-content;
 }
@@ -741,8 +746,8 @@ input:focus,
     font-family: var(--font-body);
     font-size: 20px;
     font-weight: 400;
-    padding: 12px 60px;
-    border-radius: 20px;
+    padding: 10px 20px;
+    border-radius: 9999px;
     text-decoration: none;
 }
 
@@ -946,9 +951,9 @@ input:focus,
     font-family: var(--font-body);
     font-size: 20px;
     font-weight: 400;
-    padding: 8px 24px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 20px;
+    border-radius: 9999px;
     cursor: pointer;
 }
 
@@ -1029,9 +1034,9 @@ section.purple-bg h3 {
     color: var(--color-text);
     font-family: var(--font-body);
     font-weight: 500;
-    padding: 12px 24px;
+    padding: 10px 20px;
     border: none;
-    border-radius: var(--radius-sm);
+    border-radius: 9999px;
     cursor: pointer;
     transition: opacity 0.2s ease;
 }
@@ -1078,7 +1083,12 @@ input:focus, textarea:focus, select:focus {
     }
 
     .promo-banner {
-        margin: 0 var(--container-padding-tablet);
+        margin: 0 20px;
+    }
+
+    /* Header container gutters (tablet) */
+    .site-header .container {
+        padding: 0 20px;
     }
 
     /* Header logo sizing (tablet) */
@@ -1152,7 +1162,12 @@ input:focus, textarea:focus, select:focus {
     }
 
     .promo-banner {
-        margin: 0 var(--container-padding-mobile);
+        margin: 0 16px;
+    }
+
+    /* Header container gutters (mobile) */
+    .site-header .container {
+        padding: 0 16px;
     }
 
     /* Header - Stack Navigation */
