@@ -412,6 +412,7 @@ input:focus,
 /* Right-column button aligns to the right on desktop */
 .solo-shift-right .btn-purple {
     align-self: flex-end;
+    margin-bottom: 30px;
 }
 
 .btn-purple:hover {
