@@ -574,6 +574,9 @@ input:focus,
     padding: 0 var(--hero-gutter-desktop);
 }
 
+/* Desktop-only extra left padding for the first purple card */
+/* removed extra desktop-only left padding for partner card */
+
 .responsibility-card {
     background-color: var(--color-card-bg);
     border-radius: 20px;
@@ -1214,6 +1217,8 @@ input:focus, textarea:focus, select:focus {
         padding: 0 var(--hero-gutter-tablet);
     }
 
+    /* removed tablet override for partner card padding */
+
     /* Header logo sizing (tablet) */
     .site-header .logo img {
         height: 64px;
@@ -1322,6 +1327,8 @@ input:focus, textarea:focus, select:focus {
     .remember-section .container {
         padding: 0 var(--hero-gutter-mobile);
     }
+
+    /* removed mobile override for partner card padding */
 
     /* Mobile: smallest space above first purple card */
     .caregiving-partner .partner-card { margin-top: 16px; }
