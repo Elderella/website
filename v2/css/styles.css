@@ -487,6 +487,7 @@ input:focus,
     width: 100%;
     aspect-ratio: 1110 / 600;
     overflow: hidden;
+    margin-top: 60px; /* extra space above first purple card */
 }
 
 .partner-image {
