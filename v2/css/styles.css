@@ -289,7 +289,7 @@ input:focus,
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 12%;
+    top: 10%;
     width: min(92%, 1000px);
     text-align: center;
     z-index: 6;
@@ -1497,3 +1497,6 @@ input:focus, textarea:focus, select:focus {
         width: 100%;
     }
 }
+    .hero-title-overlay {
+        top: 9%;
+    }
