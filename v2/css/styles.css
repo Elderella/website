@@ -508,7 +508,7 @@ input:focus,
     background-color: var(--color-purple-light);
     color: var(--color-black);
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     padding: 8px 20px;
     border-radius: 20px;
@@ -518,7 +518,7 @@ input:focus,
 
 .partner-headline {
     font-family: var(--font-heading-sans);
-    font-size: 40px;
+    font-size: 48px;
     font-weight: 400;
     line-height: 1.1;
     color: var(--color-black);
@@ -528,7 +528,7 @@ input:focus,
 
 .partner-text {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
@@ -609,7 +609,7 @@ input:focus,
     background-color: var(--color-purple-light);
     color: var(--color-black);
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     padding: 8px 20px;
     border-radius: 20px;
@@ -619,7 +619,7 @@ input:focus,
 
 .responsibility-headline {
     font-family: var(--font-heading-sans);
-    font-size: 40px;
+    font-size: 48px;
     font-weight: 400;
     line-height: 1.1;
     color: var(--color-black);
@@ -629,7 +629,7 @@ input:focus,
 
 .responsibility-text {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
@@ -670,7 +670,7 @@ input:focus,
     background-color: var(--color-purple-light);
     color: var(--color-black);
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     padding: 8px 20px;
     border-radius: 20px;
@@ -680,7 +680,7 @@ input:focus,
 
 .capture-headline {
     font-family: var(--font-heading-sans);
-    font-size: 40px;
+    font-size: 48px;
     font-weight: 400;
     line-height: 1.1;
     color: var(--color-black);
@@ -690,7 +690,7 @@ input:focus,
 
 .capture-text {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
@@ -731,7 +731,7 @@ input:focus,
     background-color: var(--color-purple-light);
     color: var(--color-black);
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     padding: 8px 20px;
     border-radius: 20px;
@@ -741,7 +741,7 @@ input:focus,
 
 .meds-headline {
     font-family: var(--font-heading-sans);
-    font-size: 40px;
+    font-size: 48px;
     font-weight: 400;
     line-height: 1.1;
     color: var(--color-black);
@@ -751,7 +751,7 @@ input:focus,
 
 .meds-text {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
@@ -792,7 +792,7 @@ input:focus,
     background-color: var(--color-purple-light);
     color: var(--color-black);
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     padding: 8px 20px;
     border-radius: 20px;
@@ -802,7 +802,7 @@ input:focus,
 
 .remember-headline {
     font-family: var(--font-heading-sans);
-    font-size: 40px;
+    font-size: 48px;
     font-weight: 400;
     line-height: 1.1;
     color: var(--color-black);
@@ -812,7 +812,7 @@ input:focus,
 
 .remember-text {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
