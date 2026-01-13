@@ -484,7 +484,8 @@ input:focus,
     background-color: var(--color-card-bg);
     border-radius: 20px;
     display: flex;
-    min-height: 600px;
+    width: 100%;
+    aspect-ratio: 1110 / 600;
     overflow: hidden;
 }
 
@@ -558,11 +559,22 @@ input:focus,
     padding: 40px 0 80px 0;
 }
 
+/* Match hero width and gutters for feature cards */
+.caregiving-partner .container,
+.share-responsibility .container,
+.capture-section .container,
+.meds-section .container,
+.remember-section .container {
+    max-width: calc(var(--container-max) + var(--hero-extra-width));
+    padding: 0 var(--hero-gutter-desktop);
+}
+
 .responsibility-card {
     background-color: var(--color-card-bg);
     border-radius: 20px;
     display: flex;
-    min-height: 600px;
+    width: 100%;
+    aspect-ratio: 1110 / 600;
     overflow: hidden;
 }
 
@@ -634,7 +646,8 @@ input:focus,
     background-color: var(--color-card-bg);
     border-radius: 20px;
     display: flex;
-    min-height: 600px;
+    width: 100%;
+    aspect-ratio: 1110 / 600;
     overflow: hidden;
 }
 
@@ -694,7 +707,8 @@ input:focus,
     background-color: var(--color-card-bg);
     border-radius: 20px;
     display: flex;
-    min-height: 600px;
+    width: 100%;
+    aspect-ratio: 1110 / 600;
     overflow: hidden;
 }
 
@@ -754,7 +768,8 @@ input:focus,
     background-color: var(--color-card-bg);
     border-radius: 20px;
     display: flex;
-    min-height: 600px;
+    width: 100%;
+    aspect-ratio: 1110 / 600;
     overflow: hidden;
 }
 
@@ -1179,6 +1194,15 @@ input:focus, textarea:focus, select:focus {
         padding: 0 20px;
     }
 
+    /* Feature sections match hero gutters on tablet */
+    .caregiving-partner .container,
+    .share-responsibility .container,
+    .capture-section .container,
+    .meds-section .container,
+    .remember-section .container {
+        padding: 0 var(--hero-gutter-tablet);
+    }
+
     /* Header logo sizing (tablet) */
     .site-header .logo img {
         height: 64px;
@@ -1228,7 +1252,7 @@ input:focus, textarea:focus, select:focus {
     .capture-card,
     .meds-card,
     .remember-card {
-        min-height: 500px;
+        min-height: auto; /* use aspect-ratio-driven height */
     }
 
     /* Share responsibility image breathing room on tablet */
@@ -1273,6 +1297,15 @@ input:focus, textarea:focus, select:focus {
     /* Header container gutters (mobile) */
     .site-header .container {
         padding: 0 16px;
+    }
+
+    /* Feature sections match hero gutters on mobile */
+    .caregiving-partner .container,
+    .share-responsibility .container,
+    .capture-section .container,
+    .meds-section .container,
+    .remember-section .container {
+        padding: 0 var(--hero-gutter-mobile);
     }
 
     /* Header - Stack Navigation */
