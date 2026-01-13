@@ -604,15 +604,9 @@ input:focus,
     padding: 24px 32px 24px 24px; /* extra right padding */
 }
 
-/* Share responsibility graphic */
+/* Baseline feature graphic sizing */
 .feature-graphic {
     width: min(1000px, 100%);
-    height: auto;
-    object-fit: contain;
-}
-
-.share-graphic {
-    width: min(1120px, 100%); /* ~10% larger than previous cap */
     height: auto;
     object-fit: contain;
 }
@@ -668,6 +662,10 @@ input:focus,
 .capture-image {
     flex: 0 0 55%;
     background-color: var(--color-card-bg);
+    display: flex;
+    align-items: center;       /* vertically center illustration */
+    justify-content: flex-start;
+    padding: 24px;
 }
 
 .capture-content {
@@ -737,6 +735,10 @@ input:focus,
 .meds-image {
     flex: 0 0 55%;
     background-color: var(--color-card-bg);
+    display: flex;
+    align-items: center;        /* vertically center illustration */
+    justify-content: flex-end;  /* bias to the right */
+    padding: 24px 32px 24px 24px;
 }
 
 .meds-pill {
@@ -790,6 +792,10 @@ input:focus,
 .remember-image {
     flex: 0 0 55%;
     background-color: var(--color-card-bg);
+    display: flex;
+    align-items: center;      /* vertically center illustration */
+    justify-content: flex-start;
+    padding: 24px;
 }
 
 .remember-content {
