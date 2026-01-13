@@ -493,6 +493,10 @@ input:focus,
 .partner-image {
     flex: 0 0 55%;
     background-color: var(--color-card-bg);
+    display: flex;
+    align-items: center;      /* vertically center the illustration */
+    justify-content: flex-start;
+    padding: 24px;
 }
 
 .partner-content {
@@ -598,6 +602,12 @@ input:focus,
 }
 
 /* Share responsibility graphic */
+.feature-graphic {
+    width: min(1000px, 100%);
+    height: auto;
+    object-fit: contain;
+}
+
 .share-graphic {
     width: min(1120px, 100%); /* ~10% larger than previous cap */
     height: auto;
