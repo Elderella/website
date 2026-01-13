@@ -487,7 +487,7 @@ input:focus,
     width: 100%;
     aspect-ratio: 1110 / 600;
     overflow: hidden;
-    margin-top: 60px; /* extra space above first purple card */
+    margin-top: 60px; /* desktop spacing above first purple card */
 }
 
 .partner-image {
@@ -1256,6 +1256,9 @@ input:focus, textarea:focus, select:focus {
         min-height: auto; /* use aspect-ratio-driven height */
     }
 
+    /* Tablet: smaller space above first purple card */
+    .caregiving-partner .partner-card { margin-top: 30px; }
+
     /* Share responsibility image breathing room on tablet */
     .responsibility-image { padding: 20px 24px; }
 
@@ -1308,6 +1311,9 @@ input:focus, textarea:focus, select:focus {
     .remember-section .container {
         padding: 0 var(--hero-gutter-mobile);
     }
+
+    /* Mobile: smallest space above first purple card */
+    .caregiving-partner .partner-card { margin-top: 16px; }
 
     /* Header - Stack Navigation */
     .header-container {
