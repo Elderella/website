@@ -497,7 +497,7 @@ input:focus,
 
 .partner-content {
     flex: 0 0 45%;
-    padding: 60px 50px;
+    padding: 90px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -581,7 +581,7 @@ input:focus,
 
 .responsibility-content {
     flex: 0 0 45%;
-    padding: 60px 50px;
+    padding: 90px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -659,7 +659,7 @@ input:focus,
 
 .capture-content {
     flex: 0 0 45%;
-    padding: 60px 50px;
+    padding: 90px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -715,7 +715,7 @@ input:focus,
 
 .meds-content {
     flex: 0 0 45%;
-    padding: 60px 50px;
+    padding: 90px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -781,7 +781,7 @@ input:focus,
 
 .remember-content {
     flex: 0 0 45%;
-    padding: 60px 50px;
+    padding: 90px 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
