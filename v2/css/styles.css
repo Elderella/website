@@ -973,6 +973,7 @@ input:focus,
 .footer-brand {
     display: flex;
     flex-direction: column;
+    align-items: flex-start; /* ensure logo and tagline align left */
 }
 
 .footer-logo {
@@ -980,7 +981,7 @@ input:focus,
     width: auto;
     margin-bottom: 12px;
     display: block;        /* remove inline whitespace */
-    margin-left: -4px;     /* nudge to visually align left edge */
+    margin-left: 0;        /* align exactly with container left edge */
 }
 
 .footer-tagline {
