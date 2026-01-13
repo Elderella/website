@@ -979,6 +979,8 @@ input:focus,
     height: 40px;
     width: auto;
     margin-bottom: 12px;
+    display: block;        /* remove inline whitespace */
+    margin-left: -4px;     /* nudge to visually align left edge */
 }
 
 .footer-tagline {
