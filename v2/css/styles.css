@@ -599,7 +599,7 @@ input:focus,
 
 /* Share responsibility graphic */
 .share-graphic {
-    width: min(509px, 100%);
+    width: min(1018px, 100%); /* double displayed size, capped by column width */
     height: auto;
     object-fit: contain;
 }
