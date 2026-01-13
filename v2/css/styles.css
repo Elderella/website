@@ -1036,6 +1036,18 @@ input:focus,
     color: var(--color-black);
 }
 
+/* Footer social icons */
+.footer-social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+    align-items: center;
+}
+
+.footer-social-icons a img {
+    display: block;
+}
+
 .footer-newsletter h4 {
     font-family: var(--font-heading-sans);
     font-size: 16px;
