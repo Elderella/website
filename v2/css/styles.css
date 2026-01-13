@@ -485,7 +485,7 @@ input:focus,
     border-radius: 20px;
     display: flex;
     width: 100%;
-    aspect-ratio: 1110 / 600;
+    height: 600px; /* desktop height */
     overflow: hidden;
     margin-top: 60px; /* desktop spacing above first purple card */
 }
@@ -575,7 +575,7 @@ input:focus,
     border-radius: 20px;
     display: flex;
     width: 100%;
-    aspect-ratio: 1110 / 600;
+    height: 600px; /* desktop height */
     overflow: hidden;
 }
 
@@ -648,7 +648,7 @@ input:focus,
     border-radius: 20px;
     display: flex;
     width: 100%;
-    aspect-ratio: 1110 / 600;
+    height: 600px; /* desktop height */
     overflow: hidden;
 }
 
@@ -709,7 +709,7 @@ input:focus,
     border-radius: 20px;
     display: flex;
     width: 100%;
-    aspect-ratio: 1110 / 600;
+    height: 600px; /* desktop height */
     overflow: hidden;
 }
 
@@ -770,7 +770,7 @@ input:focus,
     border-radius: 20px;
     display: flex;
     width: 100%;
-    aspect-ratio: 1110 / 600;
+    height: 600px; /* desktop height */
     overflow: hidden;
 }
 
@@ -1253,7 +1253,8 @@ input:focus, textarea:focus, select:focus {
     .capture-card,
     .meds-card,
     .remember-card {
-        min-height: auto; /* use aspect-ratio-driven height */
+        min-height: auto;
+        height: auto; /* override fixed desktop height */
     }
 
     /* Tablet: smaller space above first purple card */
