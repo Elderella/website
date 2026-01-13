@@ -407,7 +407,8 @@ input:focus,
 /* ===== Stats Section ===== */
 .stats {
     background-color: var(--color-stats-bg);
-    min-height: 341px;
+    padding: 100px 0;
+    min-height: auto;
     display: flex;
     align-items: center;
 }
@@ -415,7 +416,8 @@ input:focus,
 .stats-container {
     display: flex;
     justify-content: space-between;
-    text-align: center;
+    align-items: flex-start;
+    gap: var(--stats-gap-desktop);
 }
 
 .stat-item {
@@ -423,34 +425,37 @@ input:focus,
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 .stat-number {
     font-family: var(--font-heading-sans);
-    font-size: 48px;
+    font-size: var(--stat-number-desktop);
     font-weight: 700;
-    line-height: 1.5;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
     color: var(--color-black);
     white-space: nowrap;
+    margin-bottom: 16px;
 }
 
 .stat-label {
     font-family: var(--font-body);
-    font-size: 20px;
+    font-size: var(--stat-label-desktop);
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.3;
     color: var(--color-text);
-    margin-top: 4px;
+    margin-top: 12px;
 }
 
 .stat-desc {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: var(--stat-desc-desktop);
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.6;
     color: var(--color-text);
-    margin-top: 12px;
-    max-width: 250px;
+    margin: 18px auto 0;
+    max-width: var(--stat-desc-max);
 }
 
 /* ===== Caregiving Partner Section ===== */
@@ -1172,11 +1177,22 @@ input:focus, textarea:focus, select:focus {
     }
 
     .stats-container {
-        gap: 20px;
+        justify-content: center;
+        gap: var(--stats-gap-tablet);
+        flex-wrap: wrap;
+        row-gap: 40px;
     }
 
     .stat-number {
-        font-size: 36px;
+        font-size: var(--stat-number-tablet);
+    }
+
+    .stat-label {
+        font-size: var(--stat-label-tablet);
+    }
+
+    .stat-desc {
+        font-size: var(--stat-desc-tablet);
     }
 
     .partner-card,
@@ -1320,16 +1336,24 @@ input:focus, textarea:focus, select:focus {
     /* Stats - Stack */
     .stats {
         min-height: auto;
-        padding: 40px 0;
+        padding: 60px 0;
     }
 
     .stats-container {
         flex-direction: column;
-        gap: 40px;
+        gap: var(--stats-gap-mobile);
     }
 
     .stat-number {
-        font-size: 32px;
+        font-size: var(--stat-number-mobile);
+    }
+
+    .stat-label {
+        font-size: var(--stat-label-mobile);
+    }
+
+    .stat-desc {
+        font-size: var(--stat-desc-mobile);
     }
 
     /* Feature Cards - Stack */
@@ -1462,6 +1486,20 @@ input:focus, textarea:focus, select:focus {
     }
     .hero-title-overlay {
         top: 6%;
+    /* Stats typography + spacing */
+    --stat-number-desktop: 96px;
+    --stat-number-tablet: 80px;
+    --stat-number-mobile: 56px;
+    --stat-label-desktop: 28px;
+    --stat-label-tablet: 24px;
+    --stat-label-mobile: 20px;
+    --stat-desc-desktop: 20px;
+    --stat-desc-tablet: 18px;
+    --stat-desc-mobile: 16px;
+    --stat-desc-max: 500px;
+    --stats-gap-desktop: 120px;
+    --stats-gap-tablet: 80px;
+    --stats-gap-mobile: 32px;
     }
     .solo-shift-right {
         padding-top: var(--solo-shift-right-offset-tablet);
