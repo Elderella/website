@@ -577,6 +577,20 @@ input:focus,
 .responsibility-image {
     flex: 0 0 55%;
     background-color: var(--color-card-bg);
+    position: relative;
+    display: flex;
+    align-items: flex-end;      /* sit on card floor */
+    justify-content: flex-end;  /* bias artwork to the right */
+    padding: 24px 32px 24px 24px; /* extra right padding */
+}
+
+/* Share responsibility graphic */
+.share-graphic {
+    width: min(509px, 100%);
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.15));
+    margin-bottom: -2px; /* visually flush on the bottom */
 }
 
 .responsibility-pill {
@@ -1219,6 +1233,9 @@ input:focus, textarea:focus, select:focus {
         min-height: 500px;
     }
 
+    /* Share responsibility image breathing room on tablet */
+    .responsibility-image { padding: 20px 24px; }
+
     .partner-headline,
     .responsibility-headline,
     .capture-headline,
@@ -1389,6 +1406,16 @@ input:focus, textarea:focus, select:focus {
     .remember-image {
         flex: none;
         height: 200px;
+    }
+
+    /* Center the share responsibility artwork on mobile */
+    .responsibility-image {
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .share-graphic {
+        filter: drop-shadow(0 6px 16px rgba(0,0,0,0.14));
     }
 
     .partner-content,
