@@ -922,7 +922,7 @@ input:focus,
 .keep-on-top-phone img {
     width: 280px;
     height: auto;
-    filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.25));
+    filter: none;
 }
 
 .keep-on-top-content {
