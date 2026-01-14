@@ -1487,7 +1487,8 @@ input:focus, textarea:focus, select:focus {
     .meds-image,
     .remember-image {
         flex: none;
-        height: 200px;
+        height: auto;
+        min-height: 200px;
     }
 
     /* Center the share responsibility artwork on mobile */
