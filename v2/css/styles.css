@@ -152,6 +152,15 @@ input:focus,
     padding: 20px 0;
 }
 
+/* Desktop: keep header visible at top */
+@media (min-width: 769px) {
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+}
+
 /* ===== App Promo Banner (mobile) ===== */
 .app-promo {
     position: sticky;
