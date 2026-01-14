@@ -176,7 +176,7 @@ input:focus,
 .app-promo__title { font-family: var(--font-heading-sans); font-size: 20px; color: var(--color-black); }
 .app-promo__subtitle { font-family: var(--font-body); font-size: 16px; color: var(--color-text); }
 .app-promo__right { display: flex; align-items: center; gap: 8px; }
-.app-promo__button { display: inline-block; background: #000; color: #fff; padding: 10px 16px; border-radius: 9999px; text-decoration: none; font-family: var(--font-body); font-size: 16px; }
+.app-promo__button { display: inline-block; background: #5A4FCF; color: #fff; padding: 10px 16px; border-radius: 9999px; text-decoration: none; font-family: var(--font-body); font-size: 16px; }
 .app-promo__button:hover { opacity: .9; text-decoration: none; }
 .app-promo__close { background: none; border: 2px solid #bbb; color: #555; border-radius: 9999px; width: 32px; height: 32px; line-height: 28px; font-size: 20px; cursor: pointer; }
 
