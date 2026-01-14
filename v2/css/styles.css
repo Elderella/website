@@ -307,12 +307,32 @@ input:focus,
     font-size: 20px;
     font-weight: 400;
     color: var(--color-black);
-    text-decoration: underline;
-    text-underline-offset: 3px;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 4px;
+    white-space: nowrap;
+    text-decoration: none;
 }
 
 .promo-link:hover {
     text-decoration: none;
+}
+
+.promo-link-text {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.promo-link::after {
+    content: '›';
+    font-size: 1em;
+    line-height: 1;
+    margin-left: 2px;
+}
+
+@media (max-width: 600px) {
+  .promo-container { flex-direction: column; align-items: center; gap: 8px; }
+  .promo-text { text-align: center; }
 }
 
 /* ===== Hero Section ===== */

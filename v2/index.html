@@ -19,18 +19,43 @@
     <!-- Skip Link for Accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
+    <!-- App Promo Banner (mobile-only; dismissible) -->
+    <div id="app-promo" class="app-promo" role="region" aria-label="Get the app" hidden>
+        <div class="app-promo__inner">
+            <div class="app-promo__left">
+                <!-- Placeholder icon (upload to v2/images/app-promo-icon.png) -->
+                <img src="images/app-promo-icon.png" alt="Elderella" class="app-promo__icon" width="48" height="48">
+                <div class="app-promo__text">
+                    <div class="app-promo__title">Elderella</div>
+                    <div class="app-promo__subtitle">Get the app</div>
+                </div>
+            </div>
+            <div class="app-promo__right">
+                <a id="app-promo-download" class="app-promo__button" href="#" role="button">Download</a>
+                <button id="app-promo-close" class="app-promo__close" aria-label="Close">×</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="site-header">
         <div class="container header-container">
             <a href="index.html" class="logo">
                 <img src="images/elderella-logo-header.svg" alt="Elderella" width="709" height="300">
             </a>
-            <nav class="main-nav">
-                <a href="explore.html">Explore</a>
-                <a href="early-access.html">Early Access</a>
-                <a href="faq.html">FAQ</a>
-            </nav>
-            <a href="signup.html" class="btn-signup">Sign up</a>
+
+            <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu">
+                <span class="hamburger" aria-hidden="true"></span>
+            </button>
+
+            <div id="primary-navigation" class="primary-navigation" data-open="false">
+                <nav class="main-nav">
+                    <a href="explore.html">Explore</a>
+                    <a href="early-access.html">Early Access</a>
+                    <a href="faq.html">FAQ</a>
+                </nav>
+                <a href="signup.html" class="btn-signup">Sign up</a>
+            </div>
         </div>
     </header>
 
@@ -38,7 +63,7 @@
     <div class="promo-banner">
         <div class="container promo-container">
             <span class="promo-text">Share your elder care story with us and get early access!</span>
-            <a href="early-access.html" class="promo-link">Join ></a>
+            <a href="early-access.html" class="promo-link"><span class="promo-link-text">Join</span></a>
         </div>
     </div>
 
@@ -312,7 +337,7 @@
             </div>
             <div class="keep-on-top-content">
                 <h2 class="keep-on-top-headline">Keep on top of elder care</h2>
-                <p class="keep-on-top-text">Elderella is for families supporting elders, built to help you organize care, share information, and ease the mental load of caregiving.</p>
+                <p class="keep-on-top-text">Elderella is for families supporting elders. Built to help you organize care, share information, and ease the mental load of caregiving.</p>
                 <div class="keep-on-top-badges">
                     <a href="#" class="store-badge">
                         <img
@@ -443,7 +468,7 @@
                         <input type="checkbox" id="newsletter-consent" name="consent" required>
                         <label for="newsletter-consent">I consent to receive communications from Elderella. I can unsubscribe at any time.</label>
                     </div>
-                    <p class="privacy-note">We respect your privacy. See our <a href="#">Privacy Policy</a>.</p>
+                    <p class="privacy-note">We respect your privacy. See our <a href="https://www.elderella.com/privacy">Privacy Policy</a>.</p>
                 </div>
             </div>
 
@@ -452,7 +477,79 @@
                 <p>© 2025 Elderella Inc. All rights reserved.</p>
             </div>
         </div>
-    </footer>
+</footer>
+
+<script>
+// Mobile nav toggle (hamburger)
+(function() {
+  var toggle = document.querySelector('.nav-toggle');
+  var panel = document.getElementById('primary-navigation');
+  if (!toggle || !panel) return;
+
+  function setOpen(open) {
+    panel.dataset.open = open ? 'true' : 'false';
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.documentElement.classList.toggle('nav-open', open);
+  }
+
+  toggle.addEventListener('click', function() {
+    var open = panel.dataset.open !== 'true';
+    setOpen(open);
+  });
+
+  // Close on ESC
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') setOpen(false);
+  });
+
+  // Close when a nav link is clicked
+  panel.addEventListener('click', function(e) {
+    var t = e.target;
+    if (t && t.tagName === 'A') setOpen(false);
+  });
+})();
+</script>
+
+<script>
+// App promo banner (mobile)
+(function() {
+  var banner = document.getElementById('app-promo');
+  if (!banner) return;
+  var closeBtn = document.getElementById('app-promo-close');
+  var downloadBtn = document.getElementById('app-promo-download');
+
+  // Placeholder iOS App Store URL (replace with real one when available)
+  var IOS_URL = 'https://apps.apple.com/app/id000000000';
+  var ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.elderella.app&hl=en_CA';
+  var LANDING_URL = 'https://www.elderella.com/early-access';
+
+  function isiOS(){ return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; }
+  function isAndroid(){ return /Android/.test(navigator.userAgent); }
+
+  // Respect dismissal
+  var dismissed = localStorage.getItem('appPromoDismissed') === '1';
+  var isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+  function open(){
+    banner.hidden = false;
+    requestAnimationFrame(function(){ banner.classList.add('is-visible'); });
+  }
+  function close(){
+    banner.classList.remove('is-visible');
+    localStorage.setItem('appPromoDismissed','1');
+    setTimeout(function(){ banner.hidden = true; }, 250);
+  }
+
+  if (isMobile && !dismissed) open();
+
+  if (closeBtn) closeBtn.addEventListener('click', function(e){ e.preventDefault(); close(); });
+
+  if (downloadBtn) downloadBtn.addEventListener('click', function(e){
+    var url = isiOS() ? IOS_URL : (isAndroid() ? ANDROID_URL : LANDING_URL);
+    downloadBtn.setAttribute('href', url);
+  });
+})();
+</script>
 
 </body>
 </html>
