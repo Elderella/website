@@ -4,6 +4,9 @@
   "description": "",
   "main": "worker.js",
   "scripts": {
+    "dev": "npx serve v2 -l 3000",
+    "shot": "node screenshot.js",
+    "test:responsive": "node test-mobile.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
