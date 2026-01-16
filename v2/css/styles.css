@@ -38,6 +38,11 @@
     --container-padding-mobile: 20px;
     --section-padding: 65px;
 
+    /* Spacing group: gap between stats and first feature card */
+    --first-feature-gap-desktop: 140px; /* 80px (section top) + 60px (card margin) */
+    --first-feature-gap-tablet: 110px;  /* 80px + 30px */
+    --first-feature-gap-mobile: 96px;   /* 80px + 16px */
+
     /* Hero sizing + phone alignment calibration */
     --hero-extra-width: 100px; /* extra width beyond header on desktop */
     --hero-gutter-desktop: 24px;
@@ -301,15 +306,17 @@ html.nav-open, body.nav-open { overflow: hidden; }
 .promo-banner {
     background-color: var(--color-promo-bg);
     border-radius: 10px;
-    margin: 0 24px;
-    padding: 12px 24px;
+    margin: 0; /* spacing controlled by .promo-container */
+    padding: 12px 0;
 }
 
 .promo-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 24px; /* match header logo gutters on desktop */
 }
 
 .promo-text {
@@ -595,7 +602,8 @@ html.nav-open, body.nav-open { overflow: hidden; }
 /* ===== Caregiving Partner Section ===== */
 .caregiving-partner {
     background-color: var(--color-white);
-    padding: 80px 0;
+    /* Combine previous section top padding + card margin into one top padding */
+    padding: var(--first-feature-gap-desktop) 0 80px 0;
 }
 
 .partner-card {
@@ -605,7 +613,7 @@ html.nav-open, body.nav-open { overflow: hidden; }
     width: 100%;
     height: 800px; /* desktop height */
     overflow: hidden;
-    margin-top: 60px; /* desktop spacing above first purple card */
+    margin-top: 0; /* spacing handled by .caregiving-partner top padding */
 }
 
 .partner-image {
@@ -1021,7 +1029,7 @@ html.nav-open, body.nav-open { overflow: hidden; }
 
 /* ===== Keep on Top Section ===== */
 .keep-on-top {
-    background-color: var(--color-stats-bg);
+    background-color: #FFFFFF;
     min-height: 612px;
     display: flex;
     align-items: center;
@@ -1078,7 +1086,7 @@ html.nav-open, body.nav-open { overflow: hidden; }
 
 /* ===== Footer ===== */
 .site-footer {
-    background-color: var(--color-white);
+    background-color: var(--color-stats-bg);
     padding: 60px 0 40px 0;
 }
 
@@ -1269,6 +1277,8 @@ html.nav-open, body.nav-open { overflow: hidden; }
     padding: 0 var(--container-padding);
 }
 
+/* No generic container inside promo banner; spacing handled by .promo-container */
+
 section {
     padding: var(--section-padding) 0;
 }
@@ -1343,9 +1353,8 @@ input:focus, textarea:focus, select:focus {
         padding: 0 var(--container-padding-tablet);
     }
 
-    .promo-banner {
-        margin: 0 20px;
-    }
+    /* Promo banner spacing controlled by .promo-container */
+    .promo-container { padding: 0 20px; }
 
     /* Header container gutters (tablet) */
     .site-header .container {
@@ -1417,8 +1426,8 @@ input:focus, textarea:focus, select:focus {
         height: auto; /* override fixed desktop height */
     }
 
-    /* Tablet: smaller space above first purple card */
-    .caregiving-partner .partner-card { margin-top: 30px; }
+    /* Tablet: use unified spacing variable on the section */
+    .caregiving-partner { padding: var(--first-feature-gap-tablet) 0 80px 0; }
 
     /* Share responsibility image breathing room on tablet */
     .responsibility-image { padding: 20px 24px; }
@@ -1486,9 +1495,8 @@ input:focus, textarea:focus, select:focus {
         padding: 0 var(--container-padding-mobile);
     }
 
-    .promo-banner {
-        margin: 0 16px;
-    }
+    /* Promo banner spacing controlled by .promo-container */
+    .promo-container { padding: 0 16px; }
 
     /* Header container gutters (mobile) */
     .site-header .container {
@@ -1506,8 +1514,8 @@ input:focus, textarea:focus, select:focus {
 
     /* removed mobile override for partner card padding */
 
-    /* Mobile: smallest space above first purple card */
-    .caregiving-partner .partner-card { margin-top: 16px; }
+    /* Mobile: use unified spacing variable on the section */
+    .caregiving-partner { padding: var(--first-feature-gap-mobile) 0 80px 0; }
 
     /* Header - Stack Navigation */
     .header-container { flex-wrap: nowrap; gap: 8px; }
