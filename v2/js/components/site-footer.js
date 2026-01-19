@@ -32,7 +32,7 @@ class SiteFooter extends HTMLElement {
                             <div class="footer-nav-col">
                                 <h4>Help us help you</h4>
                                 <ul>
-                                    <li><a href="#">Your caregiving story</a></li>
+                                    <li><a href="story.html">Your caregiving story</a></li>
                                     <li><a href="#">Get early access</a></li>
                                     <li><a href="faq.html">FAQ & help</a></li>
                                     <li><a href="#">Consent from elders</a></li>
