@@ -24,7 +24,7 @@ class SiteFooter extends HTMLElement {
                                 <ul>
                                     <li><a href="explore.html">How Elderella works</a></li>
                                     <li><a href="#">Features</a></li>
-                                    <li><a href="#">Trust & security</a></li>
+                                    <li><a href="trust.html">Trust & security</a></li>
                                     <li><a href="#">Terms of service</a></li>
                                     <li><a href="#">Pricing</a></li>
                                 </ul>
