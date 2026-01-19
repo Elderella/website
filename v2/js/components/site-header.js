@@ -12,6 +12,9 @@ class SiteHeader extends HTMLElement {
         // Get current page for active nav state
         const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 
+        // Check if promo banner should be hidden
+        const hidePromo = this.hasAttribute('no-promo');
+
         this.innerHTML = `
             <!-- Skip Link for Accessibility -->
             <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -57,13 +60,13 @@ class SiteHeader extends HTMLElement {
                 </div>
             </header>
 
-            <!-- Promo Banner -->
+            ${hidePromo ? '' : `<!-- Promo Banner -->
             <div class="promo-banner">
                 <div class="promo-container">
                     <span class="promo-text">Have thoughts about how to make the caregiving journey better?</span>
                     <a href="early-access.html" class="promo-link"><span class="promo-link-text">Share your story</span></a>
                 </div>
-            </div>
+            </div>`}
         `;
 
         // Initialize mobile nav toggle

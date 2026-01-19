@@ -2518,3 +2518,135 @@ input:focus, textarea:focus, select:focus {
         max-width: 200px;
     }
 }
+
+/* ===== Download Page Styles ===== */
+
+/* Download Hero Section */
+.download-hero {
+    background-color: var(--color-white);
+    padding: 80px 0 60px 0;
+    text-align: center;
+}
+
+.download-hero-title {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--color-black);
+    margin-bottom: 28px;
+}
+
+.download-hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.download-hero-subtitle strong {
+    font-weight: 600;
+    color: var(--color-black);
+}
+
+.download-hero-subtitle .highlight {
+    color: var(--color-purple-main);
+    font-weight: 400;
+}
+
+/* Download Badges Section */
+.download-badges-section {
+    background-color: var(--color-purple-main);
+    padding: 80px 0;
+}
+
+.download-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+}
+
+.download-badge {
+    display: block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.download-badge:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.download-badge:focus-visible {
+    outline: 2px solid var(--color-white);
+    outline-offset: 4px;
+    border-radius: 8px;
+}
+
+.download-badge img {
+    display: block;
+    height: 70px;
+    width: auto;
+}
+
+/* ===== Download Page Responsive ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .download-hero {
+        padding: 80px 0 60px 0;
+    }
+
+    .download-hero-title {
+        font-size: 48px;
+    }
+
+    .download-hero-subtitle {
+        font-size: 22px;
+    }
+
+    .download-badges-section {
+        padding: 80px 0;
+    }
+
+    .download-badges {
+        gap: 36px;
+    }
+
+    .download-badge img {
+        height: 60px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .download-hero {
+        padding: 60px 0 40px 0;
+    }
+
+    .download-hero-title {
+        font-size: 36px;
+    }
+
+    .download-hero-subtitle {
+        font-size: 18px;
+    }
+
+    .download-hero-subtitle br {
+        display: none;
+    }
+
+    .download-badges-section {
+        padding: 60px 0;
+    }
+
+    .download-badges {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .download-badge img {
+        height: 54px;
+    }
+}
