@@ -55,7 +55,7 @@ class SiteHeader extends HTMLElement {
                             <a href="explore.html" ${currentPage === 'explore.html' ? 'class="active"' : ''}>How Elderella Works</a>
                             <a href="faq.html" ${currentPage === 'faq.html' ? 'class="active"' : ''}>FAQ</a>
                         </nav>
-                        <a href="signup.html" class="btn-signup">Start for free</a>
+                        <a href="download.html" class="btn-signup">Start for free</a>
                     </div>
                 </div>
             </header>
