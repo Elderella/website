@@ -16,57 +16,8 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Skip Link for Accessibility -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- App Promo Banner (mobile-only; dismissible) -->
-    <div id="app-promo" class="app-promo" role="region" aria-label="Get the app" hidden>
-        <div class="app-promo__inner">
-            <div class="app-promo__left">
-                <!-- Placeholder icon (upload to images/app-promo-icon.png) -->
-                <img src="images/app-promo-icon.png"
-                     srcset="images/app-promo-icon.png 1x, images/app-promo-icon@2x.png 2x"
-                     alt="Elderella" class="app-promo__icon" width="48" height="48">
-                <div class="app-promo__text">
-                    <div class="app-promo__title">Elderella</div>
-                    <div class="app-promo__subtitle">Get the app</div>
-                </div>
-            </div>
-            <div class="app-promo__right">
-                <a id="app-promo-download" class="app-promo__button" href="#" role="button">Download</a>
-                <button id="app-promo-close" class="app-promo__close" aria-label="Close">×</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Header -->
-    <header class="site-header">
-        <div class="container header-container">
-            <a href="index.html" class="logo">
-                <img src="images/elderella-logo-header.svg" alt="Elderella" width="709" height="300">
-            </a>
-
-            <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu">
-                <span class="hamburger" aria-hidden="true"></span>
-            </button>
-
-            <div id="primary-navigation" class="primary-navigation" data-open="false">
-                <nav class="main-nav">
-                    <a href="explore.html">How We Help</a>
-                    <a href="faq.html">FAQ</a>
-                </nav>
-                <a href="signup.html" class="btn-signup">Start for free</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- Promo Banner -->
-    <div class="promo-banner">
-        <div class="promo-container">
-            <span class="promo-text">Have thoughts about how to make the caregiving journey better?</span>
-            <a href="early-access.html" class="promo-link"><span class="promo-link-text">Share your story</span></a>
-        </div>
-    </div>
+    <!-- Site Header Component -->
+    <site-header></site-header>
 
     <!-- Hero Section -->
     <section class="hero" id="main-content">
@@ -314,7 +265,7 @@
         </div>
     </section>
 
-    
+
 
     <!-- Keep on Top Section -->
     <section class="keep-on-top">
@@ -361,190 +312,12 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <!-- Top Row -->
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <img src="images/elderella-logo-header.svg" alt="Elderella" class="footer-logo" width="709" height="300">
-                    <span class="footer-tagline">For family caregivers</span>
-                </div>
-                <div class="footer-nav">
-                    <div class="footer-nav-col">
-                        <h4>Product</h4>
-                        <ul>
-                            <li><a href="#">How Elderella works</a></li>
-                            <li><a href="#">Features</a></li>
-                            <li><a href="#">Trust & security</a></li>
-                            <li><a href="#">Terms of service</a></li>
-                            <li><a href="#">Pricing</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-nav-col">
-                        <h4>Help us help you</h4>
-                        <ul>
-                            <li><a href="#">Your caregiving story</a></li>
-                            <li><a href="#">Get early access</a></li>
-                            <li><a href="#">FAQ & help</a></li>
-                            <li><a href="#">Consent from elders</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-nav-col">
-                        <h4>Elderella Inc.</h4>
-                        <ul>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">The elder care crisis</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <!-- Site Footer Component -->
+    <site-footer></site-footer>
 
-            <!-- Bottom Row -->
-            <div class="footer-bottom">
-                <div class="footer-social">
-                    <h4>Connect with us</h4>
-                    <div class="footer-social-icons">
-                        <a href="https://www.facebook.com/ElderellaCare/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="images/facebook.png"
-                                srcset="images/facebook.png 1x, images/facebook@2x.png 2x"
-                                width="28"
-                                height="35"
-                                alt="Facebook"
-                                loading="lazy"
-                                decoding="async"
-                            >
-                        </a>
-                        <a href="https://www.instagram.com/elderellacare/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="images/instagram.png"
-                                srcset="images/instagram.png 1x, images/instagram@2x.png 2x"
-                                width="28"
-                                height="36"
-                                alt="Instagram"
-                                loading="lazy"
-                                decoding="async"
-                            >
-                        </a>
-                        <a href="https://www.linkedin.com/company/elderella/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="images/linkedin.png"
-                                srcset="images/linkedin.png 1x, images/linkedin@2x.png 2x"
-                                width="29"
-                                height="36"
-                                alt="LinkedIn"
-                                loading="lazy"
-                                decoding="async"
-                            >
-                        </a>
-                        <a href="https://x.com/ElderellaCare" aria-label="X" target="_blank" rel="noopener noreferrer">
-                            <img
-                                src="images/x.png"
-                                srcset="images/x.png 1x, images/x@2x.png 2x"
-                                width="29"
-                                height="36"
-                                alt="X"
-                                loading="lazy"
-                                decoding="async"
-                            >
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-newsletter">
-                    <h4>Family elder care—right to your inbox</h4>
-                    <p>Receive tips, advice, recommendations, and more.</p>
-                    <form class="newsletter-form" action="#" method="POST">
-                        <label for="newsletter-email" class="sr-only">Email address</label>
-                        <input type="email" id="newsletter-email" name="email" placeholder="Your email address..." required>
-                        <button type="submit" class="btn-signup-footer">Sign up</button>
-                    </form>
-                    <div class="newsletter-consent">
-                        <input type="checkbox" id="newsletter-consent" name="consent" required>
-                        <label for="newsletter-consent">I consent to receive communications from Elderella. I can unsubscribe at any time.</label>
-                    </div>
-                    <p class="privacy-note">We respect your privacy. See our <a href="https://www.elderella.com/privacy">Privacy Policy</a>.</p>
-                </div>
-            </div>
-
-            <!-- Copyright -->
-            <div class="footer-copyright">
-                <p>© 2025 Elderella Inc. All rights reserved.</p>
-            </div>
-        </div>
-</footer>
-
-<script>
-// Mobile nav toggle (hamburger)
-(function() {
-  var toggle = document.querySelector('.nav-toggle');
-  var panel = document.getElementById('primary-navigation');
-  if (!toggle || !panel) return;
-
-  function setOpen(open) {
-    panel.dataset.open = open ? 'true' : 'false';
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    document.documentElement.classList.toggle('nav-open', open);
-  }
-
-  toggle.addEventListener('click', function() {
-    var open = panel.dataset.open !== 'true';
-    setOpen(open);
-  });
-
-  // Close on ESC
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') setOpen(false);
-  });
-
-  // Close when a nav link is clicked
-  panel.addEventListener('click', function(e) {
-    var t = e.target;
-    if (t && t.tagName === 'A') setOpen(false);
-  });
-})();
-</script>
-
-<script>
-// App promo banner (mobile)
-(function() {
-  var banner = document.getElementById('app-promo');
-  if (!banner) return;
-  var closeBtn = document.getElementById('app-promo-close');
-  var downloadBtn = document.getElementById('app-promo-download');
-
-  // App Store URLs
-  var IOS_URL = 'https://apps.apple.com/app/id6753773809';
-  var ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.elderella.app&hl=en_CA';
-  var LANDING_URL = 'https://www.elderella.com/early-access';
-
-  function isiOS(){ return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream; }
-  function isAndroid(){ return /Android/.test(navigator.userAgent); }
-
-  // Respect dismissal
-  var dismissed = localStorage.getItem('appPromoDismissed') === '1';
-  var isMobile = window.matchMedia('(max-width: 768px)').matches;
-
-  function open(){
-    banner.hidden = false;
-    requestAnimationFrame(function(){ banner.classList.add('is-visible'); });
-  }
-  function close(){
-    banner.classList.remove('is-visible');
-    localStorage.setItem('appPromoDismissed','1');
-    setTimeout(function(){ banner.hidden = true; }, 250);
-  }
-
-  if (isMobile && !dismissed) open();
-
-  if (closeBtn) closeBtn.addEventListener('click', function(e){ e.preventDefault(); close(); });
-
-  if (downloadBtn) downloadBtn.addEventListener('click', function(e){
-    var url = isiOS() ? IOS_URL : (isAndroid() ? ANDROID_URL : LANDING_URL);
-    downloadBtn.setAttribute('href', url);
-  });
-})();
-</script>
+    <!-- Web Components -->
+    <script src="js/components/site-header.js"></script>
+    <script src="js/components/site-footer.js"></script>
 
 </body>
 </html>
