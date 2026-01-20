@@ -4556,3 +4556,518 @@ input:focus, textarea:focus, select:focus {
         font-size: 16px;
     }
 }
+
+/* ===== Introduce to Elder Page Styles ===== */
+
+/* Introduce Hero Section */
+.introduce-hero {
+    background-color: var(--color-white);
+    padding: 80px 0 60px 0;
+    text-align: center;
+}
+
+.introduce-hero-title {
+    font-family: var(--font-heading);
+    font-size: 48px;
+    font-weight: 400;
+    color: var(--color-black);
+    margin-bottom: 24px;
+}
+
+.introduce-hero-text {
+    font-family: var(--font-body);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--color-text);
+    max-width: 700px;
+    margin: 0 auto 16px auto;
+}
+
+.introduce-hero-text:last-child {
+    margin-bottom: 0;
+}
+
+/* Elder Note Section */
+.elder-note-section {
+    background-color: var(--color-gray-light);
+    padding: 60px 0;
+}
+
+.elder-note-section-title {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--color-black);
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.elder-note-card {
+    background-color: var(--color-white);
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 48px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.elder-note-title {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--color-black);
+    margin-bottom: 24px;
+}
+
+.elder-note-text {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--color-text);
+    margin-bottom: 20px;
+}
+
+.elder-note-list {
+    margin: 0 0 24px 0;
+    padding-left: 24px;
+}
+
+.elder-note-list li {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--color-text);
+    margin-bottom: 12px;
+}
+
+.elder-note-list li:last-child {
+    margin-bottom: 0;
+}
+
+.elder-note-privacy {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--color-purple-dark);
+    margin-bottom: 20px;
+}
+
+.elder-note-contact {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.elder-note-contact a {
+    color: var(--color-purple-dark);
+    text-decoration: underline;
+}
+
+.elder-note-contact a:hover {
+    text-decoration: none;
+}
+
+/* Elder Hands Image Section */
+.elder-hands-section {
+    position: relative;
+    background-color: var(--color-white);
+    overflow: hidden;
+}
+
+.elder-hands-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.elder-hands-overlay {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 32px;
+    border-radius: 12px;
+}
+
+.elder-hands-text {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--color-text);
+    margin: 0 0 12px 0;
+}
+
+.elder-hands-text:last-child {
+    margin-bottom: 0;
+}
+
+/* Accordion Component */
+.accordion-section {
+    background-color: var(--color-white);
+    padding: 80px 0;
+}
+
+.accordion-title {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--color-black);
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.accordion-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #e6e2f5;
+}
+
+.accordion-item:first-child {
+    border-top: 1px solid #e6e2f5;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+}
+
+.accordion-header:hover {
+    background-color: transparent;
+}
+
+.accordion-header-text {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--color-purple-dark);
+}
+
+.accordion-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.accordion-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: var(--color-purple-dark);
+}
+
+.accordion-item.is-open .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.accordion-item.is-open .accordion-content {
+    max-height: 500px;
+    padding-bottom: 24px;
+}
+
+.accordion-content-inner {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--color-text);
+}
+
+.accordion-content-inner p {
+    margin-bottom: 16px;
+}
+
+.accordion-content-inner p:last-child {
+    margin-bottom: 0;
+}
+
+.accordion-context {
+    font-style: italic;
+    color: var(--color-text);
+}
+
+.accordion-quote {
+    color: var(--color-text);
+}
+
+.accordion-explanation {
+    color: var(--color-text);
+}
+
+/* Ways to Share Section */
+.ways-share-section {
+    background-color: var(--color-purple-main);
+    padding: 80px 0;
+}
+
+.ways-share-title {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--color-white);
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.ways-share-list {
+    max-width: 700px;
+    margin: 0 auto;
+    padding-left: 0;
+    list-style: none;
+}
+
+.ways-share-list li::before {
+    content: ">";
+    margin-right: 12px;
+    font-weight: 600;
+}
+
+.ways-share-list li {
+    font-family: var(--font-body);
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--color-white);
+    margin-bottom: 16px;
+}
+
+.ways-share-list li:last-child {
+    margin-bottom: 0;
+}
+
+/* Building Comfort Section */
+.comfort-section {
+    background-color: var(--color-white);
+    padding: 80px 0;
+}
+
+.comfort-title {
+    font-family: var(--font-heading);
+    font-size: 40px;
+    font-weight: 400;
+    color: var(--color-black);
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.comfort-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.comfort-item {
+    padding: 0;
+    margin-bottom: 32px;
+}
+
+.comfort-item:last-child {
+    margin-bottom: 0;
+}
+
+.comfort-item-title {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--color-purple-dark);
+    margin-bottom: 12px;
+}
+
+.comfort-item-text {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--color-text);
+    margin: 0;
+}
+
+/* Trust Info Section (for introduce page) */
+.trust-info-section {
+    background-color: var(--color-gray-light);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.trust-info-title {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--color-black);
+    margin-bottom: 16px;
+}
+
+.trust-info-text {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--color-text);
+    max-width: 600px;
+    margin: 0 auto 24px auto;
+}
+
+.trust-info-link {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-purple-dark);
+    text-decoration: underline;
+}
+
+.trust-info-link:hover {
+    text-decoration: none;
+}
+
+/* ===== Introduce Page Responsive ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .introduce-hero-title {
+        font-size: 40px;
+    }
+
+    .accordion-title,
+    .ways-share-title,
+    .comfort-title,
+    .elder-note-section-title {
+        font-size: 36px;
+    }
+
+    .elder-hands-overlay {
+        right: 5%;
+        max-width: 350px;
+        padding: 24px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .introduce-hero {
+        padding: 60px 0 40px 0;
+    }
+
+    .introduce-hero-title {
+        font-size: 32px;
+    }
+
+    .introduce-hero-text {
+        font-size: 18px;
+    }
+
+    .elder-note-section {
+        padding: 40px 0;
+    }
+
+    .elder-note-card {
+        padding: 32px 24px;
+    }
+
+    .elder-note-title {
+        font-size: 26px;
+    }
+
+    .elder-note-text,
+    .elder-note-list li,
+    .elder-note-privacy,
+    .elder-note-contact {
+        font-size: 16px;
+    }
+
+    .elder-hands-section {
+        position: relative;
+    }
+
+    .elder-hands-overlay {
+        position: relative;
+        right: auto;
+        top: auto;
+        transform: none;
+        max-width: 100%;
+        margin: 0;
+        border-radius: 0;
+        padding: 32px 20px;
+        background-color: var(--color-gray-light);
+    }
+
+    .accordion-section {
+        padding: 60px 0;
+    }
+
+    .accordion-title,
+    .ways-share-title,
+    .comfort-title,
+    .elder-note-section-title {
+        font-size: 28px;
+        margin-bottom: 32px;
+    }
+
+    .accordion-header {
+        padding: 20px 0;
+    }
+
+    .accordion-header-text {
+        font-size: 20px;
+    }
+
+    .accordion-content-inner {
+        font-size: 16px;
+    }
+
+    .ways-share-section {
+        padding: 60px 0;
+    }
+
+    .ways-share-list li {
+        font-size: 18px;
+    }
+
+    .comfort-section {
+        padding: 60px 0;
+    }
+
+    .comfort-list {
+        padding: 0 10px;
+    }
+
+    .comfort-item {
+        margin-bottom: 28px;
+    }
+
+    .comfort-item-title {
+        font-size: 22px;
+    }
+
+    .comfort-item-text {
+        font-size: 16px;
+    }
+
+    .trust-info-section {
+        padding: 40px 0;
+    }
+
+    .trust-info-title {
+        font-size: 26px;
+    }
+
+    .trust-info-text {
+        font-size: 16px;
+    }
+}
