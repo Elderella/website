@@ -5,6 +5,7 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /node_modules/
+Disallow: /dev-tools/
 Disallow: /*.js$
 Disallow: /*.json$
 
