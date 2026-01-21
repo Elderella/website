@@ -1137,9 +1137,16 @@ export default {
       '/security': '/security.html',
       '/terms': '/terms.html',
       '/introduce': '/introduce.html',
-      '/alpha-ios': '/alpha-ios.html',
       '/delete-account': '/delete-account.html',
       '/support': '/support.html',
+      '/collects': '/collects.html',
+      '/remembers': '/remembers.html',
+      '/shares': '/shares.html',
+      '/explore': '/explore.html',
+      '/download': '/download.html',
+      '/trust': '/trust.html',
+      '/story': '/story.html',
+      '/delete': '/delete.html',
       '/': '/index.html'
     };
 
@@ -1157,6 +1164,14 @@ export default {
       normalizedPath = normalizedPath.slice(0, -1);
       // Redirect to normalized URL for SEO consistency
       const redirectUrl = new URL(normalizedPath, url.origin);
+      redirectUrl.search = url.search;
+      redirectUrl.hash = url.hash;
+      return Response.redirect(redirectUrl.toString(), 301);
+    }
+
+    // 301 Redirect legacy alpha pages to download page
+    if (normalizedPath === '/alpha-ios' || normalizedPath === '/alpha-android') {
+      const redirectUrl = new URL('/download', url.origin);
       redirectUrl.search = url.search;
       redirectUrl.hash = url.hash;
       return Response.redirect(redirectUrl.toString(), 301);
