@@ -10,7 +10,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Merriweather+Sans:wght@400;700&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
@@ -23,7 +23,7 @@
     <section class="collects-hero" id="main-content">
         <div class="container">
             <h1 class="collects-hero-title">Help for family caregivers</h1>
-            <p class="collects-hero-subtitle">Elderella <strong>collects</strong> caregiving information<br><span class="highlight">from everywhere and everyone.</span></p>
+            <p class="collects-hero-subtitle">Elderella collects caregiving information<br><span class="highlight">from everywhere and everyone.</span></p>
         </div>
     </section>
 
@@ -44,12 +44,15 @@
             <div class="feature-cards-grid">
                 <!-- Card 1: Your elder's story -->
                 <div class="feature-card">
-                    <div class="feature-card-content">
-                        <h3 class="feature-card-title">Your elder's story</h3>
-                        <p class="feature-card-text">Answer one simple question a day, and Elderella quietly builds a rich, searchable story about your elder and what they need.</p>
+                    <div class="feature-card-overlay">
+                        <div class="feature-card-copy">
+                            <h3 class="feature-card-title">Your elder's story</h3>
+                            <p class="feature-card-text">Answer one simple question a day, and Elderella quietly builds a rich, searchable story about your elder and what they need.</p>
+                        </div>
                     </div>
-                    <div class="feature-card-image">
+                    <div class="feature-card-illustration">
                         <img
+                            class="feature-screenshot"
                             src="images/about-elder.png"
                             srcset="images/about-elder.png 1x, images/about-elder@2x.png 2x"
                             width="344"
@@ -63,11 +66,13 @@
 
                 <!-- Card 2: Everyday chats -->
                 <div class="feature-card">
-                    <div class="feature-card-content">
-                        <h3 class="feature-card-title">Everyday chats</h3>
-                        <p class="feature-card-text">Chat with Ella on the go and Elderella will tuck everything into your elder's growing care story so you don't have to remember it all.</p>
+                    <div class="feature-card-overlay">
+                        <div class="feature-card-copy">
+                            <h3 class="feature-card-title">Everyday chats</h3>
+                            <p class="feature-card-text">Chat with Ella on the go and Elderella will tuck everything into your elder's growing care story so you don't have to remember it all.</p>
+                        </div>
                     </div>
-                    <div class="feature-card-image feature-card-image-stack">
+                    <div class="feature-card-illustration feature-card-image-stack">
                         <img
                             src="images/chat-1.png"
                             srcset="images/chat-1.png 1x, images/chat-1@2x.png 2x"
@@ -123,11 +128,13 @@
 
                 <!-- Card 3: Everyday notes & docs -->
                 <div class="feature-card">
-                    <div class="feature-card-content">
-                        <h3 class="feature-card-title">Everyday notes & docs</h3>
-                        <p class="feature-card-text">Add voice, photo, or text notes, or documents, and Elderella will add them all to your elder's care story so nothing important gets lost.</p>
+                    <div class="feature-card-overlay">
+                        <div class="feature-card-copy">
+                            <h3 class="feature-card-title">Everyday notes & docs</h3>
+                            <p class="feature-card-text">Add voice, photo, or text notes, or documents, and Elderella will add them all to your elder's care story so nothing important gets lost.</p>
+                        </div>
                     </div>
-                    <div class="feature-card-image feature-card-image-overlap">
+                    <div class="feature-card-illustration feature-card-image-overlap">
                         <img
                             src="images/voice-note-recording.png"
                             srcset="images/voice-note-recording.png 1x, images/voice-note-recording@2x.png 2x"
@@ -153,11 +160,13 @@
 
                 <!-- Card 4: Event updates -->
                 <div class="feature-card">
-                    <div class="feature-card-content">
-                        <h3 class="feature-card-title">Event updates</h3>
-                        <p class="feature-card-text">Add a quick update after an appointment or visit, keeping everyone in the loop while Elderella folds it into your elder's care story.</p>
+                    <div class="feature-card-overlay">
+                        <div class="feature-card-copy">
+                            <h3 class="feature-card-title">Event updates</h3>
+                            <p class="feature-card-text">Add a quick update after an appointment or visit, keeping everyone in the loop while Elderella folds it into your elder's care story.</p>
+                        </div>
                     </div>
-                    <div class="feature-card-image feature-card-image-overlap">
+                    <div class="feature-card-illustration feature-card-image-overlap">
                         <img
                             src="images/appointment-outcome.png"
                             srcset="images/appointment-outcome.png 1x, images/appointment-outcome@2x.png 2x"
@@ -182,13 +191,16 @@
                 </div>
 
                 <!-- Card 5: Medication updates -->
-                <div class="feature-card">
-                    <div class="feature-card-content">
-                        <h3 class="feature-card-title">Medication updates</h3>
-                        <p class="feature-card-text">Scan a pill pack or prescription label, and Elderella will quickly add medications for you—no typing, no guessing.</p>
+                <div class="feature-card no-backdrop">
+                    <div class="feature-card-overlay">
+                        <div class="feature-card-copy">
+                            <h3 class="feature-card-title">Medication updates</h3>
+                            <p class="feature-card-text">Scan a pill pack or prescription label, and Elderella will quickly add medications for you—no typing, no guessing.</p>
+                        </div>
                     </div>
-                    <div class="feature-card-image">
+                    <div class="feature-card-illustration">
                         <img
+                            class="feature-screenshot"
                             src="images/adding-medication.png"
                             srcset="images/adding-medication.png 1x, images/adding-medication@2x.png 2x"
                             width="510"
@@ -202,12 +214,15 @@
 
                 <!-- Card 6: You decide what to add -->
                 <div class="feature-card">
-                    <div class="feature-card-content">
-                        <h3 class="feature-card-title">You decide what to add</h3>
-                        <p class="feature-card-text">Anything Elderella or your care team enters goes through you first. A handy "Needs Your Review" list lets you quickly approve or skip each item before it's added to the care story.</p>
+                    <div class="feature-card-overlay">
+                        <div class="feature-card-copy">
+                            <h3 class="feature-card-title">You decide what to add</h3>
+                            <p class="feature-card-text">Anything Elderella or your care team enters goes through you first. A handy "Needs Your Review" list lets you quickly approve or skip each item before it's added to the care story.</p>
+                        </div>
                     </div>
-                    <div class="feature-card-image">
+                    <div class="feature-card-illustration">
                         <img
+                            class="feature-screenshot"
                             src="images/needs-your-review.png"
                             srcset="images/needs-your-review.png 1x, images/needs-your-review@2x.png 2x"
                             width="283"

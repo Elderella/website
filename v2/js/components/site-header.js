@@ -51,7 +51,32 @@ class SiteHeader extends HTMLElement {
 
                     <div id="primary-navigation" class="primary-navigation" data-open="false">
                         <nav class="main-nav">
-                            <a href="#">Help for Family Caregivers</a>
+                            <div class="nav-item nav-item--dropdown" id="care-dropdown">
+                                <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="care-dropdown-menu">Help for Family Caregivers</button>
+                                <div class="dropdown-menu" id="care-dropdown-menu" role="menu" hidden>
+                                    <a class="dropdown-item" role="menuitem" href="collects.html">
+                                        <span class="dropdown-icon icon-collects" aria-hidden="true"></span>
+                                        <span class="dropdown-content">
+                                            <span class="dropdown-title">Collects</span>
+                                            <span class="dropdown-desc">Elderella collects caregiving information from everywhere and everyone.</span>
+                                        </span>
+                                    </a>
+                                    <a class="dropdown-item" role="menuitem" href="remembers.html">
+                                        <span class="dropdown-icon icon-remembers" aria-hidden="true"></span>
+                                        <span class="dropdown-content">
+                                            <span class="dropdown-title">Remembers &amp; reminds</span>
+                                            <span class="dropdown-desc">Elderella makes elder care information easy to find, fast.</span>
+                                        </span>
+                                    </a>
+                                    <a class="dropdown-item" role="menuitem" href="shares.html">
+                                        <span class="dropdown-icon icon-shares" aria-hidden="true"></span>
+                                        <span class="dropdown-content">
+                                            <span class="dropdown-title">Shares the load</span>
+                                            <span class="dropdown-desc">Elderella turns caregiving information into a coordinated care team.</span>
+                                        </span>
+                                    </a>
+                                </div>
+                            </div>
                             <a href="explore.html" ${currentPage === 'explore.html' ? 'class="active"' : ''}>How Elderella Works</a>
                             <a href="faq.html" ${currentPage === 'faq.html' ? 'class="active"' : ''}>FAQ</a>
                         </nav>
@@ -73,6 +98,8 @@ class SiteHeader extends HTMLElement {
         this.initMobileNav();
         // Initialize app promo banner
         this.initAppPromo();
+        // Initialize dropdown menu
+        this.initDropdown();
     }
 
     initMobileNav() {
@@ -99,6 +126,63 @@ class SiteHeader extends HTMLElement {
         // Close when a nav link is clicked
         panel.addEventListener('click', (e) => {
             if (e.target && e.target.tagName === 'A') setOpen(false);
+        });
+    }
+
+    initDropdown() {
+        const dropdown = this.querySelector('#care-dropdown');
+        if (!dropdown) return;
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        const menu = dropdown.querySelector('.dropdown-menu');
+        const items = Array.from(menu.querySelectorAll('.dropdown-item'));
+
+        const isDesktop = () => window.matchMedia('(min-width: 769px)').matches;
+        const setOpen = (open) => {
+            dropdown.dataset.open = open ? 'true' : 'false';
+            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+            menu.hidden = !open;
+        };
+
+        // Desktop: open on hover
+        dropdown.addEventListener('mouseenter', () => { if (isDesktop()) setOpen(true); });
+        dropdown.addEventListener('mouseleave', () => { if (isDesktop()) setOpen(false); });
+
+        // Click toggles (mobile + desktop fallback)
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            setOpen(dropdown.dataset.open !== 'true');
+        });
+
+        // Close on outside click
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) setOpen(false);
+        });
+
+        // Close on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') setOpen(false);
+        });
+
+        // Keyboard navigation within menu
+        menu.addEventListener('keydown', (e) => {
+            if (!['ArrowDown','ArrowUp','Home','End'].includes(e.key)) return;
+            e.preventDefault();
+            const current = document.activeElement;
+            let idx = items.indexOf(current);
+            if (e.key === 'Home') idx = 0;
+            else if (e.key === 'End') idx = items.length - 1;
+            else if (e.key === 'ArrowDown') idx = (idx + 1) % items.length;
+            else if (e.key === 'ArrowUp') idx = (idx - 1 + items.length) % items.length;
+            items[idx].focus();
+        });
+
+        // Focus first item on open via keyboard
+        toggle.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                setOpen(true);
+                items[0]?.focus();
+            }
         });
     }
 

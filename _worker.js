@@ -1229,6 +1229,20 @@ export default {
       }
     }
 
+    // For v2 image assets, bypass/refresh caches so the latest files are served
+    if (url.pathname.startsWith('/v2/images/')) {
+      try {
+        const assetResp = await fetch(request, { cf: { cacheTtl: 0, cacheEverything: true } });
+        const headers = new Headers(assetResp.headers);
+        headers.set('Cache-Control', 'no-store, no-cache, must-revalidate');
+        headers.set('Pragma', 'no-cache');
+        headers.set('Expires', '0');
+        return new Response(assetResp.body, { status: assetResp.status, headers });
+      } catch (err) {
+        console.error('Error fetching v2 image asset:', err);
+      }
+    }
+
     // Pass through all other requests to Cloudflare Pages origin
     // This allows static assets (CSS, JS, images) to load normally
     return fetch(request);

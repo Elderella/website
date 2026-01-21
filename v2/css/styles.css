@@ -23,11 +23,12 @@
     --color-black: #000000;
     --color-promo-bg: #FFEACC;
     --color-card-bg: #EFEEFC;
+    --color-card-bg-alt: #EADCEF;
     --color-stats-bg: #F4F4F4;
     --color-btn-secondary: #9954B4;
 
     /* Typography */
-    --font-heading: 'Merriweather', serif;
+    --font-heading: 'Merriweather Sans', sans-serif;
     --font-heading-sans: 'Merriweather Sans', sans-serif;
     --font-body: 'Source Sans Pro', sans-serif;
 
@@ -283,6 +284,61 @@ html.nav-open, body.nav-open { overflow: hidden; }
 
 .main-nav a:hover {
     text-decoration: underline;
+}
+
+/* ===== Header Dropdown (v2) ===== */
+.nav-item--dropdown { position: relative; }
+.dropdown-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font-body);
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--color-black);
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 380px;
+    background: #FFFFFF;
+    border: 4px solid #D9D9D9;
+    border-radius: 20px;
+    padding: 12px;
+    z-index: 1100;
+}
+.dropdown-menu[hidden] { display: none; }
+
+.dropdown-item {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 16px;
+    text-decoration: none;
+    color: var(--color-black);
+}
+.dropdown-item:hover { background: #F2F2F2; text-decoration: none; }
+.dropdown-item:focus { outline: 2px solid var(--color-purple-main); outline-offset: 2px; }
+
+.dropdown-title { font-family: var(--font-body); font-size: 18px; font-weight: 600; color: var(--color-black); }
+.dropdown-desc  { font-family: var(--font-body); font-size: 16px; color: var(--color-text); }
+
+.dropdown-icon {
+    width: 40px; height: 40px; border-radius: 8px; display: inline-block;
+    background-size: contain; background-position: center; background-repeat: no-repeat;
+}
+.dropdown-icon.icon-collects  { background-image: url('../images/collects-icon.png'); }
+.dropdown-icon.icon-remembers { background-image: url('../images/remembers-icon.png'); }
+.dropdown-icon.icon-shares    { background-image: url('../images/shares-icon.png'); }
+
+@media (max-width: 768px) {
+  .nav-item--dropdown { width: 100%; }
+  .dropdown-toggle { width: 100%; text-align: left; }
+  .dropdown-menu { position: static; width: 100%; margin-top: 8px; }
 }
 
 .btn-signup {
@@ -1349,6 +1405,12 @@ input:focus, textarea:focus, select:focus {
 
 /* Tablet */
 @media (max-width: 1024px) {
+    .product-tabs-section { margin-bottom: 80px; }
+    .feature-cards-section {
+        --feature-card-padding: 30px;
+        padding-top: calc(80px + 107px + var(--feature-card-padding));
+    }
+    /* reverted extra top padding above overlays */
     .container {
         padding: 0 var(--container-padding-tablet);
     }
@@ -1487,6 +1549,11 @@ input:focus, textarea:focus, select:focus {
 
 /* ≤768px: mobile */
 @media (max-width: 768px) {
+    .product-tabs-section { margin-bottom: 80px; }
+    .feature-cards-section {
+        --feature-card-padding: 24px;
+        padding-top: calc(80px + 107px + var(--feature-card-padding));
+    }
     html {
         font-size: 16px;
     }
@@ -1785,10 +1852,11 @@ input:focus, textarea:focus, select:focus {
 
 .explore-hero-title {
     font-family: var(--font-heading-sans);
-    font-size: 72px;
+    font-size: 60px;
     font-weight: 400;
+    line-height: 1.2;
     color: var(--color-black);
-    margin-bottom: 28px;
+    margin-bottom: 60px;
 }
 
 .explore-hero-subtitle {
@@ -2085,7 +2153,7 @@ input:focus, textarea:focus, select:focus {
 /* Tablet */
 @media (max-width: 1024px) {
     .explore-hero-title {
-        font-size: 56px;
+        font-size: 52px;
     }
 
     .explore-hero-subtitle {
@@ -2129,7 +2197,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .explore-hero-title {
-        font-size: 40px;
+        font-size: 48px;
     }
 
     .explore-hero-subtitle {
@@ -2251,18 +2319,19 @@ input:focus, textarea:focus, select:focus {
 }
 
 .collects-hero-title {
-    font-family: var(--font-heading);
-    font-size: 48px;
+    font-family: var(--font-heading-sans);
+    font-size: 60px;
     font-weight: 400;
+    line-height: 1.2;
     color: var(--color-black);
-    margin-bottom: 20px;
+    margin-bottom: 60px;
 }
 
 .collects-hero-subtitle {
     font-family: var(--font-body);
-    font-size: 24px;
+    font-size: 32px;
     font-weight: 400;
-    line-height: 1.5;
+    line-height: 1.4;
     color: var(--color-text);
     margin: 0;
 }
@@ -2279,19 +2348,20 @@ input:focus, textarea:focus, select:focus {
 .product-tabs-section {
     background-color: var(--color-white);
     padding: 0 0 40px 0;
+    margin-bottom: 80px;
     text-align: center;
 }
 
 .product-tabs {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 100px;
     flex-wrap: wrap;
 }
 
 .product-tab-link {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     color: var(--color-black);
     text-decoration: none;
@@ -2306,6 +2376,7 @@ input:focus, textarea:focus, select:focus {
 
 .product-tab-link.active {
     color: var(--color-purple-main);
+    font-size: 20px;
     text-decoration: underline;
     text-underline-offset: 6px;
     text-decoration-thickness: 2px;
@@ -2320,54 +2391,114 @@ input:focus, textarea:focus, select:focus {
 .feature-cards-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 40px;
+    column-gap: 40px;
+    row-gap: 187px;
 }
 
 .feature-card {
     background-color: var(--color-card-bg);
     border-radius: 20px;
-    padding: 40px;
-    display: flex;
-    flex-direction: row;
-    gap: 30px;
-    min-height: 420px;
-}
-
-.feature-card-content {
-    flex: 0 0 40%;
+    --feature-card-padding: 32px;
+    padding: var(--feature-card-padding);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+    overflow: visible;
 }
+
+/* Remove colored backdrop for specific cards */
+.feature-card.no-backdrop { background-color: transparent; }
+
+/* Alternate background colors per card down the page */
+.feature-cards-grid .feature-card:nth-child(odd) { background-color: var(--color-card-bg-alt); }
+.feature-cards-grid .feature-card:nth-child(even) { background-color: var(--color-card-bg); }
+
+/* Overlay panel for card copy */
+.feature-card-overlay {
+    background-color: var(--color-white);
+    border-radius: 20px;
+    padding: 30px 40px 40px 40px;
+    width: 378px;
+    height: 214px;
+    border: 4px solid #D9D9D9;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    text-align: left;
+    align-items: flex-start;
+    position: relative;
+    top: calc(-107px - var(--feature-card-padding)); /* center across the card top edge */
+    z-index: 1;
+}
+
+/* Inner copy block sizing and spacing */
+.feature-card-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 298px;
+    height: 134px;
+    padding: 0;
+}
+
+/* Illustration area */
+.feature-card-illustration {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.feature-screenshot {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* (meds-crop removed; using clean image asset) */
+
+/* Legacy content wrapper replaced by .feature-card-overlay */
+.feature-card-content { display: contents; }
 
 .feature-card-title {
     font-family: var(--font-body);
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 1.4;
     color: var(--color-black);
     margin-bottom: 12px;
 }
 
 .feature-card-text {
     font-family: var(--font-body);
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
     margin-bottom: 0;
 }
 
-.feature-card-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
+/* Legacy image wrapper replaced by .feature-card-illustration */
+.feature-card-image { display: contents; }
 
 .feature-card-image > img {
     max-width: 100%;
     height: auto;
     border-radius: 12px;
 }
+
+/* Remove image drop shadows on pillar pages (collects, remembers, shares) */
+.collects-hero ~ .feature-cards-section .feature-screenshot,
+.collects-hero ~ .feature-cards-section .overlap-img,
+.collects-hero ~ .feature-cards-section .chat-stack-img {
+    box-shadow: none !important;
+}
+/* Ensure ALL images on these pages have no shadow (not just feature cards) */
+.collects-hero ~ * img { box-shadow: none !important; }
 
 /* Chat Stack - Cascading chat screenshots diagonal layout */
 .feature-card-image-stack {
@@ -2378,7 +2509,6 @@ input:focus, textarea:focus, select:focus {
 
 .chat-stack-img {
     position: absolute;
-    max-width: 200px;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -2403,8 +2533,6 @@ input:focus, textarea:focus, select:focus {
 .overlap-img {
     border-radius: 12px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-    max-width: 240px;
-    width: 100%;
 }
 
 .overlap-main {
@@ -2424,34 +2552,39 @@ input:focus, textarea:focus, select:focus {
 /* Tablet */
 @media (max-width: 1024px) {
     .collects-hero-title {
-        font-size: 40px;
+        font-size: 52px;
     }
 
     .collects-hero-subtitle {
-        font-size: 22px;
+        font-size: 32px;
+        line-height: 1.4;
     }
 
     .feature-cards-grid {
-        gap: 30px;
+        column-gap: 30px;
+        row-gap: 187px;
     }
 
     .feature-card {
-        padding: 30px;
+        --feature-card-padding: 30px;
+        padding: var(--feature-card-padding);
     }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
+    /* reverted extra top padding above overlays */
     .collects-hero {
         padding: 40px 0 30px 0;
     }
 
     .collects-hero-title {
-        font-size: 32px;
+        font-size: 48px;
     }
 
     .collects-hero-subtitle {
-        font-size: 18px;
+        font-size: 28px;
+        line-height: 1.4;
     }
 
     .collects-hero-subtitle br {
@@ -2464,8 +2597,12 @@ input:focus, textarea:focus, select:focus {
 
     .product-tabs {
         flex-direction: column;
-        gap: 16px;
+        gap: 20px;
         align-items: center;
+    }
+
+    .product-tab-link {
+        padding: 10px 0;
     }
 
     .feature-cards-section {
@@ -2474,12 +2611,13 @@ input:focus, textarea:focus, select:focus {
 
     .feature-cards-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        row-gap: 187px;
     }
 
     .feature-card {
         flex-direction: column;
-        padding: 24px;
+        --feature-card-padding: 24px;
+        padding: var(--feature-card-padding);
         min-height: auto;
         gap: 20px;
     }
@@ -2489,7 +2627,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .feature-card-title {
-        font-size: 18px;
+        font-size: 24px;
     }
 
     .feature-card-text {
@@ -2500,9 +2638,7 @@ input:focus, textarea:focus, select:focus {
         min-height: 300px;
     }
 
-    .chat-stack-img {
-        max-width: 160px;
-    }
+    /* removed mobile max-width constraint for chat stack images */
 
     .chat-stack-1 { top: 0; left: 0; }
     .chat-stack-2 { top: 40px; right: 0; }
@@ -2514,9 +2650,7 @@ input:focus, textarea:focus, select:focus {
         min-height: 260px;
     }
 
-    .overlap-img {
-        max-width: 200px;
-    }
+    /* removed mobile max-width constraint for overlap images */
 }
 
 /* ===== Download Page Styles ===== */
@@ -2529,11 +2663,12 @@ input:focus, textarea:focus, select:focus {
 }
 
 .download-hero-title {
-    font-family: var(--font-heading);
-    font-size: 48px;
+    font-family: var(--font-heading-sans);
+    font-size: 60px;
     font-weight: 400;
+    line-height: 1.2;
     color: var(--color-black);
-    margin-bottom: 28px;
+    margin-bottom: 60px;
 }
 
 .download-hero-subtitle {
@@ -2599,7 +2734,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .download-hero-title {
-        font-size: 48px;
+        font-size: 52px;
     }
 
     .download-hero-subtitle {
@@ -2626,7 +2761,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .download-hero-title {
-        font-size: 36px;
+        font-size: 48px;
     }
 
     .download-hero-subtitle {
@@ -2661,11 +2796,12 @@ input:focus, textarea:focus, select:focus {
 }
 
 .trust-page-hero-title {
-    font-family: var(--font-heading);
-    font-size: 48px;
+    font-family: var(--font-heading-sans);
+    font-size: 60px;
     font-weight: 400;
+    line-height: 1.2;
     color: var(--color-black);
-    margin-bottom: 24px;
+    margin-bottom: 60px;
 }
 
 .trust-page-hero-subtitle {
@@ -3176,7 +3312,7 @@ input:focus, textarea:focus, select:focus {
 /* Tablet */
 @media (max-width: 1024px) {
     .trust-page-hero-title {
-        font-size: 40px;
+        font-size: 52px;
     }
 
     .trust-page-hero-subtitle {
@@ -3209,7 +3345,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .trust-page-hero-title {
-        font-size: 32px;
+        font-size: 48px;
     }
 
     .trust-page-hero-subtitle {
@@ -3371,11 +3507,11 @@ input:focus, textarea:focus, select:focus {
 }
 
 .story-hero-title {
-    font-family: var(--font-heading);
-    font-size: 48px;
+    font-family: var(--font-heading-sans);
+    font-size: 60px;
     font-weight: 400;
     color: var(--color-black);
-    margin-bottom: 16px;
+    margin-bottom: 60px;
     line-height: 1.2;
 }
 
@@ -3640,7 +3776,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .story-hero-title {
-        font-size: 40px;
+        font-size: 52px;
     }
 
     .story-hero-subtitle {
@@ -3672,7 +3808,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .story-hero-title {
-        font-size: 32px;
+        font-size: 48px;
     }
 
     .story-hero-subtitle {
@@ -3729,11 +3865,12 @@ input:focus, textarea:focus, select:focus {
 }
 
 .delete-hero-title {
-    font-family: var(--font-heading);
-    font-size: 48px;
+    font-family: var(--font-heading-sans);
+    font-size: 60px;
     font-weight: 400;
+    line-height: 1.2;
     color: var(--color-black);
-    margin-bottom: 16px;
+    margin-bottom: 60px;
 }
 
 .delete-hero-subtitle {
@@ -4112,7 +4249,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .delete-hero-title {
-        font-size: 32px;
+        font-size: 48px;
     }
 
     .delete-hero-subtitle {
@@ -4199,11 +4336,12 @@ input:focus, textarea:focus, select:focus {
 }
 
 .terms-hero-title {
-    font-family: var(--font-heading);
-    font-size: 48px;
+    font-family: var(--font-heading-sans);
+    font-size: 60px;
     font-weight: 400;
-    color: var(--color-purple-dark);
-    margin-bottom: 20px;
+    line-height: 1.2;
+    color: var(--color-black);
+    margin-bottom: 60px;
 }
 
 .terms-version-badge {
@@ -4466,7 +4604,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .terms-hero-title {
-        font-size: 40px;
+        font-size: 52px;
     }
 
     .terms-section-title {
@@ -4485,7 +4623,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .terms-hero-title {
-        font-size: 32px;
+        font-size: 48px;
     }
 
     .terms-version-badge {
@@ -4567,11 +4705,12 @@ input:focus, textarea:focus, select:focus {
 }
 
 .introduce-hero-title {
-    font-family: var(--font-heading);
-    font-size: 48px;
+    font-family: var(--font-heading-sans);
+    font-size: 60px;
     font-weight: 400;
+    line-height: 1.2;
     color: var(--color-black);
-    margin-bottom: 24px;
+    margin-bottom: 60px;
 }
 
 .introduce-hero-text {
@@ -4941,7 +5080,7 @@ input:focus, textarea:focus, select:focus {
 /* Tablet */
 @media (max-width: 1024px) {
     .introduce-hero-title {
-        font-size: 40px;
+        font-size: 52px;
     }
 
     .accordion-title,
@@ -4965,7 +5104,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .introduce-hero-title {
-        font-size: 32px;
+        font-size: 48px;
     }
 
     .introduce-hero-text {
