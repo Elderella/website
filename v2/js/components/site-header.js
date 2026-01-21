@@ -78,8 +78,7 @@ class SiteHeader extends HTMLElement {
                                 </div>
                             </div>
                             <a href="explore.html" ${currentPage === 'explore.html' ? 'class="active"' : ''}>How Elderella Works</a>
-                            <!-- TODO: Create faq.html page and re-enable this link -->
-                            <!-- <a href="faq.html" ${currentPage === 'faq.html' ? 'class="active"' : ''}>FAQ</a> -->
+                            <a href="faq.html" ${currentPage === 'faq.html' ? 'class="active"' : ''}>FAQ</a>
                         </nav>
                         <a href="download.html" class="btn-signup">Start for free</a>
                     </div>
@@ -90,8 +89,7 @@ class SiteHeader extends HTMLElement {
             <div class="promo-banner">
                 <div class="promo-container">
                     <span class="promo-text">Have thoughts about how to make the caregiving journey better?</span>
-                    <!-- TODO: Create early-access.html and update this link if needed -->
-                    <a href="story.html" class="promo-link"><span class="promo-link-text">Share your story</span></a>
+                    <a href="early-access.html" class="promo-link"><span class="promo-link-text">Share your story</span></a>
                 </div>
             </div>`}
         `;
@@ -197,8 +195,7 @@ class SiteHeader extends HTMLElement {
         // App Store URLs
         const IOS_URL = 'https://apps.apple.com/app/id6753773809';
         const ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.elderella.app&hl=en_CA';
-        // TODO: Update to early-access page when created
-        const LANDING_URL = 'https://www.elderella.com/download';
+        const LANDING_URL = 'https://www.elderella.com/early-access';
 
         const isiOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
         const isAndroid = () => /Android/.test(navigator.userAgent);

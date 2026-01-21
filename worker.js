@@ -1177,11 +1177,6 @@ export default {
       return Response.redirect(redirectUrl.toString(), 301);
     }
 
-    // Block access to dev-tools directory
-    if (normalizedPath.startsWith('/dev-tools')) {
-      return new Response('Not Found', { status: 404 });
-    }
-
     // Check if the path matches a clean URL
     if (cleanUrlMap[normalizedPath]) {
       // Fetch the actual HTML file
