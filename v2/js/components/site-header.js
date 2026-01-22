@@ -54,21 +54,21 @@ class SiteHeader extends HTMLElement {
                             <div class="nav-item nav-item--dropdown" id="care-dropdown">
                                 <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="care-dropdown-menu">Help for Family Caregivers</button>
                                 <div class="dropdown-menu" id="care-dropdown-menu" role="menu" hidden>
-                                    <a class="dropdown-item" role="menuitem" href="collects.html">
+                                    <a class="dropdown-item" role="menuitem" href="collects-care-details.html">
                                         <span class="dropdown-icon icon-collects" aria-hidden="true"></span>
                                         <span class="dropdown-content">
                                             <span class="dropdown-title">Collects</span>
                                             <span class="dropdown-desc">Elderella collects caregiving information from everywhere and everyone.</span>
                                         </span>
                                     </a>
-                                    <a class="dropdown-item" role="menuitem" href="remembers.html">
+                                    <a class="dropdown-item" role="menuitem" href="remembers-and-reminds.html">
                                         <span class="dropdown-icon icon-remembers" aria-hidden="true"></span>
                                         <span class="dropdown-content">
                                             <span class="dropdown-title">Remembers &amp; reminds</span>
                                             <span class="dropdown-desc">Elderella makes elder care information easy to find, fast.</span>
                                         </span>
                                     </a>
-                                    <a class="dropdown-item" role="menuitem" href="shares.html">
+                                    <a class="dropdown-item" role="menuitem" href="shares-the-load.html">
                                         <span class="dropdown-icon icon-shares" aria-hidden="true"></span>
                                         <span class="dropdown-content">
                                             <span class="dropdown-title">Shares the load</span>
@@ -77,7 +77,7 @@ class SiteHeader extends HTMLElement {
                                     </a>
                                 </div>
                             </div>
-                            <a href="explore.html" ${currentPage === 'explore.html' ? 'class="active"' : ''}>How Elderella Works</a>
+                            <a href="how-elderella-works.html" ${currentPage === 'how-elderella-works.html' ? 'class="active"' : ''}>How Elderella Works</a>
                             <a href="faq.html" ${currentPage === 'faq.html' ? 'class="active"' : ''}>FAQ</a>
                         </nav>
                         <a href="download.html" class="btn-signup">Start for free</a>

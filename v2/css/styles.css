@@ -298,6 +298,15 @@ html.nav-open, body.nav-open { overflow: hidden; }
     color: var(--color-black);
     cursor: pointer;
 }
+/* Remove focus box on the dropdown toggle; keep a clear keyboard cue */
+.dropdown-toggle:focus { outline: none; box-shadow: none; }
+.dropdown-toggle:focus-visible {
+    outline: none; box-shadow: none;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+}
+.dropdown-toggle::-moz-focus-inner { border: 0; }
 
 .dropdown-menu {
     position: absolute;
@@ -2497,8 +2506,7 @@ input:focus, textarea:focus, select:focus {
 .collects-hero ~ .feature-cards-section .chat-stack-img {
     box-shadow: none !important;
 }
-/* Ensure ALL images on these pages have no shadow (not just feature cards) */
-.collects-hero ~ * img { box-shadow: none !important; }
+/* (Tightened) Only remove shadows from feature card images on pillar pages */
 
 /* Chat Stack - Cascading chat screenshots diagonal layout */
 .feature-card-image-stack {
