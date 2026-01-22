@@ -18,7 +18,7 @@
         /* Remove drop shadows from product images on this page */
         .page-how-elderella-works .step-graphic,
         .page-how-elderella-works .step-graphic-card {
-            box-shadow: none !important;
+            box-shadow: none;
         }
         /* Visually clear the tinted backdrop around the caregivers image */
         .page-how-elderella-works .step-image--clear {
@@ -140,20 +140,49 @@
             .page-how-elderella-works .btn-learn-more--mobile { display: inline-block; }
         }
 
-        /* Card #4 specific image sizing */
-        .page-how-elderella-works .card4-caregivers { width: 301px !important; height: auto; }
-        .page-how-elderella-works .card4-cardiologist { width: 233px !important; height: auto; }
-
-        /* Card #4 right column wrapper (no .step-image) */
-        /* Not used after reverting to step-image stack; keeping sizing via classes */
-
-        /* Card #4 background + alignment */
+        /* Card #4 background */
         .page-how-elderella-works .feature-step--shares { background-color: #EADCEF; }
+
+        /* Card #4: Vertical stack, center-aligned, no overlap */
         @media (min-width: 1025px) {
-            .page-how-elderella-works .feature-step--shares .step-image { justify-self: center; align-items: center; gap: 24px; }
+            .page-how-elderella-works .feature-step--shares .step-image-stack {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 16px;
+                justify-self: center;
+            }
+
+            .page-how-elderella-works .step-graphic-card.card4-caregivers {
+                width: 300px;
+                height: auto;
+            }
+
+            .page-how-elderella-works .step-graphic-card.card4-cardiologist {
+                width: 180px;
+                height: auto;
+            }
         }
+
+        /* Card #4: Mobile/tablet layout */
         @media (max-width: 1024px) {
-            .page-how-elderella-works .feature-step--shares .step-image { align-items: center; gap: 16px; }
+            .page-how-elderella-works .feature-step--shares .step-image-stack {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                margin: 0 auto;
+            }
+
+            .page-how-elderella-works .step-graphic-card.card4-caregivers {
+                width: 240px;
+                height: auto;
+            }
+
+            .page-how-elderella-works .step-graphic-card.card4-cardiologist {
+                width: 190px;
+                height: auto;
+            }
         }
     </style>
 </head>
