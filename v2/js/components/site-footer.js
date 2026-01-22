@@ -22,7 +22,7 @@ class SiteFooter extends HTMLElement {
                             <div class="footer-nav-col">
                                 <h4>Product</h4>
                                 <ul>
-                                    <li><a href="explore.html">How Elderella works</a></li>
+                                    <li><a href="how-elderella-works.html">How Elderella works</a></li>
                                     <li><a href="#">Features</a></li>
                                     <li><a href="trust.html">Trust & security</a></li>
                                     <li><a href="#">Terms of service</a></li>
