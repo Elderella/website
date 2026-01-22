@@ -42,7 +42,7 @@ class SiteHeader extends HTMLElement {
             <header class="site-header">
                 <div class="container header-container">
                     <a href="index.html" class="logo">
-                        <img src="images/elderella-logo-header.svg" alt="Elderella" width="709" height="300">
+                        <img src="images/elderella-logo-header.png" alt="Elderella" width="709" height="300">
                     </a>
 
                     <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Menu">
@@ -52,7 +52,7 @@ class SiteHeader extends HTMLElement {
                     <div id="primary-navigation" class="primary-navigation" data-open="false">
                         <nav class="main-nav">
                             <div class="nav-item nav-item--dropdown" id="care-dropdown">
-                                <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="care-dropdown-menu">Help for Family Caregivers</button>
+                                <a href="collects-care-details.html" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="care-dropdown-menu">Help for Family Caregivers</a>
                                 <div class="dropdown-menu" id="care-dropdown-menu" role="menu" hidden>
                                     <a class="dropdown-item" role="menuitem" href="collects-care-details.html">
                                         <span class="dropdown-icon icon-collects" aria-hidden="true"></span>
@@ -143,14 +143,28 @@ class SiteHeader extends HTMLElement {
             menu.hidden = !open;
         };
 
-        // Desktop: open on hover
-        dropdown.addEventListener('mouseenter', () => { if (isDesktop()) setOpen(true); });
-        dropdown.addEventListener('mouseleave', () => { if (isDesktop()) setOpen(false); });
+        // Desktop: open on hover with small grace period to cross gaps
+        let hoverCloseTimeout = null;
+        const clearHoverClose = () => { if (hoverCloseTimeout) { clearTimeout(hoverCloseTimeout); hoverCloseTimeout = null; } };
+        // Open when hovering the toggle or the menu itself
+        toggle.addEventListener('mouseenter', () => { if (isDesktop()) { clearHoverClose(); setOpen(true); } });
+        menu.addEventListener('mouseenter', () => { if (isDesktop()) { clearHoverClose(); setOpen(true); } });
+        // Schedule close when pointer leaves the dropdown root; cancel if it enters menu quickly
+        dropdown.addEventListener('mouseleave', () => {
+            if (!isDesktop()) return;
+            clearHoverClose();
+            hoverCloseTimeout = setTimeout(() => setOpen(false), 150);
+        });
+        // Also close when leaving the menu area entirely
+        menu.addEventListener('mouseleave', () => { if (isDesktop()) setOpen(false); });
 
-        // Click toggles (mobile + desktop fallback)
+        // Click behavior: navigate on desktop; toggle on mobile
         toggle.addEventListener('click', (e) => {
-            e.preventDefault();
-            setOpen(dropdown.dataset.open !== 'true');
+            if (!isDesktop()) {
+                e.preventDefault();
+                setOpen(dropdown.dataset.open !== 'true');
+            }
+            // On desktop, allow default to navigate to collects-care-details.html
         });
 
         // Close on outside click

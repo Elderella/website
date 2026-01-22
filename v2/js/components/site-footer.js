@@ -15,7 +15,7 @@ class SiteFooter extends HTMLElement {
                     <!-- Top Row -->
                     <div class="footer-top">
                         <div class="footer-brand">
-                            <img src="images/elderella-logo-header.svg" alt="Elderella" class="footer-logo" width="709" height="300">
+                            <img src="images/elderella-logo-header.png" alt="Elderella" class="footer-logo" width="709" height="300">
                             <span class="footer-tagline">For family caregivers</span>
                         </div>
                         <div class="footer-nav">
@@ -23,26 +23,26 @@ class SiteFooter extends HTMLElement {
                                 <h4>Product</h4>
                                 <ul>
                                     <li><a href="how-elderella-works.html">How Elderella works</a></li>
-                                    <li><a href="#">Features</a></li>
+                                    <li><a href="how-elderella-works.html">Features</a></li>
                                     <li><a href="trust.html">Trust & security</a></li>
-                                    <li><a href="#">Terms of service</a></li>
-                                    <li><a href="#">Pricing</a></li>
+                                    <li><a href="terms.html">Terms of service</a></li>
+                                    <li><a href="compare-plans.html">Pricing</a></li>
                                 </ul>
                             </div>
                             <div class="footer-nav-col">
                                 <h4>Help us help you</h4>
                                 <ul>
                                     <li><a href="story.html">Your caregiving story</a></li>
-                                    <li><a href="#">Get early access</a></li>
+                                    <li><a href="story.html">Get early access</a></li>
                                     <li><a href="faq.html">FAQ & help</a></li>
-                                    <li><a href="#">Consent from elders</a></li>
+                                    <li><a href="introduce.html">Consent from elders</a></li>
                                 </ul>
                             </div>
                             <div class="footer-nav-col">
                                 <h4>Elderella Inc.</h4>
                                 <ul>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#">The elder care crisis</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="elder-care-crisis.html">The elder care crisis</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -57,8 +57,6 @@ class SiteFooter extends HTMLElement {
                                     <img
                                         src="images/facebook.png"
                                         srcset="images/facebook.png 1x, images/facebook@2x.png 2x"
-                                        width="28"
-                                        height="35"
                                         alt="Facebook"
                                         loading="lazy"
                                         decoding="async"
@@ -68,8 +66,6 @@ class SiteFooter extends HTMLElement {
                                     <img
                                         src="images/instagram.png"
                                         srcset="images/instagram.png 1x, images/instagram@2x.png 2x"
-                                        width="28"
-                                        height="36"
                                         alt="Instagram"
                                         loading="lazy"
                                         decoding="async"
@@ -79,8 +75,6 @@ class SiteFooter extends HTMLElement {
                                     <img
                                         src="images/linkedin.png"
                                         srcset="images/linkedin.png 1x, images/linkedin@2x.png 2x"
-                                        width="29"
-                                        height="36"
                                         alt="LinkedIn"
                                         loading="lazy"
                                         decoding="async"
@@ -90,8 +84,6 @@ class SiteFooter extends HTMLElement {
                                     <img
                                         src="images/x.png"
                                         srcset="images/x.png 1x, images/x@2x.png 2x"
-                                        width="29"
-                                        height="36"
                                         alt="X"
                                         loading="lazy"
                                         decoding="async"
@@ -111,7 +103,7 @@ class SiteFooter extends HTMLElement {
                                 <input type="checkbox" id="newsletter-consent" name="consent" required>
                                 <label for="newsletter-consent">I consent to receive communications from Elderella. I can unsubscribe at any time.</label>
                             </div>
-                            <p class="privacy-note">We respect your privacy. See our <a href="https://www.elderella.com/privacy">Privacy Policy</a>.</p>
+                            <p class="privacy-note">We respect your privacy. See our <a href="privacy.html">Privacy Policy</a>.</p>
                         </div>
                     </div>
 

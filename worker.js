@@ -1139,14 +1139,18 @@ export default {
       '/introduce': '/introduce.html',
       '/delete-account': '/delete-account.html',
       '/support': '/support.html',
-      '/collects': '/collects.html',
-      '/remembers': '/remembers.html',
-      '/shares': '/shares.html',
-      '/explore': '/explore.html',
+      '/collects-care-details': '/v2/collects-care-details.html',
+      '/remembers-and-reminds': '/v2/remembers-and-reminds.html',
+      '/shares-the-load': '/v2/shares-the-load.html',
+      '/how-elderella-works': '/how-elderella-works.html',
       '/download': '/download.html',
       '/trust': '/trust.html',
       '/story': '/story.html',
       '/delete': '/delete.html',
+      '/faq': '/faq.html',
+      '/compare-plans': '/compare-plans.html',
+      '/about': '/about.html',
+      '/elder-care-crisis': '/elder-care-crisis.html',
       '/': '/index.html'
     };
 
