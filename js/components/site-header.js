@@ -158,14 +158,9 @@ class SiteHeader extends HTMLElement {
         // Also close when leaving the menu area entirely
         menu.addEventListener('mouseleave', () => { if (isDesktop()) setOpen(false); });
 
-        // Click behavior: navigate on desktop; toggle on mobile
-        toggle.addEventListener('click', (e) => {
-            if (!isDesktop()) {
-                e.preventDefault();
-                setOpen(dropdown.dataset.open !== 'true');
-            }
-            // On desktop, allow default to navigate to collects-care-details.html
-        });
+        // Click behavior: always navigate (including mobile)
+        // Previously on mobile we toggled the dropdown; requested behavior is navigation
+        // so we intentionally do not intercept clicks here.
 
         // Close on outside click
         document.addEventListener('click', (e) => {
