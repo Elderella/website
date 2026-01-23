@@ -23,26 +23,15 @@ class SiteFooter extends HTMLElement {
                                 <h4>Product</h4>
                                 <ul>
                                     <li><a href="how-elderella-works.html">How Elderella works</a></li>
-                                    <li><a href="how-elderella-works.html">Features</a></li>
+                                    <li><a href="collects-care-details.html">Features</a></li>
                                     <li><a href="trust.html">Trust & security</a></li>
                                     <li><a href="terms.html">Terms of service</a></li>
-                                    <li><a href="compare-plans.html">Pricing</a></li>
                                 </ul>
                             </div>
                             <div class="footer-nav-col">
                                 <h4>Help us help you</h4>
                                 <ul>
                                     <li><a href="story.html">Your caregiving story</a></li>
-                                    <li><a href="story.html">Get early access</a></li>
-                                    <li><a href="faq.html">FAQ & help</a></li>
-                                    <li><a href="introduce.html">Consent from elders</a></li>
-                                </ul>
-                            </div>
-                            <div class="footer-nav-col">
-                                <h4>Elderella Inc.</h4>
-                                <ul>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="elder-care-crisis.html">The elder care crisis</a></li>
                                 </ul>
                             </div>
                         </div>

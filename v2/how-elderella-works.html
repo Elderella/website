@@ -131,6 +131,24 @@
                 font-size: 20px;
                 line-height: 1.4;
             }
+
+            /* Step 1 (Add Ella): Center and stack the two images.
+               Only resize the images so they fit; do not
+               change the card padding, layout gap, or background size. */
+            .page-how-elderella-works .feature-step--add-ella .card4-right {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 12px; /* spacing between the two product images */
+                width: 100%;
+                margin: 0 auto;
+            }
+            .page-how-elderella-works .feature-step--add-ella .card4-right .step-graphic {
+                width: 280px; /* scale to fit in the mobile card */
+                max-width: 90vw;
+                height: auto;
+            }
         }
 
         /* Swap Learn more button position on smaller screens */
@@ -155,7 +173,7 @@
             }
 
             .page-how-elderella-works .step-graphic-card.card4-caregivers {
-                width: 380px;
+                width: 323px; /* 15% smaller than 380px */
                 height: auto;
             }
 
@@ -177,7 +195,7 @@
             }
 
             .page-how-elderella-works .step-graphic-card.card4-caregivers {
-                width: 240px;
+                width: 204px; /* 15% smaller than 240px */
                 height: auto;
             }
 
@@ -195,7 +213,7 @@
     <!-- Explore Hero Section -->
     <section class="explore-hero" id="main-content">
         <div class="container">
-            <h1 class="explore-hero-title">How Elderella works</h1>
+            <h1>How Elderella works</h1>
             <p class="explore-hero-subtitle">Elderella turns everyday caregiving updates into<br><span class="highlight">organized care you can rely on.</span></p>
             <p class="explore-hero-text">From conversations and notes, Elderella creates tasks, calendar events, care briefings and plans, and up-to-date medication lists your care team can act on, turning the chaos in your head into calm, coordinated care.</p>
         </div>
@@ -204,7 +222,7 @@
     <!-- Ella, Your Caregiving Partner Section -->
     <section class="ella-partner-section">
         <div class="container">
-            <h2 class="ella-partner-title">Ella, your caregiving partner</h2>
+            <h2>Ella, your caregiving partner</h2>
 
             <!-- Step 1: Add Ella to your care conversations -->
             <div class="feature-step feature-step--add-ella">
@@ -391,7 +409,7 @@
     <!-- Help for Family Caregivers Section -->
     <section class="help-tabs-section">
         <div class="container">
-            <h2 class="help-tabs-title">Help for family caregivers</h2>
+            <h2>Help for family caregivers</h2>
             <div class="help-tabs">
                 <a href="collects-care-details.html" class="help-tab-link">Collects care details</a>
                 <a href="remembers-and-reminds.html" class="help-tab-link">Remembers and reminds</a>
@@ -411,7 +429,7 @@
     <!-- Trust & Security Section -->
     <section class="trust-section">
         <div class="container">
-            <h2 class="trust-title">Trust & security</h2>
+            <h2>Trust & security</h2>
             <p class="trust-text">Caring for an elder involves some of the most personal details in a family's life. See how Elderella keeps your data private, secure, and within your control.</p>
             <a href="trust.html" class="btn-trust">Trust & Security</a>
         </div>

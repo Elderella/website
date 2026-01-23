@@ -51,6 +51,7 @@ class SiteHeader extends HTMLElement {
 
                     <div id="primary-navigation" class="primary-navigation" data-open="false">
                         <nav class="main-nav">
+                            <a href="how-elderella-works.html" ${currentPage === 'how-elderella-works.html' ? 'class="active"' : ''}>How Elderella Works</a>
                             <div class="nav-item nav-item--dropdown" id="care-dropdown">
                                 <a href="collects-care-details.html" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false" aria-controls="care-dropdown-menu">Help for Family Caregivers</a>
                                 <div class="dropdown-menu" id="care-dropdown-menu" role="menu" hidden>
@@ -77,8 +78,7 @@ class SiteHeader extends HTMLElement {
                                     </a>
                                 </div>
                             </div>
-                            <a href="how-elderella-works.html" ${currentPage === 'how-elderella-works.html' ? 'class="active"' : ''}>How Elderella Works</a>
-                            <a href="faq.html" ${currentPage === 'faq.html' ? 'class="active"' : ''}>FAQ</a>
+                            
                         </nav>
                         <a href="download.html" class="btn-signup">Start for free</a>
                     </div>
@@ -89,7 +89,7 @@ class SiteHeader extends HTMLElement {
             <div class="promo-banner">
                 <div class="promo-container">
                     <span class="promo-text">Have thoughts about how to make the caregiving journey better?</span>
-                    <a href="early-access.html" class="promo-link"><span class="promo-link-text">Share your story</span></a>
+                    <a href="story.html" class="promo-link"><span class="promo-link-text">Share your story</span></a>
                 </div>
             </div>`}
         `;
@@ -207,7 +207,7 @@ class SiteHeader extends HTMLElement {
         const downloadBtn = this.querySelector('#app-promo-download');
 
         // App Store URLs
-        const IOS_URL = 'https://apps.apple.com/app/id6753773809';
+        const IOS_URL = null; // iOS coming soon; disable link
         const ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.elderella.app&hl=en_CA';
         const LANDING_URL = 'https://www.elderella.com/early-access';
 
@@ -233,10 +233,24 @@ class SiteHeader extends HTMLElement {
 
         if (closeBtn) closeBtn.addEventListener('click', (e) => { e.preventDefault(); close(); });
 
-        if (downloadBtn) downloadBtn.addEventListener('click', () => {
-            const url = isiOS() ? IOS_URL : (isAndroid() ? ANDROID_URL : LANDING_URL);
-            downloadBtn.setAttribute('href', url);
-        });
+        if (downloadBtn) {
+            // If iOS, disable link and show tooltip; otherwise route to store/landing
+            if (isiOS()) {
+                downloadBtn.classList.add('soon-badge');
+                downloadBtn.setAttribute('data-tooltip', 'Coming soon!');
+                downloadBtn.setAttribute('aria-disabled', 'true');
+                downloadBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    downloadBtn.classList.add('show-tooltip');
+                    setTimeout(() => downloadBtn.classList.remove('show-tooltip'), 1200);
+                });
+            } else {
+                downloadBtn.addEventListener('click', () => {
+                    const url = isAndroid() ? ANDROID_URL : LANDING_URL;
+                    downloadBtn.setAttribute('href', url);
+                });
+            }
+        }
     }
 }
 
