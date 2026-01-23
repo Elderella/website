@@ -83,15 +83,21 @@ class SiteFooter extends HTMLElement {
                         <div class="footer-newsletter">
                             <h4>Family elder care—right to your inbox</h4>
                             <p>Receive tips, advice, recommendations, and more.</p>
-                            <form class="newsletter-form" action="#" method="POST">
-                                <label for="newsletter-email" class="sr-only">Email address</label>
-                                <input type="email" id="newsletter-email" name="email" placeholder="Your email address..." required>
-                                <button type="submit" class="btn-signup-footer">Sign up</button>
+                            <form class="newsletter-form" id="footer-newsletter-form">
+                                <div class="newsletter-name-row">
+                                    <input type="text" id="newsletter-first-name" name="firstName" placeholder="First name" required>
+                                    <input type="text" id="newsletter-last-name" name="lastName" placeholder="Last name" required>
+                                </div>
+                                <div class="newsletter-email-row">
+                                    <input type="email" id="newsletter-email" name="email" placeholder="Your email address..." required>
+                                    <button type="submit" class="btn-signup-footer">Sign up</button>
+                                </div>
                             </form>
                             <div class="newsletter-consent">
                                 <input type="checkbox" id="newsletter-consent" name="consent" required>
                                 <label for="newsletter-consent">I consent to receive communications from Elderella. I can unsubscribe at any time.</label>
                             </div>
+                            <div id="newsletter-message" class="newsletter-message"></div>
                             <p class="privacy-note">We respect your privacy. See our <a href="privacy.html">Privacy Policy</a>.</p>
                         </div>
                     </div>
@@ -103,6 +109,86 @@ class SiteFooter extends HTMLElement {
                 </div>
             </footer>
         `;
+
+        this.initNewsletterForm();
+    }
+
+    initNewsletterForm() {
+        const form = this.querySelector('#footer-newsletter-form');
+        if (!form) return;
+
+        let submitting = false;
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (submitting) return;
+            submitting = true;
+
+            const submitBtn = form.querySelector('.btn-signup-footer');
+            const messageDiv = this.querySelector('#newsletter-message');
+            const consentCheckbox = this.querySelector('#newsletter-consent');
+            const originalBtnText = submitBtn.textContent;
+
+            // Check consent
+            if (!consentCheckbox.checked) {
+                messageDiv.textContent = 'Please consent to receive communications.';
+                messageDiv.className = 'newsletter-message error';
+                submitting = false;
+                return;
+            }
+
+            submitBtn.textContent = 'Processing...';
+            submitBtn.disabled = true;
+            messageDiv.textContent = '';
+            messageDiv.className = 'newsletter-message';
+
+            const formData = {
+                firstName: this.querySelector('#newsletter-first-name').value,
+                lastName: this.querySelector('#newsletter-last-name').value,
+                email: this.querySelector('#newsletter-email').value
+            };
+
+            try {
+                const response = await fetch('/api/newsletter', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    console.error('Server error:', result.error);
+                    messageDiv.textContent = result.error || 'Unable to sign up. Please try again.';
+                    messageDiv.className = 'newsletter-message error';
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                    submitting = false;
+                } else {
+                    messageDiv.textContent = "Success! You're signed up for updates.";
+                    messageDiv.className = 'newsletter-message success';
+                    submitBtn.textContent = originalBtnText;
+                    form.reset();
+
+                    setTimeout(() => {
+                        submitBtn.disabled = false;
+                        submitting = false;
+                        messageDiv.textContent = '';
+                    }, 3000);
+                }
+
+            } catch (error) {
+                console.error('Network error:', error);
+                messageDiv.textContent = 'Connection error. Please try again.';
+                messageDiv.className = 'newsletter-message error';
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+                submitting = false;
+            }
+        });
     }
 }
 

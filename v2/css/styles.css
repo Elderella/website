@@ -1410,12 +1410,24 @@ a, small, em, strong {
 
 .newsletter-form {
     display: flex;
+    flex-direction: column;
     gap: 12px;
     margin-bottom: 12px;
 }
 
+.newsletter-name-row {
+    display: flex;
+    gap: 12px;
+}
+
+.newsletter-email-row {
+    display: flex;
+    gap: 12px;
+}
+
+.newsletter-form input[type="text"],
 .newsletter-form input[type="email"] {
-    width: 342px;
+    flex: 1;
     height: 38px;
     border: 2px solid var(--color-black);
     border-radius: 4px;
@@ -1423,6 +1435,28 @@ a, small, em, strong {
     font-family: var(--font-body);
     font-size: 16px;
     color: var(--color-text);
+}
+
+.newsletter-form input[type="text"] {
+    max-width: 165px;
+}
+
+.newsletter-form input[type="email"] {
+    max-width: 342px;
+}
+
+.newsletter-message {
+    font-family: var(--font-body);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.newsletter-message.success {
+    color: #2e7d32;
+}
+
+.newsletter-message.error {
+    color: #c62828;
 }
 
 .btn-signup-footer {
@@ -2017,7 +2051,14 @@ input:focus, textarea:focus, select:focus {
         flex-direction: column;
     }
 
-    .newsletter-form input {
+    .newsletter-name-row,
+    .newsletter-email-row {
+        flex-direction: column;
+    }
+
+    .newsletter-form input[type="text"],
+    .newsletter-form input[type="email"] {
+        max-width: 100%;
         width: 100%;
     }
 

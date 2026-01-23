@@ -127,5 +127,109 @@
     <script src="js/components/site-header.js"></script>
     <script src="js/components/site-footer.js"></script>
 
+    <!-- Form Handler -->
+    <script>
+        let formSubmitting = false;
+
+        document.querySelector('.story-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (formSubmitting) return;
+            formSubmitting = true;
+
+            const submitBtn = e.target.querySelector('.story-form-submit');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = 'Processing...';
+            submitBtn.disabled = true;
+
+            const formData = {
+                firstName: document.getElementById('first-name').value,
+                lastName: document.getElementById('last-name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value || '',
+                situation: document.getElementById('situation').value || '',
+                interviewer: document.querySelector('input[name="speaker"]:checked')?.value || 'no_preference',
+                newsletter: document.querySelector('input[name="updates"]').checked
+            };
+
+            // Basic phone validation
+            if (formData.phone && !/^[\d\s\-\+\(\)]+$/.test(formData.phone)) {
+                submitBtn.textContent = 'Invalid phone format';
+                submitBtn.disabled = false;
+                formSubmitting = false;
+                setTimeout(() => {
+                    submitBtn.textContent = originalBtnText;
+                }, 3000);
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/interview', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    console.error('Server error:', result.error);
+                    submitBtn.textContent = result.error || 'Unable to save information';
+                    submitBtn.disabled = false;
+
+                    if (result.error && result.error.includes('phone')) {
+                        setTimeout(() => {
+                            submitBtn.textContent = originalBtnText;
+                            formSubmitting = false;
+                        }, 3000);
+                    } else {
+                        // Redirect to calendar even on server error
+                        submitBtn.textContent = 'Redirecting to calendar...';
+                        const calendlyUrl = buildCalendlyUrl(formData);
+                        setTimeout(() => {
+                            window.location.href = calendlyUrl;
+                        }, 1500);
+                    }
+                } else {
+                    submitBtn.textContent = 'Success! Redirecting...';
+                    const calendlyUrl = buildCalendlyUrl(formData);
+                    setTimeout(() => {
+                        window.location.href = calendlyUrl;
+                    }, 1500);
+                }
+
+            } catch (error) {
+                console.error('Network error:', error);
+                submitBtn.textContent = 'Connection issue - redirecting anyway...';
+                const calendlyUrl = buildCalendlyUrl(formData);
+                setTimeout(() => {
+                    window.location.href = calendlyUrl;
+                }, 1500);
+            }
+        });
+
+        function buildCalendlyUrl(formData) {
+            const urls = {
+                jacqui: 'https://calendly.com/jacqui-murphy/elderella-caregiver-interview',
+                mike: 'https://calendly.com/mike-elderella/elderella-caregiver-interview'
+            };
+
+            let baseUrl = formData.interviewer === 'mike' ? urls.mike : urls.jacqui;
+
+            const params = new URLSearchParams({
+                name: `${formData.firstName} ${formData.lastName}`,
+                email: formData.email
+            });
+
+            if (formData.situation) {
+                params.append('a1', formData.situation);
+            }
+
+            return `${baseUrl}?${params.toString()}`;
+        }
+    </script>
+
 </body>
 </html>
