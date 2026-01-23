@@ -3639,6 +3639,10 @@ input:focus, textarea:focus, select:focus {
 .soon-badge.show-tooltip::after { opacity: 1; }
 
 /* Position tooltip to the right of the badge in Keep on top section */
+.keep-on-top-badges .soon-badge {
+    width: fit-content;
+}
+
 .keep-on-top-badges .soon-badge::after {
     bottom: auto;
     top: 50%;
