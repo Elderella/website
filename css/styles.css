@@ -453,8 +453,11 @@ html.nav-open, body.nav-open { overflow: hidden; }
 
 @media (max-width: 768px) {
   .nav-item--dropdown { width: 100%; }
-  .dropdown-toggle { width: 100%; text-align: left; }
-  .dropdown-menu { position: static; width: 100%; margin-top: 8px; }
+  .dropdown-toggle { display: block; width: 100%; text-align: center; }
+  /* Center dropdown panel and items in mobile nav */
+  .dropdown-menu { position: static; width: 100%; margin-top: 8px; display: flex; flex-direction: column; align-items: center; }
+  .dropdown-item { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 10px 0; }
+  .dropdown-content { align-items: center; text-align: center; }
 }
 
 .btn-signup {
@@ -1247,6 +1250,7 @@ html.nav-open, body.nav-open { overflow: hidden; }
 .keep-on-top-badges {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 12px;
 }
 
@@ -1749,9 +1753,9 @@ input:focus, textarea:focus, select:focus {
   .hero-badges { width: 280px; }
 }
 
-/* ≤850px: mobile + small tablet — phone 250px; hide badges (consolidated) */
+/* ≤850px: mobile + small tablet — hide phone; hide badges */
 @media (max-width: 850px) {
-  .hero-phone { width: 250px; }
+  .hero-phone { display: none; }
   .hero-badges { display: none; }
 }
 
@@ -1798,6 +1802,7 @@ input:focus, textarea:focus, select:focus {
     .caregiving-partner { padding: var(--first-feature-gap-mobile) 0 80px 0; }
 
     /* Header - Stack Navigation */
+    .site-header { position: relative; z-index: 1000; }
     .header-container { flex-wrap: nowrap; gap: 8px; }
     .logo { margin-right: auto; width: auto; text-align: left; }
 
@@ -1822,7 +1827,7 @@ input:focus, textarea:focus, select:focus {
         padding: 12px 16px 16px;
         border-top: 1px solid #eee;
         box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-        z-index: 999;
+        z-index: 1001;
     }
 
     .primary-navigation[data-open="true"] { display: flex; }
@@ -1868,6 +1873,9 @@ input:focus, textarea:focus, select:focus {
     .solo-shift-right {
         width: 100%;
     }
+
+    /* Hide the Solo Shift headline on mobile */
+    .solo-shift-left h1 { display: none; }
 
     .solo-shift-headline {
         font-size: 36px;

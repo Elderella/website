@@ -88,7 +88,7 @@ class SiteHeader extends HTMLElement {
             ${hidePromo ? '' : `<!-- Promo Banner -->
             <div class="promo-banner">
                 <div class="promo-container">
-                    <span class="promo-text">Have thoughts about how to make the caregiving journey better?</span>
+                    <span class="promo-text">Have thoughts about how to make the elder care journey better?</span>
                     <a href="story.html" class="promo-link"><span class="promo-link-text">Share your story</span></a>
                 </div>
             </div>`}
