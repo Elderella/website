@@ -236,7 +236,7 @@ class SiteHeader extends HTMLElement {
             // If iOS, disable link and show tooltip; otherwise route to store/landing
             if (isiOS()) {
                 downloadBtn.classList.add('soon-badge');
-                downloadBtn.setAttribute('data-tooltip', 'Coming soon!');
+                downloadBtn.setAttribute('data-tooltip', 'Coming soon! Sign up for our newsletter to be notified.');
                 downloadBtn.setAttribute('aria-disabled', 'true');
                 downloadBtn.addEventListener('click', (e) => {
                     e.preventDefault();
