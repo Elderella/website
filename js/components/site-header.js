@@ -201,6 +201,10 @@ class SiteHeader extends HTMLElement {
     }
 
     initAppPromo() {
+        // Kill-switch: disable the mobile app promo banner site-wide
+        const ENABLE_APP_PROMO = false;
+        if (!ENABLE_APP_PROMO) return;
+
         const banner = this.querySelector('#app-promo');
         if (!banner) return;
         const closeBtn = this.querySelector('#app-promo-close');
