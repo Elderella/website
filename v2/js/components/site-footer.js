@@ -83,20 +83,20 @@ class SiteFooter extends HTMLElement {
                         <div class="footer-newsletter">
                             <h4>Family elder care—right to your inbox</h4>
                             <p>Receive tips, advice, recommendations, and more.</p>
-                            <form class="newsletter-form" id="footer-newsletter-form">
+                            <form class="newsletter-form" id="footer-newsletter-form" onsubmit="return false;">
                                 <div class="newsletter-name-row">
                                     <input type="text" id="newsletter-first-name" name="firstName" placeholder="First name" required>
                                     <input type="text" id="newsletter-last-name" name="lastName" placeholder="Last name" required>
                                 </div>
                                 <div class="newsletter-email-row">
                                     <input type="email" id="newsletter-email" name="email" placeholder="Your email address..." required>
-                                    <button type="submit" class="btn-signup-footer">Sign up</button>
                                 </div>
+                                <div class="newsletter-consent">
+                                    <input type="checkbox" id="newsletter-consent" name="consent" required>
+                                    <label for="newsletter-consent">I consent to receive communications from Elderella. I can unsubscribe at any time.</label>
+                                </div>
+                                <button type="submit" class="btn-signup-footer">Sign up</button>
                             </form>
-                            <div class="newsletter-consent">
-                                <input type="checkbox" id="newsletter-consent" name="consent" required>
-                                <label for="newsletter-consent">I consent to receive communications from Elderella. I can unsubscribe at any time.</label>
-                            </div>
                             <div id="newsletter-message" class="newsletter-message"></div>
                             <p class="privacy-note">We respect your privacy. See our <a href="privacy.html">Privacy Policy</a>.</p>
                         </div>
