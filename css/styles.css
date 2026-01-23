@@ -1266,7 +1266,7 @@ html.nav-open, body.nav-open { overflow: hidden; }
     top: 50%;
     left: 100%;
     transform: translate(10px, -50%);
-    background: rgba(0,0,0,0.85);
+    background: #5A4FCF;
     color: #fff;
     font-size: 12px;
     line-height: 1;
@@ -3631,7 +3631,7 @@ input:focus, textarea:focus, select:focus {
     bottom: 120%;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(0,0,0,0.85);
+    background: #5A4FCF;
     color: #fff;
     font-size: 12px;
     line-height: 1;
