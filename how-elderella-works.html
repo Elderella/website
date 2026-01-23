@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Discover how Elderella helps family caregivers organize care, share responsibilities, and manage medications with Ella, your AI caregiving partner.">
+    <title>How Elderella Works - Family Caregiving Made Simple</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Remove drop shadows from product images on this page */
+        .page-how-elderella-works .step-graphic,
+        .page-how-elderella-works .step-graphic-card {
+            box-shadow: none;
+        }
+        /* Visually clear the tinted backdrop around the caregivers image */
+        .page-how-elderella-works .step-image--clear {
+            background-color: #FFFFFF;
+            border-radius: 16px;
+        }
+        /* Card #2 background */
+        .page-how-elderella-works .feature-step--collects {
+            background-color: #EADCEF;
+        }
+        /* Card #2 cascade layout (desktop) */
+        @media (min-width: 1025px) {
+            .page-how-elderella-works .step-image-cascade {
+                display: grid;
+                grid-template-columns: 160px 160px;
+                grid-auto-rows: max-content;
+                column-gap: 8px;
+                row-gap: 8px;
+                width: 328px; /* 160 + 8 + 160 */
+                justify-content: end; /* align grid to the right */
+            }
+            .page-how-elderella-works .step-image-cascade .cascade-card { width: 160px; height: auto; }
+            .page-how-elderella-works .step-image-cascade .card-1 { grid-column: 1; grid-row: 1; }
+            .page-how-elderella-works .step-image-cascade .card-2 { grid-column: 2; grid-row: 2; }
+            .page-how-elderella-works .step-image-cascade .card-3 { grid-column: 1; grid-row: 3; }
+            .page-how-elderella-works .step-image-cascade .card-4 { grid-column: 2; grid-row: 4; }
+        }
+        /* Tablet/Mobile fallback: simple 2x2 grid with 8px gaps */
+        @media (max-width: 1024px) {
+            .page-how-elderella-works .step-image-cascade {
+                display: grid;
+                grid-template-columns: repeat(2, 160px);
+                column-gap: 8px;
+                row-gap: 8px;
+                justify-content: center;
+            }
+            .page-how-elderella-works .step-image-cascade .cascade-card { width: 160px; height: auto; }
+        }
+        /* Paragraph alignment on all steps */
+        .page-how-elderella-works .ella-partner-section .feature-step .step-text {
+            text-align: left;
+        }
+        /* Card layout + sizing (desktop) */
+        @media (min-width: 1025px) {
+            /* Fixed card size and a strict two-column grid so the
+               left column is always exactly 360px */
+            .page-how-elderella-works .ella-partner-section .feature-step {
+                width: 800px;
+                height: 600px;
+                margin: 0 auto 40px;
+                display: grid;
+                grid-template-columns: 360px 1fr;
+                column-gap: 32px;
+                align-items: center;
+                /* Reduce horizontal padding so content fits: 48px top/bottom, 40px sides */
+                padding: 48px 40px;
+            }
+            .page-how-elderella-works .ella-partner-section .feature-step .step-content {
+                width: 360px;
+                max-width: 360px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin: 0; /* grid handles placement */
+            }
+            .page-how-elderella-works .ella-partner-section .feature-step .step-text {
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .page-how-elderella-works .ella-partner-section .feature-step .step-number {
+                display: flex;
+                justify-content: center;
+                margin-bottom: 24px;
+            }
+            .page-how-elderella-works .ella-partner-section .feature-step .step-image {
+                justify-self: end;
+            }
+            /* Typography sizing for step titles and body */
+            .page-how-elderella-works .ella-partner-section .step-headline {
+                font-size: 40px;
+                line-height: 1.4;
+            }
+            .page-how-elderella-works .ella-partner-section .step-text {
+                font-size: 20px;
+                line-height: 1.4;
+            }
+        }
+
+        /* Tablet typography (≤1024px) */
+        @media (max-width: 1024px) {
+            .page-how-elderella-works .ella-partner-section .step-headline {
+                font-size: 36px;
+                line-height: 1.4;
+            }
+            .page-how-elderella-works .ella-partner-section .step-text {
+                font-size: 20px;
+                line-height: 1.4;
+            }
+        }
+
+        /* Mobile typography (≤768px) */
+        @media (max-width: 768px) {
+            .page-how-elderella-works .ella-partner-section .step-headline {
+                font-size: 32px;
+                line-height: 1.4;
+            }
+            .page-how-elderella-works .ella-partner-section .step-text {
+                font-size: 20px;
+                line-height: 1.4;
+            }
+
+            /* Step 1 (Add Ella): Center and stack the two images.
+               Only resize the images so they fit; do not
+               change the card padding, layout gap, or background size. */
+            .page-how-elderella-works .feature-step--add-ella .card4-right {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 12px; /* spacing between the two product images */
+                width: 100%;
+                margin: 0 auto;
+            }
+            .page-how-elderella-works .feature-step--add-ella .card4-right .step-graphic {
+                width: 280px; /* scale to fit in the mobile card */
+                max-width: 90vw;
+                height: auto;
+            }
+        }
+
+        /* Swap Learn more button position on smaller screens */
+        .page-how-elderella-works .btn-learn-more--mobile { display: none; }
+        @media (max-width: 1024px) {
+            .page-how-elderella-works .btn-learn-more--desktop { display: none; }
+            .page-how-elderella-works .btn-learn-more--mobile { display: inline-block; }
+        }
+
+        /* Card #4 background */
+        .page-how-elderella-works .feature-step--shares { background-color: #EADCEF; }
+
+        /* Card #4: Vertical stack, center-aligned, no overlap */
+        @media (min-width: 1025px) {
+            .page-how-elderella-works .feature-step--shares .step-image-stack {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 8px;
+                justify-self: center;
+                height: fit-content;
+            }
+
+            .page-how-elderella-works .step-graphic-card.card4-caregivers {
+                width: 323px; /* 15% smaller than 380px */
+                height: auto;
+            }
+
+            .page-how-elderella-works .step-graphic-card.card4-cardiologist {
+                width: 180px;
+                height: auto;
+                margin-top: -30px;
+            }
+        }
+
+        /* Card #4: Mobile/tablet layout */
+        @media (max-width: 1024px) {
+            .page-how-elderella-works .feature-step--shares .step-image-stack {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+                margin: 0 auto;
+            }
+
+            .page-how-elderella-works .step-graphic-card.card4-caregivers {
+                width: 204px; /* 15% smaller than 240px */
+                height: auto;
+            }
+
+            .page-how-elderella-works .step-graphic-card.card4-cardiologist {
+                width: 190px;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body class="page-how-elderella-works">
+    <!-- Site Header Component -->
+    <site-header></site-header>
+
+    <!-- Explore Hero Section -->
+    <section class="explore-hero" id="main-content">
+        <div class="container">
+            <h1>How Elderella works</h1>
+            <p class="explore-hero-subtitle">Elderella turns everyday caregiving updates into<br><span class="highlight">organized care you can rely on.</span></p>
+            <p class="explore-hero-text">From conversations and notes, Elderella creates tasks, calendar events, care briefings and plans, and up-to-date medication lists your care team can act on, turning the chaos in your head into calm, coordinated care.</p>
+        </div>
+    </section>
+
+    <!-- Ella, Your Caregiving Partner Section -->
+    <section class="ella-partner-section">
+        <div class="container">
+            <h2>Ella, your caregiving partner</h2>
+
+            <!-- Step 1: Add Ella to your care conversations -->
+            <div class="feature-step feature-step--add-ella">
+                <div class="step-content">
+                    <div class="step-number">
+                        <img
+                            src="images/1-icon.png"
+                            srcset="images/1-icon.png 1x, images/1-icon@2x.png 2x"
+                            width="60"
+                            height="60"
+                            alt="Step 1"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                    <h3 class="step-headline"><span class="step-headline-bold">Add Ella</span> to your care conversations</h3>
+                    <p class="step-text">Add Ella as a contact and include her in your caregiving group chats. When you share updates about appointments, medications, or care tasks, Ella listens and learns.</p>
+
+                </div>
+                <div class="card4-right">
+                    <img
+                        src="images/ella-contact-card1.png"
+                        srcset="images/ella-contact-card1.png 1x, images/ella-contact-card1@2x.png 2x"
+                        width="306"
+                        height="379"
+                        alt="Ella contact card showing how to add Ella to your contacts"
+                        class="step-graphic"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                    <img
+                        src="images/ella-contact-card2.png"
+                        srcset="images/ella-contact-card2.png 1x, images/ella-contact-card2@2x.png 2x"
+                        width="306"
+                        height="91"
+                        alt="Message, Email, Share, and Add actions for contacting Ella"
+                        class="step-graphic"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </div>
+            </div>
+
+            <!-- Step 2: Elderella collects care details -->
+            <div class="feature-step feature-step--collects">
+                <div class="step-content">
+                    <div class="step-number">
+                        <img
+                            src="images/2-icon.png"
+                            srcset="images/2-icon.png 1x, images/2-icon@2x.png 2x"
+                            width="60"
+                            height="60"
+                            alt="Step 2"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                    <h3 class="step-headline">Elderella <span class="step-headline-bold">collects</span> care details</h3>
+                    <p class="step-text">Ella automatically detects and organizes care information from your conversations. Medications, appointments, tasks, and care team members are captured without any extra effort.</p>
+                    <a href="collects-care-details.html" class="btn-learn-more btn-learn-more--desktop">Learn more</a>
+                </div>
+                <div class="step-image step-image-cascade">
+                    <img
+                        src="images/care-team-detected.png"
+                        srcset="images/care-team-detected.png 1x, images/care-team-detected@2x.png 2x"
+                        width="174"
+                        height="137"
+                        alt="Care team detected notification"
+                        class="step-graphic-card cascade-card card-1"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                    <img
+                        src="images/care-task-detected.png"
+                        srcset="images/care-task-detected.png 1x, images/care-task-detected@2x.png 2x"
+                        width="174"
+                        height="131"
+                        alt="Care task detected notification"
+                        class="step-graphic-card cascade-card card-2"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                    <img
+                        src="images/care-appointment-detected.png"
+                        srcset="images/care-appointment-detected.png 1x, images/care-appointment-detected@2x.png 2x"
+                        width="174"
+                        height="128"
+                        alt="Care appointment detected notification"
+                        class="step-graphic-card cascade-card card-3"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                    <img
+                        src="images/medication-detected.png"
+                        srcset="images/medication-detected.png 1x, images/medication-detected@2x.png 2x"
+                        width="174"
+                        height="101"
+                        alt="Medication detected notification"
+                        class="step-graphic-card cascade-card card-4"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </div>
+                <a href="collects-care-details.html" class="btn-learn-more btn-learn-more--mobile">Learn more</a>
+            </div>
+
+            <!-- Step 3: Ella remembers and reminds -->
+            <div class="feature-step">
+                <div class="step-content">
+                    <div class="step-number">
+                        <img
+                            src="images/3-icon.png"
+                            srcset="images/3-icon.png 1x, images/3-icon@2x.png 2x"
+                            width="60"
+                            height="60"
+                            alt="Step 3"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                    <h3 class="step-headline">Ella <span class="step-headline-bold">remembers and reminds</span></h3>
+                    <p class="step-text">Ask Ella anything about your loved one's care. She remembers medications, appointments, and preferences so you don't have to. Get gentle reminders before important events.</p>
+                    <a href="remembers-and-reminds.html" class="btn-learn-more btn-learn-more--desktop">Learn more</a>
+                </div>
+                <div class="step-image">
+                    <img
+                        src="images/chat-with-ella.png"
+                        srcset="images/chat-with-ella.png 1x, images/chat-with-ella@2x.png 2x"
+                        width="304"
+                        height="472"
+                        alt="Chat interface showing conversation with Ella"
+                        class="step-graphic"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </div>
+                <a href="remembers-and-reminds.html" class="btn-learn-more btn-learn-more--mobile">Learn more</a>
+            </div>
+
+            <!-- Step 4: Elderella shares the load -->
+            <div class="feature-step feature-step--shares">
+                <div class="step-content">
+                    <div class="step-number">
+                        <img
+                            src="images/4-icon.png"
+                            srcset="images/4-icon.png 1x, images/4-icon@2x.png 2x"
+                            width="60"
+                            height="60"
+                            alt="Step 4"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                    <h3 class="step-headline">Elderella <span class="step-headline-bold">shares the load</span></h3>
+                    <p class="step-text">Invite family, friends, and professionals to your care team. Everyone stays informed with the right level of access, and tasks can be delegated without endless phone calls.</p>
+                    <a href="shares-the-load.html" class="btn-learn-more btn-learn-more--desktop">Learn more</a>
+                </div>
+                <div class="step-image step-image-stack">
+                    <img
+                        src="images/care-team-caregivers.png"
+                        srcset="images/care-team-caregivers.png 1x, images/care-team-caregivers@2x.png 2x"
+                        width="301"
+                        alt="Care team members"
+                        class="step-graphic-card card4-caregivers"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                    <img
+                        src="images/care-team-cardiologist.png"
+                        srcset="images/care-team-cardiologist.png 1x, images/care-team-cardiologist@2x.png 2x"
+                        width="233"
+                        height="184"
+                        alt="Care team cardiologist card"
+                        class="step-graphic-card card4-cardiologist"
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </div>
+                <a href="shares-the-load.html" class="btn-learn-more btn-learn-more--mobile">Learn more</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Help for Family Caregivers Section -->
+    <section class="help-tabs-section">
+        <div class="container">
+            <h2>Help for family caregivers</h2>
+            <div class="help-tabs">
+                <a href="collects-care-details.html" class="help-tab-link">Collects care details</a>
+                <a href="remembers-and-reminds.html" class="help-tab-link">Remembers and reminds</a>
+                <a href="shares-the-load.html" class="help-tab-link">Shares the load</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ready for Help CTA Section -->
+    <section class="ready-cta-section">
+        <div class="container">
+            <h2 class="ready-cta-title">Ready for help?</h2>
+            <a href="download.html" class="btn-cta-yellow">Start for free</a>
+        </div>
+    </section>
+
+    <!-- Trust & Security Section -->
+    <section class="trust-section">
+        <div class="container">
+            <h2>Trust & security</h2>
+            <p class="trust-text">Caring for an elder involves some of the most personal details in a family's life. See how Elderella keeps your data private, secure, and within your control.</p>
+            <a href="trust.html" class="btn-trust">Trust & Security</a>
+        </div>
+    </section>
+
+    <!-- Site Footer Component -->
+    <site-footer></site-footer>
+
+    <!-- Web Components -->
+    <script src="js/components/site-header.js"></script>
+    <script src="js/components/site-footer.js"></script>
+
+</body>
+</html>
