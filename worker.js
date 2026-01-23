@@ -1133,25 +1133,19 @@ export default {
     // This allows /privacy to serve privacy.html while keeping the clean URL in the browser
     // Security: Using whitelist approach prevents path traversal
     const cleanUrlMap = {
-      '/privacy': '/privacy.html',
-      '/security': '/security.html',
-      '/terms': '/terms.html',
-      '/introduce': '/introduce.html',
-      '/delete-account': '/delete-account.html',
-      '/support': '/support.html',
+      '/': '/v2/index.html',
+      '/privacy': '/v2/privacy.html',
+      '/terms': '/v2/terms.html',
+      '/introduce': '/v2/introduce.html',
       '/collects-care-details': '/v2/collects-care-details.html',
       '/remembers-and-reminds': '/v2/remembers-and-reminds.html',
       '/shares-the-load': '/v2/shares-the-load.html',
-      '/how-elderella-works': '/how-elderella-works.html',
-      '/download': '/download.html',
-      '/trust': '/trust.html',
-      '/story': '/story.html',
-      '/delete': '/delete.html',
-      '/faq': '/faq.html',
-      '/compare-plans': '/compare-plans.html',
-      '/about': '/about.html',
-      '/elder-care-crisis': '/elder-care-crisis.html',
-      '/': '/index.html'
+      '/how-elderella-works': '/v2/how-elderella-works.html',
+      '/download': '/v2/download.html',
+      '/trust': '/v2/trust.html',
+      '/story': '/v2/story.html',
+      '/delete': '/v2/delete.html',
+      '/delete-account': '/delete-account.html'
     };
 
     // Redirect /index.html to root for SEO
