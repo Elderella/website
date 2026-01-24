@@ -5095,12 +5095,22 @@ input:focus, textarea:focus, select:focus {
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
-    max-width: 700px;
+    max-width: 780px;
     margin: 0 auto 16px auto;
 }
 
-/* Introduce hero: set body copy to 16px (keep h4 unaffected) */
-.introduce-hero p.introduce-hero-text { font-size: 16px; }
+/* Introduce hero subtitle formatting to match explore hero */
+.introduce-hero-subtitle {
+    font-family: var(--font-body);
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-text);
+    margin-bottom: 24px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .introduce-hero-text:last-child {
     margin-bottom: 0;
@@ -5109,12 +5119,10 @@ input:focus, textarea:focus, select:focus {
 /* Elder Note Section */
 .elder-note-section {
     background-color: var(--color-gray-light);
-    padding: 60px 0;
+    padding: 80px 0;
 }
 
-/* Introduce page: force link text to black */
-.page-introduce a { color: var(--color-black) !important; }
-.page-introduce a:hover { color: var(--color-black) !important; text-decoration: underline; }
+/* Removed page-wide black link override on Introduce page to match brand link color */
 
 .elder-note-section-title {
     font-family: var(--font-heading);
@@ -5128,7 +5136,7 @@ input:focus, textarea:focus, select:focus {
 .elder-note-card {
     background-color: var(--color-white);
     border-radius: 16px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     padding: 48px;
     max-width: 800px;
     margin: 0 auto;
@@ -5212,9 +5220,10 @@ input:focus, textarea:focus, select:focus {
     top: 50%;
     transform: translateY(-50%);
     max-width: 400px;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: #FFFFFF; /* solid white to match explore cards */
     padding: 32px;
-    border-radius: 12px;
+    border-radius: 16px; /* match explore card radius */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* match explore card shadow */
 }
 
 .elder-hands-text {
@@ -5276,7 +5285,7 @@ input:focus, textarea:focus, select:focus {
 .accordion-header-text {
     font-family: var(--font-heading);
     font-size: 24px;
-    font-weight: 400;
+    font-weight: 500;
     color: var(--color-purple-dark);
 }
 
@@ -5338,7 +5347,7 @@ input:focus, textarea:focus, select:focus {
 
 /* Ways to Share Section */
 .ways-share-section {
-    background-color: var(--color-purple-main);
+    background-color: var(--color-card-bg); /* #EFEEFC for icon contrast */
     padding: 80px 0;
 }
 
@@ -5346,29 +5355,51 @@ input:focus, textarea:focus, select:focus {
     font-family: var(--font-heading);
     font-size: 40px;
     font-weight: 400;
-    color: var(--color-white);
+    color: var(--color-black);
     text-align: center;
     margin-bottom: 40px;
 }
 
 .ways-share-list {
-    max-width: 700px;
+    max-width: 780px;
     margin: 0 auto;
     padding-left: 0;
     list-style: none;
 }
 
 .ways-share-list li::before {
-    content: ">";
+    content: "";
+    display: inline-block;
+    width: 24px;
+    height: 24px;
     margin-right: 12px;
-    font-weight: 600;
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+}
+/* Use numbered icons 1–4 to match Explore */
+.ways-share-list li:nth-child(1)::before {
+    background-image: -webkit-image-set(url('../images/1-icon.png') 1x, url('../images/1-icon@2x.png') 2x);
+    background-image: image-set(url('../images/1-icon.png') 1x, url('../images/1-icon@2x.png') 2x);
+}
+.ways-share-list li:nth-child(2)::before {
+    background-image: -webkit-image-set(url('../images/2-icon.png') 1x, url('../images/2-icon@2x.png') 2x);
+    background-image: image-set(url('../images/2-icon.png') 1x, url('../images/2-icon@2x.png') 2x);
+}
+.ways-share-list li:nth-child(3)::before {
+    background-image: -webkit-image-set(url('../images/3-icon.png') 1x, url('../images/3-icon@2x.png') 2x);
+    background-image: image-set(url('../images/3-icon.png') 1x, url('../images/3-icon@2x.png') 2x);
+}
+.ways-share-list li:nth-child(4)::before {
+    background-image: -webkit-image-set(url('../images/4-icon.png') 1x, url('../images/4-icon@2x.png') 2x);
+    background-image: image-set(url('../images/4-icon.png') 1x, url('../images/4-icon@2x.png') 2x);
 }
 
 .ways-share-list li {
     font-family: var(--font-body);
     font-size: 20px;
     line-height: 1.5;
-    color: var(--color-white);
+    color: var(--color-text);
     margin-bottom: 16px;
 }
 
@@ -5401,6 +5432,13 @@ input:focus, textarea:focus, select:focus {
     margin-bottom: 32px;
 }
 
+/* Align comfort subheads with Explore step headline sizing/alignment */
+.comfort-section h3 {
+    text-align: left;
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
 .comfort-item:last-child {
     margin-bottom: 0;
 }
@@ -5419,6 +5457,7 @@ input:focus, textarea:focus, select:focus {
     line-height: 1.5;
     color: var(--color-text);
     margin: 0;
+    text-align: left;
 }
 
 /* Trust Info Section (for introduce page) */
@@ -5490,6 +5529,10 @@ input:focus, textarea:focus, select:focus {
         font-size: 48px;
     }
 
+    .introduce-hero-subtitle {
+        font-size: 20px;
+    }
+
     .introduce-hero-text {
         font-size: 18px;
     }
@@ -5546,7 +5589,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .accordion-header-text {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .accordion-content-inner {

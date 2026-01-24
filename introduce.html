@@ -30,13 +30,13 @@
 </head>
 <body class="page-introduce">
     <!-- Site Header Component (no promo banner on this page) -->
-    <site-header no-promo></site-header>
+    <site-header></site-header>
 
     <!-- Introduce Hero Section -->
     <section class="introduce-hero" id="main-content">
         <div class="container">
             <h1 class="introduce-hero-title">Introducing Elderella</h1>
-            <h4 class="introduce-hero-text">Introducing something new to your caregiving routine can feel tricky, especially when it involves technology, privacy, or changing how things are done.</h4>
+            <p class="introduce-hero-subtitle">Introducing something new to your caregiving routine can feel tricky, especially when it involves technology and potentially sensitive information.</p>
             <p class="introduce-hero-text">The tips below will help you explain what Elderella is, why you're using it, and how it supports everyone involved.</p>
             <p class="introduce-hero-text">Some elders may want to use Elderella with you, others may prefer you just keep them informed. Both approaches are fine as long as the person you're caring for understands how their information will be used and feels comfortable giving their consent.</p>
         </div>
@@ -45,7 +45,7 @@
     <!-- A Note for Elders Section -->
     <section class="elder-note-section">
         <div class="container">
-            <h2 class="elder-note-section-title">A note for elders</h2>
+            <h2>A note for elders</h2>
             <div class="elder-note-card">
                 <h3 class="elder-note-title">If you're the one receiving care, welcome.</h3>
                 <p class="elder-note-text">A person caring for you would like to use Elderella to keep track of your appointments, medications, tasks, and care updates so they can support you better.</p>
@@ -81,7 +81,7 @@
     <!-- Conversation Starters Section (Accordion) -->
     <section class="accordion-section">
         <div class="container">
-            <h2 class="accordion-title">Conversation starters you can use</h2>
+            <h2>Conversation starters you can use</h2>
             <div class="accordion-container">
                 <!-- Accordion Item 1 (expanded by default) -->
                 <div class="accordion-item is-open">
@@ -186,7 +186,7 @@
     <!-- Ways to Share Elderella Section -->
     <section class="ways-share-section">
         <div class="container">
-            <h2 class="ways-share-title">Ways to share Elderella</h2>
+            <h2>Ways to share Elderella</h2>
             <ul class="ways-share-list">
                 <li><strong>Show</strong> how information is organized in Elderella</li>
                 <li><strong>Ask what they'd like to see or help with</strong> (for example, reviewing appointments, sharing how they're feeling, or confirming plans)</li>
@@ -199,26 +199,26 @@
     <!-- Building Comfort and Consent Section -->
     <section class="comfort-section">
         <div class="container">
-            <h2 class="comfort-title">Building comfort and consent</h2>
+            <h2>Building comfort and consent</h2>
             <div class="comfort-list">
                 <div class="comfort-item">
-                    <h3 class="comfort-item-title">Be transparent.</h3>
+                    <h3>Be transparent.</h3>
                     <p class="comfort-item-text">Explain what you'll add (events, tasks, medications, notes) and why. If they'd like using Elderella too, show what they'll be able to see and do.</p>
                 </div>
                 <div class="comfort-item">
-                    <h3 class="comfort-item-title">Start small.</h3>
+                    <h3>Start small.</h3>
                     <p class="comfort-item-text">Begin with one or two things that clearly help them, like tracking medications or doctor visits, or checking upcoming appointments together.</p>
                 </div>
                 <div class="comfort-item">
-                    <h3 class="comfort-item-title">Let them set boundaries.</h3>
+                    <h3>Let them set boundaries.</h3>
                     <p class="comfort-item-text">Ask what they're comfortable including and who can see it. Consent is ongoing, not one-time, whether you're using Elderella for them or alongside them.</p>
                 </div>
                 <div class="comfort-item">
-                    <h3 class="comfort-item-title">Show value quickly.</h3>
+                    <h3>Show value quickly.</h3>
                     <p class="comfort-item-text">When Elderella helps avoid confusion or a missed appointment, point it out. "See how that helped?" This builds trust in Elderella and in the decision to use it.</p>
                 </div>
                 <div class="comfort-item">
-                    <h3 class="comfort-item-title">Reassure they have control.</h3>
+                    <h3>Reassure they have control.</h3>
                     <p class="comfort-item-text">Elderella supports their independence by keeping everyone coordinated and informed. Remind them they can always ask questions, change settings, or adjust what's included.</p>
                 </div>
             </div>
@@ -229,16 +229,16 @@
     <section class="ready-cta-section">
         <div class="container">
             <h2 class="ready-cta-title">Ready for help?</h2>
-            <a href="download.html" class="btn-cta-yellow">Start for free</a>
+            <a href="/download" class="btn-cta-yellow">Start for free</a>
         </div>
     </section>
 
-    <!-- Trust & Security Info Section -->
-    <section class="trust-info-section">
+    <!-- Trust & Security Section (aligned with Explore page) -->
+    <section class="trust-section">
         <div class="container">
-            <h2 class="trust-info-title">Trust & security</h2>
-            <p class="trust-info-text">Caring for an elder involves some of the most personal details in a family's life. See how Elderella keeps your data private, secure, and within your control.</p>
-            <a href="trust.html" class="btn-outline-purple">Trust & Security</a>
+            <h2>Trust & security</h2>
+            <p class="trust-text">Caring for an elder involves some of the most personal details in a family's life. See how Elderella keeps your data private, secure, and within your control.</p>
+            <a href="/trust" class="btn-trust">Trust & Security</a>
         </div>
     </section>
 
@@ -257,9 +257,21 @@
                 const isOpen = item.classList.contains('is-open');
                 const expanded = header.getAttribute('aria-expanded') === 'true';
 
+                // Single-open behavior: when opening this item, close others
+                if (!isOpen) {
+                    const container = item.parentElement;
+                    container.querySelectorAll('.accordion-item.is-open').forEach(openItem => {
+                        if (openItem !== item) {
+                            openItem.classList.remove('is-open');
+                            const openHeader = openItem.querySelector('.accordion-header');
+                            if (openHeader) openHeader.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                }
+
                 // Toggle current item
                 item.classList.toggle('is-open', !isOpen);
-                header.setAttribute('aria-expanded', !expanded);
+                header.setAttribute('aria-expanded', (!expanded).toString());
             });
         });
     </script>
