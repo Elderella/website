@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="index, follow">
     <meta name="description" content="Elderella helps family caregivers organize elder care, share responsibilities, and manage medications. Turn chaos into care with our caregiving app.">
     <title>Elderella - Family Caregiving Made Simple</title>
+    <link rel="canonical" href="https://www.elderella.com/">
+    <meta property="og:title" content="Elderella - Family Caregiving Made Simple">
+    <meta property="og:description" content="Elderella helps family caregivers organize elder care, share responsibilities, and manage medications. Turn chaos into care with our caregiving app.">
+    <meta property="og:url" content="https://www.elderella.com/">
+    <meta property="og:site_name" content="Elderella">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.elderella.com/images/elderella-logo-header.png">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Elderella - Family Caregiving Made Simple">
+    <meta name="twitter:description" content="Elderella helps family caregivers organize elder care, share responsibilities, and manage medications. Turn chaos into care with our caregiving app.">
+    <meta name="twitter:url" content="https://www.elderella.com/">
+    <meta name="twitter:image" content="https://www.elderella.com/images/elderella-logo-header.png">
+    <meta name="twitter:site" content="@ElderellaCare">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +27,8 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="preload" as="image" href="images/hero-bg.png" imagesrcset="images/hero-bg.png 1x, images/hero-bg@2x.png 2x">
+    <link rel="preload" as="image" href="images/iphone-mockup.png" imagesrcset="images/iphone-mockup.png 1x, images/iphone-mockup@2x.png 2x" imagesizes="278px">
 </head>
 <body>
     <!-- Site Header Component -->
@@ -28,7 +43,8 @@
                     srcset="images/hero-bg.png 1x, images/hero-bg@2x.png 2x"
                     width="1110"
                     height="724"
-                    alt="Relaxing at home"
+                    alt=""
+                    aria-hidden="true"
                     class="hero-bg-image"
                     fetchpriority="high"
                     decoding="async"
@@ -41,7 +57,7 @@
                     <div class="hero-media">
                         <div class="hero-phone-wrap">
                             <div class="hero-badges">
-                                <a href="#" class="store-badge soon-badge" aria-disabled="true" data-tooltip="Coming soon! Sign up for our newsletter to be notified.">
+                                <a href="javascript:void(0)" class="store-badge soon-badge" aria-disabled="true" role="button" data-tooltip="Coming soon! Sign up for our newsletter to be notified.">
                                     <img
                                         src="images/app-store-badge.png"
                                         srcset="images/app-store-badge.png 1x, images/app-store-badge@2x.png 2x"
@@ -52,7 +68,7 @@
                                         decoding="async"
                                     >
                                 </a>
-                                <a href="https://play.google.com/store/apps/details?id=com.elderella.app" class="store-badge">
+                                <a href="https://play.google.com/store/apps/details?id=com.elderella.app" class="store-badge" target="_blank" rel="noopener noreferrer" aria-label="Get Elderella on Google Play">
                                     <img
                                         src="images/google-play-badge.png"
                                         srcset="images/google-play-badge.png 1x, images/google-play-badge@2x.png 2x"
@@ -85,7 +101,7 @@
     <section class="solo-shift">
         <div class="container solo-shift-container">
             <div class="solo-shift-left">
-                <h1>Do your last <br>solo shift.</h1>
+                <h2>Do your last <br>solo shift.</h2>
                 <img
                     src="images/arrow-curved.png"
                     srcset="images/arrow-curved.png 1x, images/arrow-curved@2x.png 2x"
@@ -100,29 +116,29 @@
             </div>
             <div class="solo-shift-right">
                 <p class="solo-shift-subhead">Don't do it all. And don't do it alone.</p>
-                <p class="solo-shift-text">Elderella brings structure, memory, and support by organizing the chaos, remembering the details, and building your team.</p>
-                <a href="how-elderella-works.html" class="btn-purple">How we help</a>
+                <p class="solo-shift-text">Elderella brings structure, memory, and support by organizing the chaos, remembering the details, and building your elder care team.</p>
+                <a href="/how-elderella-works" class="btn-purple">How we help</a>
             </div>
         </div>
     </section>
 
     <!-- Stats Section -->
     <section class="stats">
+        <div class="container">
+            <h2 class="stats-heading">You’re not alone.</h2>
+        </div>
         <div class="container stats-container">
-            <div class="stat-item">
-                <span class="stat-number">71+ million</span>
-                <span class="stat-label">family caregivers</span>
+            <div class="stat-item card stat-card">
+                <span class="stat-number">71+<br>million</span>
                 <span class="stat-desc">North Americans caring for aging loved ones</span>
             </div>
-            <div class="stat-item">
+            <div class="stat-item card stat-card">
                 <span class="stat-number">26 hours</span>
-                <span class="stat-label">care work per week</span>
-                <span class="stat-desc">Average time spent providing care each week</span>
+                <span class="stat-desc">Average time spent providing care per week</span>
             </div>
-            <div class="stat-item">
-                <span class="stat-number">$600+ billion</span>
-                <span class="stat-label">unpaid care</span>
-                <span class="stat-desc">Annual value of family caregiving</span>
+            <div class="stat-item card stat-card">
+                <span class="stat-number">$600+<br>billion</span>
+                <span class="stat-desc">Annual value of unpaid family caregiving</span>
             </div>
         </div>
     </section>
@@ -137,7 +153,7 @@
                         srcset="images/partner-graphic.png 1x, images/partner-graphic@2x.png 2x"
                         width="1000"
                         height="933"
-                        alt="Caregiving partner illustration"
+                        alt="Chating with Ella to access caregiver memory illustration"
                         class="feature-graphic partner-graphic"
                         loading="lazy"
                         decoding="async"
@@ -147,7 +163,7 @@
                     <span class="partner-pill">Ella</span>
                     <h2 class="partner-headline">Your caregiving partner</h2>
                     <p class="partner-text">Chat with Ella to capture care details as they happen. She remembers what you (and your care team) share and automatically detects and creates events, tasks, and medication entries so you don't have to.</p>
-                    <a href="download.html" class="btn-try-free">Start for free</a>
+                    <a href="/download" class="btn-try-free">Start for free</a>
                 </div>
             </div>
         </div>
@@ -161,7 +177,7 @@
                     <span class="responsibility-pill">Care Team</span>
                     <h2 class="responsibility-headline">Share responsibility</h2>
                     <p class="responsibility-text">Invite family, friends, and professionals so everyone on the care team is visible in one place. Set clear roles and permissions to control exactly what each person can see, and delegate tasks without disclosing private details.</p>
-                    <a href="download.html" class="btn-try-free">Start for free</a>
+                    <a href="/download" class="btn-try-free">Start for free</a>
                 </div>
                 <div class="responsibility-image">
                     <img
@@ -169,7 +185,7 @@
                         srcset="images/share-responsibility-graphic.png 1x, images/share-responsibility-graphic@2x.png 2x"
                         width="1000"
                         height="835"
-                        alt="Care team illustration with detected contacts"
+                        alt="Building and managing your elder care team illustration"
                         class="feature-graphic responsibility-graphic"
                         loading="lazy"
                         decoding="async"
@@ -189,7 +205,7 @@
                         srcset="images/capture-graphic.png 1x, images/capture-graphic@2x.png 2x"
                         width="1000"
                         height="704"
-                        alt="Capture notes and documents illustration"
+                        alt="Capturing caregiving information illustration"
                         class="feature-graphic capture-graphic"
                         loading="lazy"
                         decoding="async"
@@ -199,7 +215,7 @@
                     <span class="capture-pill">Notes & Documents</span>
                     <h2 class="capture-headline">Quickly capture, store & search</h2>
                     <p class="capture-text">Have all your caregiving information at your fingertips, without paper, binders, or digging. Record what's happening while you're attending an appointment, or walking back to your car, instead of trying to remember it all later.</p>
-                    <a href="download.html" class="btn-try-free">Start for free</a>
+                    <a href="/download" class="btn-try-free">Start for free</a>
                 </div>
             </div>
         </div>
@@ -213,7 +229,7 @@
                     <span class="meds-pill">Medications</span>
                     <h2 class="meds-headline">Know "all the meds"</h2>
                     <p class="meds-text">Just take a photo of the label (try it!) so you don't have to type everything in. Elderella auto-corrects medication names, sets reminders down to the hour, and can notify your care team about changes so everyone knows what's current.</p>
-                    <a href="download.html" class="btn-try-free">Start for free</a>
+                    <a href="/download" class="btn-try-free">Start for free</a>
                 </div>
                 <div class="meds-image">
                     <img
@@ -221,7 +237,7 @@
                         srcset="images/meds-graphic.png 1x, images/meds-graphic@2x.png 2x"
                         width="1000"
                         height="886"
-                        alt="Medications illustration"
+                        alt="Managing medication illustration"
                         class="feature-graphic meds-graphic"
                         loading="lazy"
                         decoding="async"
@@ -241,7 +257,7 @@
                         srcset="images/remember-graphic.png 1x, images/remember-graphic@2x.png 2x"
                         width="1000"
                         height="842"
-                        alt="Tasks and calendar illustration"
+                        alt="Managing tasks and schedules illustration"
                         class="feature-graphic remember-graphic"
                         loading="lazy"
                         decoding="async"
@@ -251,7 +267,7 @@
                     <span class="remember-pill">Tasks & Calendar</span>
                     <h2 class="remember-headline">Remember everything</h2>
                     <p class="remember-text">Elderella brings tasks and events together into one shared, caregiving-focused view, with assignable to-dos, recurring schedules, and gentle reminders so everyone knows what's coming up, who's doing what, and nothing slips through the cracks.</p>
-                    <a href="download.html" class="btn-try-free">Start for free</a>
+                    <a href="/download" class="btn-try-free">Start for free</a>
                 </div>
             </div>
         </div>
@@ -261,7 +277,7 @@
     <section class="see-more">
         <div class="container see-more-container">
             <h2 class="see-more-headline">See more ways we help</h2>
-            <a href="collects-care-details.html" class="btn-more">More!</a>
+            <a href="/collects-care-details" class="btn-more" aria-label="Explore Elderella features">Elderella features</a>
         </div>
     </section>
 
@@ -285,7 +301,7 @@
                 <h2>Keep on top of elder care</h2>
                 <p class="keep-on-top-text">Elderella is for families supporting elders. Built to help you organize care, share information, and ease the mental load of caregiving.</p>
                 <div class="keep-on-top-badges">
-                    <a href="#" class="store-badge soon-badge" aria-disabled="true" data-tooltip="Coming soon! Sign up for our newsletter to be notified.">
+                    <a href="javascript:void(0)" class="store-badge soon-badge" aria-disabled="true" role="button" data-tooltip="Coming soon! Sign up for our newsletter to be notified.">
                         <img
                             src="images/app-store-badge.png"
                             srcset="images/app-store-badge.png 1x, images/app-store-badge@2x.png 2x"
@@ -296,7 +312,7 @@
                             decoding="async"
                         >
                     </a>
-                    <a href="https://play.google.com/store/apps/details?id=com.elderella.app" class="store-badge">
+                    <a href="https://play.google.com/store/apps/details?id=com.elderella.app" class="store-badge" target="_blank" rel="noopener noreferrer" aria-label="Get Elderella on Google Play">
                         <img
                             src="images/google-play-badge.png"
                             srcset="images/google-play-badge.png 1x, images/google-play-badge@2x.png 2x"
