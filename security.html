@@ -25,14 +25,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Ionicons (for care-schedules icon) -->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KQ53TLV2');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Icons are provided as images on this page; Ionicons not required -->
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQ53TLV2" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- Site Header Component (no promo banner on this page) -->
     <site-header no-promo></site-header>
 
@@ -48,7 +57,7 @@
     <!-- Our Promise Section -->
     <section class="promise-section">
         <div class="container">
-            <h2 class="promise-title">Our promise to you</h2>
+            <h2>Our promise to you</h2>
             <div class="promise-grid">
                 <div class="promise-card">
                     <div class="promise-card-icon">
@@ -117,7 +126,7 @@
     <!-- What Elderella Protects Section -->
     <section class="protected-section">
         <div class="container">
-            <h2 class="protected-title">What Elderella protects</h2>
+            <h2>What Elderella protects</h2>
             <p class="protected-subtitle">We treat all caregiving information as sensitive.</p>
             <div class="protected-grid">
                 <div class="protected-card">
@@ -136,8 +145,15 @@
                     <p class="protected-card-text">Names, contact details, and assigned roles.</p>
                 </div>
                 <div class="protected-card">
-                    <div class="protected-card-icon protected-card-icon-ion">
-                        <ion-icon name="calendar-outline"></ion-icon>
+                    <div class="protected-card-icon">
+                        <img
+                            src="images/calendar-outline.svg"
+                            width="40"
+                            height="40"
+                            alt="Care schedules"
+                            loading="lazy"
+                            decoding="async"
+                        >
                     </div>
                     <h3 class="protected-card-title">Care schedules</h3>
                     <p class="protected-card-text">Events, tasks, reminders, and timelines.</p>
@@ -194,7 +210,7 @@
     <!-- How We Keep Information Safe Section -->
     <section class="info-safe-section">
         <div class="container">
-            <h2 class="info-safe-title">How we keep your information safe</h2>
+            <h2>How we keep your information safe</h2>
 
             <div class="info-safe-block">
                 <h3 class="info-safe-subtitle">A secure foundation</h3>
@@ -243,7 +259,7 @@
     <!-- Your Privacy Rights Section -->
     <section class="privacy-rights-section">
         <div class="container">
-            <h2 class="privacy-rights-title">Your privacy rights</h2>
+            <h2>Your privacy rights</h2>
             <p class="privacy-rights-subtitle">We follow global best practices for individual privacy rights, including principles from the GDPR and CCPA, so you can access, update, or request deletion of your personal information with confidence. Read our <a href="privacy.html" class="privacy-link">Full Privacy Policy</a>.</p>
             <div class="privacy-rights-grid">
                 <div class="privacy-rights-card">
@@ -328,7 +344,7 @@
     <!-- How We Use Your Data Section -->
     <section class="data-usage-section">
         <div class="container">
-            <h2 class="data-usage-title">How we use (and don't use) your data</h2>
+            <h2>How we use (and don't use) your data</h2>
             <div class="data-usage-columns">
                 <div class="data-usage-column data-usage-do">
                     <h3 class="data-usage-column-title">How we use your information</h3>
@@ -382,7 +398,7 @@
     <!-- Ready for Help CTA Section -->
     <section class="ready-cta-section">
         <div class="container">
-            <h2 class="ready-cta-title">Ready for help?</h2>
+            <h2>Ready for help?</h2>
             <a href="download.html" class="btn-cta-yellow">Start for free</a>
         </div>
     </section>
@@ -390,11 +406,11 @@
     <!-- Have Questions Section -->
     <section class="questions-section">
         <div class="container">
-            <h2 class="questions-title">Have questions or concerns?</h2>
+            <h2>Have questions or concerns?</h2>
             <p class="questions-text">We want you to feel completely confident using Elderella. <br>Our Privacy Team is here to help you understand how we protect your information.</p>
             <div class="questions-buttons">
-                <a href="mailto:privacy@elderella.com?subject=Privacy%20question&body=Hi%20Elderella%20Privacy%20Team%2C%0A%0APlease%20help%20me%20with%20a%20privacy-related%20question.%0A%0AThanks%2C%0A" class="btn-outline-purple">Contact our privacy team</a>
-                <a href="privacy.html" class="btn-outline-purple">Read full privacy policy</a>
+                <a href="mailto:privacy@elderella.com?subject=Privacy%20question&body=Hi%20Elderella%20Privacy%20Team%2C%0A%0APlease%20help%20me%20with%20a%20privacy-related%20question.%0A%0AThanks%2C%0A" class="btn-purple">Contact our privacy team</a>
+                <a href="privacy.html" class="btn-purple">Read full privacy policy</a>
             </div>
         </div>
     </section>

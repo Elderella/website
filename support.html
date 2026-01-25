@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Get help and support for Elderella, your caregiving platform for elder care. Contact us with questions, feedback, or issues.">
-    <meta name="keywords" content="Elderella support, help, contact, caregiving app support">
+    
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Support - Elderella | Elderella">
@@ -60,175 +60,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles-v2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 
-    <style>
-        body {
-            background: #FFFFFF;
-        }
-
-        .skip-link {
-            position: absolute;
-            left: -9999px;
-            top: auto;
-            z-index: 9999;
-            padding: 10px 20px;
-            background: #FFBC57;
-            color: #000000;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .skip-link:focus {
-            position: fixed;
-            left: 10px;
-            top: 10px;
-        }
-
-        .support-hero {
-            background: #5A4FCF;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .support-hero h1 {
-            font-family: 'Merriweather', serif;
-            font-size: 42px;
-            color: #FFFFFF;
-            margin-bottom: 20px;
-            font-weight: 400;
-            line-height: 1.2;
-        }
-
-        .support-hero p {
-            font-size: 20px;
-            color: #FFFFFF;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-
-        .section {
-            padding: 65px 0;
-        }
-
-        .section-alt {
-            background: #F5F5F5;
-        }
-
-        .support-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .support-card {
-            background: #FFFFFF;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-
-        .support-card h2 {
-            font-family: 'Merriweather', serif;
-            font-size: 2rem;
-            color: #342A99;
-            margin: 0 0 20px 0;
-            font-weight: 400;
-        }
-
-        .support-card p {
-            font-size: 20px;
-            color: #595959;
-            line-height: 1.5;
-            margin: 0 0 16px 0;
-        }
-
-        .support-card a {
-            color: #342A99;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .support-card a:hover {
-            text-decoration: underline;
-        }
-
-        .support-email {
-            display: inline-block;
-            background: #FFBC57;
-            color: #595959;
-            padding: 14px 32px;
-            border-radius: 8px;
-            font-size: 20px;
-            font-weight: 500;
-            text-decoration: none;
-            margin-top: 20px;
-        }
-
-        .support-email:hover {
-            text-decoration: none;
-            opacity: 0.9;
-        }
-
-        .support-links {
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 1px solid #E0E0E0;
-        }
-
-        .support-links h3 {
-            font-family: 'Merriweather', serif;
-            font-size: 1.4rem;
-            color: #342A99;
-            margin: 0 0 16px 0;
-            font-weight: 400;
-        }
-
-        .support-links ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .support-links li {
-            margin-bottom: 12px;
-        }
-
-        .support-links a {
-            color: #342A99;
-            font-size: 20px;
-            text-decoration: none;
-        }
-
-        .support-links a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 768px) {
-            .support-hero h1 {
-                font-size: 32px;
-            }
-
-            /* Keep hero paragraph at 20px on mobile for readability */
-            .support-hero p {
-                font-size: 20px;
-            }
-
-            .section {
-                padding: 40px 0;
-            }
-
-            .support-card {
-                padding: 30px 20px;
-            }
-
-            .support-card h2 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+    
+    
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
@@ -236,42 +72,38 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <!-- Skip link for keyboard navigation -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- Header -->
-    <div id="header-placeholder"></div>
+    <!-- Site Header Component -->
+    <site-header></site-header>
 
     <!-- Main Content -->
     <main id="main-content">
 
     <!-- Hero Section -->
-    <section class="support-hero">
+    <section class="trust-page-hero">
         <div class="container">
-            <img src="images/elderella-sparkle.svg" alt="" style="width: 60px; height: 60px; margin: 0 auto 30px; display: block;" aria-hidden="true">
             <h1>Support</h1>
-            <p>We're here to help with any questions or issues you may have.</p>
+            <h2 class="trust-page-hero-subtitle">We're here to help with any questions or issues you may have.</h2>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="section section-alt">
+    <section class="section section-alt pt-36">
         <div class="container">
             <div class="support-content">
-                <div class="support-card">
-                    <h2>Contact Us</h2>
-                    <p>Have a question, need help with your account, or want to share feedback? Our support team is happy to assist.</p>
-                    <a href="mailto:support@elderella.com" class="support-email">support@elderella.com</a>
+                <div>
+                    <h2>Contact us</h2>
+                    <p class="text-center pb-40">Have a question, need help with your account, or want to share feedback? Our support team is happy to assist.</p>
+                    <a href="mailto:support@elderella.com" class="btn-purple btn-center mb-60">Contact our support team</a>
 
-                    <div class="support-links">
-                        <h3>Helpful Resources</h3>
-                        <ul>
-                            <li><a href="/privacy">Privacy Policy</a></li>
-                            <li><a href="/terms">Terms of Service</a></li>
-                            <li><a href="/security">Security Information</a></li>
-                            <li><a href="/delete-account">Delete Your Account</a></li>
+                    <nav class="support-links" aria-label="Support resources">
+                        <h2>Helpful resources</h2>
+                        <ul class="list-reset list-center pb-40">
+                            <li><a href="privacy.html">Privacy policy</a></li>
+                            <li><a href="terms.html">Terms of service</a></li>
+                            <li><a href="security.html">Trust &amp; security information</a></li>
+                            <li><a href="delete-account.html">Delete your account</a></li>
                         </ul>
-                    </div>
+                    </nav>
                 </div>
             </div>
         </div>
@@ -280,10 +112,11 @@
     </main>
     <!-- End Main Content -->
 
-    <!-- Footer -->
-    <div id="footer-placeholder"></div>
+    <!-- Site Footer Component -->
+    <site-footer></site-footer>
 
-    <script src="/js/header.js"></script>
-    <script src="/js/footer.js"></script>
+    <!-- Web Components -->
+    <script src="js/components/site-header.js"></script>
+    <script src="js/components/site-footer.js"></script>
 </body>
 </html>

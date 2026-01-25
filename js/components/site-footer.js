@@ -33,6 +33,7 @@ class SiteFooter extends HTMLElement {
                                 <h4>Help us help you</h4>
                                 <ul>
                                     <li><a href="story.html">Your caregiving story</a></li>
+                                    <li><a href="support.html">Support</a></li>
                                 </ul>
                             </div>
                         </div>

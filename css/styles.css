@@ -37,7 +37,7 @@
     --container-padding: 180px;
     --container-padding-tablet: 30px;
     --container-padding-mobile: 20px;
-    --section-padding: 65px;
+    --section-padding: 60px;
 
     /* Spacing group: gap between stats and first feature card */
     --first-feature-gap-desktop: 140px; /* 80px (section top) + 60px (card margin) */
@@ -84,8 +84,8 @@
     --stat-label-tablet: 20px;
     --stat-label-mobile: 20px;
     --stat-desc-desktop: 18px;
-    --stat-desc-tablet: 18px;
-    --stat-desc-mobile: 16px;
+    --stat-desc-tablet: 20px;
+    --stat-desc-mobile: 20px;
     --stat-desc-max: 420px;
     --stats-gap-desktop: 40px;
     --stats-gap-tablet: 60px;
@@ -1277,7 +1277,7 @@ html.nav-open, body.nav-open { overflow: hidden; }
 
 .keep-on-top-text {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-black);
@@ -1513,7 +1513,7 @@ a, small, em, strong {
 
 .newsletter-message {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 8px;
 }
 
@@ -1559,20 +1559,20 @@ a, small, em, strong {
 
 .newsletter-consent label {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     color: var(--color-black);
     cursor: pointer;
 }
 
 .privacy-note {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     color: var(--color-black);
 }
 
 /* Ensure privacy note stays 14px despite more general footer newsletter p rule */
 .footer-newsletter > p.privacy-note {
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .privacy-note a {
@@ -1585,7 +1585,7 @@ a, small, em, strong {
 
 .footer-copyright p {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     color: var(--color-black);
 }
 
@@ -3508,7 +3508,7 @@ input:focus, textarea:focus, select:focus {
 
 .privacy-rights-card-text {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
@@ -4482,7 +4482,7 @@ input:focus, textarea:focus, select:focus {
 
 .delete-form-help {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: 16px;
     color: #7a7a7a;
     margin-top: 6px;
 }
@@ -4694,11 +4694,11 @@ input:focus, textarea:focus, select:focus {
     }
 
     .delete-radio-description {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .delete-confirm-label {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .delete-form-submit {
@@ -5672,3 +5672,12 @@ input:focus, textarea:focus, select:focus {
         font-size: 16px;
     }
 }
+/* ===== Utilities ===== */
+.text-center { text-align: center; }
+.btn-center { display: block; width: fit-content; margin-left: auto; margin-right: auto; }
+.mt-24 { margin-top: 24px; }
+.mb-60 { margin-bottom: 60px; }
+.pt-36 { padding-top: 36px; }
+.pb-40 { padding-bottom: 40px; }
+.list-reset { list-style: none; padding: 0; margin: 0; }
+.list-center { text-align: center; }
