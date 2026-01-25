@@ -251,6 +251,7 @@ class SiteHeader extends HTMLElement {
             }
         }
     }
+
 }
 
 customElements.define('site-header', SiteHeader);
