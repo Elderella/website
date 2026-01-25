@@ -1157,6 +1157,14 @@ export default {
       return Response.redirect(redirectUrl.toString(), 301);
     }
 
+    // Redirect legacy /trust to /security for canonicalization
+    if (url.pathname === '/trust' || url.pathname === '/trust/') {
+      const redirectUrl = new URL('/security', url.origin);
+      redirectUrl.search = url.search;
+      redirectUrl.hash = url.hash;
+      return Response.redirect(redirectUrl.toString(), 301);
+    }
+
     // Normalize pathname by removing trailing slash (except for root)
     let normalizedPath = url.pathname;
     if (normalizedPath !== '/' && normalizedPath.endsWith('/')) {
