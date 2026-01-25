@@ -62,7 +62,7 @@ Elderella takes privacy seriously:
 - /remembers-and-reminds - Feature: reminders and tracking
 - /shares-the-load - Feature: care team coordination
 - /download - Get the app
-- /trust - Privacy and security information
+- /security - Privacy and security information
 - /story - Share your caregiving story (user research)
 - /privacy - Privacy policy
 - /terms - Terms of service
