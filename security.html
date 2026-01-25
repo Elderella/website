@@ -3,966 +3,408 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Elderella Security - How we protect your family's elder care information with privacy-first security measures.">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="keywords" content="elderella security, elder care data security, HIPAA compliance, encryption, secure eldercare, data protection, privacy-first elder care">
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Security - Elderella | Elderella">
-    <meta property="og:description" content="Elderella Security - How we protect your family's elder care information with privacy-first security measures.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.elderella.com/security">
-    <meta property="og:image" content="https://www.elderella.com/images/elderella-logo-share.jpg">
-    <meta property="og:site_name" content="Elderella">
-
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@ElderellaCare">
-    <meta name="twitter:title" content="Security - Elderella | Elderella">
-    <meta name="twitter:description" content="Elderella Security - How we protect your family's elder care information with privacy-first security measures.">
-    <meta name="twitter:image" content="https://www.elderella.com/images/elderella-logo-share.jpg">
-
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Learn how Elderella protects your family's caregiving information with healthcare-grade security, privacy controls, and transparent data practices.">
+    <title>Trust & Security - How We Protect Your Information | Elderella</title>
     <link rel="canonical" href="https://www.elderella.com/security">
-    <title>Security - Elderella | Elderella</title>
+    <meta property="og:title" content="Trust & Security - How We Protect Your Information | Elderella">
+    <meta property="og:description" content="Learn how Elderella protects your family's caregiving information with healthcare-grade security, privacy controls, and transparent data practices.">
+    <meta property="og:url" content="https://www.elderella.com/security">
+    <meta property="og:site_name" content="Elderella">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.elderella.com/images/elderella-logo-share.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Trust & Security - How We Protect Your Information | Elderella">
+    <meta name="twitter:description" content="Learn how Elderella protects your family's caregiving information with healthcare-grade security, privacy controls, and transparent data practices.">
+    <meta name="twitter:url" content="https://www.elderella.com/security">
+    <meta name="twitter:image" content="https://www.elderella.com/images/elderella-logo-share.jpg">
+    <meta name="twitter:site" content="@ElderellaCare">
 
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@graph": [
-            {
-                "@type": "WebPage",
-                "@id": "https://www.elderella.com/security#webpage",
-                "url": "https://www.elderella.com/security",
-                "name": "Security - Elderella",
-                "description": "Learn how Elderella protects your family's eldercare information with enterprise-grade security and privacy-first measures.",
-                "isPartOf": {
-                    "@type": "WebSite",
-                    "@id": "https://www.elderella.com/#website",
-                    "name": "Elderella",
-                    "url": "https://www.elderella.com"
-                },
-                "about": {
-                    "@type": "Organization",
-                    "@id": "https://www.elderella.com/#organization"
-                },
-                "datePublished": "2025-10-18",
-                "dateModified": "2025-11-04",
-                "inLanguage": "en-US",
-                "breadcrumb": {
-                    "@type": "BreadcrumbList",
-                    "itemListElement": [
-                        {
-                            "@type": "ListItem",
-                            "position": 1,
-                            "name": "Home",
-                            "item": "https://www.elderella.com/"
-                        },
-                        {
-                            "@type": "ListItem",
-                            "position": 2,
-                            "name": "Security",
-                            "item": "https://www.elderella.com/security"
-                        }
-                    ]
-                }
-            }
-        ]
-    }
-    </script>
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/images/elderella-sparkle.svg">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/elderella-sparkle.svg">
-
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KQ53TLV2');</script>
-    <!-- End Google Tag Manager -->
-
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles-v2.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Ionicons (for care-schedules icon) -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <style>
-        /* Security page specific styles */
-        .security-page {
-            background: #FFFFFF;
-        }
 
-        /* Skip link for accessibility */
-        .skip-link {
-            position: absolute;
-            left: -9999px;
-            top: auto;
-            z-index: 9999;
-            padding: 10px 20px;
-            background: #FFBC57;
-            color: #000000;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        .skip-link:focus {
-            position: fixed;
-            left: 10px;
-            top: 10px;
-        }
-
-        /* Hero Section - Security page specific */
-        .security-hero {
-            background: #5A4FCF;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .shield-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 30px;
-            display: block;
-        }
-
-        .security-hero-title {
-            font-family: 'Merriweather', serif;
-            font-size: 42px;
-            color: #FFFFFF;
-            margin-bottom: 20px;
-            font-weight: 400;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            font-size: 18px;
-            color: #FFFFFF;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 65px 0;
-        }
-
-        .section-alt {
-            background: #F5F5F5;
-        }
-
-        .section-title {
-            font-family: 'Merriweather', serif;
-            font-size: 2rem;
-            color: #342A99;
-            text-align: center;
-            margin-bottom: 40px;
-            font-weight: 400;
-        }
-
-        /* Base Card Styles */
-        .card-base {
-            background: #FFFFFF;
-            padding: 26px 24px;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-        }
-
-        .card-base:focus-within {
-            outline: 3px solid #342A99;
-            outline-offset: 2px;
-        }
-
-        /* Pillars Grid */
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .pillar-card {
-            text-align: center;
-        }
-
-        .pillar-icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            color: #5A4FCF;
-        }
-
-        .pillar-title {
-            font-family: 'Merriweather', serif;
-            font-size: 1.4rem;
-            color: #342A99;
-            margin-bottom: 10px;
-            font-weight: 400;
-        }
-
-        .pillar-description {
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 18px;
-            color: #595959;
-            line-height: 1.5;
-        }
-
-        /* Protection Grid */
-        .protection-grid {
-            --card-width: 350px;
-            --gap: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: var(--gap);
-            max-width: 1200px;
-            margin: 0 auto;
-            align-items: center;
-        }
-
-        .protection-grid-row {
-            display: flex;
-            gap: var(--gap);
-            width: 100%;
-            justify-content: center;
-        }
-
-        .protection-item {
-            text-align: center;
-            width: var(--card-width);
-            min-height: 100%;
-        }
-
-        .protection-item.card-base {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 240px;
-        }
-
-        .protection-text {
-            width: 100%;
-        }
-
-        .protection-icon {
-            font-size: 48px;
-            display: block;
-            margin: 0 auto 20px;
-            color: #5A4FCF;
-        }
-
-        .protection-text {
-            width: 100%;
-        }
-
-        .protection-text h3 {
-            font-family: 'Merriweather', serif;
-            font-size: 1.4rem;
-            color: #342A99;
-            margin-bottom: 15px;
-            font-weight: 400;
-            text-align: center;
-        }
-
-        .protection-text p {
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 18px;
-            color: #595959;
-            line-height: 1.5;
-            text-align: center;
-        }
-
-        /* Security Features */
-        .security-list {
-            display: grid;
-            gap: 30px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .security-list-item {
-            display: flex;
-            gap: 20px;
-            align-items: start;
-        }
-
-        .security-list-icon {
-            font-size: 40px;
-            flex-shrink: 0;
-            color: #5A4FCF;
-        }
-
-        .security-list-content h3 {
-            font-family: 'Merriweather', serif;
-            font-size: 1.4rem;
-            color: #342A99;
-            margin-bottom: 10px;
-            font-weight: 400;
-        }
-
-        .security-list-content p {
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 18px;
-            color: #595959;
-            line-height: 1.5;
-        }
-
-        /* Content Lists */
-        .content-list {
-            margin: 10px 0;
-            padding-left: 20px;
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 18px;
-            color: #595959;
-            line-height: 1.5;
-        }
-
-        .content-list li {
-            padding: 5px 0;
-        }
-
-        .list-left {
-            text-align: left;
-        }
-
-        /* Section intro text */
-        .intro-text {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 18px;
-            color: #595959;
-        }
-
-        .intro-text-bold {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 18px;
-            color: #595959;
-            font-weight: 600;
-        }
-
-        /* Subsection styles */
-        .subsection-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .subsection-title {
-            font-family: 'Merriweather', serif;
-            font-size: 1.4rem;
-            color: #342A99;
-            margin-bottom: 10px;
-            font-weight: 400;
-        }
-
-        .subsection-content {
-            font-size: 18px;
-            color: #595959;
-            line-height: 1.5;
-            margin-bottom: 30px;
-        }
-
-        .subsection-content-last {
-            margin-bottom: 0;
-        }
-
-        /* Data usage grid spacing */
-        .data-usage-grid {
-            margin-bottom: 40px;
-        }
-
-        /* Privacy link styling */
-        .privacy-link {
-            color: #342A99;
-            text-decoration: none;
-        }
-
-        .privacy-link:hover {
-            text-decoration: underline;
-        }
-
-        .privacy-link:focus {
-            outline: 3px solid #342A99;
-            outline-offset: 2px;
-            text-decoration: underline;
-        }
-
-        /* Rights List */
-        .rights-grid {
-            --card-width: 350px;
-            --gap: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: var(--gap);
-            max-width: 1200px;
-            margin: 0 auto;
-            align-items: center;
-        }
-
-        .rights-grid-row {
-            display: flex;
-            gap: var(--gap);
-            width: 100%;
-            justify-content: center;
-        }
-
-        .right-item {
-            text-align: center;
-            width: var(--card-width);
-            min-height: 100%;
-        }
-
-        .right-item.card-base {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 240px;
-        }
-
-        .right-icon {
-            font-size: 48px;
-            display: block;
-            margin: 0 auto 20px;
-            color: #5A4FCF;
-        }
-
-        .right-item h3 {
-            font-family: 'Merriweather', serif;
-            font-size: 1.4rem;
-            color: #342A99;
-            margin-bottom: 15px;
-            font-weight: 400;
-            text-align: center;
-        }
-
-        .right-item p {
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 18px;
-            color: #595959;
-            line-height: 1.5;
-            text-align: center;
-        }
-
-        /* Practices Section */
-        .practices-list {
-            display: grid;
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .practice-item {
-            display: flex;
-            align-items: start;
-            gap: 20px;
-            padding: 26px 24px;
-            background: #FFFFFF;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-        }
-
-        .practice-icon {
-            font-size: 32px;
-            flex-shrink: 0;
-            color: #5A4FCF;
-        }
-
-        .practice-text {
-            flex: 1;
-        }
-
-        .practice-text h3 {
-            font-family: 'Merriweather', serif;
-            font-size: 1.4rem;
-            color: #342A99;
-            margin-bottom: 10px;
-            font-weight: 400;
-        }
-
-        .practice-text p {
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 18px;
-            color: #595959;
-            line-height: 1.5;
-        }
-
-        /* Commitments */
-        .commitments-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .commitment-badge {
-            text-align: center;
-        }
-
-        .badge-icon {
-            font-size: 40px;
-            margin-bottom: 16px;
-            display: block;
-            color: #5A4FCF;
-        }
-
-        .commitment-badge h3 {
-            font-family: 'Merriweather', serif;
-            font-size: 1.4rem;
-            color: #342A99;
-            margin-bottom: 10px;
-            font-weight: 400;
-        }
-
-        .commitment-badge p {
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 18px;
-            color: #595959;
-            line-height: 1.5;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: #5A4FCF;
-            padding: 60px 40px;
-            text-align: center;
-            border-radius: 8px;
-        }
-
-        .contact-content h2 {
-            font-family: 'Merriweather', serif;
-            font-size: 2rem;
-            color: #FFFFFF;
-            margin-bottom: 20px;
-            font-weight: 400;
-        }
-
-        .contact-content p {
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 18px;
-            color: #FFFFFF;
-            margin-bottom: 30px;
-        }
-
-        .contact-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 10px 14px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 18px;
-            font-weight: 500;
-            display: inline-block;
-            transition: transform 0.2s;
-            cursor: pointer;
-        }
-
-        .btn-primary {
-            background: #FFBC57;
-            color: #000000;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(255,152,56,0.3);
-        }
-
-        .btn-primary:focus {
-            outline: 3px solid #342A99;
-            outline-offset: 2px;
-        }
-
-        .btn-secondary {
-            background: #FFFFFF;
-            color: #342A99;
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-        }
-
-        .btn-secondary:focus {
-            outline: 3px solid #342A99;
-            outline-offset: 2px;
-        }
-
-        /* Footer */
-        .security-footer {
-            background: #5A4FCF;
-            color: #FFFFFF;
-            padding: 20px 0;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 35px;
-            flex-wrap: wrap;
-        }
-
-        .footer-content span {
-            color: #FFFFFF;
-            font-size: 13px;
-        }
-
-        .footer-content a {
-            color: #FFFFFF;
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        .footer-content a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-content a:focus {
-            outline: 2px solid #FFFFFF;
-            outline-offset: 2px;
-            text-decoration: underline;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .security-hero-title {
-                font-size: 32px;
-            }
-
-            .security-hero-subtitle {
-                font-size: 16px;
-            }
-
-            .section {
-                padding: 40px 0;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .pillars-grid,
-            .commitments-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .protection-grid-row,
-            .rights-grid-row {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .protection-item,
-            .right-item {
-                width: 100%;
-                max-width: 100%;
-            }
-
-            .security-item,
-            .practice-item {
-                flex-direction: column;
-            }
-
-            .contact-buttons {
-                flex-direction: column;
-                width: 100%;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
-    </style>
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="security-page">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KQ53TLV2"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+<body>
+    <!-- Site Header Component (no promo banner on this page) -->
+    <site-header no-promo></site-header>
 
-    <!-- Skip link for keyboard navigation -->
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- Header -->
-    <div id="header-placeholder"></div>
-
-    <!-- Main Content -->
-    <main id="main-content">
-
-    <!-- Hero Section -->
-    <section class="security-hero">
+    <!-- Trust Hero Section -->
+    <section class="trust-page-hero" id="main-content">
         <div class="container">
-            <img src="images/elderella-sparkle.svg" alt="" class="shield-icon" aria-hidden="true">
-            <h1 class="security-hero-title">How We Protect Your Information</h1>
-            <p class="hero-subtitle">
-                Caring for an elder involves some of the most personal details in a family's life.
-            </p>
-            <p class="hero-subtitle">
-                &nbsp;
-            </p>
-            <p class="hero-subtitle">
-                This page explains, in plain language, how Elderella keeps your data <strong>private, secure, and within your control</strong>.
-            </p>
+            <h1>How we protect your information</h1>
+            <p class="trust-page-hero-subtitle">Caring for an elder involves some of the most personal details in a family's life.</p>
+            <p class="trust-page-hero-text">This page explains, in plain language, how Elderella keeps your data <span class="highlight">private, secure, and within your control.</span></p>
         </div>
     </section>
 
-    <!-- Our Promise to You -->
-    <section class="section">
+    <!-- Our Promise Section -->
+    <section class="promise-section">
         <div class="container">
-            <h2 class="section-title">Our Promise to You</h2>
-            <div class="pillars-grid">
-                <div class="pillar-card card-base">
-                    <ion-icon name="lock-closed" class="pillar-icon" aria-hidden="true"></ion-icon>
-                    <h3 class="pillar-title">Privacy first</h3>
-                    <p class="pillar-description">
-                        We only collect what's needed to help you care for your elders. Your information is never sold, rented, or traded.
-                    </p>
+            <h2 class="promise-title">Our promise to you</h2>
+            <div class="promise-grid">
+                <div class="promise-card">
+                    <div class="promise-card-icon">
+                        <img
+                            src="images/privacy-first.png"
+                            srcset="images/privacy-first.png 1x, images/privacy-first@2x.png 2x"
+                            width="29"
+                            height="40"
+                            alt="Privacy first"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                    <h3 class="promise-card-title">Privacy first</h3>
+                    <p class="promise-card-text">We only collect what's needed to help you care for your elders. Your information is never sold, shared, or traded.</p>
                 </div>
-                <div class="pillar-card card-base">
-                    <ion-icon name="key" class="pillar-icon" aria-hidden="true"></ion-icon>
-                    <h3 class="pillar-title">You own your data</h3>
-                    <p class="pillar-description">
-                        You can access, update, or delete your information anytime. You're always in control of your data.
-                    </p>
+                <div class="promise-card">
+                    <div class="promise-card-icon">
+                        <img
+                            src="images/own-your-data.png"
+                            srcset="images/own-your-data.png 1x, images/own-your-data@2x.png 2x"
+                            width="40"
+                            height="40"
+                            alt="You own your data"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                    <h3 class="promise-card-title">You own your data</h3>
+                    <p class="promise-card-text">You can access, update, or delete your information anytime. You're always in control of your data.</p>
                 </div>
-                <div class="pillar-card card-base">
-                    <ion-icon name="medical" class="pillar-icon" aria-hidden="true"></ion-icon>
-                    <h3 class="pillar-title">Built for safety</h3>
-                    <p class="pillar-description">
-                        Elderella uses healthcare-grade protections designed to meet strict privacy laws in both Canada and the United States.
-                    </p>
+                <div class="promise-card">
+                    <div class="promise-card-icon">
+                        <img
+                            src="images/built-for-safety.png"
+                            srcset="images/built-for-safety.png 1x, images/built-for-safety@2x.png 2x"
+                            width="40"
+                            height="40"
+                            alt="Built for safety"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                    <h3 class="promise-card-title">Built for safety</h3>
+                    <p class="promise-card-text">Elderella uses healthcare-grade protections designed to meet strict privacy laws in both Canada and the United States.</p>
                 </div>
-                <div class="pillar-card card-base">
-                    <ion-icon name="sparkles" class="pillar-icon" aria-hidden="true"></ion-icon>
-                    <h3 class="pillar-title">Transparency always</h3>
-                    <p class="pillar-description">
-                        We communicate clearly about how Elderella works and how we handle your data. No surprises. Ever.
-                    </p>
+                <div class="promise-card">
+                    <div class="promise-card-icon">
+                        <img
+                            src="images/transparency-always.png"
+                            srcset="images/transparency-always.png 1x, images/transparency-always@2x.png 2x"
+                            width="40"
+                            height="40"
+                            alt="Transparency always"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                    <h3 class="promise-card-title">Transparency always</h3>
+                    <p class="promise-card-text">We communicate clearly about how Elderella works and how we handle your data. No surprises. Ever.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- What Elderella Protects -->
-    <section class="section section-alt">
+    <!-- What Elderella Protects Section -->
+    <section class="protected-section">
         <div class="container">
-            <h2 class="section-title">What Elderella Protects</h2>
-            <p class="intro-text">We treat all caregiving information as sensitive.</p>
-            <div class="protection-grid">
-                <div class="protection-grid-row">
-                    <div class="protection-item card-base">
-                        <ion-icon name="people" class="protection-icon" aria-hidden="true"></ion-icon>
-                        <div class="protection-text">
-                            <h3>Elder and <br>Care Team information</h3>
-                            <p>Names, contact details, and caregiver roles</p>
-                        </div>
+            <h2 class="protected-title">What Elderella protects</h2>
+            <p class="protected-subtitle">We treat all caregiving information as sensitive.</p>
+            <div class="protected-grid">
+                <div class="protected-card">
+                    <div class="protected-card-icon">
+                        <img
+                            src="images/elder-care-team.png"
+                            srcset="images/elder-care-team.png 1x, images/elder-care-team@2x.png 2x"
+                            width="40"
+                            height="40"
+                            alt="Elder and Care Team information"
+                            loading="lazy"
+                            decoding="async"
+                        >
                     </div>
-                    <div class="protection-item card-base">
-                        <ion-icon name="calendar" class="protection-icon" aria-hidden="true"></ion-icon>
-                        <div class="protection-text">
-                            <h3>Care schedules</h3>
-                            <p>Events, tasks, reminders, and routines</p>
-                        </div>
-                    </div>
-                    <div class="protection-item card-base">
-                        <ion-icon name="medical" class="protection-icon" aria-hidden="true"></ion-icon>
-                        <div class="protection-text">
-                            <h3>Health details</h3>
-                            <p>Medications, symptoms, medical history, and care observations</p>
-                        </div>
-                    </div>
+                    <h3 class="protected-card-title">Elder and <br>Care Team information</h3>
+                    <p class="protected-card-text">Names, contact details, and assigned roles.</p>
                 </div>
-                <div class="protection-grid-row">
-                    <div class="protection-item card-base">
-                        <ion-icon name="document-text" class="protection-icon" aria-hidden="true"></ion-icon>
-                        <div class="protection-text">
-                            <h3>Personal notes</h3>
-                            <p>Stories, updates, and details you record</p>
-                        </div>
+                <div class="protected-card">
+                    <div class="protected-card-icon protected-card-icon-ion">
+                        <ion-icon name="calendar-outline"></ion-icon>
                     </div>
-                    <div class="protection-item card-base">
-                        <ion-icon name="folder" class="protection-icon" aria-hidden="true"></ion-icon>
-                        <div class="protection-text">
-                            <h3>Care-related files</h3>
-                            <p>Photos, documents, and audio notes</p>
-                        </div>
+                    <h3 class="protected-card-title">Care schedules</h3>
+                    <p class="protected-card-text">Events, tasks, reminders, and timelines.</p>
+                </div>
+                <div class="protected-card">
+                    <div class="protected-card-icon">
+                        <img
+                            src="images/elder-health-details.png"
+                            srcset="images/elder-health-details.png 1x, images/elder-health-details@2x.png 2x"
+                            width="40"
+                            height="40"
+                            alt="Health details"
+                            loading="lazy"
+                            decoding="async"
+                        >
                     </div>
+                    <h3 class="protected-card-title">Health details</h3>
+                    <p class="protected-card-text">Medications, symptoms, medical history, and care observations.</p>
+                </div>
+                <div class="protected-card">
+                    <div class="protected-card-icon">
+                        <img
+                            src="images/care-personal-notes.png"
+                            srcset="images/care-personal-notes.png 1x, images/care-personal-notes@2x.png 2x"
+                            width="40"
+                            height="40"
+                            alt="Personal notes"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                    <h3 class="protected-card-title">Personal notes</h3>
+                    <p class="protected-card-text">Stories, updates, and details you record.</p>
+                </div>
+                <div class="protected-card">
+                    <div class="protected-card-icon">
+                        <img
+                            src="images/care-related-files.png"
+                            srcset="images/care-related-files.png 1x, images/care-related-files@2x.png 2x"
+                            width="40"
+                            height="40"
+                            alt="Care-related files"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
+                    <h3 class="protected-card-title">Care-related files</h3>
+                    <p class="protected-card-text">Photos, documents, and audio notes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- How We Keep Your Information Safe -->
-    <section class="section">
+    <!-- How We Keep Information Safe Section -->
+    <section class="info-safe-section">
         <div class="container">
-            <h2 class="section-title">How We Keep Your Information Safe</h2>
-            <div class="security-list">
-                <div class="security-list-item">
-                    <ion-icon name="location" class="security-list-icon" aria-hidden="true"></ion-icon>
-                    <div class="security-list-content">
-                        <h3>A secure foundation</h3>
-                        <p>Your data is stored on Google Cloud servers in Montreal, Canada, protected under strong privacy laws.</p>
+            <h2 class="info-safe-title">How we keep your information safe</h2>
+
+            <div class="info-safe-block">
+                <h3 class="info-safe-subtitle">A secure foundation</h3>
+                <p class="info-safe-text">Your data is stored in Google Cloud servers in Montreal, Canada, protected under strong privacy laws.</p>
+            </div>
+
+            <div class="info-safe-block">
+                <h3 class="info-safe-subtitle">Healthcare-grade security</h3>
+                <p class="info-safe-text">Elderella is designed to meet/exceed:</p>
+                <ul class="info-safe-list">
+                    <li>Canada's federal privacy law (PIPEDA), and</li>
+                    <li>U.S. healthcare protection standards (HIPAA)</li>
+                </ul>
+                <p class="info-safe-text">These frameworks guide how we store, protect, and handle sensitive caregiving information.</p>
+            </div>
+
+            <div class="info-safe-block">
+                <h3 class="info-safe-subtitle">Protected partnerships</h3>
+                <p class="info-safe-text">We have strict agreements with our infrastructure partners, including Business Associate Agreements with Google Cloud, to ensure proper data handling at all times.</p>
+            </div>
+
+            <div class="info-safe-block">
+                <h3 class="info-safe-subtitle">Technical safeguards</h3>
+                <p class="info-safe-text">We use industry-standard measures to protect your data, including:</p>
+                <ul class="info-safe-list">
+                    <li>Encryption in transit and at rest</li>
+                    <li>Role-based access controls</li>
+                    <li>Multi-factor authentication and single sign-on for internal systems</li>
+                    <li>24/7 monitoring and logging</li>
+                    <li>Regular security reviews and independent assessments</li>
+                </ul>
+            </div>
+
+            <div class="info-safe-block">
+                <h3 class="info-safe-subtitle">Privacy by design</h3>
+                <p class="info-safe-text">Every Elderella feature goes through a privacy and security review before it's released. Protection is built in from the start.</p>
+            </div>
+
+            <div class="info-safe-block">
+                <h3 class="info-safe-subtitle">Secure AI support</h3>
+                <p class="info-safe-text">Ella, your caregiving partner, operates entirely within Google Cloud's protected environment, powered by Google Cloud's Large Language Model and Vertex AI with retrieval-augmented generation. Information shared is accessed securely and never leaves our encrypted systems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your Privacy Rights Section -->
+    <section class="privacy-rights-section">
+        <div class="container">
+            <h2 class="privacy-rights-title">Your privacy rights</h2>
+            <p class="privacy-rights-subtitle">We follow global best practices for individual privacy rights, including principles from the GDPR and CCPA, so you can access, update, or request deletion of your personal information with confidence. Read our <a href="privacy.html" class="privacy-link">Full Privacy Policy</a>.</p>
+            <div class="privacy-rights-grid">
+                <div class="privacy-rights-card">
+                    <div class="privacy-rights-card-icon">
+                        <img
+                            src="images/care-access.png"
+                            srcset="images/care-access.png 1x, images/care-access@2x.png 2x"
+                            width="40"
+                            height="40"
+                            alt="Access"
+                            loading="lazy"
+                            decoding="async"
+                        >
                     </div>
+                    <h3 class="privacy-rights-card-title">Access</h3>
+                    <p class="privacy-rights-card-text">See the data Elderella has stored for you or your elder.</p>
                 </div>
-                <div class="security-list-item">
-                    <ion-icon name="medical" class="security-list-icon" aria-hidden="true"></ion-icon>
-                    <div class="security-list-content">
-                        <h3>Healthcare-grade security</h3>
-                        <p>Elderella is designed to meet both:</p>
-                        <ul class="content-list">
-                            <li>Canada's federal privacy law (PIPEDA), and</li>
-                            <li>U.S. healthcare protection standards (HIPAA)</li>
-                        </ul>
-                        <p>These frameworks guide how we store, protect, and handle sensitive caregiving information.</p>
+                <div class="privacy-rights-card">
+                    <div class="privacy-rights-card-icon">
+                        <img
+                            src="images/care-updates.png"
+                            srcset="images/care-updates.png 1x, images/care-updates@2x.png 2x"
+                            width="40"
+                            height="40"
+                            alt="Update"
+                            loading="lazy"
+                            decoding="async"
+                        >
                     </div>
+                    <h3 class="privacy-rights-card-title">Update</h3>
+                    <p class="privacy-rights-card-text">Correct, update, or change any information that's inaccurate.</p>
                 </div>
-                <div class="security-list-item">
-                    <ion-icon name="people" class="security-list-icon" aria-hidden="true"></ion-icon>
-                    <div class="security-list-content">
-                        <h3>Protected partnerships</h3>
-                        <p>We maintain strict agreements with our infrastructure partners, including Business Associate Agreements with Google Cloud, to ensure proper data handling at all times.</p>
+                <div class="privacy-rights-card">
+                    <div class="privacy-rights-card-icon">
+                        <img
+                            src="images/care-delete.png"
+                            srcset="images/care-delete.png 1x, images/care-delete@2x.png 2x"
+                            width="40"
+                            height="40"
+                            alt="Delete"
+                            loading="lazy"
+                            decoding="async"
+                        >
                     </div>
+                    <h3 class="privacy-rights-card-title">Delete</h3>
+                    <p class="privacy-rights-card-text">Ask us to remove your data, except where laws require retention.</p>
                 </div>
-                <div class="security-list-item">
-                    <ion-icon name="shield-checkmark" class="security-list-icon" aria-hidden="true"></ion-icon>
-                    <div class="security-list-content">
-                        <h3>Technical safeguards</h3>
-                        <p>We use industry-standard measures to protect your data, including:</p>
-                        <ul class="content-list">
-                            <li>Encryption in transit and at rest</li>
-                            <li>Role-based access controls</li>
-                            <li>Multi-factor authentication and single sign-on for internal systems</li>
-                            <li>24/7 monitoring and logging</li>
-                            <li>Regular security reviews and independent assessments</li>
-                        </ul>
+                <div class="privacy-rights-card">
+                    <div class="privacy-rights-card-icon">
+                        <img
+                            src="images/care-opt-out.png"
+                            srcset="images/care-opt-out.png 1x, images/care-opt-out@2x.png 2x"
+                            width="40"
+                            height="40"
+                            alt="Opt-out"
+                            loading="lazy"
+                            decoding="async"
+                        >
                     </div>
+                    <h3 class="privacy-rights-card-title">Opt-out</h3>
+                    <p class="privacy-rights-card-text">Stop receiving marketing emails or withdraw consent for data sharing.</p>
                 </div>
-                <div class="security-list-item">
-                    <ion-icon name="construct" class="security-list-icon" aria-hidden="true"></ion-icon>
-                    <div class="security-list-content">
-                        <h3>Privacy by design</h3>
-                        <p>Every new Elderella feature goes through a privacy and security review before it's released. Protection is built in from the start.</p>
+                <div class="privacy-rights-card">
+                    <div class="privacy-rights-card-icon">
+                        <img
+                            src="images/care-data-retention.png"
+                            srcset="images/care-data-retention.png 1x, images/care-data-retention@2x.png 2x"
+                            width="40"
+                            height="40"
+                            alt="Data retention"
+                            loading="lazy"
+                            decoding="async"
+                        >
                     </div>
-                </div>
-                <div class="security-list-item">
-                    <ion-icon name="chatbubbles" class="security-list-icon" aria-hidden="true"></ion-icon>
-                    <div class="security-list-content">
-                        <h3>Secure AI support</h3>
-                        <p>Ella, your caregiving partner, operates entirely within Google Cloud's protected environment, powered by Google Cloud's Large Language Model and Vertex AI with retrieval augmented generation. Information shared is accessed securely and never leaves our encrypted system.</p>
-                    </div>
+                    <h3 class="privacy-rights-card-title">Data retention</h3>
+                    <p class="privacy-rights-card-text">If you cancel your Elderella account, your data is retained for up to 3 years. (In case you return.) We also delete immediately, on request.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Your Privacy Rights -->
-    <section class="section section-alt">
+    <!-- How We Use Your Data Section -->
+    <section class="data-usage-section">
         <div class="container">
-            <h2 class="section-title">Your Privacy Rights</h2>
-            <p class="intro-text">We follow global best practices for individual privacy rights, including principles from the GDPR and CCPA, so you can access, update, or request deletion of your personal information with confidence. <a href="/privacy" class="privacy-link">Read our Full Privacy Policy</a>.</p>
-            <div class="rights-grid">
-                <div class="rights-grid-row">
-                    <div class="right-item card-base">
-                        <ion-icon name="eye" class="right-icon" aria-hidden="true"></ion-icon>
-                        <h3>Access</h3>
-                        <p>See the data Elderella has stored for you or your elder.</p>
-                    </div>
-                    <div class="right-item card-base">
-                        <ion-icon name="create" class="right-icon" aria-hidden="true"></ion-icon>
-                        <h3>Update</h3>
-                        <p>Correct, update or change any information that's inaccurate.</p>
-                    </div>
-                    <div class="right-item card-base">
-                        <ion-icon name="trash" class="right-icon" aria-hidden="true"></ion-icon>
-                        <h3>Delete</h3>
-                        <p>Ask us to remove your data (except where laws require retention).</p>
-                    </div>
-                </div>
-                <div class="rights-grid-row">
-                    <div class="right-item card-base">
-                        <ion-icon name="close-circle" class="right-icon" aria-hidden="true"></ion-icon>
-                        <h3>Opt-out</h3>
-                        <p>Stop receiving marketing emails or withdraw consent for data sharing.</p>
-                    </div>
-                    <div class="right-item card-base">
-                        <ion-icon name="archive" class="right-icon" aria-hidden="true"></ion-icon>
-                        <h3>Data retention</h3>
-                        <p>If you cancel your Elderella account, your data remains accessible for up to 5 years in case you return – or you can request immediate deletion.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How We Use (and Don't Use) Your Data -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">How We Use (and Don't Use) Your Data</h2>
-            <div class="pillars-grid data-usage-grid">
-                <div class="pillar-card card-base">
-                    <ion-icon name="checkmark-circle" class="pillar-icon" aria-hidden="true"></ion-icon>
-                    <h3 class="pillar-title">How we use your information</h3>
-                    <ul class="content-list list-left">
-                        <li>To provide and improve Elderella's caregiving tools</li>
-                        <li>To help your family stay organized and connected</li>
-                        <li>To personalize insights and reminders for your elder</li>
+            <h2 class="data-usage-title">How we use (and don't use) your data</h2>
+            <div class="data-usage-columns">
+                <div class="data-usage-column data-usage-do">
+                    <h3 class="data-usage-column-title">How we use your information</h3>
+                    <ul class="data-usage-list">
+                        <li class="data-usage-item">
+                            <span class="data-usage-check">✓</span>
+                            <span>To provide and improve Elderella's caregiving tools</span>
+                        </li>
+                        <li class="data-usage-item">
+                            <span class="data-usage-check">✓</span>
+                            <span>To help your family stay organized and connected</span>
+                        </li>
+                        <li class="data-usage-item">
+                            <span class="data-usage-check">✓</span>
+                            <span>To personalize insights and reminders for your elder</span>
+                        </li>
                     </ul>
                 </div>
-                <div class="pillar-card card-base">
-                    <ion-icon name="close-circle" class="pillar-icon" aria-hidden="true"></ion-icon>
-                    <h3 class="pillar-title">How we never use your information</h3>
-                    <ul class="content-list list-left">
-                        <li>We do not sell, rent, or trade your data</li>
-                        <li>We do not share your information without your consent</li>
-                        <li>We do not use your information for unrelated advertising</li>
+                <div class="data-usage-column data-usage-dont">
+                    <h3 class="data-usage-column-title">How we never use your information</h3>
+                    <ul class="data-usage-list">
+                        <li class="data-usage-item">
+                            <span class="data-usage-x">✗</span>
+                            <span>We do not sell, rent, or trade your data</span>
+                        </li>
+                        <li class="data-usage-item">
+                            <span class="data-usage-x">✗</span>
+                            <span>We do not share your information without your consent</span>
+                        </li>
+                        <li class="data-usage-item">
+                            <span class="data-usage-x">✗</span>
+                            <span>We do not use your information for unrelated purposes</span>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="subsection-wrapper">
-                <h3 class="subsection-title">Anonymized insights</h3>
-                <p class="subsection-content">We may use aggregated, non-identifiable information to improve Elderella or to understand caregiving patterns. Nothing in these insights can identify you or your elder.</p>
 
-                <h3 class="subsection-title">Carefully selected service providers</h3>
-                <p class="subsection-content subsection-content-last">When we work with trusted partners (such as email delivery services), they only receive what is necessary to do their job and operate under strict privacy agreements.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section">
-        <div class="container">
-            <div class="contact-section">
-                <div class="contact-content">
-                    <h2>Have Questions or Concerns?</h2>
-                    <p>We want you to feel completely confident using Elderella.</p>
-                    <p>Our Privacy Team is here to help you understand how we protect your information.</p>
-                    <div class="contact-buttons">
-                        <a href="mailto:privacy@elderella.com" class="btn btn-primary">Contact Our Privacy Team</a>
-                        <a href="/privacy" class="btn btn-secondary">Read Full Privacy Policy</a>
-                    </div>
+            <div class="data-usage-subsections">
+                <div class="data-usage-subsection">
+                    <h3 class="data-usage-subsection-title">Anonymized insights</h3>
+                    <p class="data-usage-subsection-text">We may use aggregated, non-identifiable information to improve Elderella or to understand caregiving patterns. Nothing in these insights can identify you or your elder.</p>
+                </div>
+                <div class="data-usage-subsection">
+                    <h3 class="data-usage-subsection-title">Carefully selected service providers</h3>
+                    <p class="data-usage-subsection-text">When we work with trusted partners (such as email delivery services), they only receive what is necessary to do their job and operate under strict privacy agreements.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    </main>
-    <!-- End Main Content -->
+    <!-- Ready for Help CTA Section -->
+    <section class="ready-cta-section">
+        <div class="container">
+            <h2 class="ready-cta-title">Ready for help?</h2>
+            <a href="download.html" class="btn-cta-yellow">Start for free</a>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <div id="footer-placeholder"></div>
+    <!-- Have Questions Section -->
+    <section class="questions-section">
+        <div class="container">
+            <h2 class="questions-title">Have questions or concerns?</h2>
+            <p class="questions-text">We want you to feel completely confident using Elderella. <br>Our Privacy Team is here to help you understand how we protect your information.</p>
+            <div class="questions-buttons">
+                <a href="mailto:privacy@elderella.com?subject=Privacy%20question&body=Hi%20Elderella%20Privacy%20Team%2C%0A%0APlease%20help%20me%20with%20a%20privacy-related%20question.%0A%0AThanks%2C%0A" class="btn-outline-purple">Contact our privacy team</a>
+                <a href="privacy.html" class="btn-outline-purple">Read full privacy policy</a>
+            </div>
+        </div>
+    </section>
 
-    <script src="/js/header.js"></script>
-    <script src="/js/footer.js"></script>
+    <!-- Site Footer Component -->
+    <site-footer></site-footer>
+
+    <!-- Web Components -->
+    <script src="js/components/site-header.js"></script>
+    <script src="js/components/site-footer.js"></script>
+
 </body>
 </html>

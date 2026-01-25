@@ -1142,7 +1142,8 @@ export default {
       '/shares-the-load': '/shares-the-load.html',
       '/how-elderella-works': '/how-elderella-works.html',
       '/download': '/download.html',
-      '/trust': '/trust.html',
+      '/security': '/security.html',
+      '/trust': '/security.html',
       '/story': '/story.html',
       '/delete': '/delete.html',
       '/delete-account': '/delete-account.html'

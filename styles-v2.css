@@ -885,9 +885,6 @@ footer span {
         padding: 0 20px;
     }
 
-    body {
-        font-size: 16px;
-    }
 
     .header-wrapper {
         flex-direction: column;
