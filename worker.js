@@ -1143,7 +1143,6 @@ export default {
       '/how-elderella-works': '/how-elderella-works.html',
       '/download': '/download.html',
       '/security': '/security.html',
-      '/trust': '/security.html',
       '/story': '/story.html',
       '/delete-account': '/delete-account.html'
     };
