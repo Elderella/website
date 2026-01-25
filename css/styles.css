@@ -3244,7 +3244,7 @@ input:focus, textarea:focus, select:focus {
 
 .promise-card-title {
     font-family: var(--font-body);
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
     color: var(--color-black);
     margin-bottom: 12px;
@@ -3252,7 +3252,7 @@ input:focus, textarea:focus, select:focus {
 
 .promise-card-text {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
@@ -3276,7 +3276,7 @@ input:focus, textarea:focus, select:focus {
 
 .protected-subtitle {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
@@ -3285,10 +3285,12 @@ input:focus, textarea:focus, select:focus {
 }
 
 .protected-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
     gap: 24px;
-    max-width: 1000px;
+    justify-content: center; /* center cards each row */
+    align-items: stretch;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -3297,30 +3299,16 @@ input:focus, textarea:focus, select:focus {
     grid-column: span 1;
 }
 
-/* Center the last two cards */
-@media (min-width: 769px) {
-    .protected-grid {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-    }
-    .protected-grid .protected-card:nth-child(1),
-    .protected-grid .protected-card:nth-child(2),
-    .protected-grid .protected-card:nth-child(3) {
-        grid-column: span 2;
-    }
-    .protected-grid .protected-card:nth-child(4) {
-        grid-column: 2 / span 2;
-    }
-    .protected-grid .protected-card:nth-child(5) {
-        grid-column: 4 / span 2;
-    }
-}
+/* Flex-based centering; no special positioning per item needed */
 
 .protected-card {
     background-color: var(--color-white);
     border-radius: 16px;
-    padding: 28px;
+    padding: 28px 28px 40px 28px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 280px; /* match privacy-rights card width */
 }
 
 .protected-card-icon {
@@ -3346,7 +3334,7 @@ input:focus, textarea:focus, select:focus {
 
 .protected-card-title {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 600;
     color: var(--color-black);
     margin-bottom: 10px;
@@ -3354,7 +3342,7 @@ input:focus, textarea:focus, select:focus {
 
 .protected-card-text {
     font-family: var(--font-body);
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
@@ -3387,7 +3375,7 @@ input:focus, textarea:focus, select:focus {
 
 .info-safe-subtitle {
     font-family: var(--font-body);
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 600;
     color: var(--color-black);
     margin-bottom: 12px;
@@ -3396,7 +3384,7 @@ input:focus, textarea:focus, select:focus {
 
 .info-safe-text {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.6;
     color: var(--color-text);
@@ -3411,7 +3399,7 @@ input:focus, textarea:focus, select:focus {
 
 .info-safe-list li {
     font-family: var(--font-body);
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.6;
     color: var(--color-text);
@@ -3448,7 +3436,7 @@ input:focus, textarea:focus, select:focus {
 
 .privacy-rights-subtitle {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
@@ -3467,18 +3455,23 @@ input:focus, textarea:focus, select:focus {
 }
 
 .privacy-rights-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    max-width: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center; /* center cards per row */
+    align-items: stretch;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .privacy-rights-card {
     background-color: var(--color-white);
     border-radius: 16px;
-    padding: 24px 20px;
+    padding: 28px 28px 40px 28px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    width: 280px; /* fixed card width for centering via flex */
 }
 
 .privacy-rights-card-icon {
@@ -3500,7 +3493,7 @@ input:focus, textarea:focus, select:focus {
 
 .privacy-rights-card-title {
     font-family: var(--font-body);
-    font-size: 17px;
+    font-size: 22px;
     font-weight: 600;
     color: var(--color-black);
     margin-bottom: 8px;
@@ -3508,11 +3501,14 @@ input:focus, textarea:focus, select:focus {
 
 .privacy-rights-card-text {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
     margin: 0;
+    max-width: 30ch;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Data Usage Section */
@@ -3535,7 +3531,7 @@ input:focus, textarea:focus, select:focus {
     grid-template-columns: repeat(2, 1fr);
     gap: 40px;
     max-width: 1000px;
-    margin: 0 auto 60px auto;
+    margin: 0 auto 0px auto;
 }
 
 .data-usage-column {
@@ -3546,7 +3542,7 @@ input:focus, textarea:focus, select:focus {
 
 .data-usage-column-title {
     font-family: var(--font-body);
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
     color: var(--color-black);
     margin-bottom: 24px;
@@ -3561,7 +3557,7 @@ input:focus, textarea:focus, select:focus {
 .data-usage-item {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
+    gap: 0;
     margin-bottom: 16px;
 }
 
@@ -3571,24 +3567,37 @@ input:focus, textarea:focus, select:focus {
 
 .data-usage-item span {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
 }
 
+/* Pull the text closer to the icon by ~30px */
+.data-usage-item > span + span { margin-left: -24px; }
+
+/* Ensure icon colors override generic span color */
+.data-usage-item .data-usage-check { color: #5A4FCF; }
+.data-usage-item .data-usage-x { color: #DC607A; }
+
 .data-usage-check {
-    font-size: 22px;
-    color: #28a745;
+    display: inline-block;
+    width: 40px;
+    font-size: 40px;
+    color: #5A4FCF;
     flex-shrink: 0;
-    margin-top: 1px;
+    line-height: 1;
+    margin-right: 4px;
 }
 
 .data-usage-x {
-    font-size: 22px;
-    color: #dc3545;
+    display: inline-block;
+    width: 40px;
+    font-size: 40px;
+    color: #DC607A;
     flex-shrink: 0;
-    margin-top: 1px;
+    line-height: 1;
+    margin-right: 4px;
 }
 
 .data-usage-subsections {
@@ -3606,7 +3615,7 @@ input:focus, textarea:focus, select:focus {
 
 .data-usage-subsection-title {
     font-family: var(--font-body);
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
     color: var(--color-black);
     margin-bottom: 12px;
@@ -3614,7 +3623,7 @@ input:focus, textarea:focus, select:focus {
 
 .data-usage-subsection-text {
     font-family: var(--font-body);
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.6;
     color: var(--color-text);
@@ -3745,18 +3754,13 @@ input:focus, textarea:focus, select:focus {
         font-size: 36px;
     }
 
-    .privacy-rights-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .privacy-rights-grid .privacy-rights-card:nth-child(4),
-    .privacy-rights-grid .privacy-rights-card:nth-child(5) {
-        grid-column: span 1;
-    }
+    .privacy-rights-card { width: 280px; }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
+    .protected-grid { gap: 16px; }
+    .protected-card { width: 240px; }
     .trust-page-hero { padding: 60px 0 0 0; }
 
     /* removed: trust hero title mobile override; uses global h1 */
@@ -3805,7 +3809,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .protected-card {
-        padding: 24px;
+        padding: 28px 24px 40px 24px;
     }
 
     .info-safe-section {
@@ -3837,13 +3841,11 @@ input:focus, textarea:focus, select:focus {
         margin-bottom: 32px;
     }
 
-    .privacy-rights-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
+    .privacy-rights-grid { gap: 16px; }
+    .privacy-rights-card { width: 240px; }
 
     .privacy-rights-card {
-        padding: 20px;
+        padding: 28px 24px 40px 24px;
     }
 
     .data-usage-section {

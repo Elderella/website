@@ -5,3 +5,6 @@ http://www.elderella.com/* https://www.elderella.com/:splat 301!
 
 # Handle index.html to root URL
 https://www.elderella.com/index.html https://www.elderella.com/ 301!
+
+# Redirect trust to security (handle path-level redirect)
+/trust /security 301!

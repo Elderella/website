@@ -1150,8 +1150,8 @@ export default {
       return Response.redirect(redirectUrl.toString(), 301);
     }
 
-    // Redirect legacy /trust to /security for canonicalization
-    if (url.pathname === '/trust' || url.pathname === '/trust/') {
+    // Redirect legacy trust to security for canonicalization (handle with/without leading slash)
+    if (url.pathname === '/trust' || url.pathname === '/trust/' || url.pathname === 'trust' || url.pathname === 'trust/') {
       const redirectUrl = new URL('/security', url.origin);
       redirectUrl.search = url.search;
       redirectUrl.hash = url.hash;
