@@ -1145,7 +1145,6 @@ export default {
       '/security': '/security.html',
       '/trust': '/security.html',
       '/story': '/story.html',
-      '/delete': '/delete.html',
       '/delete-account': '/delete-account.html'
     };
 
@@ -1179,6 +1178,14 @@ export default {
     // 301 Redirect legacy alpha pages to download page
     if (normalizedPath === '/alpha-ios' || normalizedPath === '/alpha-android') {
       const redirectUrl = new URL('/download', url.origin);
+      redirectUrl.search = url.search;
+      redirectUrl.hash = url.hash;
+      return Response.redirect(redirectUrl.toString(), 301);
+    }
+
+    // Redirect legacy /delete to canonical /delete-account
+    if (normalizedPath === '/delete') {
+      const redirectUrl = new URL('/delete-account', url.origin);
       redirectUrl.search = url.search;
       redirectUrl.hash = url.hash;
       return Response.redirect(redirectUrl.toString(), 301);
