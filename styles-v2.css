@@ -455,7 +455,7 @@ textarea {
 }
 
 .author {
-    font-size: 14px;
+    font-size: 16px;
     color: #342A99;
     font-weight: 600;
 }
@@ -743,7 +743,7 @@ textarea {
 }
 
 .newsletter-privacy-note {
-    font-size: 14px;
+    font-size: 16px;
     color: #595959;
     text-align: center;
     margin-top: 15px;
@@ -774,7 +774,7 @@ footer {
 footer a {
     color: #FFFFFF;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 footer a:hover {
@@ -783,7 +783,7 @@ footer a:hover {
 
 footer span {
     color: #FFFFFF;
-    font-size: 13px;
+    font-size: 16px;
 }
 
 /* Responsive - Tablet */
