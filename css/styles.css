@@ -94,7 +94,7 @@
 
 /* ===== Base Typography ===== */
 html {
-    font-size: 18px;
+    font-size: 20px;
 }
 
 body {
@@ -114,17 +114,25 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-family: var(--font-heading-sans);
     font-size: 60px;
-    line-height: 1.4;
+    line-height: 1.3;
     font-weight: 400;
     color: var(--color-black);
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 @media (max-width: 1024px) {
-  h1 { font-size: 52px; margin-bottom: 56px; }
+  h1 { font-size: 52px; line-height: 1.35; margin-bottom: 40px; }
 }
 @media (max-width: 768px) {
-  h1 { font-size: 48px; margin-bottom: 52px; }
+    /* Consolidated mobile subtitle sizing for all hero subtitles */
+    .explore-hero-subtitle,
+    .collects-hero-subtitle,
+    .download-hero-subtitle,
+    .trust-page-hero-subtitle,
+    .story-hero-subtitle,
+    .delete-hero-subtitle,
+    .introduce-hero-subtitle { font-size: 28px; }
+  h1 { font-size: 48px; line-height: 1.35; margin-bottom: 40px; }
 }
 h2 {
     font-family: var(--font-heading-sans);
@@ -133,13 +141,13 @@ h2 {
     font-weight: 400;
     color: var(--color-black);
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
 }
 @media (max-width: 1024px) {
-  h2 { font-size: 44px; margin-bottom: 56px; }
+  h2 { font-size: 44px; margin-bottom: 40px; }
 }
 @media (max-width: 768px) {
-  h2 { font-size: 40px; margin-bottom: 52px; }
+  h2 { font-size: 40px; margin-bottom: 40px; }
 }
 h3 {
     font-family: var(--font-body);
@@ -189,6 +197,23 @@ h5 {
 }
 @media (max-width: 768px) {
   h5 { font-size: 24px; margin-bottom: 32px; }
+}
+
+/* h6 global styles (set to 20px) */
+h6 {
+    font-family: var(--font-body);
+    font-size: 20px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: var(--color-black);
+    text-align: center;
+    margin-bottom: 28px;
+}
+@media (max-width: 1024px) {
+  h6 { font-size: 20px; margin-bottom: 28px; }
+}
+@media (max-width: 768px) {
+  h6 { font-size: 20px; margin-bottom: 28px; }
 }
 
 a {
@@ -292,9 +317,9 @@ html.nav-open, body.nav-open { overflow: hidden; }
 .app-promo__left { display: flex; align-items: center; gap: 12px; }
 .app-promo__icon { width: 44px; height: 44px; border-radius: 10px; display: block; }
 .app-promo__title { font-family: var(--font-heading-sans); font-size: 20px; color: var(--color-black); }
-.app-promo__subtitle { font-family: var(--font-body); font-size: 16px; color: var(--color-text); }
+.app-promo__subtitle { font-family: var(--font-body); font-size: 20px; color: var(--color-text); }
 .app-promo__right { display: flex; align-items: center; gap: 8px; }
-.app-promo__button { display: inline-block; background: #5A4FCF; color: #fff; padding: 10px 16px; border-radius: 9999px; text-decoration: none; font-family: var(--font-body); font-size: 16px; }
+.app-promo__button { display: inline-block; background: #5A4FCF; color: #fff; padding: 10px 16px; border-radius: 9999px; text-decoration: none; font-family: var(--font-body); font-size: 20px; }
 .app-promo__button:hover { opacity: .9; text-decoration: none; }
 .app-promo__close { background: none; border: 2px solid #bbb; color: #555; border-radius: 9999px; width: 32px; height: 32px; line-height: 28px; font-size: 20px; cursor: pointer; }
 
@@ -529,6 +554,7 @@ html.nav-open, body.nav-open { overflow: hidden; }
     margin-left: 2px;
 }
 
+
     /* (moved) Promo stack micro-breakpoint at ≤600px is at file end */
 
 /* ===== Hero Section ===== */
@@ -729,7 +755,7 @@ html.nav-open, body.nav-open { overflow: hidden; }
 /* Heading above stats cards */
 .stats-heading {
     /* rely on global h2 styles for font size */
-    margin-bottom: 40px;
+    margin-bottom: 24px;
 }
 
 .stats-container {
@@ -1178,13 +1204,7 @@ html.nav-open, body.nav-open { overflow: hidden; }
     text-align: center;
 }
 
-.see-more-headline {
-    font-family: var(--font-heading-sans);
-    font-size: 40px;
-    font-weight: 400;
-    color: var(--color-black);
-    margin-bottom: 24px;
-}
+.see-more-headline { /* uses global h2 styles */ }
 
 .btn-more {
     display: inline-block;
@@ -1277,9 +1297,9 @@ html.nav-open, body.nav-open { overflow: hidden; }
     width: auto;
 }
 
-/* Alt tooltip approach: explicit sibling element next to App Store badge */
-.keep-on-top-badges .badge-wrapper { position: relative; display: inline-block; }
-.keep-on-top-badges .badge-wrapper .soon-tooltip {
+/* Alt tooltip approach: explicit sibling element next to App Store badge (generalized) */
+.badge-wrapper { position: relative; display: inline-block; }
+.badge-wrapper .soon-tooltip {
     position: absolute;
     top: 50%;
     left: 100%;
@@ -1292,14 +1312,38 @@ html.nav-open, body.nav-open { overflow: hidden; }
     border-radius: 6px;
     white-space: nowrap;
     opacity: 0;
-    pointer-events: none;
+    pointer-events: auto; /* allow clicking links inside tooltip */
     transition: opacity .15s ease-in-out;
     z-index: 10;
 }
-.keep-on-top-badges .badge-wrapper:hover .soon-tooltip,
-.keep-on-top-badges .badge-wrapper:focus-within .soon-tooltip,
-.keep-on-top-badges .badge-wrapper.show .soon-tooltip { opacity: 1; }
-.keep-on-top-badges .badge-wrapper a[aria-disabled="true"] { cursor: not-allowed; }
+
+/* Position hero badge tooltip above the App Store badge */
+.hero-badges .badge-wrapper .soon-tooltip {
+    top: auto;
+    bottom: 120%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+/* Position download page tooltip above the App Store badge */
+.download-badges .badge-wrapper .soon-tooltip {
+    top: auto;
+    bottom: 120%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.badge-wrapper:hover .soon-tooltip,
+.badge-wrapper:focus-within .soon-tooltip,
+.badge-wrapper.show .soon-tooltip { opacity: 1; }
+.badge-wrapper a[aria-disabled="true"] { cursor: not-allowed; }
+
+/* Hide pseudo-element tooltip when using explicit tooltip wrapper */
+.badge-wrapper .soon-badge::after { content: none; }
+
+.badge-wrapper .soon-tooltip a {
+    color: #fff;
+    text-decoration: underline;
+}
 
 /* ===== Footer ===== */
 .site-footer {
@@ -1986,6 +2030,7 @@ input:focus, textarea:focus, select:focus {
     .remember-headline {
         font-size: 28px;
         max-width: none;
+        text-align: center; /* center h2s on mobile */
     }
 
     .partner-text,
@@ -2110,7 +2155,7 @@ input:focus, textarea:focus, select:focus {
 /* Explore Hero Section */
 .explore-hero {
     background-color: var(--color-white);
-    padding: 80px 0 60px 0;
+    padding: 80px 0 0 0;
     text-align: center;
 }
 
@@ -2130,6 +2175,7 @@ input:focus, textarea:focus, select:focus {
 
 .explore-hero-subtitle .highlight {
     color: var(--color-purple-main);
+    font-weight: 600;
 }
 
 .explore-hero-text {
@@ -2346,7 +2392,7 @@ input:focus, textarea:focus, select:focus {
 
 .trust-text {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
@@ -2377,9 +2423,7 @@ input:focus, textarea:focus, select:focus {
 @media (max-width: 1024px) {
     /* Removed section-specific tablet override for explore hero h1 */
 
-    .explore-hero-subtitle {
-        font-size: 24px;
-    }
+    .explore-hero-subtitle { font-size: 28px; }
 
     /* removed override: keep 20px on tablet */
 
@@ -2406,15 +2450,12 @@ input:focus, textarea:focus, select:focus {
 
 /* Mobile */
 @media (max-width: 768px) {
-    .explore-hero {
-        padding: 60px 0 40px 0;
-    }
+    .explore-hero { padding: 60px 0 0 0; }
 
     /* Removed section-specific mobile override for explore hero h1 */
 
-    .explore-hero-subtitle {
-        font-size: 20px;
-    }
+    .explore-hero-subtitle { font-size: 28px; }
+    .explore-hero-subtitle br { display: none; }
 
     /* removed override: keep 20px on mobile */
 
@@ -2511,7 +2552,7 @@ input:focus, textarea:focus, select:focus {
 /* Collects Hero Section - Compact */
 .collects-hero {
     background-color: var(--color-white);
-    padding: 60px 0 40px 0;
+    padding: 80px 0 0 0;
     text-align: center;
 }
 
@@ -2519,11 +2560,14 @@ input:focus, textarea:focus, select:focus {
 
 .collects-hero-subtitle {
     font-family: var(--font-body);
-    font-size: 32px;
-    font-weight: 400;
+    font-size: 28px;
+    font-weight: 600;
     line-height: 1.4;
     color: var(--color-text);
-    margin: 0;
+    margin-bottom: 24px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .collects-hero-subtitle strong {
@@ -2532,6 +2576,7 @@ input:focus, textarea:focus, select:focus {
 
 .collects-hero-subtitle .highlight {
     color: var(--color-purple-main);
+    font-weight: 600;
 }
 
 /* Product Tabs Section - Below Hero */
@@ -2891,7 +2936,7 @@ input:focus, textarea:focus, select:focus {
     /* removed: collects hero title tablet override; uses global h1 */
 
     .collects-hero-subtitle {
-        font-size: 32px;
+        font-size: 28px;
         line-height: 1.4;
     }
 
@@ -2914,9 +2959,7 @@ input:focus, textarea:focus, select:focus {
 /* Mobile */
 @media (max-width: 768px) {
     /* reverted extra top padding above overlays */
-    .collects-hero {
-        padding: 40px 0 30px 0;
-    }
+    .collects-hero { padding: 60px 0 0 0; }
 
     /* removed: collects hero title mobile override; uses global h1 */
 
@@ -3000,7 +3043,7 @@ input:focus, textarea:focus, select:focus {
 /* Download Hero Section */
 .download-hero {
     background-color: var(--color-white);
-    padding: 80px 0 60px 0;
+    padding: 80px 0 0 0;
     text-align: center;
 }
 
@@ -3008,12 +3051,18 @@ input:focus, textarea:focus, select:focus {
 
 .download-hero-subtitle {
     font-family: var(--font-body);
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 1.5;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.4;
     color: var(--color-text);
-    margin: 0;
+    margin-bottom: 24px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+/* extra spacing below the download hero subtitle when needed */
+.download-hero-subtitle.extra-gap { padding-bottom: 60px; }
 
 .download-hero-subtitle strong {
     font-weight: 600;
@@ -3022,7 +3071,7 @@ input:focus, textarea:focus, select:focus {
 
 .download-hero-subtitle .highlight {
     color: var(--color-purple-main);
-    font-weight: 400;
+    font-weight: 600;
 }
 
 /* Download Badges Section */
@@ -3064,15 +3113,11 @@ input:focus, textarea:focus, select:focus {
 
 /* Tablet */
 @media (max-width: 1024px) {
-    .download-hero {
-        padding: 80px 0 60px 0;
-    }
+    .download-hero { padding: 80px 0 0 0; }
 
     /* removed: download hero title tablet override; uses global h1 */
 
-    .download-hero-subtitle {
-        font-size: 22px;
-    }
+    .download-hero-subtitle { font-size: 28px; }
 
     .download-badges-section {
         padding: 80px 0;
@@ -3089,15 +3134,11 @@ input:focus, textarea:focus, select:focus {
 
 /* Mobile */
 @media (max-width: 768px) {
-    .download-hero {
-        padding: 60px 0 40px 0;
-    }
+    .download-hero { padding: 60px 0 0 0; }
 
     /* removed: download hero title mobile override; uses global h1 */
 
-    .download-hero-subtitle {
-        font-size: 18px;
-    }
+    .download-hero-subtitle { font-size: 28px; }
 
     .download-hero-subtitle br {
         display: none;
@@ -3122,7 +3163,7 @@ input:focus, textarea:focus, select:focus {
 /* Trust Page Hero */
 .trust-page-hero {
     background-color: var(--color-white);
-    padding: 80px 0 60px 0;
+    padding: 80px 0 0 0;
     text-align: center;
 }
 
@@ -3130,12 +3171,12 @@ input:focus, textarea:focus, select:focus {
 
 .trust-page-hero-subtitle {
     font-family: var(--font-body);
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 1.5;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.4;
     color: var(--color-text);
-    margin-bottom: 16px;
-    max-width: 700px;
+    margin-bottom: 24px;
+    max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -3692,7 +3733,7 @@ input:focus, textarea:focus, select:focus {
     /* removed: trust hero title tablet override; uses global h1 */
 
     .trust-page-hero-subtitle {
-        font-size: 20px;
+        font-size: 28px;
     }
 
     .promise-title,
@@ -3716,15 +3757,11 @@ input:focus, textarea:focus, select:focus {
 
 /* Mobile */
 @media (max-width: 768px) {
-    .trust-page-hero {
-        padding: 60px 0 40px 0;
-    }
+    .trust-page-hero { padding: 60px 0 0 0; }
 
     /* removed: trust hero title mobile override; uses global h1 */
 
-    .trust-page-hero-subtitle {
-        font-size: 18px;
-    }
+    .trust-page-hero-subtitle { font-size: 28px; }
 
     .trust-page-hero-text {
         font-size: 17px;
@@ -3866,7 +3903,7 @@ input:focus, textarea:focus, select:focus {
 /* Story Hero Section */
 .story-hero {
     background-color: var(--color-white);
-    padding: 80px 0 60px 0;
+    padding: 80px 0 0 0;
 }
 
 .story-hero-grid {
@@ -3880,14 +3917,7 @@ input:focus, textarea:focus, select:focus {
     max-width: 560px;
 }
 
-.story-hero-title {
-    font-family: var(--font-heading-sans);
-    font-size: 60px;
-    font-weight: 400;
-    color: var(--color-black);
-    margin-bottom: 60px;
-    line-height: 1.2;
-}
+.story-hero-title { /* uses global h1 styles */ }
 
 .story-hero-title em {
     font-style: italic;
@@ -3895,10 +3925,14 @@ input:focus, textarea:focus, select:focus {
 
 .story-hero-subtitle {
     font-family: var(--font-body);
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--color-black);
-    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-text);
+    margin-bottom: 24px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .story-hero-text {
@@ -4141,32 +4175,22 @@ input:focus, textarea:focus, select:focus {
 
 /* Story Page Responsive - Tablet */
 @media (max-width: 1024px) {
-    .story-hero {
-        padding: 60px 0 40px 0;
-    }
+    .story-hero { padding: 60px 0 0 0; }
 
     .story-hero-grid {
         gap: 40px;
     }
 
-    .story-hero-title {
-        font-size: 52px;
-    }
+    /* story-hero-title inherits responsive size from global h1 */
 
-    .story-hero-subtitle {
-        font-size: 22px;
-    }
+    .story-hero-subtitle { font-size: 28px; }
 
-    .story-form-title {
-        font-size: 36px;
-    }
+    .story-form-title { font-size: 36px; }
 }
 
 /* Story Page Responsive - Mobile */
 @media (max-width: 768px) {
-    .story-hero {
-        padding: 40px 0 30px 0;
-    }
+    .story-hero { padding: 40px 0 0 0; }
 
     .story-hero-grid {
         grid-template-columns: 1fr;
@@ -4181,14 +4205,9 @@ input:focus, textarea:focus, select:focus {
         order: 2;
     }
 
-    .story-hero-title {
-        font-size: 48px;
-    }
+    /* story-hero-title inherits responsive size from global h1 */
 
-    .story-hero-subtitle {
-        font-size: 20px;
-        margin-bottom: 20px;
-    }
+    .story-hero-subtitle { font-size: 28px; margin-bottom: 24px; }
 
     .story-hero-text {
         font-size: 16px;
@@ -4234,27 +4253,22 @@ input:focus, textarea:focus, select:focus {
 /* Delete Hero Section */
 .delete-hero {
     background-color: var(--color-white);
-    padding: 80px 0 60px 0;
+    padding: 80px 0 0 0;
     text-align: center;
 }
 
-.delete-hero-title {
-    font-family: var(--font-heading-sans);
-    font-size: 60px;
-    font-weight: 400;
-    line-height: 1.2;
-    color: var(--color-black);
-    margin-bottom: 60px;
-}
+.delete-hero-title { /* uses global h1 styles */ }
 
 .delete-hero-subtitle {
     font-family: var(--font-body);
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 1.5;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 1.4;
     color: var(--color-text);
-    max-width: 600px;
-    margin: 0 auto;
+    margin-bottom: 24px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Before You Proceed Section */
@@ -4603,9 +4617,7 @@ input:focus, textarea:focus, select:focus {
 
 /* Tablet */
 @media (max-width: 1024px) {
-    .delete-hero-title {
-        font-size: 40px;
-    }
+    /* delete-hero-title inherits responsive size from global h1 */
 
     .delete-before-title {
         font-size: 28px;
@@ -4618,13 +4630,8 @@ input:focus, textarea:focus, select:focus {
 
 /* Mobile */
 @media (max-width: 768px) {
-    .delete-hero {
-        padding: 60px 0 40px 0;
-    }
-
-    .delete-hero-title {
-        font-size: 48px;
-    }
+    .delete-hero { padding: 60px 0 0 0; }
+    /* delete-hero-title inherits responsive size from global h1 */
 
     .delete-hero-subtitle {
         font-size: 18px;
@@ -4705,18 +4712,10 @@ input:focus, textarea:focus, select:focus {
 /* Terms Hero Section */
 .terms-hero {
     background-color: var(--color-white);
-    padding: 80px 0 40px 0;
-    text-align: left;
+    padding: 80px 0 0 0;
 }
 
-.terms-hero-title {
-    font-family: var(--font-heading-sans);
-    font-size: 60px;
-    font-weight: 400;
-    line-height: 1.2;
-    color: var(--color-black);
-    margin-bottom: 60px;
-}
+.terms-hero-title { /* uses global h1 styles */ }
 
 .terms-version-badge {
     display: inline-flex;
@@ -4994,13 +4993,9 @@ input:focus, textarea:focus, select:focus {
 
 /* Mobile */
 @media (max-width: 768px) {
-    .terms-hero {
-        padding: 60px 0 30px 0;
-    }
+    .terms-hero { padding: 60px 0 0 0; }
 
-    .terms-hero-title {
-        font-size: 48px;
-    }
+    /* terms-hero-title inherits responsive size from global h1 */
 
     .terms-version-badge {
         font-size: 0.85rem;
@@ -5076,18 +5071,11 @@ input:focus, textarea:focus, select:focus {
 /* Introduce Hero Section */
 .introduce-hero {
     background-color: var(--color-white);
-    padding: 80px 0 60px 0;
+    padding: 80px 0 0 0;
     text-align: center;
 }
 
-.introduce-hero-title {
-    font-family: var(--font-heading-sans);
-    font-size: 60px;
-    font-weight: 400;
-    line-height: 1.2;
-    color: var(--color-black);
-    margin-bottom: 60px;
-}
+.introduce-hero-title { /* uses global h1 styles */ }
 
 .introduce-hero-text {
     font-family: var(--font-body);
@@ -5112,14 +5100,12 @@ input:focus, textarea:focus, select:focus {
     margin-right: auto;
 }
 
-.introduce-hero-text:last-child {
-    margin-bottom: 0;
-}
+.introduce-hero-text:last-child { margin-bottom: 80px; }
 
 /* Elder Note Section */
 .elder-note-section {
-    background-color: var(--color-gray-light);
-    padding: 80px 0;
+    background-color: #EFEEFC;
+    padding: 80px 0 80px 0; /* 80px bottom gap before next section */
 }
 
 /* Removed page-wide black link override on Introduce page to match brand link color */
@@ -5152,7 +5138,7 @@ input:focus, textarea:focus, select:focus {
 
 .elder-note-text {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
     color: var(--color-text);
     margin-bottom: 20px;
@@ -5165,7 +5151,7 @@ input:focus, textarea:focus, select:focus {
 
 .elder-note-list li {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
     color: var(--color-text);
     margin-bottom: 12px;
@@ -5177,7 +5163,7 @@ input:focus, textarea:focus, select:focus {
 
 .elder-note-privacy {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     line-height: 1.5;
     color: var(--color-purple-dark);
@@ -5186,14 +5172,14 @@ input:focus, textarea:focus, select:focus {
 
 .elder-note-contact {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
     color: var(--color-text);
     margin: 0;
 }
 
 .elder-note-contact a {
-    color: var(--color-purple-dark);
+    color: var(--color-black);
     text-decoration: underline;
 }
 
@@ -5208,6 +5194,17 @@ input:focus, textarea:focus, select:focus {
     overflow: hidden;
 }
 
+/* Constrain image width on Introduce page to 900px for review */
+.page-introduce .elder-hands-section {
+    max-width: 1000px;
+    margin: 0 auto 40px; /* 0px top margin; 40px bottom spacing on desktop */
+}
+
+.page-introduce .elder-hands-image {
+    width: 100%;
+    height: auto;
+}
+
 .elder-hands-image {
     width: 100%;
     height: auto;
@@ -5216,19 +5213,22 @@ input:focus, textarea:focus, select:focus {
 
 .elder-hands-overlay {
     position: absolute;
-    right: 10%;
+    right: 40px; /* 40px gap from photo's right edge */
     top: 50%;
     transform: translateY(-50%);
-    max-width: 400px;
+    width: clamp(260px, 25%, 360px); /* keep readable min/max while scaling */
+    max-width: none;
+    max-height: calc(100% - 80px); /* keep at least 40px gap top/bottom inside photo */
+    overflow: auto;
     background-color: #FFFFFF; /* solid white to match explore cards */
-    padding: 32px;
+    padding: 40px; /* interior padding */
     border-radius: 16px; /* match explore card radius */
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* match explore card shadow */
 }
 
 .elder-hands-text {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
     color: var(--color-text);
     margin: 0 0 12px 0;
@@ -5241,8 +5241,12 @@ input:focus, textarea:focus, select:focus {
 /* Accordion Component */
 .accordion-section {
     background-color: var(--color-white);
-    padding: 80px 0;
+    padding: 0;
+    margin-bottom: 60px; /* space below accordion section */
 }
+
+/* Introduce: standard top spacing on accordion */
+.page-introduce .accordion-section { padding-top: 0; }
 
 .accordion-title {
     font-family: var(--font-heading);
@@ -5270,7 +5274,7 @@ input:focus, textarea:focus, select:focus {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 24px 0;
+    padding: 28px 0;
     cursor: pointer;
     background: none;
     border: none;
@@ -5278,16 +5282,36 @@ input:focus, textarea:focus, select:focus {
     text-align: left;
 }
 
-.accordion-header:hover {
-    background-color: transparent;
+.accordion-header:hover,
+.accordion-header:focus-visible {
+    background: transparent;
+    outline: none;
+}
+
+.accordion-header:hover .accordion-header-text,
+.accordion-header:focus-visible .accordion-header-text {
+    color: var(--color-purple-main);
+    text-decoration: none;
 }
 
 .accordion-header-text {
     font-family: var(--font-heading);
     font-size: 24px;
     font-weight: 500;
-    color: var(--color-purple-dark);
+    color: var(--color-black);
 }
+
+/* Numbered headings for accordion items (1–5) */
+.accordion-container .accordion-item .accordion-header-text::before {
+    content: "";
+    margin-right: 8px;
+    color: var(--color-text);
+}
+.accordion-container .accordion-item:nth-of-type(1) .accordion-header-text::before { content: "1. "; }
+.accordion-container .accordion-item:nth-of-type(2) .accordion-header-text::before { content: "2. "; }
+.accordion-container .accordion-item:nth-of-type(3) .accordion-header-text::before { content: "3. "; }
+.accordion-container .accordion-item:nth-of-type(4) .accordion-header-text::before { content: "4. "; }
+.accordion-container .accordion-item:nth-of-type(5) .accordion-header-text::before { content: "5. "; }
 
 .accordion-icon {
     width: 24px;
@@ -5312,14 +5336,20 @@ input:focus, textarea:focus, select:focus {
     transition: max-height 0.3s ease, padding 0.3s ease;
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .accordion-content {
+        transition: none;
+    }
+}
+
 .accordion-item.is-open .accordion-content {
     max-height: 500px;
-    padding-bottom: 24px;
+    padding-bottom: 20px;
 }
 
 .accordion-content-inner {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
     color: var(--color-text);
 }
@@ -5333,12 +5363,20 @@ input:focus, textarea:focus, select:focus {
 }
 
 .accordion-context {
-    font-style: italic;
+    /* Gray lead-in/subhead sentence (not italic) */
+    font-style: normal;
     color: var(--color-text);
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .accordion-quote {
+    /* Large, indented italic quote block */
     color: var(--color-text);
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.6;
+    margin-left: 20px;
 }
 
 .accordion-explanation {
@@ -5410,7 +5448,7 @@ input:focus, textarea:focus, select:focus {
 /* Building Comfort Section */
 .comfort-section {
     background-color: var(--color-white);
-    padding: 80px 0;
+    padding: 80px 0 40px 0; /* 40px bottom spacing before next section */
 }
 
 .comfort-title {
@@ -5431,6 +5469,9 @@ input:focus, textarea:focus, select:focus {
     padding: 0;
     margin-bottom: 32px;
 }
+
+/* Add space above the first comfort item to match inter-item spacing */
+.comfort-list > .comfort-item:first-of-type { margin-top: 32px; }
 
 /* Align comfort subheads with Explore step headline sizing/alignment */
 .comfort-section h3 {
@@ -5453,7 +5494,7 @@ input:focus, textarea:focus, select:focus {
 
 .comfort-item-text {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
     color: var(--color-text);
     margin: 0;
@@ -5513,28 +5554,27 @@ input:focus, textarea:focus, select:focus {
     }
 
     .elder-hands-overlay {
-        right: 5%;
-        max-width: 350px;
-        padding: 24px;
+        right: 40px; /* 40px outer gap on tablet */
+        width: clamp(260px, 25%, 360px);
+        max-width: none;
+        max-height: calc(100% - 80px);
+        overflow: auto;
+        padding: 40px; /* interior padding */
     }
+    /* Introduce: standardize bottom spacing under photo on tablet */
+    .page-introduce .elder-hands-section { margin: 0 auto 60px; }
 }
 
 /* Mobile */
 @media (max-width: 768px) {
-    .introduce-hero {
-        padding: 60px 0 40px 0;
-    }
+    .introduce-hero { padding: 60px 0 0 0; }
 
-    .introduce-hero-title {
-        font-size: 48px;
-    }
+    /* introduce-hero-title inherits responsive size from global h1 */
 
-    .introduce-hero-subtitle {
-        font-size: 20px;
-    }
+    .introduce-hero-subtitle { font-size: 28px; }
 
     .introduce-hero-text {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .elder-note-section {
@@ -5556,25 +5596,11 @@ input:focus, textarea:focus, select:focus {
         font-size: 16px;
     }
 
-    .elder-hands-section {
-        position: relative;
-    }
+    .elder-hands-section { position: relative; }
 
-    .elder-hands-overlay {
-        position: relative;
-        right: auto;
-        top: auto;
-        transform: none;
-        max-width: 100%;
-        margin: 0;
-        border-radius: 0;
-        padding: 32px 20px;
-        background-color: var(--color-gray-light);
-    }
+    .elder-hands-overlay { display: none !important; }
 
-    .accordion-section {
-        padding: 60px 0;
-    }
+    .accordion-section { padding: 0; }
 
     .accordion-title,
     .ways-share-title,
@@ -5585,28 +5611,35 @@ input:focus, textarea:focus, select:focus {
     }
 
     .accordion-header {
-        padding: 20px 0;
+        padding: 24px 0;
     }
 
     .accordion-header-text {
         font-size: 22px;
     }
 
-    .accordion-content-inner {
-        font-size: 16px;
-    }
+    .accordion-content-inner { font-size: 20px; }
+    .accordion-context { font-size: 20px; }
+    .accordion-quote { font-size: 20px; margin-left: 12px; }
 
     .ways-share-section {
         padding: 60px 0;
     }
 
     .ways-share-list li {
-        font-size: 18px;
+        font-size: 20px;
+        margin-bottom: 12px;
     }
 
-    .comfort-section {
-        padding: 60px 0;
+    .ways-share-list li::before {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
     }
+
+    .comfort-section { padding: 60px 0 40px 0; }
+    /* Introduce: standardize bottom spacing under photo on mobile */
+    .page-introduce .elder-hands-section { margin: 0 auto 40px; }
 
     .comfort-list {
         padding: 0 10px;
@@ -5616,12 +5649,15 @@ input:focus, textarea:focus, select:focus {
         margin-bottom: 28px;
     }
 
+    /* Match top spacing above first item on mobile */
+    .comfort-list > .comfort-item:first-of-type { margin-top: 28px; }
+
     .comfort-item-title {
         font-size: 22px;
     }
 
     .comfort-item-text {
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .trust-info-section {

@@ -27,6 +27,11 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Preload hero image for faster LCP -->
+    <link rel="preload" as="image"
+          href="images/elder-hands.jpg"
+          imagesrcset="images/elder-hands.jpg 1x, images/elder-hands@2x.jpg 2x"
+          imagesizes="(max-width: 1000px) 100vw, 1000px">
 </head>
 <body class="page-introduce">
     <!-- Site Header Component (no promo banner on this page) -->
@@ -36,9 +41,9 @@
     <section class="introduce-hero" id="main-content">
         <div class="container">
             <h1 class="introduce-hero-title">Introducing Elderella</h1>
-            <p class="introduce-hero-subtitle">Introducing something new to your caregiving routine can feel tricky, especially when it involves technology and potentially sensitive information.</p>
+            <p class="introduce-hero-subtitle">Introducing a new caregiving resource might be challenging.</p>
             <p class="introduce-hero-text">The tips below will help you explain what Elderella is, why you're using it, and how it supports everyone involved.</p>
-            <p class="introduce-hero-text">Some elders may want to use Elderella with you, others may prefer you just keep them informed. Both approaches are fine as long as the person you're caring for understands how their information will be used and feels comfortable giving their consent.</p>
+            
         </div>
     </section>
 
@@ -54,10 +59,39 @@
                     <li>What gets included and what doesn't</li>
                     <li>Who can see the information</li>
                     <li>Whether you want to use Elderella yourself or have the person caring for you manage it</li>
-                    <li>You can change your mind anytime</li>
                 </ul>
-                <p class="elder-note-privacy">Your information stays private and secure. It's only shared with the people you, and the person caring for you, agree on.</p>
+                <p class="elder-note-privacy">Your information stays private and secure. It's only shared with the people you, and the person caring for you, agree on. And you can change your mind anytime.</p>
                 <p class="elder-note-contact">If you have questions or concerns, talk them through together, or reach out to us at <a href="mailto:hello@elderella.com">hello@elderella.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Building Comfort and Consent Section -->
+    <section class="comfort-section">
+        <div class="container">
+            <h2>Building comfort and consent</h2>
+            <div class="comfort-list">
+                <p class="comfort-item-text">Some elders may want to use Elderella with you, others may prefer you just keep them informed. Both approaches are fine as long as the person you're caring for understands how their information will be used and feels comfortable giving their consent.</p>
+                <div class="comfort-item">
+                    <h3>Be transparent.</h3>
+                    <p class="comfort-item-text">Explain what you'll add (events, tasks, medications, notes) and why. If they'd like to use Elderella too, show what they'll be able to see and do.</p>
+                </div>
+                <div class="comfort-item">
+                    <h3>Start small.</h3>
+                    <p class="comfort-item-text">Begin with one or two things that clearly help them, like tracking medications or doctor visits, or checking upcoming appointments together.</p>
+                </div>
+                <div class="comfort-item">
+                    <h3>Let them set boundaries.</h3>
+                    <p class="comfort-item-text">Ask what they're comfortable including and who should be able to see it. Consent is ongoing, not one-time, whether you're using Elderella for them or alongside them.</p>
+                </div>
+                <div class="comfort-item">
+                    <h3>Show value quickly.</h3>
+                    <p class="comfort-item-text">When Elderella helps avoid confusion or a missed appointment, point it out. "See how that helped?" This builds trust in Elderella and in the decision to use it.</p>
+                </div>
+                <div class="comfort-item">
+                    <h3>Reassure they have control.</h3>
+                    <p class="comfort-item-text">Elderella supports their independence by keeping everyone coordinated and informed. Remind them they can always ask questions, change settings, or adjust what's included.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -65,11 +99,11 @@
     <!-- Elder Hands Image Section -->
     <section class="elder-hands-section">
         <img
-            src="images/elder-hands.png"
-            srcset="images/elder-hands.png 1x, images/elder-hands@2x.png 2x"
+            src="images/elder-hands.jpg"
+            srcset="images/elder-hands.jpg 1x, images/elder-hands@2x.jpg 2x"
             alt="Elder hands being held by caregiver"
             class="elder-hands-image"
-            loading="lazy"
+            fetchpriority="high"
             decoding="async"
         >
         <div class="elder-hands-overlay">
@@ -107,7 +141,7 @@
                 <!-- Accordion Item 2 -->
                 <div class="accordion-item">
                     <button class="accordion-header" aria-expanded="false" aria-controls="accordion-content-2" id="accordion-header-2">
-                        <span class="accordion-header-text">"It will keep us connected."</span>
+                        <span class="accordion-header-text">"It will keep us connected"</span>
                         <span class="accordion-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="6 9 12 15 18 9"></polyline>
@@ -116,9 +150,11 @@
                     </button>
                     <div class="accordion-content" id="accordion-content-2" role="region" aria-labelledby="accordion-header-2">
                         <div class="accordion-content-inner">
-                            <p class="accordion-context">If other family members or caregivers are involved.</p>
-                            <p class="accordion-quote">"Elderella makes it easy for everyone helping out to stay on the same page. Instead of repeating yourself or wondering if someone forgot something, we can all see what's happening and coordinate better."</p>
-                            <p class="accordion-explanation">This frames Elderella as a communication tool that reduces confusion and keeps everyone informed.</p>
+                            <p class="accordion-context">If caregiving feels like a shared effort among family members.</p>
+                            <p class="accordion-quote">"Everyone’s been helping in different ways, and it can be hard to keep track. Elderella gives us one place to see what’s happening so we can stay connected and avoid missing things."</p>
+                            <p class="accordion-explanation">This emphasizes teamwork and communication rather than surveillance or record-keeping.</p>
+                            <p class="accordion-context">Optional add (for elder involvement):</p>
+                            <p class="accordion-quote">"You’ll be able to see what’s coming up and what we’ve agreed on, and you can tell us if anything needs to change."</p>
                         </div>
                     </div>
                 </div>
@@ -135,9 +171,11 @@
                     </button>
                     <div class="accordion-content" id="accordion-content-3" role="region" aria-labelledby="accordion-header-3">
                         <div class="accordion-content-inner">
-                            <p class="accordion-context">If they're worried about technology being complicated.</p>
-                            <p class="accordion-quote">"You don't need to do anything with it if you don't want to. I'll handle everything. But if you're ever curious, I can show you how it works — it's designed to be simple and easy to understand."</p>
-                            <p class="accordion-explanation">This removes pressure and lets them engage at their own pace.</p>
+                            <p class="accordion-context">If the person you’re caring for gets easily overwhelmed by details or dislikes “apps.”</p>
+                            <p class="accordion-quote">"It’s really simple — Elderella helps keep our notes, appointments, and tasks in one spot. It’ll make organizing a bit easier and give me more time to spend with you."</p>
+                            <p class="accordion-explanation">Focusing on simplicity and time together helps position Elderella as something that brings calm, not complication.</p>
+                            <p class="accordion-context">If they don’t want to use tech at all, you can reassure them:</p>
+                            <p class="accordion-quote">"You don’t have to learn it if you don’t want to. I’ll manage Elderella and keep you updated."</p>
                         </div>
                     </div>
                 </div>
@@ -154,9 +192,11 @@
                     </button>
                     <div class="accordion-content" id="accordion-content-4" role="region" aria-labelledby="accordion-header-4">
                         <div class="accordion-content-inner">
-                            <p class="accordion-context">If they're concerned about their information being shared.</p>
-                            <p class="accordion-quote">"Only the people we choose can see your information — no one else. It's protected the same way medical records are, and nothing is ever sold or shared without permission."</p>
-                            <p class="accordion-explanation">This directly addresses privacy concerns with clear, reassuring language.</p>
+                            <p class="accordion-context">If the person you’re caring for worries about data, privacy, or technology.</p>
+                            <p class="accordion-quote">"Elderella is private and secure. Only the people you choose — like me, or other family members — can see what’s added. Everything is designed to meet strict privacy laws in both Canada and the United States, similar to how your doctor’s records are protected."</p>
+                            <p class="accordion-explanation">Offer to show them our <a href="privacy.html">Privacy Policy</a> and <a href="trust.html">Elderella Trust &amp; security</a> page. Transparency builds trust.</p>
+                            <p class="accordion-context">You might also say:</p>
+                            <p class="accordion-quote">"We can decide together what to include and what to leave out. If you ever change your mind about something, we can update or remove it."</p>
                         </div>
                     </div>
                 </div>
@@ -173,9 +213,11 @@
                     </button>
                     <div class="accordion-content" id="accordion-content-5" role="region" aria-labelledby="accordion-header-5">
                         <div class="accordion-content-inner">
-                            <p class="accordion-context">If they seem open but uncertain.</p>
-                            <p class="accordion-quote">"Why don't we look at it together? I can show you what I've added and you can tell me if there's anything you'd like to change or add yourself."</p>
-                            <p class="accordion-explanation">This creates a collaborative moment and gives them agency in how the tool is used.</p>
+                            <p class="accordion-context">If the person you’re caring for is curious or likes to be involved.</p>
+                            <p class="accordion-quote">"Want to take a look with me? We can add your next appointment together and see how it works."</p>
+                            <p class="accordion-explanation">Doing a simple task side-by-side, like adding a task or note, makes the experience feel approachable and shared.</p>
+                            <p class="accordion-context">If they’re able and interested in using Elderella themselves:</p>
+                            <p class="accordion-quote">"If you like it, we can set it up so you can check things or add notes too, and we’ll make sure it feels comfortable for you."</p>
                         </div>
                     </div>
                 </div>
@@ -196,40 +238,13 @@
         </div>
     </section>
 
-    <!-- Building Comfort and Consent Section -->
-    <section class="comfort-section">
-        <div class="container">
-            <h2>Building comfort and consent</h2>
-            <div class="comfort-list">
-                <div class="comfort-item">
-                    <h3>Be transparent.</h3>
-                    <p class="comfort-item-text">Explain what you'll add (events, tasks, medications, notes) and why. If they'd like using Elderella too, show what they'll be able to see and do.</p>
-                </div>
-                <div class="comfort-item">
-                    <h3>Start small.</h3>
-                    <p class="comfort-item-text">Begin with one or two things that clearly help them, like tracking medications or doctor visits, or checking upcoming appointments together.</p>
-                </div>
-                <div class="comfort-item">
-                    <h3>Let them set boundaries.</h3>
-                    <p class="comfort-item-text">Ask what they're comfortable including and who can see it. Consent is ongoing, not one-time, whether you're using Elderella for them or alongside them.</p>
-                </div>
-                <div class="comfort-item">
-                    <h3>Show value quickly.</h3>
-                    <p class="comfort-item-text">When Elderella helps avoid confusion or a missed appointment, point it out. "See how that helped?" This builds trust in Elderella and in the decision to use it.</p>
-                </div>
-                <div class="comfort-item">
-                    <h3>Reassure they have control.</h3>
-                    <p class="comfort-item-text">Elderella supports their independence by keeping everyone coordinated and informed. Remind them they can always ask questions, change settings, or adjust what's included.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    
 
     <!-- Ready for Help CTA Section -->
     <section class="ready-cta-section">
         <div class="container">
             <h2 class="ready-cta-title">Ready for help?</h2>
-            <a href="/download" class="btn-cta-yellow">Start for free</a>
+            <a href="download.html" class="btn-cta-yellow">Start for free</a>
         </div>
     </section>
 
@@ -238,7 +253,7 @@
         <div class="container">
             <h2>Trust & security</h2>
             <p class="trust-text">Caring for an elder involves some of the most personal details in a family's life. See how Elderella keeps your data private, secure, and within your control.</p>
-            <a href="/trust" class="btn-trust">Trust & Security</a>
+            <a href="trust.html" class="btn-trust">Trust & Security</a>
         </div>
     </section>
 
@@ -251,29 +266,169 @@
 
     <!-- Accordion JavaScript -->
     <script>
-        document.querySelectorAll('.accordion-header').forEach(header => {
+        // Keep elder-hands overlay hidden if top gap becomes too small
+        function updateOverlayVisibility() {
+            const image = document.querySelector('.elder-hands-image');
+            const overlay = document.querySelector('.elder-hands-overlay');
+            if (!image || !overlay) return;
+
+            // If overlay is hidden via CSS (e.g., on mobile), skip visibility checks
+            const style = window.getComputedStyle(overlay);
+            if (style && style.display === 'none') return;
+
+            // Measure the gap between the overlay's top edge and the photo image's top edge (inside of the photo)
+            const imageRect = image.getBoundingClientRect();
+            const overlayRect = overlay.getBoundingClientRect();
+            const topGap = overlayRect.top - imageRect.top;
+            const bottomGap = (imageRect.top + imageRect.height) - (overlayRect.top + overlayRect.height);
+
+            // Hide overlay only if it actually overlaps (gap < 0)
+            const overlaps = topGap < 0 || bottomGap < 0;
+            overlay.hidden = overlaps;
+        }
+
+        // Update overlay visibility on load, resize, and orientation changes
+        window.addEventListener('load', updateOverlayVisibility);
+        window.addEventListener('resize', updateOverlayVisibility);
+        window.addEventListener('orientationchange', updateOverlayVisibility);
+
+        // Helper to set max-height for smooth open/close transitions
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        function setAccordionMaxHeight(item, open) {
+            const content = item.querySelector('.accordion-content');
+            if (!content) return;
+            if (open) {
+                if (prefersReducedMotion) {
+                    content.style.maxHeight = 'none';
+                } else {
+                    // Temporarily set to 'auto' to measure full height, then set explicit px for transition
+                    content.style.maxHeight = 'none';
+                    const full = content.scrollHeight;
+                    // Add a little extra room to ensure bottom padding is visible
+                    const EXTRA = 20; // matches padding-bottom when open
+                    content.style.maxHeight = (full + EXTRA) + 'px';
+                }
+            } else {
+                content.style.maxHeight = '0px';
+            }
+        }
+
+        function toggleAccordion(item, open) {
+            const header = item.querySelector('.accordion-header');
+            const content = item.querySelector('.accordion-content');
+            item.classList.toggle('is-open', open);
+            if (header) header.setAttribute('aria-expanded', open ? 'true' : 'false');
+            if (content) content.hidden = !open;
+            setAccordionMaxHeight(item, open);
+        }
+
+        // Initialize click + keyboard handlers
+        const headers = Array.from(document.querySelectorAll('.accordion-header'));
+        headers.forEach((header, idx) => {
             header.addEventListener('click', () => {
                 const item = header.parentElement;
                 const isOpen = item.classList.contains('is-open');
-                const expanded = header.getAttribute('aria-expanded') === 'true';
 
-                // Single-open behavior: when opening this item, close others
+                // Single-open: close others when opening this one
                 if (!isOpen) {
                     const container = item.parentElement;
                     container.querySelectorAll('.accordion-item.is-open').forEach(openItem => {
-                        if (openItem !== item) {
-                            openItem.classList.remove('is-open');
-                            const openHeader = openItem.querySelector('.accordion-header');
-                            if (openHeader) openHeader.setAttribute('aria-expanded', 'false');
-                        }
+                        if (openItem !== item) toggleAccordion(openItem, false);
                     });
                 }
 
-                // Toggle current item
-                item.classList.toggle('is-open', !isOpen);
-                header.setAttribute('aria-expanded', (!expanded).toString());
+                toggleAccordion(item, !isOpen);
+            });
+
+            header.addEventListener('keydown', (e) => {
+                const keys = ['ArrowDown','ArrowUp','Home','End','Enter',' '];
+                if (!keys.includes(e.key)) return;
+                e.preventDefault();
+
+                if (e.key === 'Enter' || e.key === ' ') {
+                    header.click();
+                    return;
+                }
+
+                let nextIndex = idx;
+                if (e.key === 'ArrowDown') nextIndex = (idx + 1) % headers.length;
+                if (e.key === 'ArrowUp') nextIndex = (idx - 1 + headers.length) % headers.length;
+                if (e.key === 'Home') nextIndex = 0;
+                if (e.key === 'End') nextIndex = headers.length - 1;
+                headers[nextIndex].focus();
             });
         });
+
+        // On load: ensure any pre-open item has correct height
+        window.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                const open = item.classList.contains('is-open');
+                const content = item.querySelector('.accordion-content');
+                if (content) content.hidden = !open;
+                if (open) setAccordionMaxHeight(item, true);
+            });
+            updateOverlayVisibility();
+        });
+
+        // Recalculate height on resize for open item(s)
+        window.addEventListener('resize', () => {
+            document.querySelectorAll('.accordion-item.is-open').forEach(item => setAccordionMaxHeight(item, true));
+        });
+    </script>
+
+    <!-- Structured Data: HowTo + ItemList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "HowTo",
+          "name": "Building comfort and consent",
+          "description": "How to introduce Elderella and get consent.",
+          "url": "https://www.elderella.com/introduce",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "name": "Be transparent",
+              "text": "Explain what you'll add (events, tasks, medications, notes) and why. If they'd like to use Elderella too, show what they'll be able to see and do."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Start small",
+              "text": "Begin with one or two things that clearly help them, like tracking medications or doctor visits, or checking upcoming appointments together."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Let them set boundaries",
+              "text": "Ask what they're comfortable including and who should be able to see it. Consent is ongoing, not one-time, whether you're using Elderella for them or alongside them."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Show value quickly",
+              "text": "When Elderella helps avoid confusion or a missed appointment, point it out. This builds trust in Elderella and in the decision to use it."
+            },
+            {
+              "@type": "HowToStep",
+              "name": "Reassure they have control",
+              "text": "Elderella supports their independence by keeping everyone coordinated and informed. Remind them they can always ask questions, change settings, or adjust what's included."
+            }
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "name": "Ways to share Elderella",
+          "itemListOrder": "http://schema.org/ItemListOrderAscending",
+          "numberOfItems": 4,
+          "url": "https://www.elderella.com/introduce",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Show how information is organized in Elderella" },
+            { "@type": "ListItem", "position": 2, "name": "Ask what they'd like to see or help with" },
+            { "@type": "ListItem", "position": 3, "name": "Decide together how often you'll look at Elderella side by side" },
+            { "@type": "ListItem", "position": 4, "name": "Reassure them that they can change their level of involvement at any time" }
+          ]
+        }
+      ]
+    }
     </script>
 
 </body>
