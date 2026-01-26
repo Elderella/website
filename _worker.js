@@ -1136,6 +1136,7 @@ export default {
       '/privacy': '/privacy.html',
       '/security': '/security.html',
       '/terms': '/terms.html',
+      '/pricing': '/pricing.html',
       '/introduce': '/introduce.html',
       '/alpha-ios': '/alpha-ios.html',
       '/delete-account': '/delete-account.html',

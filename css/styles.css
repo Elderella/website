@@ -114,14 +114,17 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     font-family: var(--font-heading-sans);
     font-size: 60px;
-    line-height: 1.3;
+    line-height: 1.1;
     font-weight: 400;
     color: var(--color-black);
     text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
     margin-bottom: 40px;
 }
 @media (max-width: 1024px) {
-  h1 { font-size: 52px; line-height: 1.35; margin-bottom: 40px; }
+  h1 { font-size: 52px; line-height: 1.2; margin-bottom: 40px; }
 }
 @media (max-width: 768px) {
     /* Consolidated mobile subtitle sizing for all hero subtitles */
@@ -132,7 +135,7 @@ h1 {
     .story-hero-subtitle,
     .delete-hero-subtitle,
     .introduce-hero-subtitle { font-size: 28px; }
-  h1 { font-size: 48px; line-height: 1.35; margin-bottom: 40px; }
+  h1 { font-size: 48px; line-height: 1.25; margin-bottom: 40px; }
 }
 h2 {
     font-family: var(--font-heading-sans);
@@ -152,17 +155,16 @@ h2 {
 h3 {
     font-family: var(--font-body);
     font-size: 40px;
-    line-height: 1.4;
+    line-height: 1;
     font-weight: 400;
     color: var(--color-black);
     text-align: center;
-    margin-bottom: 56px;
 }
 @media (max-width: 1024px) {
-  h3 { font-size: 36px; margin-bottom: 52px; }
+  h3 { font-size: 36px; }
 }
 @media (max-width: 768px) {
-  h3 { font-size: 32px; margin-bottom: 44px; }
+  h3 { font-size: 32px; }
 }
 
 /* h4 global styles */
@@ -222,7 +224,7 @@ a {
 }
 
 /* Exclude button-like links from global hover color */
-a:hover:not(.btn-signup):not(.btn-purple):not(.btn-try-free):not(.btn-more):not(.btn-cta-yellow):not(.btn-trust):not(.btn-learn-more):not(.btn-signup-footer):not(.app-promo__button):not(.btn-outline-purple) {
+a:hover:not(.btn-signup):not(.btn-purple):not(.btn-try-free):not(.btn-more):not(.btn-cta-yellow):not(.btn-cta--purple):not(.btn-trust):not(.btn-learn-more):not(.btn-signup-footer):not(.app-promo__button) {
     color: var(--color-purple-main);
     text-decoration: none;
 }
@@ -1636,6 +1638,74 @@ section.purple-bg h3 {
     text-decoration: none;
 }
 
+/* ===== Button Variants (Consolidated) ===== */
+/* Primary purple family: shared base */
+.btn-signup,
+.btn-purple,
+.btn-more,
+.btn-signup-footer,
+.btn-trust,
+.app-promo__button {
+    display: inline-block;
+    background-color: var(--color-purple-main);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    border-radius: 9999px;
+    text-decoration: none;
+}
+
+/* Primary purple: medium size (common) */
+.btn-signup,
+.btn-purple,
+.btn-more {
+    font-size: 20px;
+    font-weight: 400;
+    padding: 10px 20px;
+}
+
+/* Preserve minor per-class tweaks */
+.btn-purple { margin-top: 8px; }
+
+/* Footer signup button (button element specifics) */
+.btn-signup-footer {
+    font-size: 20px;
+    font-weight: 400;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    width: fit-content;
+}
+
+/* Trust (slightly smaller purple) */
+.btn-trust {
+    font-size: 18px;
+    font-weight: 400;
+    padding: 12px 28px;
+}
+
+/* App promo button (narrow padding) */
+.app-promo__button {
+    font-size: 20px;
+    padding: 10px 16px;
+}
+
+/* Secondary purple family */
+.btn-try-free,
+.btn-learn-more {
+    display: inline-block;
+    background-color: var(--color-btn-secondary);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-weight: 400;
+    border-radius: 9999px;
+    text-decoration: none;
+}
+
+/* Secondary sizes */
+.btn-try-free { font-size: 20px; padding: 10px 20px; }
+.btn-learn-more { font-size: 18px; padding: 10px 24px; }
+
 /* ===== Cards ===== */
 .card {
     background-color: var(--color-white);
@@ -2368,7 +2438,7 @@ input:focus, textarea:focus, select:focus {
     background-color: var(--color-cta);
     color: var(--color-text);
     font-family: var(--font-body);
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 500;
     padding: 14px 32px;
     border-radius: 9999px;
@@ -2377,6 +2447,18 @@ input:focus, textarea:focus, select:focus {
 }
 
 .btn-cta-yellow:hover {
+    opacity: 0.9;
+    text-decoration: none;
+}
+
+/* Purple variant of CTA button (same size, purple background) */
+.btn-cta--purple {
+    background-color: var(--color-purple-main);
+    color: var(--color-white);
+}
+
+.btn-cta--purple:hover {
+    color: var(--color-white);
     opacity: 0.9;
     text-decoration: none;
 }
@@ -3662,37 +3744,17 @@ input:focus, textarea:focus, select:focus {
     flex-wrap: wrap;
 }
 
-.btn-outline-purple {
-    display: inline-block;
-    background-color: transparent;
-    color: var(--color-purple-main);
-    font-family: var(--font-body);
-    font-size: 18px;
-    font-weight: 500;
-    padding: 12px 28px;
-    border: 2px solid var(--color-purple-main);
-    border-radius: 9999px;
-    text-decoration: none;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-/* Unified hover treatment: subtle opacity only, no color swaps */
-.btn-outline-purple:hover {
-    opacity: 0.9;
-    text-decoration: none;
-}
-
 /* Ensure consistent hover across all primary button styles */
 .btn-signup:hover,
 .btn-purple:hover,
 .btn-try-free:hover,
 .btn-more:hover,
 .btn-cta-yellow:hover,
+.btn-cta--purple:hover,
 .btn-trust:hover,
 .btn-learn-more:hover,
 .btn-signup-footer:hover,
-.app-promo__button:hover,
-.btn-outline-purple:hover {
+.app-promo__button:hover {
     opacity: 0.9;
     text-decoration: none;
 }
@@ -3892,12 +3954,6 @@ input:focus, textarea:focus, select:focus {
         gap: 16px;
     }
 
-    .btn-outline-purple {
-        font-size: 16px;
-        padding: 12px 24px;
-        width: 100%;
-        max-width: 280px;
-    }
 }
 
 /* ===== Story Page ===== */
