@@ -80,7 +80,7 @@ class SiteHeader extends HTMLElement {
                             </div>
                             
                         </nav>
-                        <a href="download.html" class="btn-signup">Start for free</a>
+                        <a href="download.html" class="btn-signup">Get started</a>
                     </div>
                 </div>
             </header>
