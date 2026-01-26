@@ -1981,7 +1981,7 @@ input:focus, textarea:focus, select:focus {
     .hero-image-wrapper { display: flex; flex-direction: column; align-items: center; }
     .hero-grid { position: static; inset: initial; display: flex; flex-direction: column; align-items: center; padding: 0 var(--hero-gutter-mobile); order: -1; }
     .hero-copy { position: static; top: auto; left: auto; right: auto; transform: none; text-align: center; max-width: 90vw; padding-right: 0; }
-    .hero-media { position: absolute; right: var(--hero-gutter-tablet); bottom: 0; justify-content: flex-end; align-items: center; padding-right: 30px; }
+    .hero-media { position: absolute; right: var(--hero-gutter-mobile); bottom: 0; justify-content: flex-end; align-items: center; padding-right: 30px; }
 
     /* Hero gutters (mobile) */
     .hero-image-wrapper { padding: 0 var(--hero-gutter-mobile); }
@@ -2399,7 +2399,7 @@ input:focus, textarea:focus, select:focus {
     font-family: var(--font-body);
     font-size: 20px;
     font-weight: 400;
-    color: var(--color-black);
+    color: #5A4FCF;
     text-decoration: none;
     padding: 8px 16px;
     transition: color 0.2s ease;
@@ -3092,7 +3092,16 @@ input:focus, textarea:focus, select:focus {
         width: 100%;
         max-width: 100%;
         height: auto;
-        padding: 24px;
+        min-height: 180px;
+        padding: 20px 16px 24px 16px;
+    }
+
+    /* Make copy block responsive on mobile */
+    .feature-card-copy {
+        width: 100%;
+        height: auto;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     /* Ensure all images scale within card */
@@ -3376,7 +3385,7 @@ input:focus, textarea:focus, select:focus {
 
 .protected-subtitle {
     font-family: var(--font-body);
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
@@ -3747,7 +3756,7 @@ input:focus, textarea:focus, select:focus {
 
 .questions-text {
     font-family: var(--font-body);
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
     line-height: 1.5;
     color: var(--color-text);
@@ -3848,7 +3857,7 @@ input:focus, textarea:focus, select:focus {
     .trust-page-hero-subtitle { font-size: 28px; }
 
     .trust-page-hero-text {
-        font-size: 17px;
+        font-size: 20px;
     }
 
     .promise-section {
@@ -3879,7 +3888,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .protected-subtitle {
-        font-size: 16px;
+        font-size: 24px;
         margin-bottom: 32px;
     }
 
@@ -3901,15 +3910,15 @@ input:focus, textarea:focus, select:focus {
     }
 
     .info-safe-subtitle {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     .info-safe-text {
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .info-safe-list li {
-        font-size: 15px;
+        font-size: 20px;
     }
 
     .privacy-rights-section {
@@ -3917,7 +3926,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .privacy-rights-subtitle {
-        font-size: 16px;
+        font-size: 20px;
         margin-bottom: 32px;
     }
 
@@ -3943,19 +3952,19 @@ input:focus, textarea:focus, select:focus {
     }
 
     .data-usage-column-title {
-        font-size: 18px;
+        font-size: 24px;
     }
 
     .data-usage-item span {
-        font-size: 15px;
+        font-size: 20px;
     }
 
     .data-usage-subsection-title {
-        font-size: 18px;
+        font-size: 24px;
     }
 
     .data-usage-subsection-text {
-        font-size: 15px;
+        font-size: 20px;
     }
 
     .questions-section {
@@ -3963,7 +3972,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .questions-text {
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .questions-buttons {

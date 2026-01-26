@@ -127,6 +127,14 @@ class SiteHeader extends HTMLElement {
         panel.addEventListener('click', (e) => {
             if (e.target && e.target.tagName === 'A') setOpen(false);
         });
+
+        // Close when tapping outside the header on mobile
+        document.addEventListener('click', (e) => {
+            const header = this.querySelector('.site-header');
+            if (panel.dataset.open === 'true' && !header.contains(e.target)) {
+                setOpen(false);
+            }
+        });
     }
 
     initDropdown() {
