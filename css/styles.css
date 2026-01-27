@@ -1980,7 +1980,7 @@ input:focus, textarea:focus, select:focus {
     /* Mobile: place headline above the image */
     .hero-image-wrapper { display: flex; flex-direction: column; align-items: center; }
     .hero-grid { position: static; inset: initial; display: flex; flex-direction: column; align-items: center; padding: 0 var(--hero-gutter-mobile); order: -1; }
-    .hero-copy { position: static; top: auto; left: auto; right: auto; transform: none; text-align: center; max-width: 90vw; padding-right: 0; }
+    .hero-copy { position: static; top: auto; left: auto; right: auto; transform: none; text-align: center; max-width: 100%; padding-right: 0; }
     .hero-media { position: absolute; right: var(--hero-gutter-mobile); bottom: 0; justify-content: flex-end; align-items: center; padding-right: 30px; }
 
     /* Hero gutters (mobile) */
