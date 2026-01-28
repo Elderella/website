@@ -30,7 +30,7 @@
 </head>
 <body class="page-compare-plans">
     <!-- Site Header Component -->
-    <site-header></site-header>
+    <site-header no-promo></site-header>
 
     <!-- Hero Section -->
     <section class="compare-plans-hero" id="main-content">
@@ -40,29 +40,28 @@
         </div>
     </section>
 
-    <!-- Premium CTA Section -->
-    <section class="compare-plans-cta">
+    <!-- CTA and Steps Section -->
+    <section class="compare-plans-cta-steps">
         <div class="container">
-            <a href="download.html" class="btn-premium-cta">Start with 7 days of Premium — Free!</a>
-            <p class="cta-cancel-note">Cancel anytime</p>
-        </div>
-    </section>
-
-    <!-- Steps Section -->
-    <section class="compare-plans-steps">
-        <div class="container">
-            <div class="steps-list">
-                <div class="step-item">
-                    <div class="step-number">1</div>
-                    <p class="step-text">Download and signup for Elderella</p>
+            <div class="cta-steps-grid">
+                <div class="cta-column">
+                    <a href="download.html" class="btn-premium-cta">Start with 7 days of Premium — Free!</a>
                 </div>
-                <div class="step-item">
-                    <div class="step-number">2</div>
-                    <p class="step-text">Experience Premium for 7 days</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">3</div>
-                    <p class="step-text">Choose your plan (or stay on Free)</p>
+                <div class="steps-column">
+                    <div class="steps-list">
+                        <div class="step-item">
+                            <img src="images/1-icon.png" srcset="images/1-icon.png 1x, images/1-icon@2x.png 2x" alt="1" class="step-icon" width="40" height="40">
+                            <p class="step-text">Download and signup for Elderella</p>
+                        </div>
+                        <div class="step-item">
+                            <img src="images/2-icon.png" srcset="images/2-icon.png 1x, images/2-icon@2x.png 2x" alt="2" class="step-icon" width="40" height="40">
+                            <p class="step-text">Experience Premium for 7 days</p>
+                        </div>
+                        <div class="step-item">
+                            <img src="images/3-icon.png" srcset="images/3-icon.png 1x, images/3-icon@2x.png 2x" alt="3" class="step-icon" width="40" height="40">
+                            <p class="step-text">Choose your plan (or stay on Free)</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -119,18 +118,6 @@
 
                 <!-- Premium Plan -->
                 <div class="pricing-card pricing-card--premium">
-                    <div class="pricing-sparkle pricing-sparkle--top-left">
-                        <img src="images/elderella-sparkle-purple.svg" alt="" aria-hidden="true">
-                    </div>
-                    <div class="pricing-sparkle pricing-sparkle--top-right">
-                        <img src="images/elderella-sparkle.svg" alt="" aria-hidden="true">
-                    </div>
-                    <div class="pricing-sparkle pricing-sparkle--mid-left">
-                        <img src="images/elderella-sparkle.svg" alt="" aria-hidden="true">
-                    </div>
-                    <div class="pricing-sparkle pricing-sparkle--mid-right">
-                        <img src="images/elderella-sparkle-purple.svg" alt="" aria-hidden="true">
-                    </div>
                     <div class="pricing-card-header">
                         <h3 class="pricing-tier-name">Premium</h3>
                         <p class="pricing-description">For complex elder care with larger teams</p>
@@ -169,11 +156,7 @@
             <div class="features-list">
                 <div class="feature-category">
                     <div class="feature-category-header">
-                        <span class="feature-category-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L14.5 9H22L16 13.5L18.5 21L12 16L5.5 21L8 13.5L2 9H9.5L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
+                        <img src="images/sparkles.svg" alt="" class="feature-category-icon" width="40" height="40">
                         <h4 class="feature-category-title">Capture &amp; collect</h4>
                     </div>
                     <ul class="feature-category-list">
@@ -184,11 +167,7 @@
                 </div>
                 <div class="feature-category">
                     <div class="feature-category-header">
-                        <span class="feature-category-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 8V4M12 8C9.79 8 8 9.79 8 12M12 8C14.21 8 16 9.79 16 12M8 12H4M8 12C8 14.21 9.79 16 12 16M16 12H20M16 12C16 14.21 14.21 16 12 16M12 16V20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </span>
+                        <img src="images/remind.svg" alt="" class="feature-category-icon" width="40" height="40">
                         <h4 class="feature-category-title">Remember &amp; access</h4>
                     </div>
                     <ul class="feature-category-list">
@@ -198,12 +177,7 @@
                 </div>
                 <div class="feature-category">
                     <div class="feature-category-header">
-                        <span class="feature-category-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M17 17L7 7M7 7H16M7 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(0, 10)"/>
-                            </svg>
-                        </span>
+                        <img src="images/share.svg" alt="" class="feature-category-icon" width="40" height="40">
                         <h4 class="feature-category-title">Coordinate &amp; share</h4>
                     </div>
                     <ul class="feature-category-list">
@@ -214,14 +188,7 @@
                 </div>
                 <div class="feature-category">
                     <div class="feature-category-header">
-                        <span class="feature-category-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="6" y="10" width="12" height="8" rx="1" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="9" cy="14" r="1" fill="currentColor"/>
-                                <circle cx="15" cy="14" r="1" fill="currentColor"/>
-                                <path d="M9 6H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </span>
+                        <img src="images/elder-care-team.svg" alt="" class="feature-category-icon" width="40" height="40">
                         <h4 class="feature-category-title">Stay in control</h4>
                     </div>
                     <ul class="feature-category-list">
@@ -232,14 +199,7 @@
                 </div>
                 <div class="feature-category">
                     <div class="feature-category-header">
-                        <span class="feature-category-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="9" cy="7" r="3" stroke="currentColor" stroke-width="2"/>
-                                <circle cx="15" cy="7" r="3" stroke="currentColor" stroke-width="2"/>
-                                <path d="M3 19C3 16.2386 5.23858 14 8 14H10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M14 14H16C18.7614 14 21 16.2386 21 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </span>
+                        <img src="images/collect.svg" alt="" class="feature-category-icon" width="40" height="40">
                         <h4 class="feature-category-title">Stay connected</h4>
                     </div>
                     <ul class="feature-category-list">
