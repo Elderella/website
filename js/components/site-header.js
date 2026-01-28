@@ -100,6 +100,8 @@ class SiteHeader extends HTMLElement {
         this.initAppPromo();
         // Initialize dropdown menu
         this.initDropdown();
+        // Initialize scroll border behavior
+        this.initScrollBorder();
     }
 
     initMobileNav() {
@@ -258,6 +260,22 @@ class SiteHeader extends HTMLElement {
                 });
             }
         }
+    }
+
+    initScrollBorder() {
+        const header = this.querySelector('.site-header');
+        if (!header) return;
+
+        const updateBorder = () => {
+            if (window.scrollY > 0) {
+                header.classList.add('has-scroll-border');
+            } else {
+                header.classList.remove('has-scroll-border');
+            }
+        };
+
+        window.addEventListener('scroll', updateBorder, { passive: true });
+        updateBorder(); // Check on page load
     }
 
 }
