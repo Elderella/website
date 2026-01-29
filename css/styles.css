@@ -2625,7 +2625,11 @@ input:focus, textarea:focus, select:focus {
     /* removed: mobile override for .trust-title */
 
     .trust-text {
-        font-size: 16px;
+        font-size: 20px;
+    }
+
+    .btn-trust {
+        font-size: 20px;
     }
 }
 
@@ -4313,7 +4317,7 @@ input:focus, textarea:focus, select:focus {
     }
 
     .story-form-subtitle {
-        font-size: 18px;
+        font-size: 20px;
         margin-bottom: 30px;
     }
 
@@ -5684,7 +5688,7 @@ input:focus, textarea:focus, select:focus {
     .elder-note-list li,
     .elder-note-privacy,
     .elder-note-contact {
-        font-size: 16px;
+        font-size: 20px;
     }
 
     .elder-hands-section { position: relative; }
