@@ -4725,7 +4725,7 @@ input:focus, textarea:focus, select:focus {
     /* delete-hero-title inherits responsive size from global h1 */
 
     .delete-hero-subtitle {
-        font-size: 18px;
+        font-size: 28px;
     }
 
     .delete-before-section {
@@ -5903,46 +5903,6 @@ input:focus, textarea:focus, select:focus {
     overflow: visible;
 }
 
-/* Sparkle decorations - positioned around the Premium title/description */
-.pricing-sparkle {
-    position: absolute;
-    pointer-events: none;
-}
-
-.pricing-sparkle img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.pricing-sparkle--top-left {
-    width: 18px;
-    height: 18px;
-    top: 40px;
-    left: 28px;
-}
-
-.pricing-sparkle--top-right {
-    width: 14px;
-    height: 14px;
-    top: 36px;
-    right: 28px;
-}
-
-.pricing-sparkle--mid-left {
-    width: 14px;
-    height: 14px;
-    top: 88px;
-    left: 24px;
-}
-
-.pricing-sparkle--mid-right {
-    width: 18px;
-    height: 18px;
-    top: 80px;
-    right: 24px;
-}
-
 /* Pricing Badge */
 .pricing-badge {
     position: absolute;
@@ -6121,77 +6081,15 @@ input:focus, textarea:focus, select:focus {
     font-size: 24px;
     font-weight: 400;
     color: var(--color-purple-main);
-    margin: 0;
+    margin: 0 0 80px 0;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
-/* Features Section */
-.compare-features-section {
-    background-color: var(--color-white);
-    padding: 80px 0 80px 0;
-}
-
-.compare-features-section h2 {
-    margin-bottom: 40px;
-}
-
-.features-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.feature-category {
-    text-align: left;
-}
-
-.feature-category-header {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 40px;
-}
-
-.feature-category-icon {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-}
-
-.feature-category-title {
-    font-family: var(--font-body);
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--color-black);
-    margin: 0;
-    text-align: left;
-}
-
-.feature-category-list {
-    list-style: disc;
-    padding-left: 52px;
-    margin: 0;
-}
-
-.feature-category-list li {
-    font-family: var(--font-body);
-    font-size: 20px;
-    line-height: 1.5;
-    color: var(--color-text);
-    margin-bottom: 0;
-}
-
-.feature-category-list li:last-child {
-    margin-bottom: 0;
-}
-
 /* FAQ Section */
 .compare-faq-section {
-    background-color: #E8E4F7;
+    background-color: #CCCCFF;
     padding: 80px 0;
 }
 
@@ -6273,7 +6171,30 @@ input:focus, textarea:focus, select:focus {
 }
 
 .faq-content-inner p {
-    margin: 0;
+    margin: 0 0 12px 0;
+}
+
+.faq-content-inner p:last-child {
+    margin-bottom: 0;
+}
+
+.faq-content-inner ul,
+.faq-content-inner ol {
+    margin: 0 0 12px 0;
+    padding-left: 24px;
+}
+
+.faq-content-inner ul:last-child,
+.faq-content-inner ol:last-child {
+    margin-bottom: 0;
+}
+
+.faq-content-inner li {
+    margin-bottom: 8px;
+}
+
+.faq-content-inner li:last-child {
+    margin-bottom: 0;
 }
 
 /* ===== Compare Plans Responsive ===== */
@@ -6299,17 +6220,10 @@ input:focus, textarea:focus, select:focus {
         max-width: 380px;
     }
 
-    .pricing-card--highlighted {
-        order: -1;
-    }
-
     .pricing-statement {
         font-size: 22px;
     }
 
-    .feature-category-list {
-        padding-left: 44px;
-    }
 }
 
 /* Mobile */
@@ -6332,8 +6246,12 @@ input:focus, textarea:focus, select:focus {
     }
 
     .btn-premium-cta {
-        font-size: 18px;
+        font-size: 20px;
         padding: 14px 28px;
+    }
+
+    .step-text {
+        font-size: 20px;
     }
 
     .step-icon {
@@ -6350,8 +6268,24 @@ input:focus, textarea:focus, select:focus {
         padding: 32px 24px;
     }
 
+    .pricing-tier-name {
+        font-size: 32px;
+    }
+
     .price-amount {
-        font-size: 48px;
+        font-size: 32px;
+    }
+
+    .price-period {
+        font-size: 18px;
+    }
+
+    .pricing-features li {
+        font-size: 20px;
+    }
+
+    .pricing-badge {
+        font-size: 18px;
     }
 
     .pricing-statement-section {
@@ -6360,18 +6294,6 @@ input:focus, textarea:focus, select:focus {
 
     .pricing-statement {
         font-size: 20px;
-    }
-
-    .compare-features-section {
-        padding: 0 0 60px 0;
-    }
-
-    .compare-features-section h2 {
-        margin-bottom: 32px;
-    }
-
-    .feature-category-list {
-        padding-left: 44px;
     }
 
     .compare-faq-section {

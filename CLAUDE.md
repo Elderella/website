@@ -53,7 +53,7 @@ Add these lines to the `<head>` of every HTML page:
 - Padding: 0 180px (tablet: 0 30px, mobile: 0 20px)
 
 ### Sections
-- Standard padding: 65px 0
+- Standard padding: 60px 0
 - Background alternation: #FFFFFF and #F5F5F5
 
 ## Component Standards
