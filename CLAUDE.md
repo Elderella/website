@@ -4,7 +4,7 @@
 
 ### Fonts
 All pages must use the following Google Fonts:
-- **Headings**: `'Merriweather', serif` (weight: 400)
+- **Headings**: `'Merriweather Sans', sans-serif` (weights: 400, 700)
 - **Body text**: `'Source Sans Pro', sans-serif` (weights: 400, 500, 600)
 
 ### Font Import
@@ -12,14 +12,29 @@ Add these lines to the `<head>` of every HTML page:
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400;700&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
 ```
+
+**Important:** Do not import Merriweather (serif). The site uses Merriweather Sans (sans-serif) only.
 
 ### Font Sizes
 - Body text: 18px (mobile: 16px)
-- H1: 3rem (Merriweather)
-- H2: 2rem (Merriweather)
-- H3: 1.4rem (Merriweather)
+- H1: 60px (tablet: 52px, mobile: 48px)
+- H2: 48px (tablet: 44px, mobile: 40px)
+- H3: 40px (tablet: 36px, mobile: 32px)
+- H4: 32px (tablet: 32px, mobile: 28px)
+- H5: 24px
+- H6: 20px
+
+### Hero Subtitle
+All hero subtitles across the site must be consistent:
+- Font: Source Sans Pro
+- Font-size: 28px at all breakpoints (desktop, tablet, mobile)
+- Font-weight: 600
+- Line-height: 1.4
+- Color: var(--color-text)
+- Margin-bottom: 24px
+- Max-width: 800px
 
 ### Line Height
 - Standard line height: 1.5 (matching home page)
@@ -56,6 +71,10 @@ Add these lines to the `<head>` of every HTML page:
 - Standard padding: 60px 0
 - Background alternation: #FFFFFF and #F5F5F5
 
+### Responsive Breakpoints
+- **Tablet**: `@media (max-width: 1024px)`
+- **Mobile**: `@media (max-width: 768px)`
+
 ## Component Standards
 
 ### Buttons
@@ -73,6 +92,12 @@ Add these lines to the `<head>` of every HTML page:
 - Background: #FFFFFF or #F5F5F5
 - Border-radius: 12px
 - Box-shadow: 0 6px 20px rgba(0,0,0,0.1)
+
+## Accessibility
+
+- Decorative icons and images must use `alt=""` with `aria-hidden="true"`
+- Decorative SVGs (e.g., toggle chevrons) must include `aria-hidden="true"`
+- Interactive elements must have appropriate ARIA attributes (e.g., `aria-expanded`, `aria-controls`)
 
 ## Important Notes
 
