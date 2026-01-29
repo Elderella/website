@@ -78,7 +78,7 @@ class SiteHeader extends HTMLElement {
                                     </a>
                                 </div>
                             </div>
-                            
+                            <a href="compare-plans.html" ${currentPage === 'compare-plans.html' ? 'class="active"' : ''}>Plans</a>
                         </nav>
                         <a href="download.html" class="btn-signup">Get started</a>
                     </div>

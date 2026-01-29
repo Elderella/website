@@ -82,6 +82,7 @@ All hero subtitles across the site must be consistent:
 - Text color: #595959
 - Border-radius: 8px
 - Font-weight: 500
+- **Hover exclusion rule**: When creating a new button class used on `<a>` elements, it must be added to the global `a:hover:not(...)` exclusion list in `css/styles.css` (near line 227). This prevents the global hover color from overriding the button's text color.
 
 ### Forms
 - Input background: #FFFFFF

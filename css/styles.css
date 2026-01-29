@@ -224,7 +224,7 @@ a {
 }
 
 /* Exclude button-like links from global hover color */
-a:hover:not(.btn-signup):not(.btn-purple):not(.btn-try-free):not(.btn-more):not(.btn-cta-yellow):not(.btn-cta--purple):not(.btn-trust):not(.btn-learn-more):not(.btn-signup-footer):not(.app-promo__button) {
+a:hover:not(.btn-signup):not(.btn-purple):not(.btn-try-free):not(.btn-more):not(.btn-cta-yellow):not(.btn-cta--purple):not(.btn-trust):not(.btn-learn-more):not(.btn-signup-footer):not(.app-promo__button):not(.btn-premium-cta) {
     color: var(--color-purple-main);
     text-decoration: none;
 }
@@ -6110,6 +6110,10 @@ input:focus, textarea:focus, select:focus {
     background-color: var(--color-white);
     border-radius: 12px;
     overflow: hidden;
+}
+
+.faq-item:last-child {
+    margin-bottom: 20px;
 }
 
 .faq-header {

@@ -30,6 +30,13 @@ class SiteFooter extends HTMLElement {
                                 </ul>
                             </div>
                             <div class="footer-nav-col">
+                                <h4>Get started</h4>
+                                <ul>
+                                    <li><a href="download.html">Get Elderella</a></li>
+                                    <li><a href="compare-plans.html">Pricing</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-nav-col">
                                 <h4>Help us help you</h4>
                                 <ul>
                                     <li><a href="story.html">Your caregiving story</a></li>
