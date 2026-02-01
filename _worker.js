@@ -201,7 +201,7 @@ async function sendNewsletterSlackNotification(formData, env) {
             },
             {
               type: 'mrkdwn',
-              text: `*Email:*\n${sanitizeForSlack(formData.email)}`
+              text: `*Email:*\n${formData.email}`
             }
           ]
         },
@@ -268,7 +268,7 @@ async function sendSlackNotification(formData, isNewToList, newsletterSignup, en
             },
             {
               type: 'mrkdwn',
-              text: `*Email:*\n${sanitizeForSlack(formData.email)}`
+              text: `*Email:*\n${formData.email}`
             }
           ]
         }
@@ -1013,7 +1013,7 @@ export default {
                 fields: [
                   {
                     type: 'mrkdwn',
-                    text: `*Email:*\n${sanitizeForSlack(sanitizedData.email)}`
+                    text: `*Email:*\n${sanitizedData.email}`
                   },
                   {
                     type: 'mrkdwn',
