@@ -126,19 +126,23 @@ All SMS messages include a compliant opt-out footer for US/Canada:
 
 **Subject:** Your first minute with Ella
 
-Hi [Name],
+Hi {{ customer.first_name | default: "there" }},
+
+You just did something most caregivers don't do. You asked for help.
 
 Ella is ready to start helping. She's good at remembering the things you don't have room to hold right now -- the medications, the appointments, the details that slip through the cracks when life gets loud.
 
-You have full Premium access for 7 days. Use Elderella each day this week, and we'll double it to 14.
+Tell her one thing about the care you're managing and see what she does with it.
 
-Pick whatever feels useful right now:
+> You have full Premium access for 7 days. Use Elderella each day this week, and we'll double it to 14.
+
+**Two easy ways to get started**
 
 **Add Ella to your family group chat**
-If your family already has a text thread about caregiving, add Ella. She'll start picking up appointments, medications, and care details from the conversation -- no extra work from anyone.
+If your family already has a text thread, add Ella. She'll start picking up appointments, medications, and care details from the conversation. No extra work for anyone.
 
-**Capture something before it disappears**
-Open a chat, type a quick note, record a voice memo, or snap a photo. A medication. An appointment. Something the doctor said last week. Ella will have it ready when you actually need it.
+**Capture info before it disappears**
+Chat with Ella, type a quick note, record a voice memo, or snap a photo. A medication. An appointment. Something the doctor said last week. Ella will know it when you need it.
 
 [See what your first minute with Ella looks like](https://www.elderella.com/welcome)
 
@@ -146,15 +150,13 @@ One small action today. That's all it takes.
 
 -- The Elderella Team
 
-P.S. -- You can also sync your calendar so Ella sees upcoming appointments automatically.
-
 ---
 
 ### Day 2 -- Calendar Sync
 
 **SMS #2** (morning, ~9am local time)
 
-> Ella can sync with your calendar and pick up upcoming appointments automatically -- zero effort from you. Connect it in settings: [deep link to settings]
+> Elderella: Connect Google Calendar and Elderella automatically pulls in care events that mention your elder's name -- your personal and work events stay private. Elderella events can also sync back to Google Calendar as "Elderella Event" so nothing personal is exposed. Connect it in settings: [deep link to settings]
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -162,21 +164,33 @@ P.S. -- You can also sync your calendar so Ella sees upcoming appointments autom
 
 **Email #2**
 
-**Subject:** Ella already knows your schedule
+**Subject:** Your calendar is already doing half the work
 
-Hi [Name],
+Hi {{ customer.first_name | default: "there" }},
 
-You have a calendar full of appointments. Ella can see them -- if you let her.
+Here's a small thing that makes a big difference.
 
-Sync your calendar and Ella starts working without you doing anything. She'll remind you before appointments, keep them in the care profile, and if you share something afterward -- a voice note, a photo, a quick message -- she connects it to the right visit automatically.
+Care events end up scattered across calendars, group chats, and sticky notes. Your Google Calendar already has some of them -- Elderella can pull those in.
 
-No typing. No data entry. Just connect your calendar and Ella takes it from there.
+**Connect your Google Calendar**
 
-[See how calendar sync works](https://www.elderella.com/get-started/calendar-sync)
+Elderella picks up anything with your elder's name or relationship in the title like *Mom's cardiology follow-up* or *Physical therapy (Joe)*.
+
+Your personal and work events stay private.
+
+It works the other way too. Care events created in Elderella can sync back to your Google Calendar. They can show up as "Elderella Event" so nothing personal is exposed to anyone who can see your calendar.
+
+You can make any event visible to your care team or assign it to one of them.
+
+Afterward, Elderella prompts for notes so details get captured while they're fresh.
+
+[Sync your calendar](https://www.elderella.com/get-started/calendar-sync)
+
+One connection. Elderella takes it from there.
+
+{% if customer.user_streak_earned %}Your streak: 2 of 7 days toward extending your Premium access to 14 days.{% else %}Your Premium access has 5 days left.{% endif %}
 
 -- The Elderella Team
-
-{% if streak %}P.S. -- Your streak: 2 of 7 days toward extending your Premium access to 14 days.{% else %}P.S. -- Your Premium access has 5 days left.{% endif %}
 
 ---
 
@@ -184,7 +198,7 @@ No typing. No data entry. Just connect your calendar and Ella takes it from ther
 
 **SMS #3** (morning)
 
-> Just left an appointment? Talked to a nurse on the phone? Tell Ella before the details fade -- type, record a voice note, or snap a photo: [deep link to Take A Note]
+> Elderella: Just left an appointment? Talked to a nurse on the phone? Tell Ella before the details fade -- type, record a voice note, or snap a photo: [deep link to Take A Note]
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -192,27 +206,29 @@ No typing. No data entry. Just connect your calendar and Ella takes it from ther
 
 **Email #3**
 
-**Subject:** The 30-second debrief that saves you hours later
+**Subject:** Before you forget what they told you
 
-Hi [Name],
+Hi {{ customer.first_name | default: "there" }},
 
-You know that moment after a doctor's appointment when your head is full of instructions and medication changes -- and by the time you get to the car, half of it is fuzzy?
+You know that moment after a doctor's appointment when your head is full of instructions and medication changes -- and by the time you get to the car, half of it's fuzzy?
 
 Elderella was built for that moment.
 
-**Three ways to capture care details on the go:**
+**Three ways to capture care details on the go**
 
-- **Type a quick note** -- even a few words is enough for Ella to work with
-- **Record a voice note** -- talk for up to 60 minutes on Premium. Just ramble. Ella extracts the key details and organizes them
-- **Snap a photo** -- a medication label, a discharge summary, a page of handwritten instructions
+- **Type a quick note:** Even a few words is enough for Ella to work with.
+- **Record a voice note:** Talk for up to 60 minutes. Just ramble. Ella extracts the key details and organizes them.
+- **Snap a photo:** A medication label, a discharge summary, a page of handwritten instructions.
 
-If it's a medication label, Ella pulls out the name, dosage, frequency, and refill date automatically. Ella just needs the raw information -- she figures out the rest.
+If it's a medication label, Ella pulls out the name, dosage, frequency, and prescriber automatically.
 
-[See how fast Ella turns a voice note into organized care details](https://www.elderella.com/get-started/first-note)
+[See Ella turn a voice note into organized care details](https://www.elderella.com/get-started/first-note)
+
+Ella just needs the raw information -- she figures out the rest.
+
+{% if customer.user_streak_earned %}Your streak: 3 of 7 days toward extending your Premium access to 14 days.{% else %}Your Premium access has 4 days left.{% endif %}
 
 -- The Elderella Team
-
-{% if streak %}P.S. -- Your streak: 3 of 7 days toward extending your Premium access to 14 days.{% else %}P.S. -- Your Premium access has 4 days left.{% endif %}
 
 ---
 
@@ -220,7 +236,7 @@ If it's a medication label, Ella pulls out the name, dosage, frequency, and refi
 
 **SMS #4** (morning)
 
-> Ella may have picked up something from what you shared -- or your calendar -- check your home screen to confirm it before she adds it to the care profile: [deep link to home screen]
+> Elderella: Ella may have picked up something from what you shared -- or your calendar -- check your home screen to confirm it before she adds it to the care profile: [deep link to home screen]
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -228,25 +244,31 @@ If it's a medication label, Ella pulls out the name, dosage, frequency, and refi
 
 **Email #4**
 
-**Subject:** Ella doesn't guess -- she checks with you first
+**Subject:** If Ella found something, she's waiting for your OK
 
-Hi [Name],
+Hi {{ customer.first_name | default: "there" }},
 
-If you've shared any care details -- or synced your calendar -- Ella has been busy. Check your home screen -- she may have items in **"Needs Your Review"** waiting for you to confirm before she adds them.
+If you've shared any care details or connected your Google Calendar, Ella has been busy -- listening, organizing, and pulling out the things that matter.
 
-She doesn't add anything without your say-so.
+But she doesn't add anything to your care profiles without your say-so.
 
-A couple of things worth checking today:
-- Review anything Ella has flagged on your home screen
-- Check **"What's Next"** -- it shows the most pressing item for the day so you don't have to dig
+**Open Elderella and check your home screen**
 
-Here's the part that feels like magic: when you confirm a medication, Ella doesn't just remember it -- she reminds you when it's due. No alarms to set. No manual setup. She picked it up from conversation, you confirmed it, and now she's watching the clock so you don't have to.
+**"What's Next"** shows the most pressing items for the day.
 
-[See how Ella checks with you before changing anything](https://www.elderella.com/get-started/review-queue)
+**"Needs Your Review"** shows anything flagged for you to look at.
+
+If you've added anyone to your care team, **"Care Team Updates"** shows what they've done.
+
+Between them, you'll always know where things stand. Without digging through notes or messages.
+
+[See how Ella checks before adding anything](https://www.elderella.com/get-started/review-queue)
+
+Ella does the work. You stay in control.
+
+{% if customer.user_streak_earned %}Your streak: 4 of 7 days toward extending your Premium access to 14 days.{% else %}Your Premium access has 3 days left.{% endif %}
 
 -- The Elderella Team
-
-{% if streak %}P.S. -- Your streak: 4 of 7 days. More than halfway to doubling your Premium access.{% else %}P.S. -- Your Premium access has 3 days left.{% endif %}
 
 ---
 
@@ -254,7 +276,7 @@ Here's the part that feels like magic: when you confirm a medication, Ella doesn
 
 **SMS #5** (morning)
 
-> Try asking Ella something: "What medications are they on?" or "When is the next appointment?" See what she comes back with: [deep link to Chat]
+> Elderella: Try asking Ella something: "What medications are they on?" or "When is the next appointment?" See what she comes back with: [deep link to Chat]
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -262,25 +284,29 @@ Here's the part that feels like magic: when you confirm a medication, Ella doesn
 
 **Email #5**
 
-**Subject:** Ask Ella anything
+**Subject:** Just a second I have that here somewhere...
 
-Hi [Name],
+Hi {{ customer.first_name | default: "there" }},
 
-Everything you share with Ella -- the appointments from your calendar, the medications, the details from your conversations -- she remembers all of it. And you can ask her about any of it.
+You know that moment when someone asks about a medication or an appointment and you're scrolling through old texts trying to find it? Ella already knows.
 
-Try it:
-- "What medications are they taking?"
-- "When is the next appointment?"
-- "What does their daily routine look like?"
-- "Who's on the care team?"
+Everything you've shared: appointments, medications, care details -- she's holding all of it.
 
-No more "I think it was..." followed by frantic scrolling through old texts and notes. Just ask Ella.
+Just ask:
+
+*"What medications are they taking?"*
+
+*"When is the next appointment?"*
+
+*"What did the doctor say?"*
 
 [See what happens when you ask Ella a question](https://www.elderella.com/get-started/ask-ella)
 
--- The Elderella Team
+No digging. No guessing. Just ask Ella.
 
-P.S. -- The daily question on your home screen helps Ella learn even more about your family's care. Takes about a minute. {% if streak %}Your streak: 5 of 7 days toward doubling your Premium access.{% else %}Your Premium access has 2 days left.{% endif %}
+{% if customer.user_streak_earned %}Your streak: 5 of 7 days toward extending your Premium access to 14 days.{% else %}Your Premium access has 2 days left.{% endif %}
+
+-- The Elderella Team
 
 ---
 
@@ -288,7 +314,7 @@ P.S. -- The daily question on your home screen helps Ella learn even more about 
 
 **SMS #6** (morning)
 
-> Is someone else helping with care? Invite them to Elderella so everyone's on the same page -- and you're not the only one carrying the details: [deep link to Care Team]
+> Elderella: Is someone else helping with care? Invite them to Elderella so everyone's on the same page -- and you're not the only one carrying the details: [deep link to Care Team]
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -296,25 +322,39 @@ P.S. -- The daily question on your home screen helps Ella learn even more about 
 
 **Email #6**
 
-**Subject:** You're doing a lot. You don't have to do it alone.
+**Subject:** What happens when you add your care team
 
-Hi [Name],
+Hi {{ customer.first_name | default: "there" }},
 
-The hardest part of caregiving isn't the tasks. It's being the only one who knows everything. The one everyone calls. The one who can't take a day off because the information lives in your head.
+There's a specific kind of exhaustion that comes from being the one everyone calls. The sibling who knows the medication schedule. The person who remembers what the doctor said.
+
+The one who can never fully step away because too much lives only in your head.
 
 Elderella changes that.
 
-**Invite your care team** -- siblings, a spouse, a neighbor, a professional aide -- and suddenly the knowledge isn't locked in your head anymore. Everyone can see what's happening. Everyone can help.
+**Invite your care team**
 
-**You can delegate, too.** "I'll help however I can" is something every caregiver has heard. Elderella turns that into something specific -- "Pick up the prescription." "Call the insurance company." "Bring groceries on Thursday." Ella reminds them so you don't have to.
+Siblings, a spouse, an aide -- anyone helping with care.
 
-You control exactly what each person sees -- Elderella has 5 access levels so a co-caregiver can see everything while a paid aide only sees medication schedules.
+If Ella notices someone mentioned in your notes ("the physiotherapist said..."), she'll suggest adding them too.
 
-[See how you choose what each person on your team can see](https://www.elderella.com/get-started/invite-team)
+**Delegate to your care team**
+
+Elderella turns "I'll help however I can" into something specific: "Pick up the prescription."
+
+Set up reminders so you don't have to follow up.
+
+**Control who sees what**
+
+You decide what each care team member can see.
+
+From full shared access to only what they need.
+
+[See how you choose what each person on your care team can see](https://www.elderella.com/get-started/invite-team)
+
+{% if customer.user_streak_earned %}Your streak: 6 of 7 days toward extending your Premium access to 14 days.{% else %}Your Premium access has 1 day left.{% endif %}
 
 -- The Elderella Team
-
-P.S. -- If Ella notices someone mentioned in a group chat ("the physiotherapist said..."), she may suggest adding them to your care team. She's paying attention so you don't have to. {% if streak %}Your streak: 6 of 7 days -- one more and your Premium access doubles to 14.{% else %}Your Premium access has 1 day left.{% endif %}
 
 ---
 
@@ -322,13 +362,13 @@ P.S. -- If Ella notices someone mentioned in a group chat ("the physiotherapist 
 
 **SMS #7 -- STREAK** (morning)
 
-> It's Day 7. Open Elderella today and your Premium access extends to 14 days. You've earned it: [deep link]
+> Elderella: It's Day 7. Open Elderella today and your Premium access extends to 14 days. You've earned it: [deep link]
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
 **SMS #7 -- NO STREAK** (morning)
 
-> Last day of Premium access. Everything you add to Elderella stays in your account -- even on the Free plan. Worth capturing what you can today: [deep link]
+> Elderella: Last day of Premium access. Everything you add to Elderella stays in your account -- even on the Free plan. Worth capturing what you can today: [deep link]
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -336,7 +376,7 @@ P.S. -- If Ella notices someone mentioned in a group chat ("the physiotherapist 
 
 **Email #7 -- STREAK** (sent morning)
 
-**Subject:** Day 7 -- one open and your access doubles
+**Subject:** You've earned more time
 
 Hi [Name],
 
@@ -362,7 +402,7 @@ Here's what stays the same: everything you've added is safe. Your notes, medicat
 
 Some features do change -- unlimited care history, larger care teams, briefings, long voice notes, and exports are Premium-only. But nothing is deleted.
 
-The Free plan is still useful. And Premium is one tap away whenever you want more.
+Ella doesn't stop just because Premium does. And Premium is one tap away whenever you want more.
 
 -- The Elderella Team
 
@@ -378,7 +418,7 @@ The Free plan is still useful. And Premium is one tap away whenever you want mor
 
 **SMS #8** (morning)
 
-> You earned 14 days of Premium. Try this: tap "Briefing" in the elder profile for an AI-generated summary of recent care activity. [deep link to About Elder hub]
+> Elderella: You earned 14 days of Premium. Try this: tap "Briefing" in the elder profile for an AI-generated summary of recent care activity. [deep link to About Elder hub]
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -414,7 +454,7 @@ P.S. -- Your extended access ends in 4 days. To keep unlimited history and your 
 
 **SMS #9** (morning)
 
-> Your Premium access ends in 2 days. Everything Ella has organized stays in your account -- upgrade to keep unlimited history and your full care team. https://www.elderella.com/compare-plans
+> Elderella: Your Premium access ends in 2 days. Everything Ella has organized stays in your account -- upgrade to keep unlimited history and your full care team. https://www.elderella.com/compare-plans
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -455,7 +495,7 @@ Either way, Ella isn't going anywhere. She'll keep holding your care details on 
 
 **SMS #10** (morning)
 
-> Your Elderella Premium access ends today. Upgrade to keep unlimited care history and your full care team: https://www.elderella.com/compare-plans. Everything Ella has organized stays in your account, no matter what.
+> Elderella: Your Premium access ends today. Upgrade to keep unlimited care history and your full care team: https://www.elderella.com/compare-plans. Everything Ella has organized stays in your account, no matter what.
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -471,7 +511,7 @@ Either way, Ella isn't going anywhere. She'll keep holding your care details on 
 
 **SMS #11** (morning)
 
-> Ella just needs the raw information -- a medication, an appointment, anything on your mind. She figures out the rest: [deep link to Chat]
+> Elderella: Ella just needs the raw information -- a medication, an appointment, anything on your mind. She figures out the rest: [deep link to Chat]
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -503,7 +543,7 @@ Two minutes in the car. And the next time someone asks, the answer is already th
 
 **SMS #12** (morning)
 
-> Caregivers tell Ella things like "Dad takes metformin twice a day" and "Mom's cardiologist is Dr. Patel on Tuesdays." Small details that are easy to forget and hard to find later. What would you tell her? [deep link to Chat]
+> Elderella: Caregivers tell Ella things like "Dad takes metformin twice a day" and "Mom's cardiologist is Dr. Patel on Tuesdays." Small details that are easy to forget and hard to find later. What would you tell her? [deep link to Chat]
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -535,7 +575,7 @@ Briefings are a Premium feature. If you've been thinking about upgrading, this i
 
 **SMS #13** (morning)
 
-> Ella is still here -- whenever a care detail crosses your mind, she's ready. Chat, take notes, track medications, all on your Free plan: [deep link to Chat]
+> Elderella: Ella is still here -- whenever a care detail crosses your mind, she's ready. Chat, take notes, track medications, all on your Free plan: [deep link to Chat]
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
