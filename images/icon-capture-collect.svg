@@ -1,0 +1,11 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Capture & Collect: Inbox with downward arrow -->
+  <g fill="#000">
+    <!-- Inbox/tray base -->
+    <path d="M4 22h8l3 6h10l3-6h8v14H4V22z"/>
+    <!-- Downward arrow -->
+    <path d="M20 4v14M20 18l-6-6h4V4h4v8h4l-6 6z"/>
+    <rect x="17" y="4" width="6" height="12"/>
+    <polygon points="20,22 12,14 16,14 16,4 24,4 24,14 28,14"/>
+  </g>
+</svg>

@@ -148,7 +148,7 @@ If your family already has a text thread, add Ella. She'll start picking up appo
 **Capture info before it disappears**
 Chat with Ella, type a quick note, record a voice memo, or snap a photo. A medication. An appointment. Something the doctor said last week. Ella will know it when you need it.
 
-[See what your first minute with Ella looks like](https://www.elderella.com/welcome)
+[See what your first minute with Ella looks like](https://www.elderella.com/features/welcome)
 
 One small action today. That's all it takes.
 
@@ -160,7 +160,7 @@ One small action today. That's all it takes.
 
 **SMS #2** (morning, ~9am local time)
 
-> Connect Google Calendar and Elderella to sync care events: https://alpha.elderella.com/app?screen=settings
+> Connect Google Calendar and Elderella to sync care events: https://alpha.elderella.com/app?return=settings/calendar
 >
 > Nothing personal is exposed.
 >
@@ -192,7 +192,7 @@ You can make any event visible to your care team or assign it to one of them.
 
 Afterward, Elderella prompts for notes so details get captured while they're fresh.
 
-[Sync your calendar](https://www.elderella.com/get-started/calendar-sync)
+[See how Ella picks up care events from your calendar](https://alpha.elderella.com/app?return=settings/calendar)
 
 One connection. Elderella takes it from there.
 
@@ -206,7 +206,7 @@ One connection. Elderella takes it from there.
 
 **SMS #3** (morning)
 
-> Elderella: Just left an appointment? Talked to a nurse on the phone? Tell Ella before the details fade -- type, record a voice note, or snap a photo: [deep link to Take A Note] {% if customer.streak_broken == false %}Streak: {{ customer.streak_days }}/7 days.{% else %}5 days of Plus left.{% endif %}
+> Elderella: Just left an appointment? Talked to a nurse on the phone? Tell Ella before the details fade -- type, record a voice note, or snap a photo: https://alpha.elderella.com/app?screen=notes {% if customer.streak_broken == false %}Streak: {{ customer.streak_days }}/7 days.{% else %}5 days of Plus left.{% endif %}
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -230,7 +230,7 @@ Elderella was built for that moment.
 
 If it's a medication label, Ella pulls out the name, dosage, frequency, and prescriber automatically.
 
-[See Ella turn a voice note into organized care details](https://www.elderella.com/get-started/first-note)
+[See Ella turn a voice note into organized care details](https://alpha.elderella.com/app?screen=notes)
 
 Ella just needs the raw information -- she figures out the rest.
 
@@ -244,7 +244,7 @@ Ella just needs the raw information -- she figures out the rest.
 
 **SMS #4** (morning)
 
-> Elderella: Ella may have picked up something from what you shared -- or your calendar -- check your home screen to confirm it before she adds it to the care profile: [deep link to home screen] {% if customer.streak_broken == false %}Streak: {{ customer.streak_days }}/7 days.{% else %}4 days of Plus left.{% endif %}
+> Elderella: Ella may have picked up something from what you shared -- or your calendar -- check your home screen to confirm it before she adds it to the care profile: https://alpha.elderella.com/app?screen=elder-home {% if customer.streak_broken == false %}Streak: {{ customer.streak_days }}/7 days.{% else %}4 days of Plus left.{% endif %}
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -270,7 +270,7 @@ If you've added anyone to your care team, **"Care Team Updates"** shows what the
 
 Between them, you'll always know where things stand. Without digging through notes or messages.
 
-[See how Ella checks before adding anything](https://www.elderella.com/get-started/review-queue)
+[See how Ella checks before adding anything](https://alpha.elderella.com/app?screen=elder-home)
 
 Ella does the work. You stay in control.
 
@@ -284,7 +284,7 @@ Ella does the work. You stay in control.
 
 **SMS #5** (morning)
 
-> Elderella: Try asking Ella something: "What medications are they on?" or "When is the next appointment?" See what she comes back with: [deep link to Chat] {% if customer.streak_broken == false %}Streak: {{ customer.streak_days }}/7 days.{% else %}3 days of Plus left.{% endif %}
+> Elderella: Try asking Ella something: "What medications are they on?" or "When is the next appointment?" See what she comes back with: https://alpha.elderella.com/app?screen=chat {% if customer.streak_broken == false %}Streak: {{ customer.streak_days }}/7 days.{% else %}3 days of Plus left.{% endif %}
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -308,7 +308,7 @@ Just ask:
 
 *"What did the doctor say?"*
 
-[See what happens when you ask Ella a question](https://www.elderella.com/get-started/ask-ella)
+[See what happens when you ask Ella a question](https://alpha.elderella.com/app?screen=chat)
 
 No digging. No guessing. Just ask Ella.
 
@@ -322,7 +322,7 @@ No digging. No guessing. Just ask Ella.
 
 **SMS #6** (morning)
 
-> Elderella: Is someone else helping with care? Invite them to Elderella so everyone's on the same page -- and you're not the only one carrying the details: [deep link to Care Team] {% if customer.streak_broken == false %}Streak: {{ customer.streak_days }}/7 days.{% else %}2 days of Plus left.{% endif %}
+> Elderella: Is someone else helping with care? Invite them to Elderella so everyone's on the same page -- and you're not the only one carrying the details: https://alpha.elderella.com/app?screen=care-team {% if customer.streak_broken == false %}Streak: {{ customer.streak_days }}/7 days.{% else %}2 days of Plus left.{% endif %}
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -358,7 +358,7 @@ You decide what each care team member can see.
 
 From full shared access to only what they need.
 
-[See how you choose what each person on your care team can see](https://www.elderella.com/get-started/invite-team)
+[See how Ella keeps your care team in sync](https://alpha.elderella.com/app?screen=care-team)
 
 {% if customer.streak_broken == false %}Your streak: {{ customer.streak_days }} of 7 days toward extending your Plus access to 14 days.{% else %}Your Plus access has 2 days left.{% endif %}
 
@@ -370,13 +370,13 @@ From full shared access to only what they need.
 
 **SMS #7 -- STREAK** (morning)
 
-> Elderella: It's Day 7. Open Elderella today and your Plus access extends to 14 days. You've earned it: [deep link]
+> Elderella: It's Day 7. Open Elderella today and your Plus access extends to 14 days. You've earned it: https://alpha.elderella.com/app?screen=home
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
 **SMS #7 -- NO STREAK** (morning)
 
-> Elderella: Last day of Plus access. Everything you add to Elderella stays in your account -- even on the Free plan. Worth capturing what you can today: [deep link]
+> Elderella: Last day of Plus access. Everything you add to Elderella stays in your account -- even on the Free plan. Worth capturing what you can today: https://alpha.elderella.com/app?screen=home
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -426,7 +426,7 @@ Ella doesn't stop just because Plus does. And Plus is one tap away whenever you 
 
 **SMS #8** (morning)
 
-> Elderella: You earned 14 days of Plus. Try this: tap "Briefing" in the elder profile for an AI-generated summary of recent care activity. [deep link to About Elder hub]
+> Elderella: You earned 14 days of Plus. Try this: tap "Briefing" in the elder profile for an AI-generated summary of recent care activity. https://alpha.elderella.com/app?screen=elder-home
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -450,7 +450,7 @@ You've been using Elderella for 10 days. Here's what Ella has been holding for y
 
 This is what organized care looks like. Every detail you've shared is ready when you or your team needs it.
 
-[See what a caregiver briefing looks like](https://www.elderella.com/get-started/briefing)
+[See what a caregiver briefing looks like](https://www.elderella.com/features/care-briefing)
 
 -- The Elderella Team
 
@@ -519,7 +519,7 @@ Either way, Ella isn't going anywhere. She'll keep holding your care details on 
 
 **SMS #11** (morning)
 
-> Elderella: Ella just needs the raw information -- a medication, an appointment, anything on your mind. She figures out the rest: [deep link to Chat]
+> Elderella: Ella just needs the raw information -- a medication, an appointment, anything on your mind. She figures out the rest: https://alpha.elderella.com/app?screen=chat
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -551,7 +551,7 @@ Two minutes in the car. And the next time someone asks, the answer is already th
 
 **SMS #12** (morning)
 
-> Elderella: Caregivers tell Ella things like "Dad takes metformin twice a day" and "Mom's cardiologist is Dr. Patel on Tuesdays." Small details that are easy to forget and hard to find later. What would you tell her? [deep link to Chat]
+> Elderella: Caregivers tell Ella things like "Dad takes metformin twice a day" and "Mom's cardiologist is Dr. Patel on Tuesdays." Small details that are easy to forget and hard to find later. What would you tell her? https://alpha.elderella.com/app?screen=chat
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -571,7 +571,7 @@ That's what caregiver briefings do. Ella reads everything she's holding and give
 
 Briefings are a Plus feature. If you've been thinking about upgrading, this is the one that makes caregivers say "I didn't know I needed this."
 
-[See what a caregiver briefing looks like](https://www.elderella.com/get-started/briefing)
+[See what a caregiver briefing looks like](https://www.elderella.com/features/care-briefing)
 
 [Compare plans](https://www.elderella.com/compare-plans)
 
@@ -583,7 +583,7 @@ Briefings are a Plus feature. If you've been thinking about upgrading, this is t
 
 **SMS #13** (morning)
 
-> Elderella: Ella is still here -- whenever a care detail crosses your mind, she's ready. Chat, take notes, track medications, all on your Free plan: [deep link to Chat]
+> Elderella: Ella is still here -- whenever a care detail crosses your mind, she's ready. Chat, take notes, track medications, all on your Free plan: https://alpha.elderella.com/app?screen=chat
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -672,17 +672,21 @@ If you've been on the Free plan and want to unlock the full picture -- unlimited
 
 For users who want to move ahead before opening Elderella, and as landing pages for video content linked from emails and SMS.
 
-| URL | Content | Video | Purpose |
-|-----|---------|-------|---------|
-| /welcome | Recap of the 3 getting-started paths (group chat, chat with Ella, take a note) + link to download | 60-90s getting started walkthrough | Pre-product orientation. Linked from Email #1 (Day 1) and SMS #1 (Day 1) |
-| /get-started/calendar-sync | How calendar sync works, what Ella does with appointments, zero-effort value | 30s calendar sync demo | Linked from Email #2 (Day 2) and SMS #2 (Day 2) |
-| /get-started/group-chat | Step-by-step: how to add Ella to iMessage/WhatsApp/SMS group | -- | Removes friction for adding Ella to group chats |
-| /get-started/first-note | Examples of what to tell Ella + link to download | 45s capture demo (voice note, photo, text) | Linked from Email #3 (Day 3) and SMS #3 (Day 3) |
-| /get-started/review-queue | How "Needs Your Review" works, how Ella builds trust | 30s review queue demo | Linked from Email #4 (Day 4) |
-| /get-started/ask-ella | Examples of questions to ask Ella + how the daily question builds the care story | 30s ask Ella demo | Linked from Email #5 (Day 5) |
-| /get-started/invite-team | Explains access levels, what team members see | 45s care team invite + access levels walkthrough | Linked from Email #6 (Day 6) and SMS #6 (Day 6) |
-| /get-started/briefing | What caregiver briefings are and how they work | 30s briefing feature tour | Linked from Email #8 (Day 10) |
-| /compare-plans | Already exists | -- | Conversion page for Plus-ending emails |
+| Desktop Fallback URL | Universal Link | Content | Video | Purpose |
+|---------------------|----------------|---------|-------|---------|
+| /features/welcome | — | Recap of the 3 getting-started paths (group chat, chat with Ella, take a note) + link to download | 60-90s getting started walkthrough | Pre-product orientation. Linked from Email #1 (Day 1) and SMS #1 (Day 1) |
+| /features/check-in | `?screen=home` | Home screen overview | — | Linked from SMS #7 (Day 7) |
+| /features/review-queue | `?screen=elder-home` | How "Needs Your Review" works, how Ella builds trust | 30s review queue demo | Linked from Email #4 (Day 4) and SMS #4 (Day 4) |
+| /features/notes | `?screen=notes` | Examples of what to tell Ella + link to download | 45s capture demo (voice note, photo, text) | Linked from Email #3 (Day 3) and SMS #3 (Day 3) |
+| /features/ella-chat | `?screen=chat` | Examples of questions to ask Ella + how the daily question builds the care story | 30s ask Ella demo | Linked from Email #5 (Day 5) and SMS #5 (Day 5) |
+| /features/care-team | `?screen=care-team` | Explains access levels, what team members see | 45s care team invite + access levels walkthrough | Linked from Email #6 (Day 6) and SMS #6 (Day 6) |
+| /features/settings | `?screen=settings` | Settings overview | — | — |
+| /features/calendar | `?return=settings/calendar` | How calendar sync works, what Ella does with appointments, zero-effort value | 30s calendar sync demo | Linked from Email #2 (Day 2) and SMS #2 (Day 2) |
+| /features/google-drive | `?return=settings/drive` | How Google Drive backup works | — | — |
+| /features/group-chat | `?return=settings/sms` / `?return=settings/whatsapp` | Step-by-step: how to add Ella to iMessage/WhatsApp/SMS group | — | Removes friction for adding Ella to group chats |
+| /features/notifications | `?return=settings/notifications` | Notification preferences | — | — |
+| /features/care-briefing | — | What caregiver briefings are and how they work | 30s briefing feature tour | Linked from Email #8 (Day 10) |
+| /compare-plans | — | Already exists | — | Conversion page for Plus-ending emails |
 
 Each email CTA can link to the relevant website page as a fallback for users who haven't installed Elderella yet, or as a preview for what they'll do when they open it.
 
