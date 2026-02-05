@@ -64,7 +64,7 @@ These create stickiness over time.
 
 13. **Elder's story builds up through daily questions** -- Over weeks, a rich profile emerges that would be painful to recreate elsewhere.
 
-14. **Care history becomes a reference during a medical appointment** -- The user pulls up Elderella to answer a doctor's question about when a symptom started or what medication was changed. Real-world utility beyond the home screen.
+14. **Care memory becomes a reference during a medical appointment** -- The user pulls up Elderella to answer a doctor's question about when a symptom started or what medication was changed. Real-world utility beyond the home screen.
 
 15. **Managing multiple elders in one place** -- A user caring for both parents sees the value of a single coordinated view.
 
@@ -91,11 +91,11 @@ These create stickiness over time.
 
 ---
 
-## Reverse Premium Mechanics
+## Reverse Plus Mechanics
 
-- **Day 1:** User creates account and gets full Premium access
-- **Days 1-7:** If user opens Elderella every day, Premium access extends to 14 days
-- **Day 7 or 14:** Premium access ends, user drops to Free tier unless they subscribe
+- **Day 1:** User creates account and gets full Plus access
+- **Days 1-7:** If user opens Elderella every day, Plus access extends to 14 days
+- **Day 7 or 14:** Plus access ends, user drops to Free tier unless they subscribe
 - **Key messaging shift:** Days 1-7 focus on activation + "keep your streak." Days 8-14 (if earned) shift to deepening habits + conversion.
 
 ---
@@ -114,9 +114,13 @@ All SMS messages include a compliant opt-out footer for US/Canada:
 
 **SMS #1** (immediately after account creation)
 
-> Welcome to Elderella. Ella is ready -- tell her one thing about the care you're managing and see what she does with it. You have 7 days of full Premium access, and using Elderella daily this week extends it to 14: [deep link]
+> Welcome to Elderella!
 >
-> Reply STOP to opt out. Msg & data rates may apply.
+> Tell Ella one thing about the care you're managing and see what she does with it: https://alpha.elderella.com/app?screen=chat
+>
+> Enjoy 7 days of our full Plus plan. Use Elderella daily to extend your access to Plus for 14 days.
+>
+> STOP to opt out. Msg & data rates may apply.
 
 ---
 
@@ -134,7 +138,7 @@ Ella is ready to start helping. She's good at remembering the things you don't h
 
 Tell her one thing about the care you're managing and see what she does with it.
 
-> You have full Premium access for 7 days. Use Elderella each day this week, and we'll double it to 14.
+> You have full Plus access for 7 days. Use Elderella each day this week, and we'll double it to 14.
 
 **Two easy ways to get started**
 
@@ -156,9 +160,13 @@ One small action today. That's all it takes.
 
 **SMS #2** (morning, ~9am local time)
 
-> Elderella: Connect Google Calendar and Elderella automatically pulls in care events that mention your elder's name -- your personal and work events stay private. Elderella events can also sync back to Google Calendar as "Elderella Event" so nothing personal is exposed. Connect it in settings: [deep link to settings]
+> Connect Google Calendar and Elderella to sync care events: https://alpha.elderella.com/app?screen=settings
 >
-> Reply STOP to opt out. Msg & data rates may apply.
+> Nothing personal is exposed.
+>
+> {% if customer.streak_broken == false %}Streak: {{ customer.streak_days }}/7 days.{% else %}6 days of Plus left.{% endif %}
+>
+> STOP to opt out.
 
 ---
 
@@ -188,7 +196,7 @@ Afterward, Elderella prompts for notes so details get captured while they're fre
 
 One connection. Elderella takes it from there.
 
-{% if customer.user_streak_earned %}Your streak: 2 of 7 days toward extending your Premium access to 14 days.{% else %}Your Premium access has 5 days left.{% endif %}
+{% if customer.streak_broken == false %}Your streak: {{ customer.streak_days }} of 7 days toward extending your Plus access to 14 days.{% else %}Your Plus access has 6 days left.{% endif %}
 
 -- The Elderella Team
 
@@ -198,7 +206,7 @@ One connection. Elderella takes it from there.
 
 **SMS #3** (morning)
 
-> Elderella: Just left an appointment? Talked to a nurse on the phone? Tell Ella before the details fade -- type, record a voice note, or snap a photo: [deep link to Take A Note]
+> Elderella: Just left an appointment? Talked to a nurse on the phone? Tell Ella before the details fade -- type, record a voice note, or snap a photo: [deep link to Take A Note] {% if customer.streak_broken == false %}Streak: {{ customer.streak_days }}/7 days.{% else %}5 days of Plus left.{% endif %}
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -226,7 +234,7 @@ If it's a medication label, Ella pulls out the name, dosage, frequency, and pres
 
 Ella just needs the raw information -- she figures out the rest.
 
-{% if customer.user_streak_earned %}Your streak: 3 of 7 days toward extending your Premium access to 14 days.{% else %}Your Premium access has 4 days left.{% endif %}
+{% if customer.streak_broken == false %}Your streak: {{ customer.streak_days }} of 7 days toward extending your Plus access to 14 days.{% else %}Your Plus access has 5 days left.{% endif %}
 
 -- The Elderella Team
 
@@ -236,7 +244,7 @@ Ella just needs the raw information -- she figures out the rest.
 
 **SMS #4** (morning)
 
-> Elderella: Ella may have picked up something from what you shared -- or your calendar -- check your home screen to confirm it before she adds it to the care profile: [deep link to home screen]
+> Elderella: Ella may have picked up something from what you shared -- or your calendar -- check your home screen to confirm it before she adds it to the care profile: [deep link to home screen] {% if customer.streak_broken == false %}Streak: {{ customer.streak_days }}/7 days.{% else %}4 days of Plus left.{% endif %}
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -266,7 +274,7 @@ Between them, you'll always know where things stand. Without digging through not
 
 Ella does the work. You stay in control.
 
-{% if customer.user_streak_earned %}Your streak: 4 of 7 days toward extending your Premium access to 14 days.{% else %}Your Premium access has 3 days left.{% endif %}
+{% if customer.streak_broken == false %}Your streak: {{ customer.streak_days }} of 7 days toward extending your Plus access to 14 days.{% else %}Your Plus access has 4 days left.{% endif %}
 
 -- The Elderella Team
 
@@ -276,7 +284,7 @@ Ella does the work. You stay in control.
 
 **SMS #5** (morning)
 
-> Elderella: Try asking Ella something: "What medications are they on?" or "When is the next appointment?" See what she comes back with: [deep link to Chat]
+> Elderella: Try asking Ella something: "What medications are they on?" or "When is the next appointment?" See what she comes back with: [deep link to Chat] {% if customer.streak_broken == false %}Streak: {{ customer.streak_days }}/7 days.{% else %}3 days of Plus left.{% endif %}
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -304,7 +312,7 @@ Just ask:
 
 No digging. No guessing. Just ask Ella.
 
-{% if customer.user_streak_earned %}Your streak: 5 of 7 days toward extending your Premium access to 14 days.{% else %}Your Premium access has 2 days left.{% endif %}
+{% if customer.streak_broken == false %}Your streak: {{ customer.streak_days }} of 7 days toward extending your Plus access to 14 days.{% else %}Your Plus access has 3 days left.{% endif %}
 
 -- The Elderella Team
 
@@ -314,7 +322,7 @@ No digging. No guessing. Just ask Ella.
 
 **SMS #6** (morning)
 
-> Elderella: Is someone else helping with care? Invite them to Elderella so everyone's on the same page -- and you're not the only one carrying the details: [deep link to Care Team]
+> Elderella: Is someone else helping with care? Invite them to Elderella so everyone's on the same page -- and you're not the only one carrying the details: [deep link to Care Team] {% if customer.streak_broken == false %}Streak: {{ customer.streak_days }}/7 days.{% else %}2 days of Plus left.{% endif %}
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -352,7 +360,7 @@ From full shared access to only what they need.
 
 [See how you choose what each person on your care team can see](https://www.elderella.com/get-started/invite-team)
 
-{% if customer.user_streak_earned %}Your streak: 6 of 7 days toward extending your Premium access to 14 days.{% else %}Your Premium access has 1 day left.{% endif %}
+{% if customer.streak_broken == false %}Your streak: {{ customer.streak_days }} of 7 days toward extending your Plus access to 14 days.{% else %}Your Plus access has 2 days left.{% endif %}
 
 -- The Elderella Team
 
@@ -362,13 +370,13 @@ From full shared access to only what they need.
 
 **SMS #7 -- STREAK** (morning)
 
-> Elderella: It's Day 7. Open Elderella today and your Premium access extends to 14 days. You've earned it: [deep link]
+> Elderella: It's Day 7. Open Elderella today and your Plus access extends to 14 days. You've earned it: [deep link]
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
 **SMS #7 -- NO STREAK** (morning)
 
-> Elderella: Last day of Premium access. Everything you add to Elderella stays in your account -- even on the Free plan. Worth capturing what you can today: [deep link]
+> Elderella: Last day of Plus access. Everything you add to Elderella stays in your account -- even on the Free plan. Worth capturing what you can today: [deep link]
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -382,7 +390,7 @@ Hi [Name],
 
 You've shown up six days in a row. That takes real follow-through -- especially when you're already managing a full life and someone else's care.
 
-Today is Day 7. Open Elderella before midnight and your Premium access extends to 14 days. That's 14 more days of unlimited history, your full care team, briefings, and exports.
+Today is Day 7. Open Elderella before midnight and your Plus access extends to 14 days. That's 14 more days of unlimited history, your full care team, briefings, and exports.
 
 You've already built the habit. Now you get more time to make it stick.
 
@@ -392,23 +400,23 @@ You've already built the habit. Now you get more time to make it stick.
 
 **Email #7 -- NO STREAK** (sent afternoon, only if user has NOT opened Elderella today)
 
-**Subject:** Your Premium access ends today -- but Ella isn't going anywhere
+**Subject:** Your Plus access ends today -- but Ella isn't going anywhere
 
 Hi [Name],
 
-Today is Day 7 of your Premium access. After today, your account moves to the Free plan unless you subscribe.
+Today is Day 7 of your Plus access. After today, your account moves to the Free plan unless you subscribe.
 
 Here's what stays the same: everything you've added is safe. Your notes, medications, appointments -- none of it goes anywhere. Ella keeps working for you on the Free plan -- chat, notes, medication reminders, and up to 2 care team members.
 
-Some features do change -- unlimited care history, larger care teams, briefings, long voice notes, and exports are Premium-only. But nothing is deleted.
+Some features do change -- unlimited care memory, larger care teams, briefings, long voice notes, and exports are Plus-only. But nothing is deleted.
 
-Ella doesn't stop just because Premium does. And Premium is one tap away whenever you want more.
+Ella doesn't stop just because Plus does. And Plus is one tap away whenever you want more.
 
 -- The Elderella Team
 
 ---
 
-## Days 8-14 -- Extended Premium Access (Deepening & Conversion)
+## Days 8-14 -- Extended Plus Access (Deepening & Conversion)
 
 *These messages only send to users who earned the 14-day extension by maintaining their 7-day streak.*
 
@@ -418,7 +426,7 @@ Ella doesn't stop just because Premium does. And Premium is one tap away wheneve
 
 **SMS #8** (morning)
 
-> Elderella: You earned 14 days of Premium. Try this: tap "Briefing" in the elder profile for an AI-generated summary of recent care activity. [deep link to About Elder hub]
+> Elderella: You earned 14 days of Plus. Try this: tap "Briefing" in the elder profile for an AI-generated summary of recent care activity. [deep link to About Elder hub]
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -454,7 +462,7 @@ P.S. -- Your extended access ends in 4 days. To keep unlimited history and your 
 
 **SMS #9** (morning)
 
-> Elderella: Your Premium access ends in 2 days. Everything Ella has organized stays in your account -- upgrade to keep unlimited history and your full care team. https://www.elderella.com/compare-plans
+> Elderella: Your Plus access ends in 2 days. Everything Ella has organized stays in your account -- upgrade to keep unlimited history and your full care team. https://www.elderella.com/compare-plans
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -464,15 +472,15 @@ P.S. -- Your extended access ends in 4 days. To keep unlimited history and your 
 
 **Email #9**
 
-**Subject:** Your Premium access ends tomorrow -- here's what that means
+**Subject:** Your Plus access ends tomorrow -- here's what that means
 
 Hi [Name],
 
-Tomorrow your Premium access converts to the Free plan. Here's what changes:
+Tomorrow your Plus access converts to the Free plan. Here's what changes:
 
-| | Premium (now) | Free (tomorrow) |
+| | Plus (now) | Free (tomorrow) |
 |---|---|---|
-| Care history | Unlimited | 90 days |
+| Care memory | Unlimited | 90 days |
 | Care team members | 10 | 2 |
 | Voice notes | 60 min | 5 min |
 | Briefings | Yes | No |
@@ -480,9 +488,9 @@ Tomorrow your Premium access converts to the Free plan. Here's what changes:
 
 **What doesn't change:** Everything you've added stays in your account. You won't lose any data. Older history and some features will be inaccessible until you upgrade, but nothing is deleted.
 
-If Elderella has been useful this past two weeks -- if you've felt even a little more organized, a little less alone in this -- keeping Premium means keeping that going.
+If Elderella has been useful this past two weeks -- if you've felt even a little more organized, a little less alone in this -- keeping Plus means keeping that going.
 
-[Keep Premium -- $30/month](subscription link)
+[Keep Plus](subscription link)
 [Compare all plans](https://www.elderella.com/compare-plans)
 
 Either way, Ella isn't going anywhere. She'll keep holding your care details on whatever plan you're on.
@@ -495,7 +503,7 @@ Either way, Ella isn't going anywhere. She'll keep holding your care details on 
 
 **SMS #10** (morning)
 
-> Elderella: Your Premium access ends today. Upgrade to keep unlimited care history and your full care team: https://www.elderella.com/compare-plans. Everything Ella has organized stays in your account, no matter what.
+> Elderella: Your Plus access ends today. Upgrade to keep unlimited care memory and your full care team: https://www.elderella.com/compare-plans. Everything Ella has organized stays in your account, no matter what.
 >
 > Reply STOP to opt out. Msg & data rates may apply.
 
@@ -503,7 +511,7 @@ Either way, Ella isn't going anywhere. She'll keep holding your care details on 
 
 ## Days 9-30 -- No-Streak Follow-Up (Re-engagement & Conversion)
 
-*These messages only send to users who did NOT earn the 14-day extension -- they either never opened Elderella or didn't maintain a daily streak. Their Premium access ended on Day 7.*
+*These messages only send to users who did NOT earn the 14-day extension -- they either never opened Elderella or didn't maintain a daily streak. Their Plus access ended on Day 7.*
 
 ---
 
@@ -561,7 +569,7 @@ Imagine opening Elderella and seeing a summary of everything that's happened thi
 
 That's what caregiver briefings do. Ella reads everything she's holding and gives you a clear picture of where things stand -- so you don't have to piece it together yourself.
 
-Briefings are a Premium feature. If you've been thinking about upgrading, this is the one that makes caregivers say "I didn't know I needed this."
+Briefings are a Plus feature. If you've been thinking about upgrading, this is the one that makes caregivers say "I didn't know I needed this."
 
 [See what a caregiver briefing looks like](https://www.elderella.com/get-started/briefing)
 
@@ -599,7 +607,7 @@ Every detail you've shared makes the next conversation easier -- with a doctor, 
 
 Caregiving doesn't have an end date. Neither does Ella.
 
-If you want unlimited history, a bigger care team, briefings, and exports, Premium is one tap away.
+If you want unlimited history, a bigger care team, briefings, and exports, Plus is one tap away.
 
 [Compare plans](https://www.elderella.com/compare-plans)
 
@@ -607,9 +615,9 @@ If you want unlimited history, a bigger care team, briefings, and exports, Premi
 
 ---
 
-## Post-Premium Access -- Streak Users (didn't convert after 14-day extension)
+## Post-Plus Access -- Streak Users (didn't convert after 14-day extension)
 
-*These messages only send to users who completed the 7-day streak, earned the 14-day extension, but did not subscribe to Premium.*
+*These messages only send to users who completed the 7-day streak, earned the 14-day extension, but did not subscribe to Plus.*
 
 ---
 
@@ -621,11 +629,11 @@ If you want unlimited history, a bigger care team, briefings, and exports, Premi
 
 Hi [Name],
 
-Your Premium access ended a few days ago, but Ella hasn't gone anywhere. She's still here on your Free plan -- still remembering your notes, still answering questions, still holding everything together.
+Your Plus access ended a few days ago, but Ella hasn't gone anywhere. She's still here on your Free plan -- still remembering your notes, still answering questions, still holding everything together.
 
 You can chat with Ella, take notes, and manage care with up to 2 care team members. The foundation is there.
 
-Whenever you're ready for more -- unlimited history, a bigger care team, briefings, and exports -- Premium is one tap away.
+Whenever you're ready for more -- unlimited history, a bigger care team, briefings, and exports -- Plus is one tap away.
 
 No pressure. We'll be here.
 
@@ -674,7 +682,7 @@ For users who want to move ahead before opening Elderella, and as landing pages 
 | /get-started/ask-ella | Examples of questions to ask Ella + how the daily question builds the care story | 30s ask Ella demo | Linked from Email #5 (Day 5) |
 | /get-started/invite-team | Explains access levels, what team members see | 45s care team invite + access levels walkthrough | Linked from Email #6 (Day 6) and SMS #6 (Day 6) |
 | /get-started/briefing | What caregiver briefings are and how they work | 30s briefing feature tour | Linked from Email #8 (Day 10) |
-| /compare-plans | Already exists | -- | Conversion page for Premium-ending emails |
+| /compare-plans | Already exists | -- | Conversion page for Plus-ending emails |
 
 Each email CTA can link to the relevant website page as a fallback for users who haven't installed Elderella yet, or as a preview for what they'll do when they open it.
 
@@ -690,7 +698,7 @@ All non-transactional messages are gated by subscription topics in Customer.io. 
 |---|---|---|
 | **Getting Started** | Tips to help you get the most out of Ella during your first week | Opted in |
 | **Product Tips** | Feature highlights, how-tos, and ways to get more from Elderella | Opted in |
-| **Plan & Pricing Updates** | Information about your Premium access, plan comparisons, and upgrade options | Opted in |
+| **Plan & Pricing Updates** | Information about your Plus access, plan comparisons, and upgrade options | Opted in |
 | **Elderella Newsletter** | Updates from the Elderella team -- product news, caregiving resources, and company updates | Opted in for newsletter subscribers, opted out for others |
 
 ### Campaign-to-Topic Mapping
@@ -709,14 +717,14 @@ All non-transactional messages are gated by subscription topics in Customer.io. 
 | Day 10 Email (stats + briefing) | Product Tips |
 | Day 11 Email (real-world scenario) | Product Tips |
 | Day 14 SMS (social proof) | Product Tips |
-| Day 17 Email (Ella is still here -- post-premium) | Product Tips |
+| Day 17 Email (Ella is still here -- post-plus) | Product Tips |
 | Day 21 SMS (re-engagement) | Product Tips |
-| Day 12 SMS (Premium ending) | Plan & Pricing Updates |
+| Day 12 SMS (Plus ending) | Plan & Pricing Updates |
 | Day 13 Email (comparison table) | Plan & Pricing Updates |
-| Day 14 SMS (last day Premium) | Plan & Pricing Updates |
+| Day 14 SMS (last day Plus) | Plan & Pricing Updates |
 | Day 17 Email (briefing teaser -- no-streak) | Plan & Pricing Updates |
 | Day 30 Email (stats -- no-streak) | Plan & Pricing Updates |
-| Day 30 Email (stats -- post-premium) | Plan & Pricing Updates |
+| Day 30 Email (stats -- post-plus) | Plan & Pricing Updates |
 | Newsletter broadcasts | Elderella Newsletter |
 
 ### Transactional Messages (bypass subscription preferences)
@@ -725,7 +733,7 @@ These are marked as transactional in Customer.io and always send regardless of t
 
 - Account verification / password reset
 - Billing receipts and payment failures
-- Premium access status changes (started, ending today, ended)
+- Plus access status changes (started, ending today, ended)
 - Legal/privacy updates
 
 ### Email Footer
