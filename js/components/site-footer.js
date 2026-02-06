@@ -40,7 +40,9 @@ class SiteFooter extends HTMLElement {
                                 <h4>Help us help you</h4>
                                 <ul>
                                     <li><a href="story.html">Your caregiving story</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
                                     <li><a href="support.html">Support</a></li>
+                                    <li><a href="data-request.html">Request your data</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -120,6 +122,17 @@ class SiteFooter extends HTMLElement {
         `;
 
         this.initNewsletterForm();
+        this.loadCustomerIO();
+    }
+
+    loadCustomerIO() {
+        // Load Customer.io SDK if not already loaded
+        if (!document.getElementById('cio-script')) {
+            var script = document.createElement('script');
+            script.id = 'cio-script';
+            script.src = 'js/customerio.js';
+            document.head.appendChild(script);
+        }
     }
 
     initNewsletterForm() {
