@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Request a copy of your personal data from Elderella. Exercise your privacy rights under GDPR and CCPA to access the information we have stored about you.">
+    <title>Request Your Data | Elderella</title>
+    <link rel="canonical" href="https://www.elderella.com/data-request">
+    <meta property="og:title" content="Request Your Data | Elderella">
+    <meta property="og:description" content="Request a copy of your personal data from Elderella. Exercise your privacy rights under GDPR and CCPA to access the information we have stored about you.">
+    <meta property="og:url" content="https://www.elderella.com/data-request">
+    <meta property="og:site_name" content="Elderella">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.elderella.com/images/elderella-logo-share.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Request Your Data | Elderella">
+    <meta name="twitter:description" content="Request a copy of your personal data from Elderella. Exercise your privacy rights under GDPR and CCPA to access the information we have stored about you.">
+    <meta name="twitter:url" content="https://www.elderella.com/data-request">
+    <meta name="twitter:image" content="https://www.elderella.com/images/elderella-logo-share.jpg">
+    <meta name="twitter:site" content="@ElderellaCare">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400&family=Merriweather+Sans:wght@400;700&family=Source+Sans+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Site Header Component -->
+    <site-header></site-header>
+
+    <!-- Data Request Hero Section -->
+    <section class="delete-hero" id="main-content">
+        <div class="container">
+            <h1 class="delete-hero-title">Request your data</h1>
+            <p class="delete-hero-subtitle">Get a copy of the personal information we have stored about you.</p>
+        </div>
+    </section>
+
+    <!-- About Data Requests Section -->
+    <section class="delete-before-section">
+        <div class="container">
+            <div class="delete-content-container">
+                <h2 class="delete-before-title">Your right to access</h2>
+                <p class="delete-before-text">Under privacy laws like GDPR and CCPA, you have the right to request a copy of your personal data. We'll provide your information in a portable format that you can download and review.</p>
+
+                <div class="delete-warning-box" style="border-color: #5A4FCF; background-color: #EFEEFC;">
+                    <div class="delete-warning-header">
+                        <img
+                            src="images/own-your-data.png"
+                            srcset="images/own-your-data.png 1x, images/own-your-data@2x.png 2x"
+                            width="40"
+                            height="40"
+                            alt=""
+                            class="delete-warning-icon"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                        <h3 class="delete-warning-title">What's included in your data export</h3>
+                    </div>
+                    <p class="delete-warning-intro">Your data export will include:</p>
+                    <ul class="delete-warning-list">
+                        <li>Your account profile and settings</li>
+                        <li>Elder profiles you manage</li>
+                        <li>Care Team member information</li>
+                        <li>Notes and journal entries</li>
+                        <li>Medications and health records</li>
+                        <li>Tasks and calendar events</li>
+                        <li>Uploaded documents and files</li>
+                    </ul>
+                </div>
+
+                <p class="delete-processing-text">Your data request will be processed within <strong>30 days</strong> as required by privacy regulations. We will send the export to the email address associated with your account.</p>
+
+                <p class="delete-processing-text">If you have any questions, please contact us at <a href="mailto:privacy@elderella.com">privacy@elderella.com</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Request Form Section (Purple Background) -->
+    <section class="delete-form-section">
+        <div class="container">
+            <div class="delete-form-container">
+                <h2 class="delete-form-title">Submit data request</h2>
+
+                <div id="request-success-message" class="delete-message delete-message-success" style="display: none;" role="alert" aria-live="polite">
+                    <strong>Request submitted successfully.</strong> We will process your data request within 30 days and send the export to your email address.
+                </div>
+
+                <div id="request-error-message" class="delete-message delete-message-error" style="display: none;" role="alert" aria-live="assertive"></div>
+
+                <form id="data-request-form" class="delete-form">
+                    <div class="delete-form-group">
+                        <label for="email" class="sr-only">Email address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="delete-form-input"
+                            required
+                            placeholder="Your email address"
+                        >
+                        <p class="delete-form-help">Enter the email address associated with your Elderella account.</p>
+                    </div>
+
+                    <div class="delete-form-group">
+                        <label class="delete-form-label">What data would you like?</label>
+
+                        <div class="delete-radio-group">
+                            <div class="delete-radio-card selected" onclick="selectRequestType(event, 'full')">
+                                <input
+                                    type="radio"
+                                    id="request-full"
+                                    name="request-type"
+                                    value="full"
+                                    class="delete-radio-input"
+                                    checked
+                                    required
+                                >
+                                <label for="request-full" class="delete-radio-content">
+                                    <span class="delete-radio-title">Complete data export</span>
+                                    <span class="delete-radio-description">All data associated with your account, including elder profiles, notes, medications, tasks, and documents.</span>
+                                </label>
+                            </div>
+
+                            <div class="delete-radio-card" onclick="selectRequestType(event, 'specific')">
+                                <input
+                                    type="radio"
+                                    id="request-specific"
+                                    name="request-type"
+                                    value="specific"
+                                    class="delete-radio-input"
+                                    required
+                                >
+                                <label for="request-specific" class="delete-radio-content">
+                                    <span class="delete-radio-title">Specific data only</span>
+                                    <span class="delete-radio-description">Specify which types of data you need in the comments below.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="delete-form-group">
+                        <label for="format" class="delete-form-label">Preferred format</label>
+                        <select id="format" name="format" class="delete-form-select">
+                            <option value="json-html">JSON with HTML viewer (Recommended)</option>
+                            <option value="json">JSON only</option>
+                            <option value="pdf">PDF summary</option>
+                        </select>
+                        <p class="delete-form-help">JSON with HTML viewer provides a complete, machine-readable export with a friendly way to browse your data.</p>
+                    </div>
+
+                    <div class="delete-form-group">
+                        <label for="comments" class="delete-form-label">Additional details (optional)</label>
+                        <textarea
+                            id="comments"
+                            name="comments"
+                            class="delete-form-textarea"
+                            placeholder="If you selected 'Specific data only', please describe what data you need. You can also include any other relevant information..."
+                        ></textarea>
+                    </div>
+
+                    <div class="delete-confirm-group">
+                        <input
+                            type="checkbox"
+                            id="confirm"
+                            name="confirm"
+                            class="delete-confirm-checkbox"
+                            required
+                        >
+                        <label for="confirm" class="delete-confirm-label">
+                            I confirm that I am the account owner or authorized to request this data on behalf of the account owner.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-cta-yellow delete-form-submit" id="submit-btn">
+                        Submit data request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Have Questions Section -->
+    <section class="questions-section">
+        <div class="container">
+            <h2 class="questions-title">Have questions about your data?</h2>
+            <p class="questions-text">Our Privacy Team is here to help you understand your rights and how we handle your information.</p>
+            <div class="questions-buttons">
+                <a href="mailto:privacy@elderella.com" class="btn-purple">Contact our privacy team</a>
+                <a href="https://www.elderella.com/privacy" class="btn-purple">Read full privacy policy</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Site Footer Component -->
+    <site-footer></site-footer>
+
+    <!-- Web Components -->
+    <script src="js/components/site-header.js"></script>
+    <script src="js/components/site-footer.js"></script>
+
+    <script>
+        // Handle request type selection
+        function selectRequestType(e, type) {
+            const fullRadio = document.getElementById('request-full');
+            const specificRadio = document.getElementById('request-specific');
+            const radioCards = document.querySelectorAll('.delete-radio-card');
+
+            // Update radio selection
+            if (type === 'full') {
+                fullRadio.checked = true;
+                specificRadio.checked = false;
+            } else {
+                fullRadio.checked = false;
+                specificRadio.checked = true;
+            }
+
+            // Update visual selection
+            radioCards.forEach(card => {
+                card.classList.remove('selected');
+            });
+            e.currentTarget.classList.add('selected');
+        }
+
+        document.getElementById('data-request-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submit-btn');
+            const successMsg = document.getElementById('request-success-message');
+            const errorMsg = document.getElementById('request-error-message');
+
+            // Hide messages
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+
+            // Get request type
+            const requestType = document.querySelector('input[name="request-type"]:checked')?.value;
+
+            if (!requestType) {
+                errorMsg.textContent = 'Please select what data you would like.';
+                errorMsg.style.display = 'block';
+                errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                return;
+            }
+
+            // Disable button
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            try {
+                const formData = {
+                    email: document.getElementById('email').value,
+                    requestType: requestType,
+                    format: document.getElementById('format').value,
+                    comments: document.getElementById('comments').value,
+                    confirmed: document.getElementById('confirm').checked
+                };
+
+                const response = await fetch('/api/data-request', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    successMsg.style.display = 'block';
+                    document.getElementById('data-request-form').reset();
+                    // Reset UI - keep first option selected
+                    document.querySelectorAll('.delete-radio-card').forEach((card, i) => {
+                        if (i === 0) {
+                            card.classList.add('selected');
+                        } else {
+                            card.classList.remove('selected');
+                        }
+                    });
+                    document.getElementById('request-full').checked = true;
+                    // Scroll to success message
+                    successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                } else {
+                    let errorText = 'An error occurred. Please try again or contact support at privacy@elderella.com';
+                    try {
+                        const error = await response.json();
+                        errorText = error.error || errorText;
+                    } catch (parseError) {
+                        // Server returned non-JSON response
+                    }
+                    errorMsg.textContent = errorText;
+                    errorMsg.style.display = 'block';
+                    errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            } catch (error) {
+                errorMsg.textContent = 'Unable to submit request. Please try again later or contact us at privacy@elderella.com';
+                errorMsg.style.display = 'block';
+                errorMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit data request';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,70 +1,33 @@
-# Elderella LLMs.txt
-# This file helps AI assistants understand our product and provide accurate information
+# Elderella
 
-## Company Overview
-Elderella is a mobile app that helps family caregivers organize elder care, share responsibilities, and manage the mental load of caring for aging loved ones. The app features Ella, an AI caregiving partner that assists with tracking care details, medications, appointments, and coordinating with other family members.
+> Elderella is a mobile app that helps family caregivers organize elder care, share responsibilities, and manage the mental load of caring for aging loved ones.
 
-## Our Mission
-To turn chaos into care by giving family caregivers the tools they need to organize, remember, and share the responsibilities of elder care.
+Elderella turns everyday elder care updates into organized care you can rely on. Chat with Ella, your AI caregiving partner, to capture care details as they happen. She remembers what you and your care team share, and automatically detects and creates events, tasks, medication entries, and care team members. Available on Android (iOS coming soon).
 
-## The App
-Elderella is available as a mobile app:
-- Android: Available on Google Play
-- iOS: Coming soon
+## Product
 
-## Key Features
+- [Home](https://www.elderella.com/index.html.md): Overview, value propositions, and feature highlights
+- [How Elderella Works](https://www.elderella.com/how-elderella-works.html.md): Four-step process for organizing elder care
+- [Collects Care Details](https://www.elderella.com/collects-care-details.html.md): How Elderella captures caregiving information
+- [Remembers and Reminds](https://www.elderella.com/remembers-and-reminds.html.md): Memory, reminders, and information retrieval features
+- [Shares the Load](https://www.elderella.com/shares-the-load.html.md): Care team coordination and delegation
+- [Compare Plans](https://www.elderella.com/compare-plans.html.md): Pricing tiers (Free, Plus $30/mo, Premium $50/mo)
 
-### Collects Care Details
-- Chat with Ella to capture care information using voice or text
-- Ella extracts appointments, medications, tasks, and care team members automatically
-- Store health details, medical history, and important notes about your elder
-- Keep related files and documents organized
+## Support
 
-### Remembers and Reminds
-- Medication reminders and tracking
-- Appointment scheduling and calendar sync
-- Task management with due dates
-- Ella helps you stay on top of everything
+- [FAQ](https://www.elderella.com/faq.html.md): Frequently asked questions about Elderella
+- [Support](https://www.elderella.com/support.html.md): Help resources and contact information
+- [Download](https://www.elderella.com/download.html.md): Get the Elderella app
 
-### Shares the Load
-- Invite family members to join the care team
-- Assign tasks to specific caregivers
-- Control who can see what information
-- Keep everyone updated on care status
+## Trust & Privacy
 
-## Who It's For
-- Adult children caring for aging parents
-- Families coordinating care across multiple caregivers
-- Primary caregivers who need to share information with siblings or other family members
-- Anyone managing the "invisible load" of elder care
+- [Trust & Security](https://www.elderella.com/security.html.md): Privacy, encryption, HIPAA, and PIPEDA compliance
+- [Privacy Policy](https://www.elderella.com/privacy.html.md): Full privacy policy
+- [Terms of Service](https://www.elderella.com/terms.html.md): Terms and conditions
 
-## Privacy & Security
-Elderella takes privacy seriously:
-- Privacy first: Only collects what's needed, never sells or shares data
-- You own your data: Access, update, or delete anytime
-- Built for safety: Healthcare-grade security and encryption
-- Transparency: Clear explanations of data practices
+## Optional
 
-## Contact Information
-- Website: https://www.elderella.com
-- Email: hello@elderella.com
-
-## Important Notes
-- Elderella is a caregiving organization tool, not a medical device
-- The app helps families coordinate care but does not provide medical advice
-- All health decisions should be made with qualified healthcare professionals
-- Ella is an AI assistant designed to help organize information, not replace human judgment
-
-## Pages on Our Website
-- / - Home page
-- /how-elderella-works - Detailed feature walkthrough
-- /collects-care-details - Feature: capturing care information
-- /remembers-and-reminds - Feature: reminders and tracking
-- /shares-the-load - Feature: care team coordination
-- /download - Get the app
-- /security - Privacy and security information
-- /story - Share your caregiving story (user research)
-- /privacy - Privacy policy
-- /terms - Terms of service
-
-Last Updated: 2026-01-23
+- [Introducing Elderella](https://www.elderella.com/introduce.html.md): Guide for introducing Elderella to your elder
+- [Share Your Story](https://www.elderella.com/story.html.md): User research and caregiver interviews
+- [Delete Account](https://www.elderella.com/delete-account.html.md): Account deletion request
+- [Request Your Data](https://www.elderella.com/data-request.html.md): Data export request

@@ -1,0 +1,280 @@
+# Elderella — Complete Product Documentation
+
+> Elderella is a mobile app that helps family caregivers organize elder care, share responsibilities, and manage the mental load of caring for aging loved ones.
+
+## Product Overview
+
+Elderella turns everyday elder care updates into organized care you can rely on. The app features Ella, an AI caregiving partner that assists with tracking care details, medications, appointments, and coordinating with other family members.
+
+**Mission**: To turn chaos into care by giving family caregivers the tools they need to organize, remember, and share the responsibilities of elder care.
+
+**Availability**: Android on Google Play. iOS coming soon.
+
+**Website**: https://www.elderella.com
+**Email**: hello@elderella.com
+**Support**: support@elderella.com
+
+## Who It's For
+
+- Adult children caring for aging parents
+- Families coordinating care across multiple caregivers
+- Primary caregivers who need to share information with siblings or other family members
+- Anyone managing the "invisible load" of elder care
+
+Elderella was built alongside family caregivers from the very beginning, with 80+ in-depth interviews across Canada, the US, and the UK shaping the product.
+
+## How Elderella Works
+
+### Step 1: Add Ella to your care conversations
+
+Add Ella as a contact and include her in your caregiving group chats. When you share updates about appointments, medications, or care tasks, Ella listens and learns.
+
+### Step 2: Elderella collects care details
+
+Ella automatically detects and organizes care information from your conversations. Medications, appointments, tasks, and care team members are captured without any extra effort. Sources include:
+
+- **Everyday chats**: Chat with Ella on the go; she tucks everything into your elder's growing care story
+- **Notes & docs**: Add voice, photo, or text notes, or documents
+- **Event updates**: Add quick updates after appointments or visits
+- **Medication updates**: Scan a pill pack or prescription label
+- **Your elder's story**: Answer one simple question a day and Elderella builds a rich, searchable profile
+- **You decide what to add**: A "Needs Your Review" list lets you approve or skip each item
+
+### Step 3: Ella remembers and reminds
+
+Ask Ella anything about your loved one's care. She remembers medications, appointments, and preferences so you don't have to. Features include:
+
+- **Manage multiple elders**: Switch between elder profiles without losing track
+- **Know what's next**: See the most pressing tasks and closest events at a glance
+- **See upcoming care needs**: Sync your calendar for a unified caregiving view
+- **Ask Ella**: Natural language questions like "When was Dad's last fall?" or "What changed this week?"
+- **Get care team updates**: Scrollable digest of everything your care team has done
+- **Medication information**: Clean, current list of medications, doses, schedules, and reminders
+
+### Step 4: Elderella shares the load
+
+Invite family, friends, and professionals to your care team. Features include:
+
+- **Identify care team**: Elderella spots people in your texts and suggests them as members
+- **Invite care team**: Add someone with a name and phone number; Elderella sends a text invite
+- **Care team information**: See your whole team on one screen with tap-to-call or email
+- **Delegate & remind**: Assign tasks and events, set due dates, and Elderella nudges people
+- **Care team access levels**: Five access levels so each person only sees what they need
+- **Set what care team sees**: Mark items as "primary caregiver only" and control medication alerts
+
+## Pricing
+
+All plans include a free trial: 7 days of Plus features when you sign up. Pricing is per elder profile — your own profile is always free, and care team members are included at no extra cost.
+
+### Free — $0/month forever
+
+- 1 elder profile
+- FREE profile for you
+- 3 care team members
+- 90-day care memory
+- 5 minute voice notes
+- 1 photo per photo note
+- Chat support
+
+### Plus — $30/month/elder (or $300/year, save $60)
+
+*Enough for most caregivers. For actively managing ongoing elder care.*
+
+- 1 elder profile
+- FREE profile for you
+- 10 care team members
+- Unlimited care memory
+- AI-generated caregiver briefings
+- 30 minute voice notes
+- 5 photos per photo note
+- PDF & CSV export
+- Email & chat support
+
+### Premium — $50/month/elder (or $500/year, save $100)
+
+*For complex elder care with larger teams.*
+
+- 1 elder profile
+- FREE profile for you
+- Unlimited care team members
+- Unlimited care memory
+- AI-generated caregiver briefings
+- Custom care templates
+- 60 minute voice notes
+- 10 photos per photo note
+- Phone, email & chat support
+
+## Privacy & Security
+
+Elderella takes privacy seriously. Caring for an elder involves some of the most personal details in a family's life.
+
+**Core promises:**
+- **Privacy first**: Only collects what's needed; never sells, shares, or trades data
+- **You own your data**: Access, update, or delete anytime
+- **Built for safety**: Healthcare-grade security and encryption
+- **Transparency**: Clear explanations of data practices
+
+**Technical safeguards:**
+- Data stored in Google Cloud servers in Montreal, Canada
+- Encryption in transit and at rest
+- Role-based access controls
+- Multi-factor authentication for internal systems
+- 24/7 monitoring and logging
+- Regular security reviews and independent assessments
+- Business Associate Agreements with Google Cloud
+
+**Compliance:**
+- HIPAA (U.S. healthcare protection standards)
+- PIPEDA (Canada's federal privacy law)
+- GDPR and CCPA principles followed
+
+**AI security:**
+- Ella operates within Google Cloud's protected environment
+- Powered by Google Cloud's Large Language Model and Vertex AI with retrieval-augmented generation
+- Personal caregiving information is never used to train AI models
+
+**Privacy rights:**
+- Access, export, update, or delete your data
+- Opt-out of marketing communications
+- Data retained for up to 5 years after cancellation (immediate deletion on request)
+
+**Contact:**
+- Privacy team: privacy@elderella.com
+- Full privacy policy: https://www.elderella.com/privacy
+- Terms of service: https://www.elderella.com/terms
+
+## Frequently Asked Questions
+
+### Value of Elderella
+
+**How does Elderella make caregiving easier?**
+Elderella removes the mental load of remembering everything. Instead of juggling notes, texts, and scattered information, you just tell Ella what's happening — through text, voice, photos, or forwarded emails — and it's saved automatically. When you need to recall something, you ask Ella and get the answer instantly. For families, Elderella keeps everyone on the same page with shared calendars, task lists, and care updates.
+
+**How do I build caregiver memory in Elderella?**
+Building caregiver memory is as simple as having a conversation with Ella. You can:
+- Text or voice message details about appointments, medications, symptoms, or daily observations
+- Forward emails from doctors, pharmacies, or care facilities
+- Upload documents like care plans, prescription lists, or test results
+- Snap photos of medication bottles, wound healing progress, or important documents
+Ella extracts the key information and organizes it automatically. Over time, this becomes a comprehensive record of your elder's care.
+
+**Can I upload documents or photos?**
+Yes. You can upload photos (medication bottles, documents, wound progress, etc.), PDFs (care plans, test results, insurance documents), and voice notes (up to 5, 30, or 60 minutes depending on your plan). Ella processes uploaded content and makes it searchable.
+
+**What information helps to build caregiver memory?**
+Everything related to your elder's care is valuable:
+- **Medical:** Medications, dosages, symptoms, doctor visits, test results, diagnoses
+- **Daily care:** Eating habits, sleep patterns, mood changes, mobility observations
+- **Appointments:** Doctor visits, therapy sessions, home care schedules
+- **Contacts:** Doctors, pharmacies, specialists, care aides, family members
+- **Preferences:** Food likes/dislikes, routines, comfort items, communication styles
+- **History:** Past hospitalizations, allergies, reactions to medications
+Don't worry about organizing it perfectly — just share it with Ella.
+
+**How often should I be adding information?**
+There's no required frequency — add information whenever it's relevant. Many caregivers find it helpful to share updates right after doctor appointments, note medication changes immediately, log observations when something seems different, and forward emails from healthcare providers as they arrive.
+
+**How do I access information I've shared?**
+Just ask Ella. You can ask questions like "When was Dad's last cardiology appointment?", "What medications is Mom taking for blood pressure?", "Show me the notes from last week's home care visit", or "What did the neurologist recommend?" Ella searches through everything you've shared — texts, documents, photos, voice notes — and gives you the relevant information.
+
+**How long does it take for information to be accessible in chat?**
+Most information is available within seconds of sharing it. Text messages and simple updates are processed immediately. Larger files like documents and longer voice notes may take a minute or two to fully process.
+
+**How do I correct or remove information?**
+Go directly to the relevant screen in the app — the medication detail, event detail, or care team member profile — to edit or delete the record. Ella can help you find information, but corrections and deletions are made through the app's screens.
+
+### About Ella
+
+**Who is Ella?**
+Ella is your AI caregiving companion — a smart assistant designed specifically for family caregivers. She remembers every detail you share about your elder's care, answers questions about medications, appointments, and care history, helps organize information from texts, emails, documents, and photos, and is always available when you need help. Ella is powered by advanced AI but designed with one purpose: making caregiving less overwhelming.
+
+**Does Ella provide medical advice?**
+No. Ella does not provide medical advice, diagnoses, or treatment recommendations. She is a caregiving organizer that helps your family stay coordinated, keep track of details, and share the caregiving load. For medical questions, always consult your elder's healthcare providers.
+
+### Privacy & Security
+
+**Is the information I share private?**
+Yes, absolutely. Your information is encrypted in transit and at rest using industry-standard security, stored securely in Google Cloud servers in Montreal, Canada, never sold, shared, or traded with third parties, and only accessible to you and the care team members you explicitly invite. Elderella is built to meet healthcare-grade security standards (HIPAA and PIPEDA compliant).
+
+**Will my information be used for AI learning or aggregated?**
+Your personal caregiving information is never used to train AI models. Your trust is our foundation.
+
+### Multiple Elders
+
+**Is each elder profile its own secure area?**
+Yes. Each elder profile is completely separate and secure. Information about one elder is never mixed with another, care teams are managed independently, conversations with Ella are specific to the elder you're currently viewing, and you can have different care team members with different access levels for each elder.
+
+**Why do I have to choose which elder to allocate the phone number to?**
+When you text Elderella directly (rather than using the app), we need to know which elder's profile to update. The phone number allocation tells Ella where to save information when you text from that number.
+
+### Calendar Sync
+
+**What happens when I sync my calendar?**
+Elderella can see your existing appointments to help coordinate care schedules, add care-related events to your calendar automatically, send reminders about upcoming appointments, and help your care team avoid scheduling conflicts. You control what gets synced.
+
+**How far back and forward does the calendar sync?**
+Past events: 6 months back. Future events: 12 months forward.
+
+**What calendar details will sync?**
+Event title and description, date/time/duration, location (if provided), and recurring event patterns. Elderella doesn't sync attendee lists or private notes from your personal calendar.
+
+**Why isn't calendar sync bi-directional?**
+Currently, Elderella reads from your calendar but creates care events in a separate Elderella calendar. This keeps your personal calendar uncluttered, prevents accidental modifications, and gives your care team their own shared calendar view.
+
+### Care Teams
+
+**How do I convince family that Elderella is a good idea?**
+Here are some approaches that work:
+- **Start with the problem:** "I'm having trouble keeping track of all of Mom's medications and appointments. I found an app that might help."
+- **Emphasize the benefit to them:** "This way, you won't have to call me every time you need to know something about Dad's care."
+- **Offer a trial:** "Can we try it for a week? If it doesn't help, we'll stop using it."
+- **Address privacy:** "The information stays private to our family. It's encrypted and secure."
+Often, family members become enthusiastic once they see how much easier it makes coordination.
+
+**How do I invite someone to my care team?**
+Open the Elderella app, go to your elder's profile, tap "Care Team," tap "Invite Member," enter their email address and select their access level. They'll receive an email invitation to join. You can change access levels or remove team members anytime.
+
+**What are the different access levels?**
+Elderella offers five access levels: Primary Caregiver (full access, can manage billing, invite/remove team members, and delete the elder profile), Caregiver (can view and add all care information, manage tasks and events), Contributor (can view shared information and add updates), Medical Professional (tailored access for healthcare providers involved in your elder's care), and Contact Only (can view basic contact information and receive notifications). Choose the level appropriate for each person's role in your elder's care.
+
+**How do I delete an elder profile?**
+Only the Primary Caregiver can delete an elder profile. Go to profile settings, scroll to "Account Management," and tap "Delete Elder Profile." This permanently removes all care history, documents, and team access and cannot be undone. Consider exporting your data first if you might need it later.
+
+**How do I leave a care team?**
+Go to the elder's profile, tap "Care Team," find your name, and tap "Leave Team." If you're the Primary Caregiver, you'll need to transfer that role to another team member before you can leave.
+
+### Pricing & Plans
+
+**What happens after the 7-day free trial?**
+After your 7-day free trial ends, you can choose to subscribe to Plus or Premium, or continue with the Free plan. Your data stays safe regardless of which plan you choose.
+
+**How does the "per elder" pricing work?**
+The price is per elder profile. Each paid plan covers one elder profile. If you're caring for multiple elders, each profile is billed separately. Your own profile (as the caregiver) is always free.
+
+**How do I upgrade, downgrade, or cancel?**
+You can change your plan anytime from your account settings in the app. Upgrades take effect immediately. Downgrades take effect at the end of your billing period. You can cancel anytime with no penalties.
+
+**What will happen if I downgrade my subscription?**
+Your data is never deleted when you downgrade. If you exceed your new plan's limits, older data becomes view-only and team members beyond the limit can no longer access the profile until you upgrade again or adjust your team size.
+
+**Do care team members need to pay separately?**
+No. Care team members are included in your subscription at no extra cost. The person who creates and pays for the elder profile determines the plan level.
+
+**Can we change who is paying for an elder?**
+Yes. To transfer billing responsibility:
+1. The current subscriber makes the new person a "Primary Caregiver" on the care team
+2. The current subscriber downgrades to Free
+3. The new Primary Caregiver subscribes to a paid plan
+Your care memory and team stay intact throughout the switch.
+
+**What happens to my information if I cancel my subscription?**
+When you cancel, your account reverts to the Free plan. Your data remains accessible within Free plan limits. If you want to permanently delete your data, you can request account deletion from your settings. Data is retained for 30 days after deletion requests.
+
+## Important Disclaimers
+
+- Elderella is a caregiving organization tool, not a medical device
+- The app helps families coordinate care but does not provide medical advice
+- All health decisions should be made with qualified healthcare professionals
+- Ella is an AI assistant designed to help organize information, not replace human judgment
+- Elderella Inc. is based in Waterloo, Ontario, Canada
+- Terms governed by the laws of Ontario, Canada

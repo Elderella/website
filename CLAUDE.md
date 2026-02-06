@@ -107,3 +107,27 @@ All hero subtitles across the site must be consistent:
 3. **Color Accuracy**: Use exact hex codes - do not approximate or use similar colors
 4. **Line Spacing**: Maintain 1.5 line-height for readability consistency
 5. **Responsive Design**: Test all changes on mobile, tablet, and desktop viewports
+
+## LLM-Readable Content (llms.txt)
+
+### Mandatory: Markdown Companion Files
+
+Every public-facing HTML page MUST have a corresponding `.html.md` companion file containing an LLM-optimized markdown version of the page content.
+
+#### Rules
+
+1. **When creating a new HTML page**, also create `[filename].html.md` in the same directory
+2. **When making significant content changes** to an HTML page, update the `.html.md` file to match
+3. **Add the new page** to `llms.txt` in the appropriate section
+4. **Update `llms-full.txt`** if the page contains core product information
+
+#### .html.md File Format
+
+- H1: page title
+- Blockquote: meta description or hero subtitle
+- Clean markdown content (no HTML, no nav, no decorative elements)
+- Footer with page URL
+
+#### Exceptions
+
+No .md files needed for: component partials (header.html, footer.html), noindex/internal pages, redirect pages.

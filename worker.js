@@ -1129,6 +1129,193 @@ export default {
       }
     }
 
+    // Handle data export/portability requests
+    if (url.pathname === '/api/data-request' && request.method === 'POST') {
+      try {
+        const data = await request.json();
+
+        // Validate required fields
+        if (!data.email || !data.requestType || !data.confirmed) {
+          return new Response(JSON.stringify({
+            error: 'Email, request type, and confirmation are required'
+          }), {
+            status: 400,
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': corsOrigin
+            }
+          });
+        }
+
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(data.email)) {
+          return new Response(JSON.stringify({
+            error: 'Please provide a valid email address'
+          }), {
+            status: 400,
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': corsOrigin
+            }
+          });
+        }
+
+        // Validate request type
+        if (!['full', 'specific'].includes(data.requestType)) {
+          return new Response(JSON.stringify({
+            error: 'Invalid request type'
+          }), {
+            status: 400,
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': corsOrigin
+            }
+          });
+        }
+
+        // Validate format
+        const validFormats = ['json-html', 'json', 'pdf'];
+        if (data.format && !validFormats.includes(data.format)) {
+          return new Response(JSON.stringify({
+            error: 'Invalid format selection'
+          }), {
+            status: 400,
+            headers: {
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': corsOrigin
+            }
+          });
+        }
+
+        // Sanitize inputs
+        const sanitizedData = {
+          email: sanitizeInput(data.email).toLowerCase(),
+          requestType: data.requestType,
+          format: data.format || 'json-html',
+          comments: sanitizeInput(data.comments),
+          confirmed: data.confirmed
+        };
+
+        // Send Slack notification about data request
+        try {
+          const timestamp = new Date().toLocaleString('en-US', {
+            timeZone: 'America/Toronto',
+            dateStyle: 'medium',
+            timeStyle: 'short'
+          });
+
+          const formatLabels = {
+            'json-html': 'JSON with HTML viewer',
+            'json': 'JSON only',
+            'pdf': 'PDF summary'
+          };
+
+          const message = {
+            text: '📦 Data Export Request',
+            blocks: [
+              {
+                type: 'header',
+                text: {
+                  type: 'plain_text',
+                  text: '📦 Data Export Request',
+                  emoji: true
+                }
+              },
+              {
+                type: 'section',
+                fields: [
+                  {
+                    type: 'mrkdwn',
+                    text: `*Email:*\n${sanitizeForSlack(sanitizedData.email)}`
+                  },
+                  {
+                    type: 'mrkdwn',
+                    text: `*Request Type:*\n${sanitizedData.requestType === 'full' ? 'Complete Data Export' : 'Specific Data Only'}`
+                  }
+                ]
+              },
+              {
+                type: 'section',
+                fields: [
+                  {
+                    type: 'mrkdwn',
+                    text: `*Preferred Format:*\n${formatLabels[sanitizedData.format] || sanitizedData.format}`
+                  },
+                  {
+                    type: 'mrkdwn',
+                    text: `*Submitted:*\n${timestamp}`
+                  }
+                ]
+              }
+            ]
+          };
+
+          // Add comments if provided
+          if (sanitizedData.comments) {
+            message.blocks.push({
+              type: 'section',
+              text: {
+                type: 'mrkdwn',
+                text: `*Additional Details:*\n${sanitizeForSlack(sanitizedData.comments)}`
+              }
+            });
+          }
+
+          message.blocks.push({ type: 'divider' });
+
+          await sendSlackMessage(message, env, 'Data Export Request');
+        } catch (slackError) {
+          // Send alert for Slack notification failures
+          await sendErrorAlert(
+            slackError,
+            {
+              operation: 'Send Data Export Request Notification',
+              email: sanitizedData.email
+            },
+            env
+          );
+          // Don't throw - still return success to user
+        }
+
+        return new Response(JSON.stringify({ success: true }), {
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': corsOrigin
+          }
+        });
+      } catch (error) {
+        console.error('Error in data-request handler:', error);
+
+        // Get email from sanitizedData if available, otherwise try data, otherwise 'unknown'
+        let errorEmail = 'unknown';
+        try {
+          errorEmail = sanitizedData?.email || data?.email || 'unknown';
+        } catch (e) {
+          // If even accessing data fails, keep as 'unknown'
+        }
+
+        // Send alert for data request failures
+        await sendErrorAlert(
+          error,
+          {
+            operation: 'Data Export Request',
+            path: url.pathname,
+            email: errorEmail
+          },
+          env
+        );
+
+        return new Response(JSON.stringify({ error: error.message }), {
+          status: 500,
+          headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': corsOrigin
+          }
+        });
+      }
+    }
+
     // Handle clean URLs - rewrite to .html files
     // This allows /privacy to serve privacy.html while keeping the clean URL in the browser
     // Security: Using whitelist approach prevents path traversal
@@ -1145,7 +1332,20 @@ export default {
       '/pricing': '/pricing.html',
       '/security': '/security.html',
       '/story': '/story.html',
-      '/delete-account': '/delete-account.html'
+      '/delete-account': '/delete-account.html',
+      '/data-request': '/data-request.html',
+
+      // Feature pages for deep link desktop fallbacks (ELD-1050)
+      '/features/check-in': '/features/check-in.html',
+      '/features/review-queue': '/features/review-queue.html',
+      '/features/notes': '/features/notes.html',
+      '/features/ella-chat': '/features/ella-chat.html',
+      '/features/care-team': '/features/care-team.html',
+      '/features/settings': '/features/settings.html',
+      '/features/calendar': '/features/calendar.html',
+      '/features/google-drive': '/features/google-drive.html',
+      '/features/group-chat': '/features/group-chat.html',
+      '/features/notifications': '/features/notifications.html'
     };
 
     // Redirect /index.html to root for SEO
