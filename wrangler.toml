@@ -15,3 +15,4 @@ enabled = true
 
 # Secrets should be added via wrangler CLI:
 # wrangler secret put ATTIO_API_KEY
+# wrangler secret put WEBSITE_SERVICE_API_KEY  (shared with elderella/elderella Cloud Run)

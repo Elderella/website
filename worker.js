@@ -341,6 +341,49 @@ async function sendSlackNotification(formData, isNewToList, newsletterSignup, en
   }
 }
 
+/**
+ * Subscribe a newsletter signup to Customer.io via the main product's internal API.
+ * This enqueues the subscriber into the Customer.io outbox for reliable delivery
+ * with exponential backoff retries.
+ * @param {Object} params - Subscriber details
+ * @param {string} params.email - Email address
+ * @param {string} params.firstName - First name
+ * @param {string} params.lastName - Last name (optional)
+ * @param {Object} env - Environment variables
+ */
+async function subscribeToNewsletter({ email, firstName, lastName }, env) {
+  if (!env.WEBSITE_SERVICE_API_KEY) {
+    console.warn('WEBSITE_SERVICE_API_KEY not configured, skipping Customer.io newsletter subscribe');
+    return;
+  }
+
+  const response = await fetch('https://alpha.elderella.com/api/internal/customerio-newsletter-subscribe', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-API-Key': env.WEBSITE_SERVICE_API_KEY
+    },
+    body: JSON.stringify({
+      email,
+      first_name: firstName,
+      ...(lastName ? { last_name: lastName } : {})
+    })
+  });
+
+  if (!response.ok) {
+    let errorText;
+    try {
+      errorText = await response.text();
+    } catch (e) {
+      errorText = '(unable to read response body)';
+    }
+    throw new Error(`Customer.io newsletter subscribe failed (${response.status}): ${errorText}`);
+  }
+
+  const masked = email.replace(/^(.)(.*)(@.*)$/, (_, first, middle, domain) => first + '*'.repeat(middle.length) + domain);
+  console.log('Customer.io newsletter subscribe enqueued for:', masked);
+}
+
 export default {
   async fetch(request, env, ctx) {
     // Get origin from request
@@ -664,6 +707,28 @@ export default {
           }
         }
 
+        // Subscribe to Customer.io newsletter topic if opted in
+        if (sanitizedData.newsletter) {
+          try {
+            await subscribeToNewsletter({
+              email: sanitizedData.email,
+              firstName: sanitizedData.firstName,
+              lastName: sanitizedData.lastName
+            }, env);
+          } catch (cioError) {
+            await sendErrorAlert(
+              cioError,
+              {
+                operation: 'Interview - Customer.io Newsletter Subscribe',
+                email: sanitizedData.email,
+                name: fullName
+              },
+              env
+            );
+            // Don't throw - we already saved to Attio
+          }
+        }
+
         // Send Slack notification
         // Include interviewer preference from original form data
         const slackData = {
@@ -842,6 +907,26 @@ export default {
           }
 
           throw new Error(errorMessage);
+        }
+
+        // Subscribe to Customer.io newsletter topic
+        try {
+          await subscribeToNewsletter({
+            email: sanitizedData.email,
+            firstName: sanitizedData.firstName,
+            lastName: sanitizedData.lastName
+          }, env);
+        } catch (cioError) {
+          await sendErrorAlert(
+            cioError,
+            {
+              operation: 'Newsletter - Customer.io Subscribe',
+              email: sanitizedData.email,
+              name: fullName
+            },
+            env
+          );
+          // Don't throw - we already saved to Attio
         }
 
         // Send Slack notification for newsletter signup
